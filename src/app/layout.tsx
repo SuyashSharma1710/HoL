@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/animations/SmoothScrollProvider";
+import AnimatedFavicon from "@/components/animations/AnimatedFavicon";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -16,6 +17,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Harmony of Life | Celestial Wellness",
   description: "A sanctuary for digital rejuvenation.",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
@@ -30,6 +34,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex flex-col bg-background text-on-background" suppressHydrationWarning>
+        <AnimatedFavicon />
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>

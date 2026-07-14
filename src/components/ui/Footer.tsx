@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
-import { useFloatingTheme } from "@/hooks/useFloatingTheme";
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -25,7 +24,6 @@ function InstagramIcon({ className }: { className?: string }) {
 }
 export default function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isDark = useFloatingTheme(containerRef);
 
   return (
     <>
@@ -43,24 +41,27 @@ export default function Footer() {
             <span className="text-xs uppercase tracking-[0.2em] whitespace-nowrap">WhatsApp Us</span>
           </div>
         </div>
-        <div className="absolute inset-0 backdrop-blur-3xl bg-foreground/10 border border-foreground/20 rounded-full shadow-2xl" />
+        <div className="absolute inset-0 backdrop-blur-xl bg-white/70 border border-black/10 rounded-full shadow-lg" />
       </div>
 
       {/* Content Sibling */}
       <div 
         ref={containerRef}
-        className={cn(
-          "fixed bottom-6 right-6 z-50 pointer-events-none flex items-center gap-4 px-6 py-3 transition-colors duration-300",
-          isDark ? "text-white" : "text-foreground"
-        )}
+        className="fixed bottom-6 right-6 z-50 pointer-events-none flex items-center gap-4 px-6 py-3 text-black transition-colors duration-300"
       >
         <motion.a 
+          href="https://www.facebook.com/profile.php?id=61591808093320"
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ y: -4, scale: 1.15 }} 
           className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer pointer-events-auto flex items-center"
         >
           <FacebookIcon className="w-4 h-4" />
         </motion.a>
         <motion.a 
+          href="https://www.instagram.com/harmonyoflife_official/?hl=en"
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ y: -4, scale: 1.15 }} 
           className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer pointer-events-auto flex items-center"
         >
@@ -70,6 +71,9 @@ export default function Footer() {
         <div className="w-px h-4 bg-current opacity-40 mx-1" />
         
         <motion.a 
+          href="https://wa.me/918800828863?text=Hello!%20I%20would%20like%20to%20know%20more%20about%20Harmony%20of%20Life."
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ y: -4, scale: 1.05 }} 
           className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-all cursor-pointer font-bold pointer-events-auto"
         >

@@ -5,7 +5,6 @@ import { animate } from "framer-motion";
 import Link from "next/link";
 import { useLenis } from "lenis/react";
 import { cn } from "@/lib/utils";
-import { useFloatingTheme } from "@/hooks/useFloatingTheme";
 
 const links = [
   { name: "Authority", href: "#authority" },
@@ -19,7 +18,6 @@ export default function Navbar() {
     const lenis = useLenis();
     const navRef = useRef<HTMLElement>(null);
     const bgRef = useRef<HTMLDivElement>(null);
-    const isDark = useFloatingTheme(navRef);
     const [activeIndex, setActiveIndex] = useState(0);
 
     // Refs for the "light" positions so we can animate them imperatively
@@ -174,10 +172,10 @@ export default function Navbar() {
             {/* Background Layer: z-40 frosted glass (Smart Blending Sibling 1) */}
             <div 
                 ref={bgRef}
-                className="fixed top-6 right-6 z-40 pointer-events-none flex items-center px-4 md:px-6 py-2 backdrop-blur-3xl bg-foreground/10 border border-foreground/20 shadow-2xl rounded-full overflow-hidden transition-all duration-300"
+                className="fixed top-6 right-6 z-40 pointer-events-none flex items-center px-4 md:px-6 py-2 backdrop-blur-xl bg-white/70 border border-black/10 shadow-lg rounded-full overflow-hidden transition-all duration-300"
                 style={{
-                    "--spotlight-color": isDark ? "rgba(255, 255, 255, 0.2)" : "rgba(16, 29, 24, 0.15)",
-                    "--ambience-color": isDark ? "rgba(255, 255, 255, 0.7)" : "rgba(16, 29, 24, 0.5)"
+                    "--spotlight-color": "rgba(0, 0, 0, 0.1)",
+                    "--ambience-color": "rgba(0, 0, 0, 0.25)"
                 } as React.CSSProperties}
             >
                 {/* Invisible content to ensure identical sizing to the content layer */}
@@ -224,10 +222,7 @@ export default function Navbar() {
             {/* Content Layer: z-50 (Smart Blending Sibling 2) */}
             <nav 
                 ref={navRef}
-                className={cn(
-                    "fixed top-6 right-6 z-50 flex items-center px-4 md:px-6 py-2 rounded-full transition-colors duration-300",
-                    isDark ? "text-white" : "text-foreground"
-                )}
+                className="fixed top-6 right-6 z-50 flex items-center px-4 md:px-6 py-2 rounded-full text-black transition-colors duration-300"
             >
                 <ul className="flex items-center gap-4 md:gap-8">
                     {links.map((link, idx) => (

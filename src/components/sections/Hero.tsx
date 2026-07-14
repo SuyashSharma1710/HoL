@@ -14,8 +14,8 @@ export default function Hero() {
   return (
     <section className="relative w-full bg-background">
       <ScrollDissolveReveal
-        imageFront="/images/A_minimalist_ethereal_backgrou_2.jpg"
-        imageBack="/images/A_3D_silhouette_of_a_human_bod_2.jpg"
+        imageFront="/images/A_minimalist_ethereal_backgrou_2-optimized.webp"
+        imageBack="/images/A_3D_silhouette_of_a_human_bod_2-optimized.webp"
       />
 
       <div className="absolute inset-0 pointer-events-none z-20">

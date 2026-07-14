@@ -33,7 +33,7 @@ export default function Logo() {
       className="fixed top-6 left-6 z-50 pointer-events-auto flex items-center cursor-pointer"
       onClick={handleScrollToTop}
     >
-      <div className="absolute inset-0 backdrop-blur-sm bg-black/10 border border-white/10 rounded-full pointer-events-none shadow-[0_8px_32px_rgba(20,43,35,0.1)] transition-all duration-300" />
+      <div className="absolute inset-0 backdrop-blur-xl bg-white/70 border border-black/10 rounded-full pointer-events-none shadow-lg transition-all duration-300" />
       
       <div className="relative flex items-center p-2.5 w-full h-full">
         <motion.div
@@ -52,7 +52,7 @@ export default function Logo() {
 
         <motion.div 
           style={{ opacity, maxWidth, x, marginLeft, paddingRight, display }}
-          className="overflow-hidden whitespace-nowrap items-center mix-blend-difference text-white origin-left"
+          className="overflow-hidden whitespace-nowrap items-center text-black origin-left"
         >
           <span className="tracking-[0.2em] uppercase text-sm md:text-lg">
             Harmony of Life

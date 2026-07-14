@@ -2,11 +2,9 @@
 
 import { useState, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { useFloatingTheme } from "@/hooks/useFloatingTheme";
 
 export default function AudioController() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isDark = useFloatingTheme(containerRef);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -68,15 +66,12 @@ export default function AudioController() {
           </span>
           <div className="flex items-end gap-[3px] h-4 w-6" />
         </div>
-        <div className="absolute inset-0 backdrop-blur-3xl bg-foreground/10 border border-foreground/20 rounded-full shadow-2xl" />
+        <div className="absolute inset-0 backdrop-blur-xl bg-white/70 border border-black/10 rounded-full shadow-lg" />
       </div>
 
       <div 
         ref={containerRef}
-        className={cn(
-          "fixed bottom-6 left-6 z-50 transition-colors duration-300",
-          isDark ? "text-white" : "text-foreground"
-        )}
+        className="fixed bottom-6 left-6 z-50 text-black transition-colors duration-300"
       >
         <audio ref={audioRef} loop src="/audio/HoL_med_aud.mp3" preload="none" />
         <button 

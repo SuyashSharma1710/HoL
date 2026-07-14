@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -62,7 +63,7 @@ export default function Solution() {
             activeState === "gap" ? "bg-red-500/30" :
             activeState === "detox" ? "bg-orange-500/30" :
             activeState === "cleanse" ? "bg-blue-500/30" :
-            "bg-tertiary/30" // reset/harmonious state
+            "bg-primary/30" // reset/harmonious state
           )} />
           
           <div className={cn(
@@ -70,23 +71,32 @@ export default function Solution() {
             activeState === "gap" ? "border-red-500/50 bg-red-500/5" :
             activeState === "detox" ? "border-orange-500/50 bg-orange-500/5" :
             activeState === "cleanse" ? "border-blue-500/50 bg-blue-500/5" :
-            "border-tertiary/50 bg-tertiary/5"
+            "border-primary/50 bg-primary/5"
           )}>
             <span className={cn(
               "font-bold tracking-[0.3em] uppercase text-sm transition-colors duration-1000",
               activeState === "gap" ? "text-red-600" :
               activeState === "detox" ? "text-orange-600" :
               activeState === "cleanse" ? "text-blue-600" :
-              "text-tertiary"
+              "text-primary"
             )}>
               {activeState === "gap" ? "Warning" :
                activeState === "reset" ? "Harmonious" : "Adapting"}
             </span>
           </div>
 
-          {/* Rotating Rings */}
-          <div className="absolute inset-0 pointer-events-none border border-primary/10 rounded-full animate-[spin_20s_linear_infinite]" />
-          <div className="absolute inset-4 pointer-events-none border border-primary/10 rounded-full border-dashed animate-[spin_15s_linear_infinite_reverse]" />
+          {/* Rotating SVG */}
+          <div className="absolute inset-[-10%] pointer-events-none animate-[spin_30s_linear_infinite]">
+            <Image 
+              src="/images/1270666.svg" 
+              alt="Decorative element" 
+              fill
+              className={cn(
+                "object-contain opacity-20 transition-opacity duration-1000",
+                activeState === "gap" ? "opacity-10" : "opacity-30"
+              )} 
+            />
+          </div>
         </div>
       </div>
 

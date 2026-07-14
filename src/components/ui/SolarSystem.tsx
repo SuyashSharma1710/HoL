@@ -70,28 +70,28 @@ const DEFAULT_ORBITS: OrbitConfig[] = [
         id: "gut-reset",
         label: "Gut Reset",
         desc: "A complete reset of the microbiome allows the digestive system to heal. This maximizes nutrient absorption and reduces systemic inflammation.",
-        color: "#142B23",
+        color: "#00E5FF",
         svg: <Flame className="w-5 h-5" />,
       },
       {
         id: "deep-sleep",
         label: "Deep Sleep",
         desc: "Deep sleep is the critical window where cellular repair and detoxification naturally occur. Optimizing this pillar is foundational for long-term vitality.",
-        color: "#B69C5F",
+        color: "#B388FF",
         svg: <Moon className="w-5 h-5" />,
       },
       {
         id: "immunity",
         label: "Immunity",
         desc: "A robust immune system is your body's first line of defense. We strengthen it through targeted nutrition and lifestyle adjustments.",
-        color: "#142B23",
+        color: "#FF007F",
         svg: <Shield className="w-5 h-5" />,
       },
       {
         id: "artery-cleanse",
         label: "Artery Cleanse",
         desc: "Clearing arterial plaque improves cardiovascular health and blood flow. This ensures oxygen and nutrients reach every cell efficiently.",
-        color: "#B69C5F",
+        color: "#FFD700",
         svg: <Heart className="w-5 h-5" />,
       },
     ],
@@ -107,28 +107,28 @@ const DEFAULT_ORBITS: OrbitConfig[] = [
         id: "regular-exercise",
         label: "Regular Exercise & Yoga",
         desc: "Movement is medicine. Regular physical activity enhances circulation, builds resilience, and promotes mental clarity.",
-        color: "#B69C5F",
+        color: "#00FF88",
         svg: <Activity className="w-5 h-5" />,
       },
       {
         id: "nature-connect",
         label: "Nature Connect",
         desc: "Reconnecting with nature grounds the nervous system. It lowers stress markers and synchronizes our circadian rhythms.",
-        color: "#142B23",
+        color: "#00E5FF",
         svg: <Leaf className="w-5 h-5" />,
       },
       {
         id: "social-connect",
         label: "Social Connect",
         desc: "Meaningful relationships and community support are vital for emotional well-being. They provide a sense of purpose and belonging.",
-        color: "#B69C5F",
+        color: "#B388FF",
         svg: <Users className="w-5 h-5" />,
       },
       {
         id: "balanced-nutrition",
         label: "Balanced Nutrition",
         desc: "Providing the body with high-quality, whole foods fuels metabolic processes. It creates a stable foundation for lasting energy.",
-        color: "#142B23",
+        color: "#FF007F",
         svg: <Utensils className="w-5 h-5" />,
       },
     ],
@@ -144,28 +144,28 @@ const DEFAULT_ORBITS: OrbitConfig[] = [
         id: "deep-detox",
         label: "Deep Detox",
         desc: "Eliminating accumulated toxins at a cellular level restores organ function. This process rejuvenates the body from the inside out.",
-        color: "#142B23",
+        color: "#FFD700",
         svg: <Droplets className="w-5 h-5" />,
       },
       {
         id: "alkaline-chemistry",
         label: "Alkaline Chemistry",
         desc: "Maintaining optimal pH balance creates an environment where disease struggles to thrive. It supports bone health and metabolic efficiency.",
-        color: "#B69C5F",
+        color: "#00FF88",
         svg: <Sun className="w-5 h-5" />,
       },
       {
         id: "cellular-vitality",
         label: "Cellular Vitality",
         desc: "Targeting mitochondrial health boosts energy production at the source. This combats fatigue and slows the aging process.",
-        color: "#142B23",
+        color: "#00E5FF",
         svg: <Dna className="w-5 h-5" />,
       },
       {
         id: "direct-charge",
         label: "Direct Charge",
         desc: "Harnessing natural energy sources revitalizes the body's electrical systems. This provides an immediate boost to stamina and focus.",
-        color: "#B69C5F",
+        color: "#B388FF",
         svg: <Zap className="w-5 h-5" />,
       },
     ],
@@ -266,13 +266,13 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
 
     // Cosmic dust particle animations coordinates
     const dustItems = [
-      { delay: "-4s", radius: "165px", color: "#B69C5F" },
-      { delay: "-11s", radius: "260px", color: "#607860" },
-      { delay: "-19s", radius: "340px", color: "#B69C5F" },
-      { delay: "-28s", radius: "395px", color: "#607860" },
-      { delay: "-7s", radius: "200px", color: "#B69C5F" },
-      { delay: "-15s", radius: "365px", color: "#607860" },
-      { delay: "-23s", radius: "430px", color: "#B69C5F" },
+      { delay: "-4s", radius: "165px", color: "#FFD700" },
+      { delay: "-11s", radius: "260px", color: "#00E5FF" },
+      { delay: "-19s", radius: "340px", color: "#B388FF" },
+      { delay: "-28s", radius: "395px", color: "#FF007F" },
+      { delay: "-7s", radius: "200px", color: "#00FF88" },
+      { delay: "-15s", radius: "365px", color: "#00E5FF" },
+      { delay: "-23s", radius: "430px", color: "#FFD700" },
     ];
 
     return (
@@ -364,6 +364,19 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
             animation: custom-spin-counter 30s linear infinite;
           }
 
+          /* Cosmic RGB Color Cycling */
+          @keyframes cosmic-rgb {
+            0% { background-color: #00E5FF; }
+            20% { background-color: #B388FF; }
+            40% { background-color: #FF007F; }
+            60% { background-color: #FFD700; }
+            80% { background-color: #00FF88; }
+            100% { background-color: #00E5FF; }
+          }
+          .animate-cosmic-rgb {
+            animation: cosmic-rgb 15s linear infinite;
+          }
+
           /* Planet logo cards base styles */
           .orbit-logo-card {
             position: absolute;
@@ -373,19 +386,19 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
             align-items: center;
             gap: 8px;
             padding: 0.45rem 0.95rem;
-            background: rgba(233, 224, 207, 0.65);
+            background: rgba(10, 10, 25, 0.7);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(20, 43, 35, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 100px;
             font-weight: 600;
-            color: #142B23;
+            color: #ffffff;
             white-space: nowrap;
             user-select: none;
             cursor: pointer;
             pointer-events: auto;
             transition: border-color 0.3s, color 0.3s, background 0.3s, box-shadow 0.3s, scale 0.3s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
           }
         `}} />
 
@@ -406,32 +419,47 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
             }}
           >
             {/* Glowing aura */}
-            <div className="absolute w-[140px] h-[140px] md:w-[200px] md:h-[200px] rounded-full filter blur-md animate-custom-sun-pulse z-10 bg-primary/20" />
+            <div className="absolute w-[140px] h-[140px] md:w-[200px] md:h-[200px] rounded-full filter blur-md animate-custom-sun-pulse z-10 bg-[#FFD700]/15" />
             
+            {/* Solar SVG Background - Animated Cosmic Colors */}
+            <div 
+              className="absolute w-[400px] h-[400px] md:w-[500px] md:h-[500px] z-10 pointer-events-none opacity-40 animate-cosmic-rgb"
+              style={{
+                WebkitMaskImage: 'url(/images/solar.svg)',
+                maskImage: 'url(/images/solar.svg)',
+                WebkitMaskSize: 'contain',
+                maskSize: 'contain',
+                WebkitMaskRepeat: 'no-repeat',
+                maskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+                maskPosition: 'center',
+              }}
+            />
+
             {/* Sun Core Logo Render */}
             {centerLogo ? (
               typeof centerLogo === "string" ? (
                 <Image
-                  className="w-32 h-32 md:w-48 md:h-48 rounded-full border-2 border-primary/20 shadow-[0_0_40px_rgba(181,153,94,0.2)] z-20 bg-background relative object-contain p-2"
+                  className="w-32 h-32 md:w-48 md:h-48 rounded-full  z-20  relative object-contain p-2"
                   src={centerLogo}
                   alt={centerLogoAlt || "Center Logo"}
                   width={140}
                   height={140}
                 />
               ) : (
-                <div className="w-24 h-24 md:w-36 md:h-36 rounded-full border-2 border-primary/20 shadow-lg z-20 bg-background flex items-center justify-center p-2 relative">
+                <div className="w-24 h-24 md:w-36 md:h-36 rounded-full border-2 border-[#FFD700]/40 shadow-lg z-20 bg-[#05050A] flex items-center justify-center p-2 relative">
                   {centerLogo}
                 </div>
               )
             ) : (
-              <div className="w-24 h-24 md:w-36 md:h-36 rounded-full border-2 border-primary/20 shadow-lg z-20 bg-background flex items-center justify-center p-2 relative">
-                <OrbitIcon className="w-12 h-12 text-primary animate-spin" style={{ animationDuration: '10s' }} />
+              <div className="w-24 h-24 md:w-36 md:h-36 rounded-full border-2 border-[#FFD700]/40 shadow-lg z-20 bg-[#05050A] flex items-center justify-center p-2 relative">
+                <OrbitIcon className="w-12 h-12 text-[#FFD700] animate-spin" style={{ animationDuration: '10s' }} />
               </div>
             )}
 
             {/* Sun core dash rings */}
-            <div className="absolute w-[180px] h-[180px] md:w-[250px] md:h-[250px] rounded-full border border-dashed border-primary/20 animate-custom-spin-cw pointer-events-none" />
-            <div className="absolute w-[220px] h-[220px] md:w-[310px] md:h-[310px] rounded-full border border-dashed border-primary/10 animate-custom-spin-ccw pointer-events-none" />
+            <div className="absolute w-[180px] h-[180px] md:w-[250px] md:h-[250px] rounded-full border border-dashed border-[#00E5FF]/20 animate-custom-spin-cw pointer-events-none" />
+            <div className="absolute w-[220px] h-[220px] md:w-[310px] md:h-[310px] rounded-full border border-dashed border-[#B388FF]/15 animate-custom-spin-ccw pointer-events-none" />
           </div>
 
           {/* Cosmic Dust Particles */}

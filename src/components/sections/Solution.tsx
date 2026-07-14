@@ -48,7 +48,7 @@ export default function Solution() {
     <section id="solution" ref={container} className="w-full bg-background relative flex flex-col md:flex-row">
       
       {/* Left Column (Pinned) */}
-      <div className="w-full md:w-1/2 h-screen sticky top-0 flex flex-col items-center justify-center border-r border-primary/10 p-8 overflow-hidden">
+      <div className="w-full md:w-1/2 h-screen sticky top-0 flex flex-col items-center justify-center border-r border-primary/10 p-8 overflow-hidden z-0">
         
         <div className="absolute top-24 z-20 text-center px-8">
           <h2 className="text-4xl font-heading font-bold text-foreground mb-2">The Breakfast Gap in India</h2>
@@ -56,7 +56,7 @@ export default function Solution() {
         </div>
 
         {/* Placeholder Graphic for 3D Plate */}
-        <div className="relative w-full max-w-[24rem] aspect-square rounded-full flex items-center justify-center transition-all duration-1000 ease-out mt-12">
+        <div className="relative w-full max-w-[24rem] aspect-square rounded-full flex items-center justify-center transition-all duration-1000 ease-out mt-12 opacity-40 md:opacity-100">
           
           <div className={cn(
             "absolute inset-0 rounded-full blur-[100px] transition-colors duration-1000",
@@ -101,41 +101,41 @@ export default function Solution() {
       </div>
 
       {/* Right Column (Scrolling) */}
-      <div className="w-full md:w-1/2 flex flex-col py-[25vh]">
+      <div className="w-full md:w-1/2 flex flex-col py-[25vh] z-10 relative px-4 md:px-0">
         
         {/* Intro Item */}
-        <div className="intro-item min-h-[50vh] flex flex-col justify-center px-8 md:px-16 lg:px-24">
+        <div className="intro-item min-h-[40vh] md:min-h-[50vh] flex flex-col justify-center p-8 md:p-0 my-12 md:my-0 rounded-3xl backdrop-blur-xl bg-background/80 border border-primary/10 md:border-transparent md:bg-transparent md:backdrop-blur-none md:px-16 lg:px-24">
           <h3 className={cn(
             "text-4xl md:text-5xl font-heading font-bold mb-6 transition-all duration-500",
-            activeState === "gap" ? "text-foreground scale-100 opacity-100" : "text-foreground/30 scale-95 opacity-50"
+            activeState === "gap" ? "text-foreground scale-100 opacity-100" : "text-foreground/50 md:text-foreground/30 scale-95 md:opacity-50"
           )}>
             Start small.<br/>Stay consistent.<br/>Transform from within.
           </h3>
           <p className={cn(
             "text-lg leading-relaxed transition-colors duration-500 max-w-lg",
-            activeState === "gap" ? "text-foreground/80" : "text-foreground/20"
+            activeState === "gap" ? "text-foreground/80" : "text-foreground/50 md:text-foreground/20"
           )}>
             Fuel your cells, not just your cravings. Scroll to reveal the biological fixes.
           </p>
         </div>
 
         {fixes.map((item, i) => (
-          <div key={i} className="fix-item min-h-[50vh] flex flex-col justify-center px-8 md:px-16 lg:px-24">
+          <div key={i} className="fix-item min-h-[40vh] md:min-h-[50vh] flex flex-col justify-center p-8 md:p-0 my-12 md:my-0 rounded-3xl backdrop-blur-xl bg-background/80 border border-primary/10 md:border-transparent md:bg-transparent md:backdrop-blur-none md:px-16 lg:px-24">
             <div className={cn(
-              "inline-block mb-4 px-4 py-2 rounded-full text-sm font-semibold tracking-widest uppercase border transition-colors duration-500",
-              activeState === item.state ? "border-secondary text-secondary bg-secondary/10" : "border-foreground/10 text-foreground/30"
+              "inline-block self-start mb-4 px-4 py-2 rounded-full text-sm font-semibold tracking-widest uppercase border transition-colors duration-500",
+              activeState === item.state ? "border-secondary text-secondary bg-secondary/10" : "border-foreground/20 text-foreground/50 md:border-foreground/10 md:text-foreground/30"
             )}>
               {item.title}
             </div>
             <h3 className={cn(
               "text-4xl md:text-5xl font-heading font-bold mb-6 transition-all duration-500",
-              activeState === item.state ? "text-foreground scale-100 opacity-100" : "text-foreground/30 scale-95 opacity-50"
+              activeState === item.state ? "text-foreground scale-100 opacity-100" : "text-foreground/50 md:text-foreground/30 scale-95 md:opacity-50"
             )}>
               {item.title}
             </h3>
             <p className={cn(
               "text-lg leading-relaxed transition-colors duration-500 max-w-lg",
-              activeState === item.state ? "text-foreground/80" : "text-foreground/20"
+              activeState === item.state ? "text-foreground/80" : "text-foreground/50 md:text-foreground/20"
             )}>
               {item.desc}
             </p>

@@ -58,25 +58,17 @@ export default function AudioController() {
   };
 
   return (
-    <>
-      <div className="fixed bottom-6 left-6 z-40 pointer-events-none flex items-center justify-center">
-        <div className="px-6 py-3 opacity-0 pointer-events-none flex items-center gap-3">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] hidden sm:block">
-            {isPlaying ? "Sound On" : "Sound Off"}
-          </span>
-          <div className="flex items-end gap-[3px] h-4 w-6" />
-        </div>
-        <div className="absolute inset-0 backdrop-blur-xl bg-white/70 border border-black/10 rounded-full shadow-lg" />
-      </div>
-
       <div 
         ref={containerRef}
-        className="fixed bottom-6 left-6 z-50 text-black transition-colors duration-300"
+        className="fixed bottom-4 left-4 md:bottom-6 md:left-6 z-50 text-black transition-colors duration-300"
       >
+        <div className="absolute inset-0 backdrop-blur-xl bg-white/70 border border-black/10 rounded-full shadow-lg -z-10 pointer-events-none" />
+        
         <audio ref={audioRef} loop src="/audio/HoL_med_aud.mp3" preload="none" />
+        
         <button 
           onClick={toggleAudio}
-          className="flex items-center gap-3 px-6 py-3 group transition-opacity opacity-70 hover:opacity-100"
+          className="flex items-center gap-3 px-4 py-2 md:px-6 md:py-3 group transition-opacity opacity-70 hover:opacity-100 relative z-10"
         >
           <span className="text-xs font-bold uppercase tracking-[0.2em] hidden sm:block">
             {isPlaying ? "Sound On" : "Sound Off"}
@@ -107,6 +99,5 @@ export default function AudioController() {
           </div>
         </button>
       </div>
-    </>
   );
 }

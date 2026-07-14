@@ -262,7 +262,7 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
   ) => {
     const [hoveredId, setHoveredId] = React.useState<string | null>(null);
     const [selectedNode, setSelectedNode] = React.useState<SolarSystemItem | null>(null);
-    const effectivelyPaused = isPaused || hoveredId !== null;
+    const effectivelyPaused = isPaused || hoveredId !== null || selectedNode !== null;
 
     // Cosmic dust particle animations coordinates
     const dustItems = [
@@ -295,18 +295,18 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
           /* Tablet Responsive Adjustments */
           @media (max-width: 768px) {
             :root {
-              --radius-inner: 100px;
-              --radius-mid: 165px;
-              --radius-outer: 230px;
+              --radius-inner: 150px;
+              --radius-mid: 240px;
+              --radius-outer: 330px;
             }
           }
 
           /* Mobile Responsive Adjustments */
           @media (max-width: 480px) {
             :root {
-              --radius-inner: 70px;
-              --radius-mid: 115px;
-              --radius-outer: 160px;
+              --radius-inner: 130px;
+              --radius-mid: 210px;
+              --radius-outer: 290px;
             }
           }
 
@@ -515,13 +515,13 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
         </div>
 
         <Dialog open={!!selectedNode} onOpenChange={(open) => !open && setSelectedNode(null)}>
-          <DialogContent className="bg-[#E9E0CF]/95 backdrop-blur-xl border border-[#142B23]/10 text-[#142B23] rounded-2xl max-w-md">
+          <DialogContent className="bg-background/95 backdrop-blur-xl border border-foreground/10 text-foreground rounded-xl max-w-md">
             <DialogHeader className="flex flex-col items-center text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#142B23]/5 flex items-center justify-center text-[#B69C5F] mb-2">
+              <div className="w-16 h-16 rounded-full bg-foreground/5 flex items-center justify-center text-secondary mb-2">
                 {selectedNode?.svg}
               </div>
-              <DialogTitle className="text-2xl font-bold font-bricolage">{selectedNode?.label}</DialogTitle>
-              <DialogDescription className="text-base text-[#142B23]/80 leading-relaxed">
+              <DialogTitle className="text-3xl font-bold font-bricolage">{selectedNode?.label}</DialogTitle>
+              <DialogDescription className="text-lg text-foreground/80 leading-relaxed">
                 {selectedNode?.desc}
               </DialogDescription>
             </DialogHeader>

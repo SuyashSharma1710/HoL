@@ -22,6 +22,15 @@ function InstagramIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+function YouTubeIcon({ className }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"/>
+      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+    </svg>
+  );
+}
 export default function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -52,6 +61,17 @@ export default function Footer() {
           className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer flex items-center"
         >
           <InstagramIcon className="w-4 h-4" />
+        </motion.a>
+
+        <motion.a 
+          href="https://www.youtube.com/@Harmonyoflife-01"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Harmony of Life on YouTube"
+          whileHover={{ y: -4, scale: 1.15 }} 
+          className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer flex items-center"
+        >
+          <YouTubeIcon className="w-4 h-4" />
         </motion.a>
         
         <div className="w-px h-4 bg-current opacity-40 mx-0.5 md:mx-1" />

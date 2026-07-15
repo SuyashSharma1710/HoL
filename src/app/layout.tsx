@@ -61,6 +61,11 @@ export default function RootLayout({
               "name": "Harmony of Life",
               "image": "https://harmonyoflife.com/logo.svg",
               "url": "https://harmonyoflife.com",
+              "sameAs": [
+                "https://www.facebook.com/profile.php?id=61591808093320",
+                "https://www.instagram.com/harmonyoflife_official/?hl=en",
+                "https://www.youtube.com/@Harmonyoflife-01"
+              ],
               "telephone": "8800828863",
               "address": {
                 "@type": "PostalAddress",

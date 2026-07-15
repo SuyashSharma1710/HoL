@@ -147,7 +147,7 @@ export function AuroraHero({
 
       {title && (
         <div className="aurora-content">
-          <h1 className="h1-scalingSize" data-text={title}>{title}</h1>
+          <h2 className="h1-scalingSize" data-text={title}>{title}</h2>
         </div>
       )}
 

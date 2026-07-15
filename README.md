@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Harmony of Life (HoL)
 
-## Getting Started
+A premium, high-performance web platform focused on **Celestial Wellness**, cellular detox, and restoring Lifeforce. This project is designed as an interactive, scroll-driven digital sanctuary that blends scientific authority with a natural, ethereal aesthetic.
 
-First, run the development server:
+## 🌟 Key Features
+
+- **Immersive Scroll Animations:** Built with GSAP and ScrollTrigger for seamless section pinning, parallax effects, and complex motion sequences.
+- **Glassmorphism UI:** Sophisticated frosted-glass components tailored for an elegant "Celestial Wellness" aesthetic.
+- **Custom Visual Components:** Features interactive 3D-like elements such as the `AuroraHero`, `TwistingRibbon`, and a responsive `SolarSystem`.
+- **Global Smart Components:** Sticky navigation, persistent audio controller, and dynamic WhatsApp integration with `mix-blend-difference` visibility optimizations.
+- **Typography:** Expressive headings using *Bricolage Grotesque* and highly legible body text using *Inter*.
+
+## 🛠️ Technology Stack
+
+- **Framework:** [Next.js](https://nextjs.org/) (App Router)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)
+- **Language:** TypeScript
+
+## 🎨 Design System
+
+The platform strictly adheres to the **Celestial Wellness** brand guidelines (`Design.md`):
+- **Background:** Light Cream (`#EAE0D1`)
+- **Primary:** Sage Green (`#6B7D6A`)
+- **Secondary:** Warm Gold (`#B5995E`)
+- **Foreground:** Neutral/Deep Forest (`#101D18`)
+
+## 🚀 Getting Started
+
+First, install dependencies and run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📁 Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/components/sections/` - Major scroll-driven sections (Hero, Authority, RootCause, Pillars, Solution, CommunityIntake).
+- `src/components/ui/` - Reusable UI components (AuroraHero, AudioController, TwistingRibbon, etc.).
+- `src/components/canvas/` - Specialized canvas/WebGL components.
+- `public/` - Static assets, images, and audio.
+- `Design.md` - Core design system and architectural guidelines.

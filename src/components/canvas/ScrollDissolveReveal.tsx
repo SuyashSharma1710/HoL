@@ -6,6 +6,7 @@ import { useTexture, OrthographicCamera } from "@react-three/drei";
 import * as THREE from "three";
 import { useScroll, useInView, MotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const coverVertexShader = `
   varying vec2 vUv;
@@ -369,8 +370,11 @@ export function ScrollDissolveReveal({
   const isInView = useInView(containerRef);
 
   React.useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
+    // Defer WebGL compilation by 1 second to drastically reduce Total Blocking Time
+    const timeout = setTimeout(() => {
+      setMounted(true);
+    }, 1000);
+    return () => clearTimeout(timeout);
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -386,6 +390,15 @@ export function ScrollDissolveReveal({
       className={cn("relative h-[300vh] w-full", containerClassName)}
     >
       <div className={cn("sticky top-0 h-screen w-full", className)}>
+        {!mounted && (
+          <Image 
+            src={imageFront}
+            alt=""
+            fill
+            priority
+            className="object-cover"
+          />
+        )}
         {mounted && (
           <Canvas frameloop={isInView ? "always" : "demand"} dpr={[1, 1.5]}>
             <OrthographicCamera

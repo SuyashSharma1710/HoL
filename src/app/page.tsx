@@ -6,12 +6,12 @@ import Logo from "@/components/ui/Logo";
 import dynamic from 'next/dynamic';
 import Hero from "@/components/sections/Hero";
 
-// Lazy load below-the-fold components for better initial site load speed
-const Authority = dynamic(() => import("@/components/sections/Authority"), { ssr: true });
-const RootCause = dynamic(() => import("@/components/sections/RootCause"), { ssr: true });
-const Pillars = dynamic(() => import("@/components/sections/Pillars"), { ssr: true });
-const Solution = dynamic(() => import("@/components/sections/Solution"), { ssr: true });
-const CommunityIntake = dynamic(() => import("@/components/sections/CommunityIntake"), { ssr: true });
+// Lazy load below-the-fold components completely on the client for better TBT
+const Authority = dynamic(() => import("@/components/sections/Authority"), { ssr: false });
+const RootCause = dynamic(() => import("@/components/sections/RootCause"), { ssr: false });
+const Pillars = dynamic(() => import("@/components/sections/Pillars"), { ssr: false });
+const Solution = dynamic(() => import("@/components/sections/Solution"), { ssr: false });
+const CommunityIntake = dynamic(() => import("@/components/sections/CommunityIntake"), { ssr: false });
 
 export default function Home() {
   return (

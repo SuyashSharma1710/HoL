@@ -16,7 +16,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://harmonyoflife.com'),
-  title: "Harmony of Life | Celestial Wellness & Cellular Detox Sanctuary",
+  title: "Harmony of Life | Celestial Wellness",
   description: "A sanctuary for digital rejuvenation, deep cellular detox, and restoring your Lifeforce through holistic celestial wellness.",
   keywords: ["Celestial Wellness", "Lifeforce", "Deep Detox", "Holistic Health", "Cellular Repair", "Harmony of Life"],
   alternates: {
@@ -55,29 +55,38 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": ["HealthAndBeautyBusiness", "Organization"],
-              "name": "Harmony of Life",
-              "image": "https://harmonyoflife.com/logo.svg",
-              "url": "https://harmonyoflife.com",
-              "sameAs": [
-                "https://www.facebook.com/profile.php?id=61591808093320",
-                "https://www.instagram.com/harmonyoflife_official/?hl=en",
-                "https://www.youtube.com/@Harmonyoflife-01"
-              ],
-              "telephone": "8800828863",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Wellness Center",
-                "addressLocality": "New Delhi",
-                "addressRegion": "DL",
-                "postalCode": "110001",
-                "addressCountry": "IN"
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "name": "Harmony of Life",
+                "url": "https://harmonyoflife.com",
+                "logo": "https://harmonyoflife.com/logo.svg",
+                "sameAs": [
+                  "https://www.facebook.com/profile.php?id=61591808093320",
+                  "https://www.instagram.com/harmonyoflife_official/?hl=en",
+                  "https://www.youtube.com/@Harmonyoflife-01"
+                ]
               },
-              "description": "A sanctuary for digital rejuvenation, deep cellular detox, and restoring your Lifeforce.",
-              "priceRange": "$$"
-            })
+              {
+                "@context": "https://schema.org",
+                "@type": "HealthAndBeautyBusiness",
+                "name": "Harmony of Life",
+                "image": "https://harmonyoflife.com/logo.svg",
+                "url": "https://harmonyoflife.com",
+                "telephone": "8800828863",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Wellness Center",
+                  "addressLocality": "New Delhi",
+                  "addressRegion": "DL",
+                  "postalCode": "110001",
+                  "addressCountry": "IN"
+                },
+                "description": "A sanctuary for digital rejuvenation, deep cellular detox, and restoring your Lifeforce.",
+                "priceRange": "$$"
+              }
+            ])
           }}
         />
       </body>

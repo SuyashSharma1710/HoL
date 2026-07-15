@@ -41,6 +41,12 @@ export default function Footer() {
       >
         <div className="absolute inset-0 backdrop-blur-xl bg-white/70 border border-black/10 rounded-full shadow-lg -z-10 pointer-events-none" />
         
+        {/* Visible SEO Contact Info */}
+        <div className="hidden lg:flex flex-col text-[10px] uppercase tracking-widest opacity-60 leading-[1.1] mr-1 border-r border-black/20 pr-4 py-1 font-semibold">
+          <span>+91 88008 28863</span>
+          <span>New Delhi, IN</span>
+        </div>
+        
         <motion.a 
           href="https://www.facebook.com/profile.php?id=61591808093320"
           target="_blank"

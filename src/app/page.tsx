@@ -3,12 +3,15 @@ import AudioController from "@/components/ui/AudioController";
 import Footer from "@/components/ui/Footer";
 import Logo from "@/components/ui/Logo";
 
+import dynamic from 'next/dynamic';
 import Hero from "@/components/sections/Hero";
-import Authority from "@/components/sections/Authority";
-import RootCause from "@/components/sections/RootCause";
-import Pillars from "@/components/sections/Pillars";
-import Solution from "@/components/sections/Solution";
-import CommunityIntake from "@/components/sections/CommunityIntake";
+
+// Lazy load below-the-fold components for better initial site load speed
+const Authority = dynamic(() => import("@/components/sections/Authority"), { ssr: true });
+const RootCause = dynamic(() => import("@/components/sections/RootCause"), { ssr: true });
+const Pillars = dynamic(() => import("@/components/sections/Pillars"), { ssr: true });
+const Solution = dynamic(() => import("@/components/sections/Solution"), { ssr: true });
+const CommunityIntake = dynamic(() => import("@/components/sections/CommunityIntake"), { ssr: true });
 
 export default function Home() {
   return (

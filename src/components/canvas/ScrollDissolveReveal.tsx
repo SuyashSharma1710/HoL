@@ -382,6 +382,7 @@ export function ScrollDissolveReveal({
   return (
     <div
       ref={containerRef}
+      aria-hidden="true"
       className={cn("relative h-[300vh] w-full", containerClassName)}
     >
       <div className={cn("sticky top-0 h-screen w-full", className)}>

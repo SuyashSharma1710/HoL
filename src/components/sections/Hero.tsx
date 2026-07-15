@@ -12,7 +12,8 @@ const floatingCards = [
 
 export default function Hero() {
   return (
-    <section className="relative w-full bg-background">
+    <section aria-labelledby="hero-title" className="relative w-full bg-background">
+      <h1 id="hero-title" className="sr-only">Harmony of Life: Detox for your Lifeforce</h1>
       <ScrollDissolveReveal
         imageFront="/images/A_minimalist_ethereal_backgrou_2-optimized.webp"
         imageBack="/images/A_3D_silhouette_of_a_human_bod_2-optimized.webp"

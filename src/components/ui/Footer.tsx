@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
     </svg>
   );
@@ -15,7 +15,7 @@ function FacebookIcon({ className }: { className?: string }) {
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
       <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
       <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
@@ -26,7 +26,7 @@ export default function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-      <div 
+      <footer 
         ref={containerRef}
         className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex items-center gap-3 md:gap-4 px-4 md:px-6 h-[40px] md:h-[48px] text-black transition-colors duration-300"
       >
@@ -36,6 +36,7 @@ export default function Footer() {
           href="https://www.facebook.com/profile.php?id=61591808093320"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit Harmony of Life on Facebook"
           whileHover={{ y: -4, scale: 1.15 }} 
           className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer flex items-center"
         >
@@ -46,6 +47,7 @@ export default function Footer() {
           href="https://www.instagram.com/harmonyoflife_official/?hl=en"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit Harmony of Life on Instagram"
           whileHover={{ y: -4, scale: 1.15 }} 
           className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer flex items-center"
         >
@@ -65,6 +67,6 @@ export default function Footer() {
           <span className="hidden sm:inline text-xs uppercase tracking-[0.2em] whitespace-nowrap">WhatsApp Us</span>
           <span className="sm:hidden text-xs uppercase tracking-widest whitespace-nowrap">WA</span>
         </motion.a>
-      </div>
+      </footer>
   );
 }

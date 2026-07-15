@@ -68,12 +68,13 @@ export default function AudioController() {
         
         <button 
           onClick={toggleAudio}
+          aria-label={isPlaying ? "Pause background audio" : "Play background audio"}
           className="flex items-center gap-3 px-4 md:px-6 h-[40px] md:h-[48px] group transition-opacity opacity-70 hover:opacity-100 relative z-10"
         >
           <span className="font-sans text-xs font-bold tracking-widest uppercase hidden sm:block">
             {isPlaying ? "Sound On" : "Sound Off"}
           </span>
-          <div className="flex items-end gap-[3px] h-4 w-6 relative">
+          <div className="flex items-end gap-[3px] h-4 w-6 relative" aria-hidden="true">
             {AUDIO_BARS.map((bar, i) => (
               <div
                 key={i}

@@ -17,9 +17,9 @@ export default function Pillars() {
   }, []);
 
   return (
-    <section id="pillars" className="relative w-full min-h-screen bg-[#05050A] flex flex-col items-center justify-center py-24 px-6 overflow-hidden">
+    <section id="pillars" aria-labelledby="pillars-title" className="relative w-full min-h-screen bg-[#05050A] flex flex-col items-center justify-center py-24 px-6 overflow-hidden">
       {/* Stars Background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+      <div className="absolute inset-0 pointer-events-none z-0" aria-hidden="true">
         {stars.map((star) => (
           <div
             key={star.id}
@@ -39,10 +39,12 @@ export default function Pillars() {
       </div>
 
       <div className="relative z-10 w-full flex flex-col items-center">
-        <h2 className="text-4xl md:text-5xl font-heading font-bold text-white mb-12 text-center tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+        <h2 id="pillars-title" className="text-4xl md:text-5xl font-heading font-bold text-white mb-12 text-center tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
           The Science & Art of Living Young
         </h2>
-        <SolarSystem centerLogo="/images/astral-body-optimized.webp" />
+        <div aria-hidden="true">
+          <SolarSystem centerLogo="/images/astral-body-optimized.webp" />
+        </div>
       </div>
     </section>
   );

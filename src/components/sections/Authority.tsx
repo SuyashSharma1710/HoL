@@ -56,9 +56,9 @@ export default function Authority() {
   }, { scope: container });
 
   return (
-    <section id="authority" ref={container} className="h-screen w-full bg-background flex flex-col items-center justify-center relative overflow-hidden">
+    <section id="authority" aria-labelledby="authority-title" ref={container} className="h-screen w-full bg-background flex flex-col items-center justify-center relative overflow-hidden">
       
-      <div className="absolute inset-0 w-full h-full -z-10">
+      <div className="absolute inset-0 w-full h-full -z-10" aria-hidden="true">
         <AuroraHero title="" className="w-full h-full min-h-screen" />
         {/* This solid overlay fades out to reveal the AuroraHero below it */}
         <div ref={auroraRef} className="absolute inset-0 w-full h-full bg-background pointer-events-none" />
@@ -69,7 +69,7 @@ export default function Authority() {
       </div>
 
       <div className="relative w-full max-w-5xl h-48 flex items-center justify-center px-4">
-        <h2 className="absolute text-4xl md:text-5xl font-heading font-bold text-center text-foreground tracking-[-0.02em]">
+        <h2 id="authority-title" className="absolute text-4xl md:text-5xl font-heading font-bold text-center text-foreground tracking-[-0.02em]">
           <FlipText key={activeIndex} loop={false}>
             {"\"" + quotes[activeIndex] + "\""}
           </FlipText>

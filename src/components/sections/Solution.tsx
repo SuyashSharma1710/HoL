@@ -45,18 +45,18 @@ export default function Solution() {
   }, { scope: container });
 
   return (
-    <section id="solution" ref={container} className="w-full bg-background relative flex flex-col md:flex-row">
+    <section id="solution" aria-labelledby="solution-title" ref={container} className="w-full bg-background relative flex flex-col md:flex-row">
       
       {/* Left Column (Pinned) */}
       <div className="w-full md:w-1/2 h-screen sticky top-0 flex flex-col items-center justify-center border-r border-primary/10 p-8 overflow-hidden z-0">
         
         <div className="absolute top-24 z-20 text-center px-8">
-          <h2 className="text-4xl font-heading font-semibold text-foreground mb-2">The Breakfast Gap in India</h2>
+          <h2 id="solution-title" className="text-4xl font-heading font-semibold text-foreground mb-2">The Breakfast Gap in India</h2>
           <p className="text-foreground/60 text-sm uppercase tracking-widest">High in Calories, Low in Nutrients.</p>
         </div>
 
         {/* Placeholder Graphic for 3D Plate */}
-        <div className="relative w-full max-w-[24rem] aspect-square rounded-full flex items-center justify-center transition-all duration-1000 ease-out mt-12 opacity-40 md:opacity-100">
+        <div className="relative w-full max-w-[24rem] aspect-square rounded-full flex items-center justify-center transition-all duration-1000 ease-out mt-12 opacity-40 md:opacity-100" aria-hidden="true">
           
           <div className={cn(
             "absolute inset-0 rounded-full blur-[100px] transition-colors duration-1000",

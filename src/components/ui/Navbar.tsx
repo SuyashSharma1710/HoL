@@ -197,6 +197,7 @@ export default function Navbar() {
             {/* Background Layer: z-40 frosted glass (Smart Blending Sibling 1) */}
             <div 
                 ref={bgRef}
+                aria-hidden="true"
                 className="fixed top-6 right-6 z-40 pointer-events-none flex items-center px-4 h-[60px] md:h-[68px] backdrop-blur-xl bg-white/70 border border-black/10 shadow-lg rounded-full overflow-hidden transition-all duration-300"
                 style={{
                     "--spotlight-color": "rgba(0, 0, 0, 0.1)",

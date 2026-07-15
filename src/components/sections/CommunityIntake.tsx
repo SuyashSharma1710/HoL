@@ -63,14 +63,14 @@ export default function CommunityIntake() {
   }, []);
 
   return (
-    <section id="community" data-theme="dark" className="min-h-screen w-full bg-primary flex items-center justify-center relative py-32 px-4 overflow-hidden">
+    <section id="community" aria-labelledby="community-title" data-theme="dark" className="min-h-screen w-full bg-primary flex items-center justify-center relative py-32 px-4 overflow-hidden">
       
       {/* Background glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] max-w-4xl bg-secondary/10 blur-[150px] pointer-events-none rounded-full z-0" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] max-w-2xl bg-tertiary/10 blur-[120px] pointer-events-none rounded-full z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] max-w-4xl bg-secondary/10 blur-[150px] pointer-events-none rounded-full z-0" aria-hidden="true" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] max-w-2xl bg-tertiary/10 blur-[120px] pointer-events-none rounded-full z-0" aria-hidden="true" />
 
       {/* Falling Leaves */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
         {leaves.map((leaf) => (
           <Leaf key={leaf.id} {...leaf} />
         ))}
@@ -87,7 +87,7 @@ export default function CommunityIntake() {
         {/* Subtle inner border glow on hover */}
         <div className="absolute inset-0 rounded-xl border border-secondary/0 group-hover:border-secondary/30 transition-colors duration-1000 pointer-events-none" />
 
-        <h2 className="text-4xl md:text-5xl font-heading font-bold text-background mb-6 leading-tight tracking-tight">
+        <h2 id="community-title" className="text-4xl md:text-5xl font-heading font-bold text-background mb-6 leading-tight tracking-tight">
           Start Detoxing at the Root.<br />
           <span className="text-background/40 block mt-2 text-4xl md:text-5xl font-heading">Not just symptoms... but your cells.</span>
         </h2>

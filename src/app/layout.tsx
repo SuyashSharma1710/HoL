@@ -16,7 +16,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Harmony of Life | Celestial Wellness",
-  description: "A sanctuary for digital rejuvenation.",
+  description: "A sanctuary for digital rejuvenation, deep cellular detox, and restoring your Lifeforce through holistic celestial wellness.",
+  keywords: ["Celestial Wellness", "Lifeforce", "Deep Detox", "Holistic Health", "Cellular Repair", "Harmony of Life"],
+  openGraph: {
+    title: "Harmony of Life",
+    description: "A sanctuary for digital rejuvenation and cellular detox.",
+    type: "website",
+  },
   icons: {
     icon: "/logo.svg",
   },

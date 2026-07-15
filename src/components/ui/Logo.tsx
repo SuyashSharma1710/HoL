@@ -31,7 +31,16 @@ export default function Logo() {
   return (
     <div 
       className="fixed top-6 left-6 z-50 pointer-events-auto flex items-center cursor-pointer h-[60px] md:h-[68px]"
+      role="button"
+      tabIndex={0}
+      aria-label="Scroll to top"
       onClick={handleScrollToTop}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleScrollToTop();
+        }
+      }}
     >
       <div className="absolute inset-0 bg-white/95 border border-black/10 rounded-full pointer-events-none shadow-lg transition-all duration-300" style={{ transform: "translateZ(0)" }} />
       

@@ -110,9 +110,9 @@ export default function RootCause() {
   }, { scope: container });
 
   return (
-    <section id="root-cause" ref={container} className="min-h-dvh md:h-screen w-full bg-background flex flex-col items-center justify-center relative overflow-hidden py-32 md:py-24">
+    <section id="root-cause" aria-labelledby="root-cause-title" ref={container} className="min-h-dvh md:h-screen w-full bg-background flex flex-col items-center justify-center relative overflow-hidden py-32 md:py-24">
       
-      <div className="absolute inset-0 w-full h-full -z-20 opacity-20 pointer-events-none">
+      <div className="absolute inset-0 w-full h-full -z-20 opacity-20 pointer-events-none" aria-hidden="true">
         <TwistingRibbon
           lightColors={{
             face: "#142B23",   // Deep Forest
@@ -126,7 +126,7 @@ export default function RootCause() {
       </div>
 
       <div className="text-center z-10 px-4 mb-12 md:mb-8 shrink-0 mt-8 md:mt-0">
-        <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4 tracking-tight">
+        <h2 id="root-cause-title" className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4 tracking-tight">
           The Root Cause
         </h2>
         <p className="text-foreground/80 text-lg max-w-2xl mx-auto">

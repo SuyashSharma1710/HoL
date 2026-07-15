@@ -207,7 +207,7 @@ export default function Navbar() {
                 <ul className="hidden md:flex items-center gap-8 opacity-0">
                     {links.map((link) => (
                         <li key={link.name} className="relative list-none flex items-center h-full">
-                            <div className="px-4 text-lg">
+                            <div className="px-4 font-sans text-lg font-normal">
                                 {link.name}
                             </div>
                         </li>
@@ -271,7 +271,7 @@ export default function Navbar() {
                                     }
                                 }}
                                 className={cn(
-                                    "relative z-10 px-4 text-lg transition-opacity flex items-center h-full font-medium",
+                                    "relative z-10 px-4 transition-opacity flex items-center h-full font-sans text-lg font-normal",
                                     activeIndex === idx ? "opacity-100" : "opacity-50 hover:opacity-100"
                                 )}
                             >
@@ -290,7 +290,7 @@ export default function Navbar() {
                         <SheetContent side="right" className="bg-background text-foreground border-foreground/10 flex flex-col items-center justify-center gap-8 w-[80vw]">
                             <SheetTitle className="sr-only">Mobile Navigation Menu</SheetTitle>
                             
-                            <ul className="flex flex-col items-center gap-8 text-3xl font-bricolage">
+                            <ul className="flex flex-col items-center gap-8 font-heading text-4xl font-semibold">
                                 {links.map((link, idx) => (
                                     <li key={link.name}>
                                         <Link

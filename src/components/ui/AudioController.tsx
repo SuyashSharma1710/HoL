@@ -68,9 +68,9 @@ export default function AudioController() {
         
         <button 
           onClick={toggleAudio}
-          className="flex items-center gap-3 px-4 py-2 md:px-6 md:py-3 group transition-opacity opacity-70 hover:opacity-100 relative z-10"
+          className="flex items-center gap-3 px-4 md:px-6 h-[40px] md:h-[48px] group transition-opacity opacity-70 hover:opacity-100 relative z-10"
         >
-          <span className="text-xs font-bold uppercase tracking-[0.2em] hidden sm:block">
+          <span className="font-sans text-xs font-bold tracking-widest uppercase hidden sm:block">
             {isPlaying ? "Sound On" : "Sound Off"}
           </span>
           <div className="flex items-end gap-[3px] h-4 w-6 relative">

@@ -28,7 +28,7 @@ export default function Footer() {
   return (
       <div 
         ref={containerRef}
-        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex items-center gap-3 md:gap-4 px-4 py-2 md:px-6 md:py-3 text-black transition-colors duration-300"
+        className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 flex items-center gap-3 md:gap-4 px-4 md:px-6 h-[40px] md:h-[48px] text-black transition-colors duration-300"
       >
         <div className="absolute inset-0 backdrop-blur-xl bg-white/70 border border-black/10 rounded-full shadow-lg -z-10 pointer-events-none" />
         

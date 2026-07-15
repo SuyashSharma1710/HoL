@@ -23,8 +23,8 @@ export default function Hero() {
           {/* Hero Content */}
           <div className="text-center max-w-5xl px-4 mt-[-10vh]">
             <FlipFadeText
-              text="What if Detox isn't about weight... but about your LifeForce?"
-              textClassName="text-4xl md:text-5xl font-heading font-bold tracking-tight text-foreground normal-case"
+              text="What if Detox isn't about weight... but about your Lifeforce?"
+              textClassName="text-4xl md:text-5xl font-heading font-bold tracking-[-0.02em] text-foreground normal-case"
             />
           </div>
 
@@ -40,7 +40,7 @@ export default function Hero() {
                   ease: "easeInOut",
                   delay: card.delay,
                 }}
-                className="pointer-events-auto backdrop-blur-md bg-foreground/5 border border-foreground/10 rounded-2xl px-6 py-4 text-foreground text-sm md:text-lg font-medium shadow-sm"
+                className="pointer-events-auto backdrop-blur-md bg-foreground/5 border border-foreground/10 rounded-2xl px-6 py-4 text-foreground font-sans text-sm md:text-lg font-normal shadow-sm"
               >
                 {card.text}
               </motion.div>

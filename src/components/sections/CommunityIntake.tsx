@@ -87,13 +87,13 @@ export default function CommunityIntake() {
         {/* Subtle inner border glow on hover */}
         <div className="absolute inset-0 rounded-xl border border-secondary/0 group-hover:border-secondary/30 transition-colors duration-1000 pointer-events-none" />
 
-        <h2 className="text-4xl md:text-5xl font-bold text-background mb-6 leading-tight tracking-tight">
+        <h2 className="text-4xl md:text-5xl font-heading font-bold text-background mb-6 leading-tight tracking-tight">
           Start Detoxing at the Root.<br />
-          <span className="text-background/40 block mt-2 text-4xl md:text-5xl">Not just symptoms... but your cells.</span>
+          <span className="text-background/40 block mt-2 text-4xl md:text-5xl font-heading">Not just symptoms... but your cells.</span>
         </h2>
         
         <p className="text-lg text-background/80 mb-16 max-w-2xl font-normal">
-          Join Harmony of Life to know how to increase lifeforce.
+          Join Harmony of Life to know how to increase Lifeforce.
         </p>
         
         <motion.a
@@ -110,7 +110,7 @@ export default function CommunityIntake() {
 
         <div className="mt-8 md:mt-16 flex flex-col md:flex-row items-center justify-center min-h-12 py-3 md:py-0 md:h-12 backdrop-blur-md bg-background/5 border border-background/10 rounded-3xl md:rounded-full px-6 md:px-8 text-center gap-1 md:gap-0">
           <p className="text-background/60 text-xs md:text-lg font-medium tracking-widest uppercase">
-            Call or Whatsapp 
+            Call or WhatsApp 
           </p>
           <span className="text-background font-bold text-sm md:text-lg tracking-widest md:ml-2">
             8800828863

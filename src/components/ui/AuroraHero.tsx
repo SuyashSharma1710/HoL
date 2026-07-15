@@ -47,16 +47,18 @@ export function AuroraHero({
       className={cn("aurora-hero-wrapper w-full min-h-[400px] h-[500px] sm:h-[600px] relative overflow-hidden", className)}
       {...props}
     >
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style>{`
         .aurora-hero-wrapper {
-          --stripe-color: #000;
-          --bg-filter: blur(10px) opacity(50%) saturate(200%);
-          background: var(--stripe-color);
+          --stripe-color: #EAE0D1;
+          --bg-filter: blur(17px) opacity(70%) saturate(130%) contrast(1.1);
+          background: transparent;
           font-family: Inter, sans-serif;
+          isolation: isolate;
         }
         :is(.dark) .aurora-hero-wrapper {
-          --stripe-color: #fff;
-          --bg-filter: blur(10px) invert(100%);
+          --stripe-color: #101D18;
+          --bg-filter: blur(17px) opacity(70%) saturate(130%) contrast(1.1);
+          filter: none;
         }
         @keyframes smoothBg {
           from { background-position: 50% 50%, 50% 50%; }
@@ -77,16 +79,16 @@ export function AuroraHero({
           );
           --rainbow: repeating-linear-gradient(
             100deg, 
-            #142B23 10%, 
-            #112B26 15%, 
-            #142B23 20%, 
-            #232B14 25%, 
-            #142B23 30%
+            #2B443C 10%, /* Dark Forest (Top Left Petal) */
+            #B5995E 15%, /* Warm Gold (Top Right Petal) */
+            #6B7D6A 20%, /* Sage Green (Bottom Right Petal) */
+            #D4C5A9 25%, /* Pale Gold (Bottom Left Petal) */
+            #2B443C 30%  /* Dark Forest */
           );
           background-image: var(--stripes), var(--rainbow);
           background-size: 300%, 200%;
           background-position: 50% 50%, 50% 50%;
-          filter: var(--bg-filter);
+          filter: var(--bg-filter) url(#fluted);
           mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
           -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
         }
@@ -97,8 +99,7 @@ export function AuroraHero({
           background-image: var(--stripes), var(--rainbow);
           background-size: 200%, 100%;
           animation: smoothBg 60s linear infinite;
-          background-attachment: fixed;
-          mix-blend-mode: difference;
+          mix-blend-mode: overlay;
         }
         .aurora-content {
           position: absolute;
@@ -111,10 +112,7 @@ export function AuroraHero({
           flex-flow: column;
           gap: 4.5%;
           text-align: center;
-          backdrop-filter: contrast(0.9) blur(7px) url(#fluted);
-          -webkit-backdrop-filter: contrast(0.9) blur(7px) url(#fluted);
-          mix-blend-mode: difference;
-          filter: invert(1);
+          z-index: 10;
         }
         .h1-scalingSize {
           font-size: calc(1rem - -5vw);
@@ -143,13 +141,15 @@ export function AuroraHero({
           z-index: 1;
           pointer-events: none;
         }
-      `}} />
+      `}</style>
 
       <div className="aurora-hero-bg"></div>
 
-      <div className="aurora-content">
-        {title && <h1 className="h1-scalingSize" data-text={title}>{title}</h1>}
-      </div>
+      {title && (
+        <div className="aurora-content">
+          <h1 className="h1-scalingSize" data-text={title}>{title}</h1>
+        </div>
+      )}
 
       <svg
         version="1.1"
@@ -167,7 +167,7 @@ export function AuroraHero({
             result="image_0"
             crossOrigin="anonymous"
             href={filterImageHref}
-            preserveAspectRatio="none meet"
+            preserveAspectRatio="none"
             width=".03"
             height="1"
           />

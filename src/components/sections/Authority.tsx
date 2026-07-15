@@ -42,9 +42,9 @@ export default function Authority() {
       }
     });
 
-    // Fade in the Aurora background when scrolling from section 2 into section 3
+    // Fade OUT the solid cream overlay instead of fading IN the complex blended AuroraHero
     gsap.to(auroraRef.current, {
-      opacity: 1,
+      opacity: 0,
       ease: "none",
       scrollTrigger: {
         trigger: container.current,
@@ -58,16 +58,18 @@ export default function Authority() {
   return (
     <section id="authority" ref={container} className="h-screen w-full bg-background flex flex-col items-center justify-center relative overflow-hidden">
       
-      <div ref={auroraRef} className="absolute inset-0 w-full h-full -z-10 opacity-0">
+      <div className="absolute inset-0 w-full h-full -z-10">
         <AuroraHero title="" className="w-full h-full min-h-screen" />
+        {/* This solid overlay fades out to reveal the AuroraHero below it */}
+        <div ref={auroraRef} className="absolute inset-0 w-full h-full bg-background pointer-events-none" />
       </div>
 
-      <div className="absolute top-1/4 text-secondary text-sm font-semibold tracking-[0.2em]">
+      <div className="absolute top-1/4 text-secondary font-sans text-sm font-medium tracking-[0.05em]">
         Dr. Ashutosh Rastogi
       </div>
 
       <div className="relative w-full max-w-5xl h-48 flex items-center justify-center px-4">
-        <h2 className="absolute text-4xl md:text-5xl font-heading font-bold text-center text-foreground tracking-tight">
+        <h2 className="absolute text-4xl md:text-5xl font-heading font-bold text-center text-foreground tracking-[-0.02em]">
           <FlipText key={activeIndex} loop={false}>
             {"\"" + quotes[activeIndex] + "\""}
           </FlipText>
@@ -77,7 +79,7 @@ export default function Authority() {
       {/* Bottom Anchor */}
       <div className="absolute bottom-16 flex flex-wrap justify-center gap-4 px-4">
         {badges.map((badge, i) => (
-          <div key={i} className="backdrop-blur-md bg-foreground/5 border border-foreground/10 rounded-full px-8 py-4 text-foreground text-sm md:text-lg font-medium tracking-wide shadow-sm">
+          <div key={i} className="backdrop-blur-md bg-foreground/5 border border-foreground/10 rounded-full px-8 py-4 text-foreground font-sans text-sm font-medium tracking-[0.05em] shadow-sm">
             {badge}
           </div>
         ))}

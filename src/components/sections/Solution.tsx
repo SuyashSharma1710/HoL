@@ -51,7 +51,7 @@ export default function Solution() {
       <div className="w-full md:w-1/2 h-screen sticky top-0 flex flex-col items-center justify-center border-r border-primary/10 p-8 overflow-hidden z-0">
         
         <div className="absolute top-24 z-20 text-center px-8">
-          <h2 className="text-4xl font-heading font-bold text-foreground mb-2">The Breakfast Gap in India</h2>
+          <h2 className="text-4xl font-heading font-semibold text-foreground mb-2">The Breakfast Gap in India</h2>
           <p className="text-foreground/60 text-sm uppercase tracking-widest">High in Calories, Low in Nutrients.</p>
         </div>
 

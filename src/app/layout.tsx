@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://harmonyoflife.com'),
+  metadataBase: new URL('https://theharmonyoflife.com'),
   title: "Harmony of Life | Celestial Wellness",
   description: "A sanctuary for digital rejuvenation, deep cellular detox, and restoring your Lifeforce through holistic celestial wellness.",
   keywords: ["Celestial Wellness", "Lifeforce", "Deep Detox", "Holistic Health", "Cellular Repair", "Harmony of Life"],
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Harmony of Life",
     description: "A sanctuary for digital rejuvenation and cellular detox.",
     type: "website",
-    url: "https://harmonyoflife.com",
+    url: "https://theharmonyoflife.com",
     siteName: "Harmony of Life"
   },
   icons: {
@@ -60,8 +60,8 @@ export default function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "Organization",
                 "name": "Harmony of Life",
-                "url": "https://harmonyoflife.com",
-                "logo": "https://harmonyoflife.com/logo.svg",
+                "url": "https://theharmonyoflife.com",
+                "logo": "https://theharmonyoflife.com/logo.svg",
                 "sameAs": [
                   "https://www.facebook.com/profile.php?id=61591808093320",
                   "https://www.instagram.com/harmonyoflife_official/?hl=en",
@@ -73,8 +73,8 @@ export default function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "HealthAndBeautyBusiness",
                 "name": "Harmony of Life",
-                "image": "https://harmonyoflife.com/logo.svg",
-                "url": "https://harmonyoflife.com",
+                "image": "https://theharmonyoflife.com/logo.svg",
+                "url": "https://theharmonyoflife.com",
                 "telephone": "8800828863",
                 "address": {
                   "@type": "PostalAddress",

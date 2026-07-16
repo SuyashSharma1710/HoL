@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://harmonyoflife.com/sitemap.xml',
+    sitemap: 'https://theharmonyoflife.com/sitemap.xml',
   }
 }

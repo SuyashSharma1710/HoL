@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { FlipText } from "@/components/ui/FlipText";
 import { AuroraHero } from "@/components/ui/AuroraHero";
+import Image from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -64,25 +65,51 @@ export default function Authority() {
         <div ref={auroraRef} className="absolute inset-0 w-full h-full bg-background pointer-events-none" />
       </div>
 
-      <div className="absolute top-1/4 text-secondary font-sans text-sm font-medium tracking-[0.05em]">
-        Dr. Ashutosh Rastogi
-      </div>
-
-      <div className="relative w-full max-w-5xl h-48 flex items-center justify-center px-4">
-        <h2 id="authority-title" className="absolute text-4xl md:text-5xl font-heading font-bold text-center text-foreground tracking-[-0.02em]">
-          <FlipText key={activeIndex} loop={false}>
-            {"\"" + quotes[activeIndex] + "\""}
-          </FlipText>
-        </h2>
-      </div>
-
-      {/* Bottom Anchor */}
-      <div className="absolute bottom-16 flex flex-wrap justify-center gap-4 px-4">
-        {badges.map((badge, i) => (
-          <div key={i} className="backdrop-blur-md bg-foreground/5 border border-foreground/10 rounded-full px-8 py-4 text-foreground font-sans text-sm font-medium tracking-[0.05em] shadow-sm">
-            {badge}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-center h-full py-20 gap-12 lg:gap-24">
+        
+        {/* Left: Image Container */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center h-[40vh] lg:h-[60vh] relative">
+          <div className="relative w-full max-w-sm lg:max-w-md h-full rounded-2xl md:rounded-[2rem] overflow-hidden border border-foreground/10 shadow-2xl">
+            <Image 
+              src="/images/dr_rastogi.png" 
+              alt="Dr. Ashutosh Rastogi" 
+              fill
+              className="object-cover transition-transform duration-700 hover:scale-105"
+              priority
+            />
+            {/* Gradient overlay to blend image bottom */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+            
+            <div className="absolute bottom-6 left-6 right-6 flex flex-col items-start">
+               <div className="bg-white text-black font-sans text-[10px] md:text-xs font-bold tracking-widest uppercase mb-3 px-3 py-1.5 rounded-full shadow-md">
+                 Founder & Visionary
+               </div>
+               <div className="text-white text-2xl md:text-3xl font-heading font-bold drop-shadow-md">
+                 Dr. Ashutosh Rastogi
+               </div>
+            </div>
           </div>
-        ))}
+        </div>
+
+        {/* Right: Quotes & Badges */}
+        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start justify-center text-center lg:text-left">
+          <div className="relative w-full h-32 md:h-48 flex items-center justify-center lg:justify-start">
+            <h2 id="authority-title" className="absolute text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground tracking-[-0.02em] leading-tight">
+              <FlipText key={activeIndex} loop={false}>
+                {"\"" + quotes[activeIndex] + "\""}
+              </FlipText>
+            </h2>
+          </div>
+
+          <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 mt-6 md:mt-8">
+            {badges.map((badge, i) => (
+              <div key={i} className="backdrop-blur-md bg-foreground/5 border border-foreground/10 rounded-full px-5 py-2 md:px-8 md:py-4 text-foreground font-sans text-xs md:text-sm font-medium tracking-wider shadow-sm transition-colors hover:bg-foreground/10">
+                {badge}
+              </div>
+            ))}
+          </div>
+        </div>
+        
       </div>
     </section>
   );

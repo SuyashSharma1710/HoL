@@ -1,27 +1,30 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { TwistingRibbon } from "@/components/ui/TwistingRibbon";
+import { Pizza, Brain, Sprout, Activity, TestTube, Moon } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
 const cardsData = [
-  { title: "Processed Diet", desc: "Excessive refined sugars" },
-  { title: "Chronic Stress", desc: "High cortisol levels" },
-  { title: "Soil Depletion", desc: "Lack of core minerals" },
-  { title: "Sedentary Life", desc: "Poor circulation" },
-  { title: "Microplastics", desc: "Endocrine disruption" },
-  { title: "Sleep Deficit", desc: "Halted cellular repair" },
+  { title: "Processed Diet", desc: "Excessive refined sugars", details: "Modern diets rely heavily on processed foods and refined sugars that feed harmful gut bacteria, cause severe inflammation, and drain your body's natural energy reserves.", icon: Pizza },
+  { title: "Chronic Stress", desc: "High cortisol levels", details: "Prolonged exposure to stress keeps cortisol levels artificially high. This constant 'fight or flight' state prevents cellular repair and accelerates the aging process.", icon: Brain },
+  { title: "Soil Depletion", desc: "Lack of core minerals", details: "Conventional farming practices have stripped our soil of essential trace minerals like magnesium and zinc. Even when eating healthy, our cells are starved of the building blocks they need.", icon: Sprout },
+  { title: "Sedentary Life", desc: "Poor circulation", details: "Sitting for prolonged periods stagnates blood flow and lymphatic drainage. Toxins build up when our natural circulatory pump is turned off by inactivity.", icon: Activity },
+  { title: "Microplastics", desc: "Endocrine disruption", details: "Invisible microplastics in our water and food chain act as endocrine disruptors. They mimic hormones in the body, leading to metabolic chaos and toxic accumulation.", icon: TestTube },
+  { title: "Sleep Deficit", desc: "Halted cellular repair", details: "Without adequate deep sleep, the brain's glymphatic system cannot clear metabolic waste. Chronic sleep debt literally halts the deep detoxification our cells rely on.", icon: Moon },
 ];
 
 export default function RootCause() {
   const container = useRef<HTMLElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [selectedCard, setSelectedCard] = useState<typeof cardsData[0] | null>(null);
 
   useGSAP(() => {
     const mm = gsap.matchMedia();
@@ -142,20 +145,39 @@ export default function RootCause() {
               ref={(el) => {
                 cardsRef.current[i] = el;
               }}
-              className="w-full max-w-sm backdrop-blur-lg bg-background/80 border border-primary/10 rounded-2xl p-8 flex flex-col items-start justify-center shadow-md relative"
+              className="w-full max-w-sm"
             >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-secondary">
-                {/* SVG Icon Placeholder */}
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                </svg>
+              <div 
+                className="group w-full h-full backdrop-blur-xl bg-white/60 hover:bg-white/80 border border-white/50 hover:border-secondary/40 rounded-2xl p-8 flex flex-col items-start justify-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(181,153,94,0.15)] transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
+                onClick={() => setSelectedCard(card)}
+              >
+                {/* Shimmer effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                
+                <div className="w-12 h-12 rounded-full bg-primary/10 group-hover:bg-secondary/10 flex items-center justify-center mb-6 text-primary group-hover:text-secondary transition-colors duration-500 relative z-10">
+                  <card.icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                <h3 className="text-lg font-heading font-semibold text-foreground group-hover:text-secondary transition-colors duration-500 mb-2 relative z-10">{card.title}</h3>
+                <p className="text-foreground/70 text-sm leading-relaxed relative z-10">{card.desc}</p>
               </div>
-              <h3 className="text-lg font-heading font-semibold text-foreground mb-2">{card.title}</h3>
-              <p className="text-foreground/70 text-sm leading-relaxed">{card.desc}</p>
             </div>
           ))}
         </div>
       </div>
+
+      <Dialog open={!!selectedCard} onOpenChange={(open) => !open && setSelectedCard(null)}>
+        <DialogContent className="bg-background/95 backdrop-blur-xl border border-foreground/10 text-foreground rounded-xl max-w-md">
+          <DialogHeader className="flex flex-col items-center text-center space-y-4">
+            <div className="w-16 h-16 rounded-full bg-foreground/5 flex items-center justify-center text-secondary mb-2">
+              {selectedCard && <selectedCard.icon className="w-8 h-8" />}
+            </div>
+            <DialogTitle className="text-3xl font-bold font-bricolage">{selectedCard?.title}</DialogTitle>
+            <DialogDescription className="text-lg text-foreground/80 leading-relaxed">
+              {selectedCard?.details}
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

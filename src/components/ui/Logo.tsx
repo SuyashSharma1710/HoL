@@ -63,7 +63,7 @@ export default function Logo() {
           style={{ opacity, maxWidth, x, marginLeft, paddingRight, display }}
           className="overflow-hidden whitespace-nowrap items-center text-black origin-left"
         >
-          <span className="font-sans text-sm font-medium tracking-[0.05em] uppercase">
+          <span className="font-sans text-sm font-medium tracking-wider uppercase">
             Harmony of Life
           </span>
         </motion.div>

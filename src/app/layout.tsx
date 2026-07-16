@@ -65,7 +65,8 @@ export default function RootLayout({
                 "sameAs": [
                   "https://www.facebook.com/profile.php?id=61591808093320",
                   "https://www.instagram.com/harmonyoflife_official/?hl=en",
-                  "https://www.youtube.com/@Harmonyoflife-01"
+                  "https://www.youtube.com/@Harmonyoflife-01",
+                  "https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/"
                 ]
               },
               {

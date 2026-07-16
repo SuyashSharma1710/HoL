@@ -30,7 +30,7 @@ export default function Hero() {
           </div>
 
           {/* Floating Cards */}
-          <div className="absolute bottom-1/4 left-0 right-0 flex flex-wrap justify-center gap-4 md:gap-12 px-4">
+          <div className="mt-12 md:absolute md:bottom-1/4 md:left-0 md:right-0 flex flex-wrap justify-center gap-4 md:gap-12 px-4 w-full">
             {floatingCards.map((card, index) => (
               <motion.div
                 key={index}

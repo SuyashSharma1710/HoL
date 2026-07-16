@@ -30,7 +30,7 @@ export default function Logo() {
 
   return (
     <div 
-      className="fixed top-6 left-6 z-50 pointer-events-auto flex items-center cursor-pointer h-[60px] md:h-[68px]"
+      className="fixed top-6 left-6 z-50 pointer-events-auto flex items-center cursor-pointer h-[48px] md:h-[68px]"
       role="button"
       tabIndex={0}
       aria-label="Scroll to top"
@@ -48,7 +48,7 @@ export default function Logo() {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="w-10 h-10 md:w-12 md:h-12 shrink-0 items-center justify-center cursor-pointer opacity-80 hover:opacity-100 transition-opacity relative z-10"
+          className="w-8 h-8 md:w-12 md:h-12 shrink-0 items-center justify-center cursor-pointer opacity-80 hover:opacity-100 transition-opacity relative z-10"
         >
           <Image 
             src="/logo.svg" 

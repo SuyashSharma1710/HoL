@@ -30,6 +30,17 @@ function YouTubeIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+      <rect width="4" height="12" x="2" y="9"/>
+      <circle cx="4" cy="4" r="2"/>
+    </svg>
+  );
+}
+
 export default function Footer() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -81,6 +92,17 @@ export default function Footer() {
           <YouTubeIcon className="w-4 h-4" />
         </motion.a>
         
+        <motion.a 
+          href="https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit Harmony of Life on LinkedIn"
+          whileHover={{ y: -4, scale: 1.15 }} 
+          className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer flex items-center"
+        >
+          <LinkedInIcon className="w-4 h-4" />
+        </motion.a>
+
         <div className="w-px h-6 bg-black/20 mx-1" />
         
         <motion.a 

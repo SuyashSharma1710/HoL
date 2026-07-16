@@ -16,10 +16,10 @@ const links = [
 ];
 
 const LeafMenuIcon = () => (
-  <div className="flex flex-col gap-[5px] items-center justify-center w-8 h-8 hover:scale-105 transition-transform cursor-pointer">
-    <div className="w-6 h-[5px] bg-[#6B7D6A] rounded-[100%_0%_100%_0%]" />
-    <div className="w-6 h-[5px] bg-[#B5995E] rounded-[100%_0%_100%_0%] rotate-180" />
-    <div className="w-6 h-[5px] bg-[#2B443C] rounded-[100%_0%_100%_0%]" />
+  <div className="flex flex-col gap-[4px] md:gap-[5px] items-center justify-center w-8 h-8 hover:scale-105 transition-transform cursor-pointer">
+    <div className="w-5 h-[4px] md:w-6 md:h-[5px] bg-[#6B7D6A] rounded-[100%_0%_100%_0%]" />
+    <div className="w-5 h-[4px] md:w-6 md:h-[5px] bg-[#B5995E] rounded-[100%_0%_100%_0%] rotate-180" />
+    <div className="w-5 h-[4px] md:w-6 md:h-[5px] bg-[#2B443C] rounded-[100%_0%_100%_0%]" />
   </div>
 );
 
@@ -198,7 +198,7 @@ export default function Navbar() {
             <div 
                 ref={bgRef}
                 aria-hidden="true"
-                className="fixed top-6 right-6 z-40 pointer-events-none flex items-center px-4 h-[60px] md:h-[68px] backdrop-blur-xl bg-white/70 border border-black/10 shadow-lg rounded-full overflow-hidden transition-all duration-300"
+                className="fixed top-6 right-6 z-40 pointer-events-none flex items-center px-4 h-[48px] md:h-[68px] backdrop-blur-xl bg-white/70 border border-black/10 shadow-lg rounded-full overflow-hidden transition-all duration-300"
                 style={{
                     "--spotlight-color": "rgba(0, 0, 0, 0.1)",
                     "--ambience-color": "rgba(0, 0, 0, 0.25)"
@@ -253,7 +253,7 @@ export default function Navbar() {
             {/* Content Layer: z-50 (Smart Blending Sibling 2) */}
             <nav 
                 ref={navRef}
-                className="fixed top-6 right-6 z-50 flex items-center px-4 h-[60px] md:h-[68px] rounded-full text-black transition-colors duration-300"
+                className="fixed top-6 right-6 z-50 flex items-center px-4 h-[48px] md:h-[68px] rounded-full text-black transition-colors duration-300"
             >
                 {/* Desktop Menu */}
                 <ul className="hidden md:flex items-center gap-8 h-full">

@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import { useRef } from "react";
-import { cn } from "@/lib/utils";
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -42,10 +41,12 @@ export default function Footer() {
         <div className="absolute inset-0 backdrop-blur-xl bg-white/70 border border-black/10 rounded-full shadow-lg -z-10 pointer-events-none" />
         
         {/* Visible SEO Contact Info */}
-        <div className="hidden lg:flex flex-col text-[10px] uppercase tracking-widest opacity-60 leading-[1.1] mr-1 border-r border-black/20 pr-4 py-1 font-semibold">
+        <div className="hidden lg:flex flex-col text-[10px] uppercase tracking-widest opacity-60 leading-[1.1] font-semibold">
           <span>+91 88008 28863</span>
           <span>New Delhi, IN</span>
         </div>
+        
+        <div className="hidden lg:block w-px h-6 bg-black/20 mx-1" />
         
         <motion.a 
           href="https://www.facebook.com/profile.php?id=61591808093320"
@@ -80,7 +81,7 @@ export default function Footer() {
           <YouTubeIcon className="w-4 h-4" />
         </motion.a>
         
-        <div className="w-px h-4 bg-current opacity-40 mx-0.5 md:mx-1" />
+        <div className="w-px h-6 bg-black/20 mx-1" />
         
         <motion.a 
           href="https://wa.me/918800828863?text=Hello!%20I%20would%20like%20to%20know%20more%20about%20Harmony%20of%20Life."

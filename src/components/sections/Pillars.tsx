@@ -32,7 +32,6 @@ export default function Pillars() {
               opacity: star.opacity,
               animationDelay: star.animationDelay,
               animationDuration: `${3 + (star.id % 3)}s`,
-              boxShadow: star.size > 1 ? "0 0 4px 1px rgba(255,255,255,0.3)" : "none",
             }}
           />
         ))}

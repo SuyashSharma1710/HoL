@@ -69,7 +69,7 @@ export default function Authority() {
         
         {/* Left: Image Container */}
         <div className="w-full lg:w-1/2 flex items-center justify-center h-[40vh] lg:h-[60vh] relative">
-          <div className="relative w-full max-w-sm lg:max-w-md h-full rounded-2xl md:rounded-[2rem] overflow-hidden border border-foreground/10 shadow-2xl">
+          <div className="relative w-full max-w-sm lg:max-w-md h-full rounded-2xl md:rounded-3xl overflow-hidden border border-foreground/10 shadow-2xl">
             <Image 
               src="/images/dr_rastogi.png" 
               alt="Dr. Ashutosh Rastogi" 
@@ -78,7 +78,7 @@ export default function Authority() {
               priority
             />
             {/* Gradient overlay to blend image bottom */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
             
             <div className="absolute bottom-6 left-6 right-6 flex flex-col items-start">
                <div className="bg-white text-black font-sans text-[10px] md:text-xs font-bold tracking-widest uppercase mb-3 px-3 py-1.5 rounded-full shadow-md">
@@ -96,7 +96,7 @@ export default function Authority() {
           <div className="relative w-full h-32 md:h-48 flex items-center justify-center lg:justify-start">
             <h2 id="authority-title" className="absolute text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-foreground tracking-[-0.02em] leading-tight">
               <FlipText key={activeIndex} loop={false}>
-                {"\"" + quotes[activeIndex] + "\""}
+                {quotes[activeIndex]}
               </FlipText>
             </h2>
           </div>

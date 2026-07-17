@@ -25,6 +25,7 @@ export default function RootCause() {
   const container = useRef<HTMLElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [selectedCard, setSelectedCard] = useState<typeof cardsData[0] | null>(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useGSAP(() => {
     const mm = gsap.matchMedia();
@@ -149,10 +150,13 @@ export default function RootCause() {
             >
               <div 
                 className="group w-full h-full backdrop-blur-xl bg-white/60 hover:bg-white/80 border border-white/50 hover:border-secondary/40 rounded-2xl p-8 flex flex-col items-start justify-center shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(181,153,94,0.15)] transition-all duration-500 hover:-translate-y-2 relative overflow-hidden cursor-pointer"
-                onClick={() => setSelectedCard(card)}
+                onClick={() => {
+                  setSelectedCard(card);
+                  setIsDialogOpen(true);
+                }}
               >
                 {/* Shimmer effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none" />
                 
                 <div className="w-12 h-12 rounded-full bg-primary/10 group-hover:bg-secondary/10 flex items-center justify-center mb-6 text-primary group-hover:text-secondary transition-colors duration-500 relative z-10">
                   <card.icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-500" />
@@ -165,7 +169,7 @@ export default function RootCause() {
         </div>
       </div>
 
-      <Dialog open={!!selectedCard} onOpenChange={(open) => !open && setSelectedCard(null)}>
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="bg-background/95 backdrop-blur-xl border border-foreground/10 text-foreground rounded-xl max-w-md">
           <DialogHeader className="flex flex-col items-center text-center space-y-4">
             <div className="w-16 h-16 rounded-full bg-foreground/5 flex items-center justify-center text-secondary mb-2">

@@ -11,6 +11,7 @@ const Authority = dynamic(() => import("@/components/sections/Authority"), { ssr
 const RootCause = dynamic(() => import("@/components/sections/RootCause"), { ssr: true });
 const Pillars = dynamic(() => import("@/components/sections/Pillars"), { ssr: true });
 const Solution = dynamic(() => import("@/components/sections/Solution"), { ssr: true });
+const FaqSection = dynamic(() => import("@/components/sections/FaqSection"), { ssr: true });
 const CommunityIntake = dynamic(() => import("@/components/sections/CommunityIntake"), { ssr: true });
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <RootCause />
       <Pillars />
       <Solution />
+      <FaqSection />
       <CommunityIntake />
    
 

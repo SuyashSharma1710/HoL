@@ -36,7 +36,7 @@ function hexToRgb(hex: string): [number, number, number] {
 
 export function TwistingRibbon({
   className,
-  segments = 400,
+  segments = 200,
   waveSpeed = 0.018,
   waveAmplitude = 1,
   twistCycles = 6,

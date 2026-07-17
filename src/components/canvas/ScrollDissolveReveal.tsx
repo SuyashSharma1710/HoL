@@ -400,7 +400,7 @@ export function ScrollDissolveReveal({
           />
         )}
         {mounted && (
-          <Canvas frameloop={isInView ? "always" : "demand"} dpr={[1, 1.5]}>
+          <Canvas frameloop={isInView ? "always" : "demand"} dpr={[1, 1.2]}>
             <OrthographicCamera
               makeDefault
               manual

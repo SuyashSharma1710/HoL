@@ -262,7 +262,8 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
   ) => {
     const [hoveredId, setHoveredId] = React.useState<string | null>(null);
     const [selectedNode, setSelectedNode] = React.useState<SolarSystemItem | null>(null);
-    const effectivelyPaused = isPaused || hoveredId !== null || selectedNode !== null;
+    const [isDialogOpen, setIsDialogOpen] = React.useState(false);
+    const effectivelyPaused = isPaused || hoveredId !== null || isDialogOpen;
 
     // Cosmic dust particle animations coordinates
     const dustItems = [
@@ -349,19 +350,24 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
           .animate-custom-orbit {
             animation: custom-orbitMove var(--orbit-duration) linear infinite;
             animation-play-state: var(--orbit-play-state);
+            will-change: transform;
           }
           .animate-custom-billboard {
             animation: custom-billboardCancel var(--orbit-duration) linear infinite;
             animation-play-state: var(--orbit-play-state);
+            will-change: transform;
           }
           .animate-custom-sun-pulse {
             animation: custom-sun-pulse 4s ease-in-out infinite alternate;
+            will-change: transform, opacity;
           }
           .animate-custom-spin-cw {
             animation: custom-spin-clockwise 20s linear infinite;
+            will-change: transform;
           }
           .animate-custom-spin-ccw {
             animation: custom-spin-counter 30s linear infinite;
+            will-change: transform;
           }
 
           /* Cosmic RGB Color Cycling */
@@ -399,6 +405,7 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
             pointer-events: auto;
             transition: border-color 0.3s, color 0.3s, background 0.3s, box-shadow 0.3s, scale 0.3s;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            will-change: transform, box-shadow, border-color, scale;
           }
         `}} />
 
@@ -506,7 +513,10 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
                     speedMultiplier={speedMultiplier}
                     hoveredId={hoveredId}
                     setHoveredId={setHoveredId}
-                    onClick={() => setSelectedNode(item)}
+                    onClick={() => {
+                      setSelectedNode(item);
+                      setIsDialogOpen(true);
+                    }}
                   />
                 ))}
               </React.Fragment>
@@ -514,7 +524,7 @@ export const SolarSystem = React.forwardRef<HTMLDivElement, SolarSystemProps>(
           })}
         </div>
 
-        <Dialog open={!!selectedNode} onOpenChange={(open) => !open && setSelectedNode(null)}>
+        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogContent className="bg-background/95 backdrop-blur-xl border border-foreground/10 text-foreground rounded-xl max-w-md">
             <DialogHeader className="flex flex-col items-center text-center space-y-4">
               <div className="w-16 h-16 rounded-full bg-foreground/5 flex items-center justify-center text-secondary mb-2">

@@ -22,7 +22,6 @@ const badges = ["ATP", "Mitochondria", "Magnesium", "Zinc"];
 
 export default function Authority() {
   const container = useRef<HTMLElement>(null);
-  const auroraRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useGSAP(() => {
@@ -43,17 +42,6 @@ export default function Authority() {
       }
     });
 
-    // Fade OUT the solid cream overlay instead of fading IN the complex blended AuroraHero
-    gsap.to(auroraRef.current, {
-      opacity: 0,
-      ease: "none",
-      scrollTrigger: {
-        trigger: container.current,
-        start: "top 80%",
-        end: "top 20%",
-        scrub: true
-      }
-    });
   }, { scope: container });
 
   return (
@@ -61,8 +49,6 @@ export default function Authority() {
       
       <div className="absolute inset-0 w-full h-full -z-10" aria-hidden="true">
         <AuroraHero title="" className="w-full h-full min-h-screen" />
-        {/* This solid overlay fades out to reveal the AuroraHero below it */}
-        <div ref={auroraRef} className="absolute inset-0 w-full h-full bg-background pointer-events-none" />
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-center h-full py-20 gap-12 lg:gap-24">

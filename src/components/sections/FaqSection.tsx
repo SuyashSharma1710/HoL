@@ -56,36 +56,44 @@ const AnimatedFaqItem: React.FC<FaqItemProps> = ({ question, answer, index }) =>
 const FaqSection: React.FC = () => {
   const faqs = [
     {
-      question: "What is the core philosophy behind Celestial Wellness?",
-      answer: "We believe that true healing begins at the cellular level. By removing toxic blockages and providing the right nutrients, we help you restore your natural LifeForce, leading to increased energy, longevity, and overall vitality."
+      question: "What is Harmony of Life?",
+      answer: "Harmony of Life is a personalized wellness program focused on deep cellular detox and restoring natural LifeForce to increase energy, longevity, and overall vitality."
     },
     {
-      question: "What makes the Healthy Mix different from a regular breakfast?",
-      answer: "The typical Indian breakfast can be high in calories but low in essential nutrients. Our Healthy Mix is designed to bridge this 'Breakfast Gap' by delivering a complete profile of protein, omega-3s, and essential minerals like magnesium to fuel your cells, not just your cravings."
+      question: "What does Harmony of Life do?",
+      answer: "We help you remove toxic blockages at the cellular level and provide customized nutrition protocols to optimize your biological system, reducing brain fog, bloating, and fatigue."
     },
     {
-      question: "How quickly can I expect to feel a difference in my energy?",
-      answer: "While every individual's cellular chemistry is unique, many of our clients experience reduced brain fog, less bloating, and a noticeable uplift in daily energy within the first few weeks of adopting our deep detox and nutrition protocols."
+      question: "Who is Harmony of Life for?",
+      answer: "It is for anyone looking to optimize their health, whether you are taking your first steps toward a healthier lifestyle or seeking to improve an already strict regimen to address low energy, mood swings, or signs of cellular toxicity."
     },
     {
-      question: "Are your wellness programs suitable for beginners?",
-      answer: "Absolutely. Whether you are taking your first steps toward a healthier lifestyle or looking to optimize an already strict regimen, our customized kits are tailored to meet your unique biological needs and guide you through the foundational pillars of health."
+      question: "What is the vision of Harmony of Life?",
+      answer: "Our vision is to empower individuals to achieve optimal health and longevity by understanding that true healing begins at the cellular level and that the presence of LifeForce is life."
     },
     {
-      question: "Is this program primarily for weight loss?",
-      answer: "Not exactly. While healthy weight management is a common side-effect of cellular optimization, our primary focus is on deep cellular detox. Detox isn't just about weight—it's about removing toxins so your mitochondria can produce optimal LifeForce."
+      question: "Why was Harmony of Life created?",
+      answer: "It was created to address the root causes of disease and fatigue—blockages in LifeForce. It was developed to bridge gaps in modern diets and guide people toward a harmonious, toxin-free state."
     },
     {
-      question: "What are the 12 Pillars of Optimal Health?",
-      answer: "Our approach integrates 12 holistic pillars—including Gut Reset, Deep Sleep, Artery Cleanse, and Balanced Nutrition. We address your entire biological system because true longevity requires harmony across all bodily functions, not just isolated fixes."
+      question: "What is personalized wellness?",
+      answer: "Personalized wellness means recognizing that every individual's cellular chemistry and biology are unique. Our protocols and kits are tailored specifically to meet your unique biological needs."
     },
     {
-      question: "Who developed the Celestial Wellness protocols?",
-      answer: "Our foundational protocols were developed by Dr. Ashutosh Rastogi, guided by the central philosophy that the 'Presence of Lifeforce is Life, and its absence is Death.' Every regimen is rooted in clinical science and holistic wellness."
+      question: "What is Lifeforce?",
+      answer: "LifeForce is the pure cellular energy and vitality within you. As our philosophy states: 'Presence of Lifeforce is Life. Absence of Lifeforce is Death. Blockages in Lifeforce cause Disease.'"
     },
     {
-      question: "Can I customize the wellness kits?",
-      answer: "Yes, because your biology is unique. We offer a range of products like the Breakfast Mix, Premium Mix, and the Living Young tier. You can customize your kit directly, or speak with our advisors to match the perfect protocol to your specific needs."
+      question: "What is Healthspan?",
+      answer: "Healthspan is the period of your life spent in good health, free from chronic diseases and the disabilities of aging. We focus on extending not just your lifespan, but your active, energetic healthspan through cellular vitality."
+    },
+    {
+      question: "What are the 12 Foundational Pillars of Harmony of Life?",
+      answer: "Our approach integrates 12 holistic pillars: Gut Reset, Deep Sleep, Immunity, Artery Cleanse, Regular Exercise and Yoga, Nature Connect, Social Connect, Balanced Nutrition, Deep Detox, Alkaline Chemistry, Cellular Vitality, and Direct Charge."
+    },
+    {
+      question: "How is Harmony of Life different from other wellness programs?",
+      answer: "Unlike programs that focus merely on weight loss or symptom management, Harmony of Life targets root-cause cellular detox. We address your entire biological system holistically, combining ancient wisdom with clinical science to restore harmony across all bodily functions."
     }
   ];
 

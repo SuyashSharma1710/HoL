@@ -47,6 +47,7 @@
   --font-heading: var(--font-bricolage);
 
   --animate-aurora-bg: aurora-bg 60s linear infinite;
+  --animate-blob: blob 8s infinite alternate ease-in-out;
 
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -109,4 +110,10 @@
 .flip-char {
   animation: flip-char var(--flip-duration, 2.2s) var(--flip-delay, 0s) var(--flip-iteration, infinite) cubic-bezier(0.4, 0, 0.2, 1) both;
   transform-origin: center center;
+}
+
+@keyframes blob {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }

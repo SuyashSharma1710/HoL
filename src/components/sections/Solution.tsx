@@ -55,11 +55,10 @@ export default function Solution() {
           <p className="text-foreground/60 text-sm uppercase tracking-widest">High in Calories, Low in Nutrients.</p>
         </div>
 
-        {/* Placeholder Graphic for 3D Plate */}
-        <div className="relative w-full max-w-[24rem] aspect-square rounded-full flex items-center justify-center transition-all duration-1000 ease-out mt-12 opacity-40 md:opacity-100" aria-hidden="true">
+        <div className="relative w-full max-w-[24rem] aspect-square flex items-center justify-center transition-all duration-1000 ease-out mt-12 opacity-40 md:opacity-100" aria-hidden="true">
           
           <div className={cn(
-            "absolute inset-0 rounded-full blur-[100px] transition-colors duration-1000",
+            "absolute inset-0 blur-[100px] transition-colors duration-1000 animate-blob",
             activeState === "gap" ? "bg-red-500/30" :
             activeState === "detox" ? "bg-orange-500/30" :
             activeState === "cleanse" ? "bg-blue-500/30" :
@@ -67,22 +66,50 @@ export default function Solution() {
           )} />
           
           <div className={cn(
-            "relative z-10 w-3/4 h-3/4 rounded-full border flex items-center justify-center backdrop-blur-2xl transition-all duration-1000",
+            "relative z-10 w-3/4 h-3/4 flex items-center justify-center transition-all duration-1000 overflow-hidden shadow-2xl animate-blob [mask-image:radial-gradient(white,black)]",
             activeState === "gap" ? "border-red-500/50 bg-red-500/5" :
             activeState === "detox" ? "border-orange-500/50 bg-orange-500/5" :
             activeState === "cleanse" ? "border-blue-500/50 bg-blue-500/5" :
             "border-primary/50 bg-primary/5"
           )}>
-            <span className={cn(
-              "font-bold tracking-[0.3em] uppercase text-sm transition-colors duration-1000",
-              activeState === "gap" ? "text-red-600" :
-              activeState === "detox" ? "text-orange-600" :
-              activeState === "cleanse" ? "text-blue-600" :
-              "text-primary"
-            )}>
-              {activeState === "gap" ? "Warning" :
-               activeState === "reset" ? "Harmonious" : "Adapting"}
-            </span>
+            <div className="absolute inset-0 w-full h-full">
+              <Image 
+                src="/images/gap.png"
+                alt="Unhealthy Breakfast"
+                fill
+                className={cn(
+                  "object-cover transition-all duration-1000",
+                  activeState === "gap" ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                )}
+              />
+              <Image 
+                src="/images/detox.png"
+                alt="Detox Juice"
+                fill
+                className={cn(
+                  "object-cover transition-all duration-1000",
+                  activeState === "detox" ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                )}
+              />
+              <Image 
+                src="/images/cleanse.png"
+                alt="Artery Cleanse"
+                fill
+                className={cn(
+                  "object-cover transition-all duration-1000",
+                  activeState === "cleanse" ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                )}
+              />
+              <Image 
+                src="/images/reset.png"
+                alt="Gut Reset"
+                fill
+                className={cn(
+                  "object-cover transition-all duration-1000",
+                  activeState === "reset" ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                )}
+              />
+            </div>
           </div>
 
           {/* Rotating SVG */}

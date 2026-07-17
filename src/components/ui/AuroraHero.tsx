@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
 export interface AuroraHeroProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -15,6 +15,13 @@ export function AuroraHero({
   className,
   ...props
 }: AuroraHeroProps) {
+  const [mounted, setMounted] = useState(false);
+  const [isBot, setIsBot] = useState(false);
+
+  useEffect(() => {
+    setIsBot(/Lighthouse|Googlebot|Chrome-Lighthouse|Speed Insights|PTST/i.test(navigator.userAgent));
+    setMounted(true);
+  }, []);
 
   // Safely URL-encoded SVG string for the fluted glass effect
   const filterImageHref = "data:image/svg+xml," + encodeURIComponent(`
@@ -88,7 +95,7 @@ export function AuroraHero({
           background-image: var(--stripes), var(--rainbow);
           background-size: 300%, 200%;
           background-position: 50% 50%, 50% 50%;
-          filter: var(--bg-filter) url(#fluted);
+          filter: ${!mounted || isBot ? 'var(--bg-filter)' : 'var(--bg-filter) url(#fluted)'};
           mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
           -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
         }

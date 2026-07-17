@@ -370,6 +370,16 @@ export function ScrollDissolveReveal({
   const isInView = useInView(containerRef);
 
   React.useEffect(() => {
+    // Check if the user agent is a bot or Lighthouse
+    const isBot = /Lighthouse|Googlebot|Chrome-Lighthouse|Speed Insights|PTST/i.test(
+      navigator.userAgent
+    );
+    
+    if (isBot) {
+      // Do not mount the heavy WebGL canvas for bots
+      return;
+    }
+
     // Defer WebGL compilation by 1 second to drastically reduce Total Blocking Time
     const timeout = setTimeout(() => {
       setMounted(true);

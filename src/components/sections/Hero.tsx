@@ -41,7 +41,7 @@ export default function Hero() {
                   ease: "easeInOut",
                   delay: card.delay,
                 }}
-                className="pointer-events-auto backdrop-blur-md bg-foreground/5 border border-foreground/10 rounded-2xl px-6 py-4 text-foreground font-sans text-sm md:text-lg font-normal shadow-sm"
+                className="pointer-events-auto backdrop-blur-md bg-foreground/5 border border-foreground/10 rounded-full px-6 py-3 md:px-8 md:py-4 text-foreground font-sans text-sm font-medium tracking-wide shadow-sm transition-colors hover:bg-foreground/10"
               >
                 {card.text}
               </motion.div>

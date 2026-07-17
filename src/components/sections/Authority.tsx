@@ -89,7 +89,7 @@ export default function Authority() {
 
           <div className="flex flex-wrap justify-center lg:justify-start gap-3 md:gap-4 mt-6 md:mt-8">
             {badges.map((badge, i) => (
-              <div key={i} className="backdrop-blur-md bg-foreground/5 border border-foreground/10 rounded-full px-5 py-2 md:px-8 md:py-4 text-foreground font-sans text-xs md:text-sm font-medium tracking-wider shadow-sm transition-colors hover:bg-foreground/10">
+              <div key={i} className="backdrop-blur-md bg-foreground/5 border border-foreground/10 rounded-full px-6 py-3 md:px-8 md:py-4 text-foreground font-sans text-sm font-medium tracking-wide shadow-sm transition-colors hover:bg-foreground/10">
                 {badge}
               </div>
             ))}

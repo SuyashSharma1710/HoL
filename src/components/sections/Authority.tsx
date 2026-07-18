@@ -57,7 +57,7 @@ export default function Authority() {
         <div className="w-full lg:w-1/2 flex items-center justify-center h-[40vh] lg:h-[60vh] relative">
           <div className="relative w-full max-w-sm lg:max-w-md h-full rounded-2xl md:rounded-3xl overflow-hidden border border-foreground/10 shadow-2xl">
             <Image 
-              src="/images/dr_rastogi.png" 
+              src="/images/dr._ashutosh_rastogi--optimized.webp" 
               alt="Dr. Ashutosh Rastogi" 
               fill
               className="object-cover transition-transform duration-700 hover:scale-105"

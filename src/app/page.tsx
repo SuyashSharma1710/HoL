@@ -1,36 +1,21 @@
-import Navbar from "@/components/ui/Navbar";
-import AudioController from "@/components/ui/AudioController";
-import Footer from "@/components/ui/Footer";
-import Logo from "@/components/ui/Logo";
-
-import dynamic from 'next/dynamic';
-import Hero from "@/components/sections/Hero";
-
-// Lazy load below-the-fold components
-const Authority = dynamic(() => import("@/components/sections/Authority"), { ssr: true });
-const RootCause = dynamic(() => import("@/components/sections/RootCause"), { ssr: true });
-const Pillars = dynamic(() => import("@/components/sections/Pillars"), { ssr: true });
-const Solution = dynamic(() => import("@/components/sections/Solution"), { ssr: true });
-const FaqSection = dynamic(() => import("@/components/sections/FaqSection"), { ssr: true });
-const CommunityIntake = dynamic(() => import("@/components/sections/CommunityIntake"), { ssr: true });
+import { Hero } from "@/components/home/Hero";
+import { HealthspanSection } from "@/components/home/HealthspanSection";
+import { ElectricSection } from "@/components/home/ElectricSection";
+import { InhibitorsSection } from "@/components/home/InhibitorsSection";
+import { PillarsSection } from "@/components/home/PillarsSection";
+import { GutResetSection } from "@/components/home/GutResetSection";
+import { CommunitySection } from "@/components/home/CommunitySection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background w-full flex flex-col selection:bg-secondary/30 selection:text-primary relative">
-      <Logo />
-      <Navbar />
-      <AudioController />
-      
+    <main className="min-h-dvh bg-background w-full flex flex-col">
       <Hero />
-      <Authority />
-      <RootCause />
-      <Pillars />
-      <Solution />
-      <FaqSection />
-      <CommunityIntake />
-   
-
-      <Footer />
+      <HealthspanSection />
+      <ElectricSection />
+      <InhibitorsSection />
+      <PillarsSection />
+      <GutResetSection />
+      <CommunitySection />
     </main>
   );
 }

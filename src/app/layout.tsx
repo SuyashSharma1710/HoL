@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { Noto_Serif, Inter } from "next/font/google";
 import "./globals.css";
-import SmoothScrollProvider from "@/components/animations/SmoothScrollProvider";
-import AnimatedFavicon from "@/components/animations/AnimatedFavicon";
+import { Navbar } from "@/components/layout/Navbar";
 
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const notoSerif = Noto_Serif({
+  variable: "--font-noto-serif",
   subsets: ["latin"],
 });
 
@@ -13,6 +12,7 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
+
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://theharmonyoflife.com'),
@@ -42,14 +42,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${inter.variable} font-sans antialiased`}
+      className={`${notoSerif.variable} ${inter.variable} font-sans antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex flex-col bg-background text-on-background" suppressHydrationWarning>
-        <AnimatedFavicon />
-        <SmoothScrollProvider>
-          {children}
-        </SmoothScrollProvider>
+      <body className="flex flex-col bg-background text-on-background pt-24" suppressHydrationWarning>
+        <Navbar />
+        {children}
 
         {/* Structured Data (Schema.org) */}
         <script

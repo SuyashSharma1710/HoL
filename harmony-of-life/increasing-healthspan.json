@@ -1,0 +1,74 @@
+{
+  "document_metadata": {
+    "title": "INCREASING HEALTHSPAN[cite: 3]",
+    "brand": "Harmony of Life[cite: 3]",
+    "author": "Dr. Ashutosh Rastogi[cite: 3]"
+  },
+  "core_dogma": {
+    "lifeforce_principles": [
+      "Presence of Lifeforce is Life[cite: 3].",
+      "Absence of Lifeforce is Death[cite: 3].",
+      "Blockages in Lifeforce Cause Disease[cite: 3]."
+    ],
+    "cellular_manifestation": [
+      "Lifeforce is manifested at the cellular level as cellular charge[cite: 3].",
+      "The body is made of trillions of cells, and each cell carries a cellular charge that drives its functioning[cite: 3].",
+      "Strong cellular charge improves cell performance, supporting energy, metabolism, repair, growth, and regeneration[cite: 3]."
+    ],
+    "healthspan_definition": [
+      "Healthspan is the number of years we live in good physical, mental, and metabolic health[cite: 3].",
+      "The focus is on quality of life, staying active, independent, and disease-free for longer[cite: 3]."
+    ]
+  },
+  "problem_identification": {
+    "causes_of_healthspan_decline": [
+      "Chronic stress[cite: 3]",
+      "Poor sleep quality[cite: 3]",
+      "Sedentary lifestyle[cite: 3]",
+      "Processed food[cite: 3]",
+      "Nutrient deficiencies[cite: 3]",
+      "Environmental toxins[cite: 3]"
+    ]
+  },
+  "proposed_solutions": {
+    "eight_pillars_of_optimal_health": [
+      "Detox Body: Removes toxins & supports natural cleansing[cite: 3].",
+      "Alkaline Body Chemistry: Maintains balanced pH for healthy cellular function[cite: 3].",
+      "Balanced Nutrition: Provides key nutrients for optimal body performance[cite: 3].",
+      "Stress: Managing stress supports mental and physical wellbeing[cite: 3].",
+      "Sleep: Essential for repair, recovery, and body balance[cite: 3].",
+      "Physical Exercise: Improves strength, circulation, and metabolic health[cite: 3].",
+      "Nature Connect: Restores balance and promotes relaxation[cite: 3].",
+      "Meditation (Yoga & Pranayam): Calms the mind and improves inner clarity[cite: 3]."
+    ]
+  },
+  "supplement_sales_funnel": {
+    "level_1_foundation_products": {
+      "Protein Powder": ["Natureleaf Isobalance[cite: 3]"],
+      "Fiber": ["Nutrilite Fiber[cite: 3]"],
+      "Pre Probiotic": ["Nutrilite Pre Probiotics[cite: 3]"],
+      "Multivitamin": ["Natureleaf Renew Forte[cite: 3]"],
+      "Omega 3": ["Natureleaf Vegan Omega Oil[cite: 3]"]
+    },
+    "level_2_insurance_against_lifestyle_disorders": {
+      "Detox": ["Natureleaf Deep Detox", "Cell Activator"],
+      "Protein": ["Natureleaf Isobalance[cite: 3]"],
+      "Fiber": ["Nutrilite Fiber[cite: 3]"],
+      "Pre Probiotic": ["Nutrilite Pre&Probiotic[cite: 3]"],
+      "Multivitamin": ["Natureleaf Renew Forte[cite: 3]"],
+      "Omega 3": ["Natureleaf Vegan Omega Oil", "Salmon Omega"],
+      "Superfood": ["Natureleaf Miracle Moringa[cite: 3]"],
+      "Alkalizer": ["Natureleaf Alkalizer[cite: 3]"],
+      "Magnesium": ["Natureleaf Magnesium Quattro[cite: 3]"],
+      "Vitamin D": ["Natureleaf Vit ADK[cite: 3]"]
+    },
+    "level_3_longevity_and_vitality_support": {
+      "usage_note": "To be taken with Level-2 Products[cite: 3]",
+      "Immunity": ["Natureleaf Black Seed Oil[cite: 3]"],
+      "Vitality": ["Natureleaf Vital Tee", "Natureleaf Ashwamax"],
+      "Performance": ["Natureleaf Shilajit Honey", "Nutrilite Ginseng with Gingko Biloba"],
+      "Rejuvenation": ["Natureleaf Gluta C", "Natureleaf Decalcifier", "Natureleaf LDL-X"],
+      "Longevity": ["Grape Seed Oil", "Natureleaf Mixed Berry Juice", "Nutrilite Billberry with Lutein", "NAC, NAD, Urolithin, Reservetrol"]
+    }
+  }
+}

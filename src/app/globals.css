@@ -1,81 +1,53 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
-  --color-background: #EAE0D1;
-  --color-foreground: #101D18;
-  --color-on-background: #101D18;
+  --color-background: #e9e0cf;
+  --color-foreground: #142b23;
+  --color-on-background: #142b23;
   
-  --color-surface: #EAE0D1;
-  --color-surface-dim: #DCD1BF;
-  --color-surface-bright: #F5EFE6;
+  --color-primary: #142b23;
+  --color-primary-foreground: #e9e0cf;
   
-  --color-primary: #6B7D6A;
-  --color-on-primary: #101D18;
-  --color-primary-foreground: #101D18;
+  --color-secondary: #607860;
+  --color-secondary-foreground: #e9e0cf;
   
-  --color-secondary: #B5995E;
-  --color-on-secondary: #101D18;
-  --color-secondary-foreground: #101D18;
+  --color-accent: #b69c5f;
+  --color-accent-foreground: #142b23;
   
-  --color-tertiary: #EAE0D1;
-  --color-on-tertiary: #101D18;
-  
-  --color-muted: #DCD1BF;
-  --color-muted-foreground: #6B7D6A;
-  
-  --color-accent: #B5995E;
-  --color-accent-foreground: #101D18;
-  
-  --color-destructive: #ffb4ab;
-  
-  --color-border: #6B7D6A;
-  --color-input: #6B7D6A;
-  --color-ring: #6B7D6A;
+  --color-border: #607860;
+  --color-input: #607860;
+  --color-ring: #b69c5f;
 
   /* Typography Scale Overrides */
-  --text-sm: 0.875rem; /* 14px Caption */
-  --text-base: 1.125rem; /* 18px Body (overriding standard 16px) */
-  --text-lg: 1.125rem; /* 18px Body */
-  --text-4xl: 2rem; /* 32px Heading (overriding standard 36px) */
-  --text-5xl: 3rem; /* 48px Display */
+  --text-sm: clamp(12px, 1.5vw, 14px); /* Caption */
+  --text-base: clamp(16px, 2vw, 18px); /* Body */
+  --text-lg: clamp(16px, 2vw, 18px); /* Body */
+  --text-4xl: clamp(24px, 4vw, 32px); /* Heading */
+  --text-5xl: clamp(32px, 5vw, 48px); /* Display */
   
   --font-sans: var(--font-inter);
-  --font-heading: var(--font-bricolage);
+  --font-heading: var(--font-noto-serif);
 
-  --animate-aurora-bg: aurora-bg 60s linear infinite;
-  --animate-blob: blob 8s infinite alternate ease-in-out;
-
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.75rem;
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
-  --radius-3xl: 2rem;
-  --radius-4xl: 3rem;
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 16px;
+  --radius-2xl: 16px;
+  --radius-3xl: 16px;
+  --radius-4xl: 16px;
   --radius-full: 9999px;
 }
 
 :root {
-  --background: #EAE0D1;
-  --foreground: #101D18;
-  --border: #6B7D6A;
-  --input: #6B7D6A;
-  --ring: #6B7D6A;
-  --radius: 0.75rem;
-  --stripe-color: rgba(16, 29, 24, 0.1);
-}
-
-.dark {
-  --background: #101D18;
-  --foreground: #EAE0D1;
-  --border: #6B7D6A;
-  --input: #6B7D6A;
-  --ring: #6B7D6A;
-  --stripe-color: rgba(234, 224, 209, 0.1);
+  --background: #e9e0cf;
+  --foreground: #142b23;
+  --border: #607860;
+  --input: #607860;
+  --ring: #b69c5f;
+  --radius: 16px;
 }
 
 @layer base {
@@ -91,29 +63,4 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
-}
-
-@keyframes aurora-bg {
-  from {
-    background-position: 50% 50%, 50% 50%;
-  }
-  to {
-    background-position: 350% 50%, 350% 50%;
-  }
-}
-
-@keyframes flip-char {
-  0% { transform: rotateX(-90deg); opacity: 0; }
-  20%, 100% { transform: rotateX(0deg); opacity: 1; }
-}
-
-.flip-char {
-  animation: flip-char var(--flip-duration, 2.2s) var(--flip-delay, 0s) var(--flip-iteration, infinite) cubic-bezier(0.4, 0, 0.2, 1) both;
-  transform-origin: center center;
-}
-
-@keyframes blob {
-  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
 }

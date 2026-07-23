@@ -1,0 +1,62 @@
+{
+  "document_metadata": {
+    "title": "ALKALINE BODY CHEMISTRY: Restoring pH Balance for Optimal Health[cite: 5]",
+    "brand": "Harmony of Life[cite: 5]"
+  },
+  "core_claims": {
+    "disease_environment": "Many diseases thrive in an acidic environment[cite: 5].",
+    "health_equation": "Acidic = Poor Health, Alkaline = Good Health[cite: 5].",
+    "cellular_voltage_relationship": "Cellular performance is proportional to cellular voltage, and cellular voltage increases with alkalinity[cite: 5].",
+    "voltage_and_age": "Membrane voltage decreases with age[cite: 5]."
+  },
+  "ph_scale_examples": {
+    "acidic_items": ["Battery", "Stomach Acid", "Lemon", "Vinegar", "Tomato", "Coffee", "Milk"],
+    "neutral_items": ["Water", "Blood"],
+    "alkaline_items": ["Baking Soda", "Stomach Tablets", "Ammonia Solution", "Soap", "Bleach", "Drain Cleaner"]
+  },
+  "membrane_voltage_status": [
+    {
+      "state": "Healthy[cite: 5]",
+      "voltage_range": "100 mW to 70 mW[cite: 5]"
+    },
+    {
+      "state": "Diminished[cite: 5]",
+      "voltage_range": "60 mW[cite: 5]"
+    },
+    {
+      "state": "Chronic Illness[cite: 5]",
+      "voltage_range": "40 mW[cite: 5]"
+    },
+    {
+      "state": "Cancerous[cite: 5]",
+      "voltage_range": "20 mW[cite: 5]"
+    }
+  ],
+  "proposed_benefits_of_alkalinity_and_cellular_charge": [
+    "Balance pH Levels: Alkaline properties help neutralize excess acidity, fostering a healthy environment for energy, digestion, and vitality[cite: 5].",
+    "Supercharge Your Cells: Cellular charge delivers essential minerals and electrolytes directly to your cells, enhancing their performance and boosting overall energy production[cite: 5].",
+    "Hydrate and Detoxify: Improve cellular hydration while supporting natural detoxification processes[cite: 5].",
+    "Strengthen Immunity: A balanced alkaline state paired with cellular support helps your body defend against stress and inflammation[cite: 5]."
+  ],
+  "recommended_alkaline_forming_foods": [
+    "Lemons & Limes[cite: 5]",
+    "Celery[cite: 5]",
+    "Cucumbers[cite: 5]",
+    "Leafy Greens (spinach, kale, cilantro, romaine, parsley, chard, collards, etc.)[cite: 5]",
+    "Cruciferous Vegetables (brocolli, cauliflower, cabbage, bok choy, brussel sprouts, kohlrabi)[cite: 5]",
+    "Melons (watermelon, cantalope, honeydew)[cite: 5]",
+    "Avocados[cite: 5]",
+    "Beets (w/ tops)[cite: 5]",
+    "Radishes[cite: 5]",
+    "Fresh Coconut Water[cite: 5]"
+  ],
+  "long_term_longevity_claims": {
+    "Increased Energy": "People report feeling more energetic and less fatigued on an alkaline diet, possibly due to better hydration and nutrient intake[cite: 5].",
+    "Weight Management": "Alkaline promote weight loss by encouraging nutrient-dense, low-calorie foods that reduce cravings and improve overall metabolism[cite: 5].",
+    "Skin Health": "Alkaline diets improve skin health by reducing inflammation, enhancing hydration, and providing essential nutrients that promote a clear and radiant complexion[cite: 5].",
+    "Bone Health": "Some studies suggest that reducing acidity in the body may help protect bone density by minimizing calcium loss[cite: 5].",
+    "Inflammation": "Alkaline foods are often rich in antioxidants, which can help reduce inflammation in the body[cite: 5].",
+    "Enhanced Nutrient Absorption": "A diet rich in alkaline foods can enhance the absorption of essential nutrients and minerals[cite: 5].",
+    "Reversing Lifestyle Disorders": "Alkaline helps in reversing lifestyle disorders such as chronic disease, metabolic disease, obesity, and diabetes[cite: 5]."
+  }
+}

@@ -154,7 +154,7 @@ export function Navbar() {
           {/* Mobile Menu (Sheet) */}
           <div className="xl:hidden flex items-center">
             <Sheet>
-              <SheetTrigger className="p-2 -mr-2 cursor-pointer rounded-full hover:bg-primary/5 active:bg-primary/10 transition-colors outline-none flex items-center justify-center text-primary">
+              <SheetTrigger aria-label="Open mobile menu" className="p-2 -mr-2 cursor-pointer rounded-full hover:bg-primary/5 active:bg-primary/10 transition-colors outline-none flex items-center justify-center text-primary">
                 <MenuIcon className="w-7 h-7" strokeWidth={1.5} />
               </SheetTrigger>
               <SheetContent side="right" className="w-full sm:w-112.5 bg-background/95 backdrop-blur-xl border-l border-primary/10 p-6 sm:p-8 overflow-y-auto flex flex-col">

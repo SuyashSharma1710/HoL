@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Serif, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 
 const notoSerif = Noto_Serif({
   variable: "--font-noto-serif",
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body className="flex flex-col bg-background text-on-background pt-24" suppressHydrationWarning>
         <Navbar />
         {children}
+        <Footer />
 
         {/* Structured Data (Schema.org) */}
         <script

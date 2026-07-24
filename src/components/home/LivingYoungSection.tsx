@@ -30,28 +30,28 @@ const itemVariants = {
 
 const cards = [
   {
-    title: "Direct support",
-    description: "Real-time guidance from doctors and nutritionists on WhatsApp. No bots. No waiting rooms.",
+    title: "Mitochondrial revival",
+    description: "Your mitochondria are the power plants of your cells. We give them the raw materials to produce clean, abundant energy again.",
     image: "/images/healthspan-vitality.png"
   },
   {
-    title: "Shared challenges",
-    description: "Prove the science to yourself. Join structured detoxes and voltage-building protocols with the tribe.",
+    title: "Deep detoxification",
+    description: "We go beyond juice cleanses. This is a systematic removal of heavy metals and metabolic waste blocking your charge.",
     image: "/images/inhibitor-toxins.png"
   },
   {
-    title: "Immersive retreats",
-    description: "Disconnect from the inhibitors. Reconnect with nature and your highest self in a charged environment.",
+    title: "Personalized path",
+    description: "No two bodies are the same. Your protocol adapts to your specific voltage deficits and health history.",
     image: "/images/inhibitor-sleep.png"
   },
   {
-    title: "Expert network",
-    description: "Access a curated panel of healers who understand that voltage precedes chemistry.",
+    title: "Measurable results",
+    description: "Track your biological age, not just your weight. Watch your energy, skin, and mental clarity transform week by week.",
     image: "/images/cellular-voltage.png"
   }
 ];
 
-export function CommunitySection() {
+export function LivingYoungSection() {
   return (
     <section className="relative w-full bg-primary py-24 sm:py-32 text-background">
       <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,32 +68,32 @@ export function CommunitySection() {
             >
               <motion.div variants={itemVariants}>
                 <p className="font-semibold text-accent tracking-widest uppercase text-sm mb-4">
-                  Community
+                  Program
                 </p>
                 <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-background font-semibold leading-[1.15]">
-                  You do not have to heal alone
+                  Reverse your biological age with living young
                 </h2>
               </motion.div>
               
               <motion.p variants={itemVariants} className="text-background/80 font-medium text-lg leading-relaxed max-w-xl">
-                A charged life requires a connected tribe. We built a global ecosystem to hold you accountable and lift you up.
+                This is a precise protocol to decrease your biological age. We target the mitochondria and flush the toxins that drain your lifeforce.
               </motion.p>
 
               <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6 pt-8">
                 <Link 
-                  href="#join"
+                  href="#start"
                   className={cn(
                     buttonVariants({ variant: "outline", size: "lg" }),
                     "border-accent text-accent hover:bg-accent hover:text-primary rounded-sm px-10 py-6 font-medium text-base transition-all bg-transparent"
                   )}
                 >
-                  Join
+                  Start
                 </Link>
                 <Link 
-                  href="#testimonials"
+                  href="#science"
                   className="group flex items-center gap-2 text-background font-semibold hover:text-accent transition-colors px-4 py-2"
                 >
-                  Testimonials 
+                  Science 
                   <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </motion.div>

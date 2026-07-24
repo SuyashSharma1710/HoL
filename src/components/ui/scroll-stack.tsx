@@ -68,10 +68,7 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
     return parseFloat(value as string);
   }, []);
 
-  const getElementOffset = useCallback((element: HTMLElement) => {
-    const rect = element.getBoundingClientRect();
-    return rect.top + window.scrollY;
-  }, []);
+
 
   const updateCardTransforms = useCallback(() => {
     if (!cardsRef.current.length || isUpdatingRef.current) return;
@@ -172,10 +169,11 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
   }, [stackPosition, itemStackDistance]);
 
   useLayoutEffect(() => {
-    const wrappers = Array.from(document.querySelectorAll(".scroll-stack-wrapper")) as HTMLElement[];
+    if (!scrollerRef.current) return;
+    const wrappers = Array.from(scrollerRef.current.querySelectorAll(".scroll-stack-wrapper")) as HTMLElement[];
     wrappersRef.current = wrappers;
     
-    const cards = Array.from(document.querySelectorAll(".scroll-stack-card")) as HTMLElement[];
+    const cards = Array.from(scrollerRef.current.querySelectorAll(".scroll-stack-card")) as HTMLElement[];
     cardsRef.current = cards;
 
     wrappers.forEach((wrapper, i) => {

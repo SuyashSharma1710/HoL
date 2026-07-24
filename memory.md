@@ -156,3 +156,11 @@ This document tracks all significant architectural changes, file creations, and 
   - Replaced arbitrary Tailwind values with canonical utility classes (`stroke-[3]` -> `stroke-3`, `bottom-[-1px]` -> `-bottom-px`, `translate-y-[2.5rem]` -> `translate-y-10`, etc.) in `ElectricSection.tsx` and `sheet.tsx`.
   - Fixed exhaustive-deps hook warnings in `scroll-stack.tsx` by adding `calculateOriginalTops` to `useLayoutEffect` and removing `getElementOffset` from `useCallback`.
 - **Why:** To maintain a strict zero-warning policy, ensuring the codebase remains perfectly clean, optimized, and easy to maintain.
+
+**36. Implemented CTASection (WhatsApp & Sheets Integration)**
+- **What:** Built a custom Contact & Socials section (`CTASection.tsx`) that replaces the old Kit section. The form dynamically redirects users to a pre-filled WhatsApp message (`wa.me`) and simultaneously fires a POST request to a Google Apps Script Webhook (for Google Sheets logging). Integrated a newsletter subscription field.
+- **Why:** Provides a seamless, highly functional contact pipeline without requiring a complex backend database.
+
+**37. Global Parallax Footer & UI Polish**
+- **What:** Designed a premium, interactive `Footer.tsx` utilizing a CSS `clip-path` parallax "curtain reveal" effect. Integrated edge-to-edge massive typography powered by a custom `ShinyText` framer-motion component. Implemented a custom theme-compliant scrollbar in `globals.css` and enforced strict `Design.md` shape compliance (8px and 16px border radii) across the CTA section.
+- **Why:** To cap off the user journey with a high-end, cinematic sign-off that perfectly aligns with the Celestial Wellness design tokens.

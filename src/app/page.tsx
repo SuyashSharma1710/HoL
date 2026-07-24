@@ -9,6 +9,8 @@ const GutResetSection = dynamic(() => import("@/components/home/GutResetSection"
 const CommunitySection = dynamic(() => import("@/components/home/CommunitySection").then(mod => mod.CommunitySection));
 const AuthoritySection = dynamic(() => import("@/components/home/AuthoritySection").then(mod => mod.AuthoritySection));
 const TestimonialsSection = dynamic(() => import("@/components/home/TestimonialsSection").then(mod => mod.TestimonialsSection));
+const LivingYoungSection = dynamic(() => import("@/components/home/LivingYoungSection").then(mod => mod.LivingYoungSection));
+const CTASection = dynamic(() => import("@/components/home/CTASection").then(mod => mod.CTASection));
 
 export default function Home() {
   return (
@@ -22,6 +24,8 @@ export default function Home() {
       <AuthoritySection />
       <CommunitySection />
       <TestimonialsSection />
+      <LivingYoungSection />
+      <CTASection />
     </main>
   );
 }

@@ -116,10 +116,10 @@ export function InhibitorsSection() {
           className="relative w-full group"
         >
           {/* Custom Navigation Buttons */}
-          <button className="inhibitor-prev absolute left-2 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
+          <button aria-label="Previous slide" className="inhibitor-prev absolute left-2 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
             <ChevronLeft className="w-6 h-6 stroke-3" />
           </button>
-          <button className="inhibitor-next absolute right-2 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
+          <button aria-label="Next slide" className="inhibitor-next absolute right-2 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
             <ChevronRight className="w-6 h-6 stroke-3" />
           </button>
 

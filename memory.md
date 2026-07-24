@@ -200,3 +200,7 @@ This document tracks all significant architectural changes, file creations, and 
 **44. Fixed Footer Content Overflow Clipping**
 - **What:** Increased the parallax footer height on desktop from `90vh` to `100dvh` (full screen) and significantly reduced the vertical padding (`space-y-4` -> `space-y-2`) between the 10 navigation links in the 'Explore', 'Connect', and 'Legal' columns. 
 - **Why:** The addition of 4 new navigation links pushed the total vertical height of the content beyond the strict `90vh` clip-path bounds, causing the bottom copyright text and the massive "HARMONY OF LIFE" typography to get clipped out of view. Shrinking the gaps and expanding the height restores the layout perfectly.
+
+**45. Fixed Button Accessibility Audit (A11y)**
+- **What:** Added descriptive `aria-label="Previous slide"` and `aria-label="Next slide"` attributes to the icon-only navigation buttons within the `InhibitorsSection.tsx` Swiper carousel.
+- **Why:** Screen readers rely on discernible text to explain interactive elements. Icon-only buttons without `aria-label`s fail accessibility audits because visually impaired users don't know what the buttons do.

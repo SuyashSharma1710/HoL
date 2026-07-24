@@ -212,3 +212,7 @@ This document tracks all significant architectural changes, file creations, and 
 **47. Refactored Webhook Payload Construction**
 - **What:** Swapped `new FormData()` for `new URLSearchParams()` across both lead generation forms in `CTASection.tsx`, and fixed a casing typo to exactly match the `"Emails"` column header.
 - **Why:** To force the `application/x-www-form-urlencoded` content type, which Google Apps Script parses far more reliably via `e.parameter` when dealing with restricted `no-cors` browser headers.
+
+**48. Optimized Form Submission UX**
+- **What:** Reordered the execution flow in the Leads form `handleSubmit` so that the WhatsApp redirect happens instantly, and converted the Google Sheets fetch into a non-blocking background task.
+- **Why:** Waiting on a `no-cors` fetch request to resolve can introduce artificial latency and block the UI. Firing the redirect first guarantees an instant, snappy user experience while data routes silently in the background.

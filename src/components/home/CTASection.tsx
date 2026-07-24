@@ -94,9 +94,12 @@ export function CTASection() {
     setIsSubmitting(true);
 
     try {
-      // 1. Send data to Google Sheets via Web App URL
-      // We use 'no-cors' so the browser doesn't block the request if the Google Script doesn't return CORS headers.
-      // Note: 'no-cors' means we won't get a readable response back, but the POST will succeed on Google's end.
+      // 1. Instantly redirect to WhatsApp for the best user experience
+      const message = `Hello! My name is ${formData.name}.\n\n*Phone:* ${formData.number}\n*Primary Issue:* ${formData.issue}\n*Description:* ${formData.description}`;
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, "_blank");
+
+      // 2. Send data to Google Sheets via Web App URL in the background without blocking
       const payload = new URLSearchParams();
       payload.append("sheetName", "Leads"); // Routes data to the Leads tab
       payload.append("name", formData.name);
@@ -104,17 +107,12 @@ export function CTASection() {
       payload.append("issue", formData.issue);
       payload.append("summary", formData.description);
 
-      await fetch(GOOGLE_SCRIPT_URL, {
+      // Fire and forget (no await) to prevent any UI blocking
+      fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
         body: payload,
-      });
-
-      // 2. Redirect to WhatsApp
-      const message = `Hello! My name is ${formData.name}.\n\n*Phone:* ${formData.number}\n*Primary Issue:* ${formData.issue}\n*Description:* ${formData.description}`;
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-      
-      window.open(waUrl, "_blank");
+      }).catch(err => console.error("Sheets webhook failed:", err));
 
       // Reset form
       setFormData({ name: "", number: "", issue: "", description: "" });

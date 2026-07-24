@@ -94,12 +94,7 @@ export function CTASection() {
     setIsSubmitting(true);
 
     try {
-      // 1. Instantly redirect to WhatsApp for the best user experience
-      const message = `Hello! My name is ${formData.name}.\n\n*Phone:* ${formData.number}\n*Primary Issue:* ${formData.issue}\n*Description:* ${formData.description}`;
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, "_blank");
-
-      // 2. Send data to Google Sheets via Web App URL in the background without blocking
+      // 1. Send data to Google Sheets via Web App URL
       const payload = new URLSearchParams();
       payload.append("sheetName", "Leads"); // Routes data to the Leads tab
       payload.append("name", formData.name);
@@ -107,12 +102,20 @@ export function CTASection() {
       payload.append("issue", formData.issue);
       payload.append("summary", formData.description);
 
-      // Fire and forget (no await) to prevent any UI blocking
-      fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: payload,
-      }).catch(err => console.error("Sheets webhook failed:", err));
+      try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: payload,
+        });
+      } catch (err) {
+        console.error("Sheets webhook failed:", err);
+      }
+
+      // 2. Redirect to WhatsApp after sheet submission
+      const message = `Hello! My name is ${formData.name}.\n\n*Phone:* ${formData.number}\n*Primary Issue:* ${formData.issue}\n*Description:* ${formData.description}`;
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(waUrl, "_blank");
 
       // Reset form
       setFormData({ name: "", number: "", issue: "", description: "" });

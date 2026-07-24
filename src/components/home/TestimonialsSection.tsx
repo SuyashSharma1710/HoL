@@ -99,11 +99,11 @@ export function TestimonialsSection() {
           className="relative w-full group"
         >
           {/* Custom Navigation Buttons */}
-          <button className="testimonial-prev absolute left-2 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-0 group-hover:opacity-100 hidden sm:flex">
-            <ChevronLeft className="w-6 h-6 stroke-[3]" />
+          <button className="testimonial-prev absolute left-2 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full hidden items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-0 group-hover:opacity-100 sm:flex">
+            <ChevronLeft className="w-6 h-6 stroke-3" />
           </button>
-          <button className="testimonial-next absolute right-2 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-0 group-hover:opacity-100 hidden sm:flex">
-            <ChevronRight className="w-6 h-6 stroke-[3]" />
+          <button className="testimonial-next absolute right-2 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full hidden items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-0 group-hover:opacity-100 sm:flex">
+            <ChevronRight className="w-6 h-6 stroke-3" />
           </button>
 
           <style dangerouslySetInnerHTML={{__html: `
@@ -141,7 +141,7 @@ export function TestimonialsSection() {
                   </div>
                   
                   <p className="text-primary/80 font-medium text-base leading-relaxed mb-8 grow">
-                    "{item.text}"
+                    &quot;{item.text}&quot;
                   </p>
                   
                   <div className="flex items-center gap-4 mt-auto">

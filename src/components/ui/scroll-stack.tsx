@@ -154,7 +154,6 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
     blurAmount,
     calculateProgress,
     parsePercentage,
-    getElementOffset,
   ]);
 
   const calculateOriginalTops = useCallback(() => {
@@ -216,7 +215,7 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
       currentTransforms.clear();
       isUpdatingRef.current = false;
     };
-  }, [itemDistance, updateCardTransforms]);
+  }, [itemDistance, updateCardTransforms, calculateOriginalTops]);
 
   return (
     <div className={`relative w-full ${className}`.trim()} ref={scrollerRef}>

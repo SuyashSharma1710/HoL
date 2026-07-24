@@ -148,3 +148,11 @@ This document tracks all significant architectural changes, file creations, and 
 **34. Implemented TestimonialsSection & Custom Swiper Navigation**
 - **What:** Created `TestimonialsSection.tsx` and refactored Swiper navigation in both `InhibitorsSection.tsx` and `TestimonialsSection.tsx` to use custom Tailwind-styled buttons with `lucide-react` icons (ChevronLeft/Right) bound via Swiper's `navigation={{prevEl, nextEl}}` API.
 - **Why:** Bypasses Swiper's native CSS specificity issues and ensures the navigation buttons perfectly match the brand's aesthetic (white circular shadows over the slides) without messy `!important` CSS overrides.
+
+**35. Resolved Codebase Linting Warnings**
+- **What:** Performed a wide sweep to fix various ESLint and Tailwind IntelliSense warnings:
+  - Escaped raw quotes (`&quot;`) in `TestimonialsSection.tsx`.
+  - Resolved `flex` and `hidden` conflicting display classes in Swiper navigation buttons.
+  - Replaced arbitrary Tailwind values with canonical utility classes (`stroke-[3]` -> `stroke-3`, `bottom-[-1px]` -> `-bottom-px`, `translate-y-[2.5rem]` -> `translate-y-10`, etc.) in `ElectricSection.tsx` and `sheet.tsx`.
+  - Fixed exhaustive-deps hook warnings in `scroll-stack.tsx` by adding `calculateOriginalTops` to `useLayoutEffect` and removing `getElementOffset` from `useCallback`.
+- **Why:** To maintain a strict zero-warning policy, ensuring the codebase remains perfectly clean, optimized, and easy to maintain.

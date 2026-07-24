@@ -116,7 +116,7 @@ export function ElectricSection() {
               {activeTab === tab && (
                 <motion.div 
                   layoutId="activeTabIndicator"
-                  className="absolute bottom-[-1px] left-0 right-0 h-0.5 bg-accent"
+                  className="absolute -bottom-px left-0 right-0 h-0.5 bg-accent"
                   initial={false}
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
@@ -126,7 +126,7 @@ export function ElectricSection() {
         </div>
 
         {/* Tab Content Area */}
-        <div className="w-full max-w-5xl mx-auto relative min-h-[500px] lg:min-h-[400px]">
+        <div className="w-full max-w-5xl mx-auto relative min-h-125 lg:min-h-100">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}

@@ -128,3 +128,7 @@ This document tracks all significant architectural changes, file creations, and 
 **29. Comprehensive Tailwind v4 & Typescript Linting Pass**
 - **What:** Addressed all ESLint `any` type warnings and React `exhaustive-deps` hook issues. Migrated legacy bracket-notation Tailwind classes (e.g. `bg-gradient-to-r`, `blur-[40px]`, `w-[400px]`) across `PillarsSection.tsx` and `CommunitySection.tsx` to their modern Tailwind v4 canonical equivalents (e.g. `bg-linear-to-r`, `blur-2xl`, `w-100`).
 - **Why:** To ensure strict adherence to standard styling guidelines and keep the codebase perfectly clean, future-proof, and lint-free.
+
+**30. Fixed Navbar Accessibility Issues**
+- **What:** Added `aria-label` attributes to all social media icon `<Link>` elements in both the desktop and mobile views of `Navbar.tsx`.
+- **Why:** To fix accessibility audit failures related to "Links must have discernible text" since the links previously only contained SVG icons without screen reader text.

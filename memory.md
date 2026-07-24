@@ -208,3 +208,7 @@ This document tracks all significant architectural changes, file creations, and 
 **46. Google Sheets Webhook Integration**
 - **What:** Injected the live Google Apps Script Web App URL into `CTASection.tsx`, effectively activating the Leads form and Newsletter form submissions.
 - **Why:** To enable seamless backend data collection by routing incoming web leads and newsletter emails directly to the client's Google Sheets using a `no-cors` POST request.
+
+**47. Refactored Webhook Payload Construction**
+- **What:** Swapped `new FormData()` for `new URLSearchParams()` across both lead generation forms in `CTASection.tsx`, and fixed a casing typo to exactly match the `"Emails"` column header.
+- **Why:** To force the `application/x-www-form-urlencoded` content type, which Google Apps Script parses far more reliably via `e.parameter` when dealing with restricted `no-cors` browser headers.

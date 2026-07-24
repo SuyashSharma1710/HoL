@@ -71,9 +71,9 @@ export function CTASection() {
     e.preventDefault();
     if (email) {
       try {
-        const payload = new FormData();
+        const payload = new URLSearchParams();
         payload.append("sheetName", "Emails"); // Routes data to the Emails tab
-        payload.append("email", email);
+        payload.append("Emails", email);
 
         await fetch(GOOGLE_SCRIPT_URL, {
           method: "POST",
@@ -97,7 +97,7 @@ export function CTASection() {
       // 1. Send data to Google Sheets via Web App URL
       // We use 'no-cors' so the browser doesn't block the request if the Google Script doesn't return CORS headers.
       // Note: 'no-cors' means we won't get a readable response back, but the POST will succeed on Google's end.
-      const payload = new FormData();
+      const payload = new URLSearchParams();
       payload.append("sheetName", "Leads"); // Routes data to the Leads tab
       payload.append("name", formData.name);
       payload.append("phone", formData.number);

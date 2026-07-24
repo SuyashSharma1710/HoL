@@ -67,11 +67,26 @@ export function CTASection() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      alert("Thanks for subscribing to our newsletter!");
-      setEmail("");
+      try {
+        if (GOOGLE_SCRIPT_URL !== "YOUR_WEB_APP_URL") {
+          const payload = new FormData();
+          payload.append("sheetName", "Emails"); // Routes data to the Emails tab
+          payload.append("email", email);
+
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: "POST",
+            mode: "no-cors",
+            body: payload,
+          });
+        }
+        alert("Thanks for subscribing to our newsletter!");
+        setEmail("");
+      } catch (error) {
+        console.error("Error subscribing:", error);
+      }
     }
   };
 
@@ -85,10 +100,11 @@ export function CTASection() {
       // Note: 'no-cors' means we won't get a readable response back, but the POST will succeed on Google's end.
       if (GOOGLE_SCRIPT_URL !== "YOUR_WEB_APP_URL") {
         const payload = new FormData();
+        payload.append("sheetName", "Leads"); // Routes data to the Leads tab
         payload.append("name", formData.name);
-        payload.append("number", formData.number);
+        payload.append("phone", formData.number);
         payload.append("issue", formData.issue);
-        payload.append("description", formData.description);
+        payload.append("summary", formData.description);
 
         await fetch(GOOGLE_SCRIPT_URL, {
           method: "POST",

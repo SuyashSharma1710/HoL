@@ -216,3 +216,7 @@ This document tracks all significant architectural changes, file creations, and 
 **48. Optimized Form Submission UX**
 - **What:** Reordered the execution flow in the Leads form `handleSubmit` so that the WhatsApp redirect happens instantly, and converted the Google Sheets fetch into a non-blocking background task.
 - **Why:** Waiting on a `no-cors` fetch request to resolve can introduce artificial latency and block the UI. Firing the redirect first guarantees an instant, snappy user experience while data routes silently in the background.
+
+**49. Form Submission Success Modal**
+- **What:** Implemented a full-screen, animated "Thank You" modal overlay in `CTASection.tsx` that triggers immediately upon form submission.
+- **Why:** To provide clear visual feedback to the user while the system `await`s the Google Sheets webhook request, before ultimately redirecting them to WhatsApp.

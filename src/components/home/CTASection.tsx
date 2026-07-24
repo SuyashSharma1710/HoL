@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowRight,
-  Loader2
+  Loader2,
+  CheckCircle2
 } from "lucide-react";
 import { useState } from "react";
 import { buttonVariants } from "@/components/ui/button";
@@ -56,6 +57,7 @@ const socials = [
 export function CTASection() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     number: "",
@@ -92,6 +94,7 @@ export function CTASection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setShowThankYou(true); // Show the thank you dialog right away
 
     try {
       // 1. Send data to Google Sheets via Web App URL
@@ -117,18 +120,52 @@ export function CTASection() {
       const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       window.open(waUrl, "_blank");
 
-      // Reset form
-      setFormData({ name: "", number: "", issue: "", description: "" });
+      // Hold the thank you dialog open for a brief moment after redirect
+      setTimeout(() => {
+        setShowThankYou(false);
+        setIsSubmitting(false);
+        setFormData({ name: "", number: "", issue: "", description: "" });
+      }, 1500);
+
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Something went wrong. Please try again.");
-    } finally {
+      setShowThankYou(false);
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="cta" className="w-full bg-background py-24 sm:py-32 text-primary border-t border-primary/10">
+    <section id="cta" className="relative w-full bg-background py-24 sm:py-32 text-primary border-t border-primary/10">
+      
+      {/* Thank You Overlay Modal */}
+      <AnimatePresence>
+        {showThankYou && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm px-4"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="bg-white p-8 sm:p-12 rounded-2xl shadow-2xl border border-primary/10 text-center max-w-md w-full flex flex-col items-center gap-4"
+            >
+              <div className="w-16 h-16 bg-[#b69c5f]/20 rounded-full flex items-center justify-center mb-2">
+                <CheckCircle2 className="w-8 h-8 text-[#b69c5f]" />
+              </div>
+              <h3 className="font-heading text-2xl sm:text-3xl font-bold text-primary">Thank You!</h3>
+              <p className="text-primary/70 mb-4">
+                We are securely transmitting your details and connecting you to WhatsApp...
+              </p>
+              <Loader2 className="w-6 h-6 animate-spin text-[#b69c5f]" />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           variants={containerVariants}

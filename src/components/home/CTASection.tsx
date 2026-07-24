@@ -145,6 +145,8 @@ export function CTASection() {
                     href={social.href}
                     className="w-14 h-14 rounded-sm border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-background hover:border-primary transition-all duration-300 group"
                     aria-label={social.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <social.icon className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" strokeWidth={1.5} />
                   </a>

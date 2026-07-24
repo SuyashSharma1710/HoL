@@ -71,17 +71,16 @@ export function CTASection() {
     e.preventDefault();
     if (email) {
       try {
-        if (GOOGLE_SCRIPT_URL !== "YOUR_WEB_APP_URL") {
-          const payload = new FormData();
-          payload.append("sheetName", "Emails"); // Routes data to the Emails tab
-          payload.append("email", email);
+        const payload = new FormData();
+        payload.append("sheetName", "Emails"); // Routes data to the Emails tab
+        payload.append("email", email);
 
-          await fetch(GOOGLE_SCRIPT_URL, {
-            method: "POST",
-            mode: "no-cors",
-            body: payload,
-          });
-        }
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: payload,
+        });
+        
         alert("Thanks for subscribing to our newsletter!");
         setEmail("");
       } catch (error) {
@@ -98,20 +97,18 @@ export function CTASection() {
       // 1. Send data to Google Sheets via Web App URL
       // We use 'no-cors' so the browser doesn't block the request if the Google Script doesn't return CORS headers.
       // Note: 'no-cors' means we won't get a readable response back, but the POST will succeed on Google's end.
-      if (GOOGLE_SCRIPT_URL !== "YOUR_WEB_APP_URL") {
-        const payload = new FormData();
-        payload.append("sheetName", "Leads"); // Routes data to the Leads tab
-        payload.append("name", formData.name);
-        payload.append("phone", formData.number);
-        payload.append("issue", formData.issue);
-        payload.append("summary", formData.description);
+      const payload = new FormData();
+      payload.append("sheetName", "Leads"); // Routes data to the Leads tab
+      payload.append("name", formData.name);
+      payload.append("phone", formData.number);
+      payload.append("issue", formData.issue);
+      payload.append("summary", formData.description);
 
-        await fetch(GOOGLE_SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          body: payload,
-        });
-      }
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        body: payload,
+      });
 
       // 2. Redirect to WhatsApp
       const message = `Hello! My name is ${formData.name}.\n\n*Phone:* ${formData.number}\n*Primary Issue:* ${formData.issue}\n*Description:* ${formData.description}`;

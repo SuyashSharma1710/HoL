@@ -184,3 +184,7 @@ This document tracks all significant architectural changes, file creations, and 
 **40. Global Navigation & Anchor Routing System**
 - **What:** Injected semantic `id` tags (`#about`, `#lifeforce`, `#community`, etc.) onto the root `<section>` wrappers of all 10 core landing page components to match the `<Navbar />` routes. Refactored all localized CTA buttons (e.g. "Start", "Learn", "Meet", "Heal") inside individual sections to point to logical destinations within the newly anchored flow instead of dead links.
 - **Why:** To stitch the standalone components into a cohesive single-page application journey, allowing the global header navigation and inter-section buttons to smoothly transport users through the narrative using Lenis.
+
+**41. Implemented Lenis Smooth Scrolling & Anchor Interception**
+- **What:** Installed `@studio-freight/lenis` and created a global client-side `LenisProvider.tsx`. Wrapped the entire application layout in this provider to instantiate a buttery-smooth `requestAnimationFrame` scroll loop. Added a global click event listener to intercept all `<a>` anchor tags pointing to `#` IDs.
+- **Why:** To replace the harsh, instant native browser jumping with elegant, eased smooth-scrolling when clicking the Navbar links or section CTA buttons. Added a `-100px` offset so that the destination sections don't get covered by the fixed sticky navbar upon arrival.

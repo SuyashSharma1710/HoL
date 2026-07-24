@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
+import { LenisProvider } from "@/components/layout/LenisProvider";
+
 const notoSerif = Noto_Serif({
   variable: "--font-noto-serif",
   subsets: ["latin"],
@@ -47,9 +49,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex flex-col bg-background text-on-background pt-24" suppressHydrationWarning>
-        <Navbar />
-        {children}
-        <Footer />
+        <LenisProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </LenisProvider>
 
         {/* Structured Data (Schema.org) */}
         <script

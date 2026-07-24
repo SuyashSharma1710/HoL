@@ -50,6 +50,7 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
   const animationFrameRef = useRef<number | null>(null);
   const wrappersRef = useRef<HTMLElement[]>([]);
   const cardsRef = useRef<HTMLElement[]>([]);
+  const spacerRef = useRef<HTMLDivElement>(null);
   const lastTransformsRef = useRef(new Map<number, { scale: number; rotation: number; blur: number }>());
   const originalTopsRef = useRef<number[]>([]);
   const isUpdatingRef = useRef(false);
@@ -184,6 +185,10 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
       }
     });
 
+    if (spacerRef.current) {
+      spacerRef.current.style.height = `${wrappers.length * itemDistance + window.innerHeight}px`;
+    }
+
     calculateOriginalTops();
     window.addEventListener("resize", calculateOriginalTops);
 
@@ -217,8 +222,8 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
     <div className={`relative w-full ${className}`.trim()} ref={scrollerRef}>
       <div className="scroll-stack-inner w-full">
         {children}
-        {/* Massive runway to keep the final card sticky while the 400vh parent finishes */}
-        <div className="scroll-stack-end w-full h-[150vh]" />
+        {/* Dynamic runway to keep the final card sticky based on item count */}
+        <div ref={spacerRef} className="scroll-stack-end w-full" />
       </div>
     </div>
   );

@@ -141,6 +141,6 @@ This document tracks all significant architectural changes, file creations, and 
 - **What:** Refactored `page.tsx` to dynamically import all sections below the fold using `next/dynamic`.
 - **Why:** To code-split heavy Javascript and stylesheets (like Swiper CSS) out of the initial load, dramatically reducing the maximum critical path latency for the first paint (Hero Section).
 
-**33. Fixed ScrollStack Animation Truncation**
-- **What:** Increased the right-column container in `CommunitySection.tsx` to `min-h-[400vh]` and extended the sticky end-spacer in `scroll-stack.tsx` to `h-[150vh]`.
-- **Why:** The native `position: sticky` logic requires physical parent container height to function. The final card was being forcefully ripped out of the viewport because the container ended exactly 1px after the item stacked, giving the animation zero runway to rest.
+**33. Fixed ScrollStack Animation Truncation (Dynamic Calculation)**
+- **What:** Increased the right-column container in `CommunitySection.tsx` to `min-h-[400vh]` and replaced the static spacer in `scroll-stack.tsx` with a dynamically calculated height (`wrappers.length * itemDistance + window.innerHeight`).
+- **Why:** To provide the exact required physical runway for native `position: sticky` to function properly, preventing the final card from being forcefully ripped out of the viewport while remaining robust against future changes in card quantity or viewport height.

@@ -192,3 +192,7 @@ This document tracks all significant architectural changes, file creations, and 
 **42. Unified Navigation Architecture**
 - **What:** Injected all 10 core landing page section links into the desktop and mobile `Navbar.tsx` (using the 'Explore' dropdown for overflow), as well as the global `Footer.tsx` nav list. 
 - **Why:** To provide the user with complete, instant access to any part of the journey (Pillars, Dr. Rastogi, Testimonials, Contact) from anywhere on the page, fully utilizing the new Lenis smooth scroll system.
+
+**43. Synchronized Social Media Links**
+- **What:** Updated the social media icons and URL targets in `CTASection.tsx` (Connect Section) to use `lucide-react` icons (replacing inline SVG code) and point to the actual Harmony of Life social profiles.
+- **Why:** To ensure brand consistency, clean up unused code, and ensure all "Connect with the tribe" links correctly route users to active external social channels instead of dead `#` anchors.

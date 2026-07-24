@@ -9,12 +9,16 @@ import { ShinyText } from "@/components/ui/shiny-text";
 import { FallingLeaves } from "@/components/ui/falling-leaves";
 
 const navLinks = [
-  { name: "About us", href: "/#about" },
-  { name: "Lifeforce", href: "/#lifeforce" },
-  { name: "Living young", href: "/#living-young" },
-  { name: "Root cause reversal", href: "/#reversal" },
-  { name: "Gut reset", href: "/#gut-reset" },
-  { name: "Community", href: "/#community" },
+  { name: "About us", href: "#about" },
+  { name: "Lifeforce", href: "#lifeforce" },
+  { name: "Living young", href: "#living-young" },
+  { name: "Root cause reversal", href: "#reversal" },
+  { name: "12 Pillars", href: "#pillars" },
+  { name: "Gut reset", href: "#gut-reset" },
+  { name: "Dr. Rastogi", href: "#authority" },
+  { name: "Community", href: "#community" },
+  { name: "Testimonials", href: "#testimonials" },
+  { name: "Contact us", href: "#cta" },
 ];
 
 const socialLinks = [

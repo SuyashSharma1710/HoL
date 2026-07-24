@@ -188,3 +188,7 @@ This document tracks all significant architectural changes, file creations, and 
 **41. Implemented Lenis Smooth Scrolling & Anchor Interception**
 - **What:** Installed `@studio-freight/lenis` and created a global client-side `LenisProvider.tsx`. Wrapped the entire application layout in this provider to instantiate a buttery-smooth `requestAnimationFrame` scroll loop. Added a global click event listener to intercept all `<a>` anchor tags pointing to `#` IDs.
 - **Why:** To replace the harsh, instant native browser jumping with elegant, eased smooth-scrolling when clicking the Navbar links or section CTA buttons. Added a `-100px` offset so that the destination sections don't get covered by the fixed sticky navbar upon arrival.
+
+**42. Unified Navigation Architecture**
+- **What:** Injected all 10 core landing page section links into the desktop and mobile `Navbar.tsx` (using the 'Explore' dropdown for overflow), as well as the global `Footer.tsx` nav list. 
+- **Why:** To provide the user with complete, instant access to any part of the journey (Pillars, Dr. Rastogi, Testimonials, Contact) from anywhere on the page, fully utilizing the new Lenis smooth scroll system.

@@ -88,10 +88,22 @@ export function Navbar() {
                 <Link href="#reversal" className="w-full h-full block py-1">Root cause reversal</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
+                <Link href="#pillars" className="w-full h-full block py-1">12 Pillars</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
                 <Link href="#gut-reset" className="w-full h-full block py-1">Gut reset</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
+                <Link href="#authority" className="w-full h-full block py-1">Dr. Rastogi</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
                 <Link href="#community" className="w-full h-full block py-1">Community</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
+                <Link href="#testimonials" className="w-full h-full block py-1">Testimonials</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
+                <Link href="#cta" className="w-full h-full block py-1">Contact us</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -199,13 +211,29 @@ export function Navbar() {
                     <Activity className="w-5 h-5 shrink-0 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Root cause reversal
                   </Link>
+                  <Link href="#pillars" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                    <Sparkles className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+                    12 Pillars
+                  </Link>
                   <Link href="#gut-reset" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Apple className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Gut reset
                   </Link>
+                  <Link href="#authority" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                    <Info className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+                    Dr. Rastogi
+                  </Link>
                   <Link href="#community" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <MessageCircle className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                    Community / Contact us
+                    Community
+                  </Link>
+                  <Link href="#testimonials" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                    <Heart className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+                    Testimonials
+                  </Link>
+                  <Link href="#cta" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                    <MessageCircle className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
+                    Contact us
                   </Link>
                 </div>
                 

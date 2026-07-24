@@ -204,3 +204,7 @@ This document tracks all significant architectural changes, file creations, and 
 **45. Fixed Button Accessibility Audit (A11y)**
 - **What:** Added descriptive `aria-label="Previous slide"` and `aria-label="Next slide"` attributes to the icon-only navigation buttons within the `InhibitorsSection.tsx` Swiper carousel.
 - **Why:** Screen readers rely on discernible text to explain interactive elements. Icon-only buttons without `aria-label`s fail accessibility audits because visually impaired users don't know what the buttons do.
+
+**46. Google Sheets Webhook Integration**
+- **What:** Injected the live Google Apps Script Web App URL into `CTASection.tsx`, effectively activating the Leads form and Newsletter form submissions.
+- **Why:** To enable seamless backend data collection by routing incoming web leads and newsletter emails directly to the client's Google Sheets using a `no-cors` POST request.

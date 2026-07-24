@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 // Replace these with your actual details!
 const WHATSAPP_NUMBER = "1234567890"; 
-const GOOGLE_SCRIPT_URL = "YOUR_WEB_APP_URL"; 
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwFGhgNti4NnOuZFpq-j4pUacV-j1_FL_2WHdXYVAiyLlNmYCQ7QURwj8GNTzI93ndf/exec"; 
 
 const Facebook = ({ className, strokeWidth = 2 }: { className?: string, strokeWidth?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>

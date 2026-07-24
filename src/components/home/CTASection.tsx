@@ -74,7 +74,7 @@ export function CTASection() {
     if (email) {
       try {
         const payload = new URLSearchParams();
-        payload.append("sheetName", "Emails"); // Routes data to the Emails tab
+        payload.append("sheetName", "Sheet2"); // Routes data to the Sheet2 tab
         payload.append("Emails", email);
 
         await fetch(GOOGLE_SCRIPT_URL, {
@@ -99,7 +99,7 @@ export function CTASection() {
     try {
       // 1. Send data to Google Sheets via Web App URL
       const payload = new URLSearchParams();
-      payload.append("sheetName", "Leads"); // Routes data to the Leads tab
+      payload.append("sheetName", "Sheet1"); // Routes data to the Sheet1 tab
       payload.append("name", formData.name);
       payload.append("phone", formData.number);
       payload.append("issue", formData.issue);

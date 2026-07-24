@@ -47,13 +47,13 @@ export function Footer() {
   return (
     <footer 
       ref={containerRef} 
-      className="relative w-full h-auto sm:h-[90vh] overflow-hidden bg-background"
+      className="relative w-full h-auto sm:h-[100dvh] overflow-hidden bg-background"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <FallingLeaves />
       <motion.div 
         style={{ y }} 
-        className="relative sm:fixed sm:bottom-0 sm:left-0 w-full h-auto sm:h-[90vh] bg-primary text-background flex flex-col justify-between pt-16 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        className="relative sm:fixed sm:bottom-0 sm:left-0 w-full h-auto sm:h-[100dvh] bg-primary text-background flex flex-col justify-between pt-16 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden"
       >
         
         {/* Interactive Leaf Container */}
@@ -92,9 +92,9 @@ export function Footer() {
           <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12">
             
             {/* Explore */}
-            <div className="flex flex-col space-y-6">
+            <div className="flex flex-col space-y-4">
               <h4 className="font-semibold text-sm tracking-widest uppercase text-accent">Explore</h4>
-              <ul className="flex flex-col space-y-4">
+              <ul className="flex flex-col space-y-2">
                 {navLinks.map((link) => (
                   <li key={link.name}>
                     <Link href={link.href} className="text-background/70 hover:text-background transition-colors text-base font-medium flex items-center gap-2 group w-fit">
@@ -107,9 +107,9 @@ export function Footer() {
             </div>
 
             {/* Connect */}
-            <div className="flex flex-col space-y-6">
+            <div className="flex flex-col space-y-4">
               <h4 className="font-semibold text-sm tracking-widest uppercase text-accent">Connect</h4>
-              <ul className="flex flex-col space-y-4">
+              <ul className="flex flex-col space-y-2">
                 {socialLinks.map((link) => (
                   <li key={link.name}>
                     <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-background/70 hover:text-background transition-colors text-base font-medium">
@@ -121,9 +121,9 @@ export function Footer() {
             </div>
 
             {/* Legal */}
-            <div className="flex flex-col space-y-6">
+            <div className="flex flex-col space-y-4">
               <h4 className="font-semibold text-sm tracking-widest uppercase text-accent">Legal</h4>
-              <ul className="flex flex-col space-y-4">
+              <ul className="flex flex-col space-y-2">
                 {legalLinks.map((link) => (
                   <li key={link.name}>
                     <Link href={link.href} className="text-background/70 hover:text-background transition-colors text-base font-medium">

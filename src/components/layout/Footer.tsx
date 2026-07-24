@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { ShinyText } from "@/components/ui/shiny-text";
+import { FallingLeaves } from "@/components/ui/falling-leaves";
 
 const navLinks = [
   { name: "About us", href: "/#about" },
@@ -45,13 +46,18 @@ export function Footer() {
       className="relative w-full h-[85vh] sm:h-[90vh] overflow-hidden bg-background"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
+      <FallingLeaves />
       <motion.div 
         style={{ y }} 
         className="fixed bottom-0 left-0 w-full h-[85vh] sm:h-[90vh] bg-primary text-background flex flex-col justify-between pt-16 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8"
       >
         
-        {/* Top Grid Area */}
-        <div className="max-w-360 mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+        {/* Interactive Leaf Container */}
+        <div className="relative grow flex flex-col justify-between w-full">
+          
+
+          {/* Top Grid Area */}
+          <div className="max-w-360 mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 relative z-10">
           
           {/* Brand & Manifesto Column (Takes up 5 columns on large screens) */}
           <div className="lg:col-span-5 flex flex-col space-y-8">
@@ -128,7 +134,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Massive Typography & Copyright */}
-        <div className="mt-auto pt-16 flex flex-col items-center">
+        <div className="mt-auto pt-16 flex flex-col items-center relative z-10">
           <div className="w-full flex flex-col sm:flex-row justify-between items-center border-b border-background/10 pb-4 mb-2 px-4 max-w-360 mx-auto gap-4">
             <span className="text-background/50 text-sm font-medium text-center sm:text-left">
               &copy; {new Date().getFullYear()} Harmony of Life. All rights reserved.
@@ -137,16 +143,17 @@ export function Footer() {
               Designed for longevity.
             </span>
           </div>
+        </div>
+        </div>
           
           {/* Edge-to-Edge Typography */}
-          <div className="w-full overflow-hidden flex justify-center items-end leading-none pointer-events-none select-none">
+          <div className="w-full shrink-0 overflow-hidden flex justify-center items-end leading-none pointer-events-none select-none">
             <ShinyText 
               text="HARMONY OF LIFE"
               speed={4}
-              className="font-heading font-bold whitespace-nowrap text-[10vw] tracking-tighter -mb-2 lg:-mb-4"
+              className="font-heading font-bold whitespace-nowrap text-[10vw] tracking-tighter"
             />
           </div>
-        </div>
 
       </motion.div>
     </footer>

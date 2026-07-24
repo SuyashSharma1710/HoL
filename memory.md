@@ -164,3 +164,7 @@ This document tracks all significant architectural changes, file creations, and 
 **37. Global Parallax Footer & UI Polish**
 - **What:** Designed a premium, interactive `Footer.tsx` utilizing a CSS `clip-path` parallax "curtain reveal" effect. Integrated edge-to-edge massive typography powered by a custom `ShinyText` framer-motion component. Implemented a custom theme-compliant scrollbar in `globals.css` and enforced strict `Design.md` shape compliance (8px and 16px border radii) across the CTA section.
 - **Why:** To cap off the user journey with a high-end, cinematic sign-off that perfectly aligns with the Celestial Wellness design tokens.
+
+**38. Implemented Falling Leaves Animation (`FallingLeaves.tsx`)**
+- **What:** Designed a highly performant, infinite-looping leaf shower that correctly overlays the opaque parallax footer layer by utilizing a high z-index and explicit coordinate math (`calc(100% - size)`). Enforced React purity by pre-calculating random variables inside `useEffect` and removed hover interactions for a purely decorative effect.
+- **Why:** To add an organic, subtle, and on-brand visual flourish (using actual logo petal shapes and colors) that enriches the footer aesthetic without distracting from the typography or causing hydration mismatches.

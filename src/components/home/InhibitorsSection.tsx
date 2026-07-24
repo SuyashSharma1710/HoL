@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -113,23 +113,23 @@ export function InhibitorsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-          className="w-full pb-16"
+          className="relative w-full pb-16 group"
         >
+          {/* Custom Navigation Buttons */}
+          <button className="inhibitor-prev absolute left-2 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-0 group-hover:opacity-100 hidden sm:flex">
+            <ChevronLeft className="w-6 h-6 stroke-[3]" />
+          </button>
+          <button className="inhibitor-next absolute right-2 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-0 group-hover:opacity-100 hidden sm:flex">
+            <ChevronRight className="w-6 h-6 stroke-[3]" />
+          </button>
+
           <style dangerouslySetInnerHTML={{__html: `
             .swiper-pagination-bullet {
-              background-color: var(--color-primary);
+              background-color: #142b23;
               opacity: 0.2;
             }
             .swiper-pagination-bullet-active {
-              background-color: var(--color-accent);
-              opacity: 1;
-            }
-            .swiper-button-next, .swiper-button-prev {
-              color: var(--color-primary);
-              opacity: 0.6;
-              transition: opacity 0.3s;
-            }
-            .swiper-button-next:hover, .swiper-button-prev:hover {
+              background-color: #b69c5f;
               opacity: 1;
             }
           `}} />
@@ -139,7 +139,10 @@ export function InhibitorsSection() {
             slidesPerView={1.2}
             centeredSlides={false}
             pagination={{ clickable: true }}
-            navigation={true}
+            navigation={{
+              prevEl: '.inhibitor-prev',
+              nextEl: '.inhibitor-next',
+            }}
             breakpoints={{
               640: { slidesPerView: 2.2 },
               1024: { slidesPerView: 3.2 },

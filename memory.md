@@ -144,3 +144,7 @@ This document tracks all significant architectural changes, file creations, and 
 **33. Fixed ScrollStack Animation Truncation (Dynamic Calculation)**
 - **What:** Increased the right-column container in `CommunitySection.tsx` to `min-h-[400vh]` and replaced the static spacer in `scroll-stack.tsx` with a dynamically calculated height (`wrappers.length * itemDistance + window.innerHeight`).
 - **Why:** To provide the exact required physical runway for native `position: sticky` to function properly, preventing the final card from being forcefully ripped out of the viewport while remaining robust against future changes in card quantity or viewport height.
+
+**34. Implemented TestimonialsSection & Custom Swiper Navigation**
+- **What:** Created `TestimonialsSection.tsx` and refactored Swiper navigation in both `InhibitorsSection.tsx` and `TestimonialsSection.tsx` to use custom Tailwind-styled buttons with `lucide-react` icons (ChevronLeft/Right) bound via Swiper's `navigation={{prevEl, nextEl}}` API.
+- **Why:** Bypasses Swiper's native CSS specificity issues and ensures the navigation buttons perfectly match the brand's aesthetic (white circular shadows over the slides) without messy `!important` CSS overrides.

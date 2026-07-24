@@ -7,6 +7,8 @@ const InhibitorsSection = dynamic(() => import("@/components/home/InhibitorsSect
 const PillarsSection = dynamic(() => import("@/components/home/PillarsSection").then(mod => mod.PillarsSection));
 const GutResetSection = dynamic(() => import("@/components/home/GutResetSection").then(mod => mod.GutResetSection));
 const CommunitySection = dynamic(() => import("@/components/home/CommunitySection").then(mod => mod.CommunitySection));
+const AuthoritySection = dynamic(() => import("@/components/home/AuthoritySection").then(mod => mod.AuthoritySection));
+const TestimonialsSection = dynamic(() => import("@/components/home/TestimonialsSection").then(mod => mod.TestimonialsSection));
 
 export default function Home() {
   return (
@@ -17,7 +19,9 @@ export default function Home() {
       <InhibitorsSection />
       <PillarsSection />
       <GutResetSection />
+      <AuthoritySection />
       <CommunitySection />
+      <TestimonialsSection />
     </main>
   );
 }

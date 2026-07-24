@@ -83,7 +83,7 @@ export default function RootLayout({
                   "addressCountry": "IN"
                 },
                 "description": "A sanctuary for digital rejuvenation, deep cellular detox, and restoring your Lifeforce.",
-                "priceRange": "$$"
+                "priceRange": "₹₹"
               }
             ])
           }}

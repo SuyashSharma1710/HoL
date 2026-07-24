@@ -43,13 +43,13 @@ export function Footer() {
   return (
     <footer 
       ref={containerRef} 
-      className="relative w-full h-[85vh] sm:h-[90vh] overflow-hidden bg-background"
+      className="relative w-full h-auto sm:h-[90vh] overflow-hidden bg-background"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
       <FallingLeaves />
       <motion.div 
         style={{ y }} 
-        className="fixed bottom-0 left-0 w-full h-[85vh] sm:h-[90vh] bg-primary text-background flex flex-col justify-between pt-16 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8"
+        className="relative sm:fixed sm:bottom-0 sm:left-0 w-full h-auto sm:h-[90vh] bg-primary text-background flex flex-col justify-between pt-16 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden"
       >
         
         {/* Interactive Leaf Container */}

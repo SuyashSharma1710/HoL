@@ -3,7 +3,8 @@
 import { motion } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import Image from "next/image";
 
 // Import Swiper styles
 import "swiper/css";
@@ -14,52 +15,62 @@ const testimonials = [
   {
     name: "Vikram Singh",
     role: "Harmony community member",
-    text: "I am sixty-two and I move like I am forty. The brain fog lifted. The pain vanished. This is not a supplement plan, it is a second life."
+    text: "I am sixty-two and I move like I am forty. The brain fog lifted. The pain vanished. This is not a supplement plan, it is a second life.",
+    image: "/images/testi-1.png"
   },
   {
     name: "Ananya Sharma",
     role: "Living young participant",
-    text: "My bloodwork stunned my doctor. For the first time in a decade, my inflammation markers are normal. I finally understand what true energy feels like."
+    text: "My bloodwork stunned my doctor. For the first time in a decade, my inflammation markers are normal. I finally understand what true energy feels like.",
+    image: "/images/testi-2.png"
   },
   {
     name: "Rajesh Patel",
     role: "Foundation kit user",
-    text: "I stopped chasing symptoms and started charging my cells. The weight dropped, my skin cleared, and I found a calm I never knew existed."
+    text: "I stopped chasing symptoms and started charging my cells. The weight dropped, my skin cleared, and I found a calm I never knew existed.",
+    image: "/images/testi-3.png"
   },
   {
     name: "Priya Desai",
     role: "Retreat attendee",
-    text: "The holistic approach to cellular voltage completely transformed my approach to health. I sleep better, think clearer, and feel a deep sense of vitality."
+    text: "The holistic approach to cellular voltage completely transformed my approach to health. I sleep better, think clearer, and feel a deep sense of vitality.",
+    image: "/images/testi-4.png"
   },
   {
     name: "Amit Verma",
     role: "Harmony community member",
-    text: "After struggling with chronic fatigue for years, this protocol restored my life force. The science behind it is profoundly effective."
+    text: "After struggling with chronic fatigue for years, this protocol restored my life force. The science behind it is profoundly effective.",
+    image: "/images/testi-1.png"
   },
   {
     name: "Sunita Rao",
     role: "Living young participant",
-    text: "I've tried every diet and detox, but nothing addressed the root electrical cause like Harmony of Life. My body finally feels like it's healing itself."
+    text: "I've tried every diet and detox, but nothing addressed the root electrical cause like Harmony of Life. My body finally feels like it's healing itself.",
+    image: "/images/testi-2.png"
   },
   {
     name: "Karan Mehta",
     role: "Foundation kit user",
-    text: "Dr. Rastogi's vision is revolutionary. Treating the electrical cause instead of chemical symptoms has eliminated my joint pain entirely."
+    text: "Dr. Rastogi's vision is revolutionary. Treating the electrical cause instead of chemical symptoms has eliminated my joint pain entirely.",
+    image: "/images/testi-3.png"
   },
   {
     name: "Meera Reddy",
     role: "Harmony community member",
-    text: "Reconnecting with my cellular charge through the 12 pillars was the best decision of my life. The community support is incredible."
+    text: "Reconnecting with my cellular charge through the 12 pillars was the best decision of my life. The community support is incredible.",
+    image: "/images/testi-4.png"
   },
   {
     name: "Arjun Kapoor",
     role: "Retreat attendee",
-    text: "I came for the physical benefits but stayed for the mental clarity. It's truly a holistic reset that honors both ancient wisdom and modern science."
+    text: "I came for the physical benefits but stayed for the mental clarity. It's truly a holistic reset that honors both ancient wisdom and modern science.",
+    image: "/images/testi-1.png"
   },
   {
     name: "Neha Gupta",
-    role: "Living young participant",
-    text: "My stress levels have plummeted and my energy is constant throughout the day. I finally feel in control of my own health and aging process."
+    role: "Foundation kit user",
+    text: "The science of optimal health isn't just theory here; it's a daily practice. I've never felt so vibrant, grounded, and connected to my own lifeforce.",
+    image: "/images/testi-2.png"
   }
 ];
 
@@ -99,10 +110,10 @@ export function TestimonialsSection() {
           className="relative w-full group"
         >
           {/* Custom Navigation Buttons */}
-          <button className="testimonial-prev absolute left-2 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full hidden items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-0 group-hover:opacity-100 sm:flex">
+          <button className="testimonial-prev absolute left-2 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
             <ChevronLeft className="w-6 h-6 stroke-3" />
           </button>
-          <button className="testimonial-next absolute right-2 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full hidden items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-0 group-hover:opacity-100 sm:flex">
+          <button className="testimonial-next absolute right-2 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
             <ChevronRight className="w-6 h-6 stroke-3" />
           </button>
 
@@ -117,8 +128,9 @@ export function TestimonialsSection() {
             }
           `}} />
           <Swiper
-            modules={[Navigation, Pagination]}
+            modules={[Navigation, Pagination, Autoplay]}
             spaceBetween={32}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
             slidesPerView={1}
             pagination={{ clickable: true }}
             navigation={{
@@ -129,7 +141,7 @@ export function TestimonialsSection() {
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="w-full px-4 pt-4 pb-16!"
+            className="w-full px-4 pt-8! pb-12!"
           >
             {testimonials.map((item, index) => (
               <SwiperSlide key={index} className="h-auto">
@@ -145,10 +157,13 @@ export function TestimonialsSection() {
                   </p>
                   
                   <div className="flex items-center gap-4 mt-auto">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                      <svg className="w-4 h-4 text-primary/40" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                      </svg>
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border border-secondary/20">
+                      <Image 
+                        src={item.image} 
+                        alt={item.name} 
+                        fill 
+                        className="object-cover"
+                      />
                     </div>
                     <div>
                       <h4 className="font-bold text-primary text-sm">{item.name}</h4>

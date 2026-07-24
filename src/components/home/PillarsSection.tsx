@@ -6,7 +6,7 @@ import {
   Flame, Moon, Activity, ShieldCheck, Users, TreePine, 
   Zap, X, ChevronLeft, ChevronRight
 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const pillars = [
@@ -26,7 +26,18 @@ const pillars = [
 
 export function PillarsSection() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const radius = 320; // 320px radius from center
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedIndex]);
 
   const handleNext = () => {
     if (selectedIndex !== null) {
@@ -64,6 +75,9 @@ export function PillarsSection() {
         .orbit-container:hover .orbit-node {
           animation-play-state: paused;
         }
+        .orbit-container { --orbit-radius: 155px; }
+        @media (min-width: 640px) { .orbit-container { --orbit-radius: 240px; } }
+        @media (min-width: 1024px) { .orbit-container { --orbit-radius: 340px; } }
       `}} />
 
       {/* Subtle Glow Background */}
@@ -77,7 +91,7 @@ export function PillarsSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-          className="orbit-container relative w-full max-w-200 aspect-square flex items-center justify-center scale-75 sm:scale-90 md:scale-100"
+          className="orbit-container relative w-full max-w-200 aspect-square flex items-center justify-center my-8 md:my-0"
         >
           
           {/* Sun-like Flare Effect */}
@@ -92,13 +106,13 @@ export function PillarsSection() {
           </div>
           
           {/* Static Center Core */}
-          <div className="absolute z-20 w-80 h-80 rounded-full bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl flex flex-col items-center justify-center p-8 text-center pointer-events-auto">
-            <h2 className="font-heading text-7xl text-accent mb-2">12</h2>
-            <h3 className="font-heading text-2xl font-bold mb-4 leading-tight text-background">
+          <div className="absolute z-20 w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl flex flex-col items-center justify-center p-4 sm:p-8 text-center pointer-events-auto">
+            <h2 className="font-heading text-4xl sm:text-5xl lg:text-7xl text-accent mb-1 sm:mb-2">12</h2>
+            <h3 className="font-heading text-base sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-4 leading-tight text-background">
               Foundational Pillars of Optimal Health
             </h3>
-            <div className="w-12 h-1 bg-accent mb-4 rounded-full" />
-            <p className="text-background/80 font-semibold text-sm uppercase tracking-widest">
+            <div className="w-8 sm:w-12 h-1 bg-accent mb-2 sm:mb-4 rounded-full" />
+            <p className="text-background/80 font-semibold text-[10px] sm:text-xs lg:text-sm uppercase tracking-widest hidden sm:block">
               The Science and Art<br/>of Living Young
             </p>
           </div>
@@ -110,23 +124,23 @@ export function PillarsSection() {
             {pillars.map((pillar, index) => {
               const angle = (index / 12) * Math.PI * 2;
               const adjustedAngle = angle - Math.PI / 2;
-              const x = (Math.cos(adjustedAngle) * radius).toFixed(2);
-              const y = (Math.sin(adjustedAngle) * radius).toFixed(2);
+              const cos = Math.cos(adjustedAngle).toFixed(4);
+              const sin = Math.sin(adjustedAngle).toFixed(4);
 
               return (
                 <div 
                   key={pillar.name}
                   className="absolute left-1/2 top-1/2 w-0 h-0"
-                  style={{ transform: `translate(${x}px, ${y}px)` }}
+                  style={{ transform: `translate(calc(var(--orbit-radius) * ${cos}), calc(var(--orbit-radius) * ${sin}))` }}
                 >
                   <div 
                     onClick={() => setSelectedIndex(index)}
-                    className="orbit-node absolute -left-16 -top-16 w-32 h-32 flex flex-col items-center justify-center gap-3 group cursor-pointer"
+                    className="orbit-node absolute -left-10 -top-10 w-20 h-20 sm:-left-12 sm:-top-12 sm:w-24 sm:h-24 lg:-left-16 lg:-top-16 lg:w-32 lg:h-32 flex flex-col items-center justify-center gap-1 sm:gap-2 lg:gap-3 group cursor-pointer"
                   >
-                    <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:border-accent group-hover:bg-white/20 transition-all duration-300">
-                      <pillar.icon className="w-7 h-7 text-background group-hover:text-accent transition-colors" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:border-accent group-hover:bg-white/20 transition-all duration-300">
+                      <pillar.icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-background group-hover:text-accent transition-colors" />
                     </div>
-                    <span className="text-sm font-semibold text-background/90 text-center leading-tight bg-primary/80 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
+                    <span className="text-[9px] sm:text-xs lg:text-sm font-semibold text-background/90 text-center leading-tight bg-primary/80 backdrop-blur-sm px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border border-white/10 whitespace-nowrap">
                       {pillar.name}
                     </span>
                   </div>
@@ -143,9 +157,9 @@ export function PillarsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.5, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-          className="mt-8 flex items-center gap-3 bg-white/10 backdrop-blur-md px-8 py-4 rounded-full border border-white/20 shadow-xl"
+          className="mt-8 flex items-center gap-4 bg-white/10 backdrop-blur-md px-8 py-4 rounded-full border border-white/20 shadow-xl"
         >
-          <Zap className="w-6 h-6 text-accent animate-pulse" />
+          <Zap className="w-8 h-8 text-accent animate-pulse" />
           <p className="font-heading text-xl font-bold text-background">
             Direct charge, Meditation, Dhyan
           </p>
@@ -168,7 +182,7 @@ export function PillarsSection() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl bg-background shadow-2xl rounded-3xl overflow-hidden flex flex-col md:flex-row"
+              className="relative w-full max-w-5xl max-h-full overflow-y-auto overflow-x-hidden bg-background shadow-2xl rounded-3xl flex flex-col md:flex-row"
             >
               {/* Close Button (Absolute to the whole modal) */}
               <button 

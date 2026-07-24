@@ -126,7 +126,7 @@ export function ElectricSection() {
         </div>
 
         {/* Tab Content Area */}
-        <div className="w-full max-w-5xl mx-auto relative min-h-125 lg:min-h-100">
+        <div className="w-full max-w-5xl mx-auto relative lg:min-h-100">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -134,7 +134,7 @@ export function ElectricSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="absolute inset-0 flex flex-col lg:flex-row items-center gap-12 lg:gap-20"
+              className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full"
             >
               
               {/* Text Side */}

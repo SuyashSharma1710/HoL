@@ -168,3 +168,15 @@ This document tracks all significant architectural changes, file creations, and 
 **38. Implemented Falling Leaves Animation (`FallingLeaves.tsx`)**
 - **What:** Designed a highly performant, infinite-looping leaf shower that correctly overlays the opaque parallax footer layer by utilizing a high z-index and explicit coordinate math (`calc(100% - size)`). Enforced React purity by pre-calculating random variables inside `useEffect` and removed hover interactions for a purely decorative effect.
 - **Why:** To add an organic, subtle, and on-brand visual flourish (using actual logo petal shapes and colors) that enriches the footer aesthetic without distracting from the typography or causing hydration mismatches.
+
+**39. Comprehensive Responsive UI Overhaul**
+- **What:** Executed a massive pass on responsive behaviors across the landing page:
+  - Fixed horizontal chopping in `CTASection.tsx` on small devices.
+  - Enabled `centeredSlides={true}` in `InhibitorsSection.tsx` Swiper to properly frame active content.
+  - Removed redundant padding on Swiper wrappers and standardized pagination spacing (`pt-8! pb-12!`) across all carousels.
+  - Refactored `PillarsSection.tsx` orbit math to use responsive CSS variables (`--orbit-radius`) instead of hardcoded JS, allowing the 12 pillars to scale perfectly inside mobile viewports without overlapping. Also increased the radius slightly to give the center core more breathing room.
+  - Added a body scroll lock (`useEffect` on `overflow: hidden`) when the Pillar modal is open to prevent background scrolling on mobile.
+  - Enabled 3-second `Autoplay` on Inhibitors and Testimonials carousels and modified CSS to ensure navigation arrows always remain visible on touch devices.
+  - Generated and integrated 4 high-quality Indian audience portraits for the Testimonial cards.
+  - Fixed mobile scrolling bugs in `Footer.tsx` by disabling the fixed 85vh height limit (`h-auto` and `relative` positioning) on small screens, which successfully removed redundant internal scrollbars while retaining the parallax reveal on large desktop viewports.
+- **Why:** To guarantee that the highly interactive, complex desktop layouts (3D orbital menus, fixed parallax footers, and Swiper carousels) gracefully degrade into flawless, native-feeling experiences on small touch screens.

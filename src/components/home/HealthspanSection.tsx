@@ -29,7 +29,7 @@ const itemVariants = {
 
 export function HealthspanSection() {
   return (
-    <section className="relative w-full bg-background py-24 sm:py-32 overflow-hidden">
+    <section id="about" className="relative w-full py-24 sm:py-32 lg:py-40 bg-background overflow-hidden">
       {/* Subtle background glow to add a mystical feel */}
       <div className="absolute top-0 left-1/4 w-full h-125 bg-secondary/5 blur-3xl rounded-full pointer-events-none" />
 
@@ -81,7 +81,7 @@ export function HealthspanSection() {
 
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6 pt-8">
               <Link 
-                href="#discover"
+                href="#lifeforce"
                 className={cn(
                   buttonVariants({ size: "lg" }),
                   "bg-primary text-background hover:bg-primary/90 rounded-sm px-10 py-6 font-medium text-base transition-all shadow-lg shadow-primary/10"
@@ -90,7 +90,7 @@ export function HealthspanSection() {
                 Discover
               </Link>
               <Link 
-                href="#science"
+                href="#living-young"
                 className="group flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors px-4 py-2"
               >
                 Science 

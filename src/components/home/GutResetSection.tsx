@@ -29,7 +29,7 @@ const itemVariants = {
 
 export function GutResetSection() {
   return (
-    <section className="relative w-full bg-background py-24 sm:py-32 overflow-hidden">
+    <section id="gut-reset" className="relative w-full bg-background py-24 sm:py-32 overflow-hidden">
       {/* Subtle background glow to add a mystical feel, mirroring HealthspanSection */}
       <div className="absolute top-0 right-1/4 w-full h-125 bg-secondary/5 blur-3xl rounded-full pointer-events-none" />
 
@@ -81,7 +81,7 @@ export function GutResetSection() {
 
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6 pt-8">
               <Link 
-                href="#heal"
+                href="#community"
                 className={cn(
                   buttonVariants({ size: "lg" }),
                   "bg-primary text-background hover:bg-primary/90 rounded-sm px-10 py-6 font-medium text-base transition-all shadow-lg shadow-primary/10"

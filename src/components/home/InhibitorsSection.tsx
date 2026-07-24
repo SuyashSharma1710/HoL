@@ -85,7 +85,7 @@ const inhibitors = [
 
 export function InhibitorsSection() {
   return (
-    <section className="relative w-full bg-background pt-24 sm:pt-32 pb-24 sm:pb-16 overflow-hidden text-primary">
+    <section id="reversal" className="relative w-full bg-background pt-24 sm:pt-32 pb-24 sm:pb-16 overflow-hidden text-primary">
       <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

@@ -180,3 +180,7 @@ This document tracks all significant architectural changes, file creations, and 
   - Generated and integrated 4 high-quality Indian audience portraits for the Testimonial cards.
   - Fixed mobile scrolling bugs in `Footer.tsx` by disabling the fixed 85vh height limit (`h-auto` and `relative` positioning) on small screens, which successfully removed redundant internal scrollbars while retaining the parallax reveal on large desktop viewports.
 - **Why:** To guarantee that the highly interactive, complex desktop layouts (3D orbital menus, fixed parallax footers, and Swiper carousels) gracefully degrade into flawless, native-feeling experiences on small touch screens.
+
+**40. Global Navigation & Anchor Routing System**
+- **What:** Injected semantic `id` tags (`#about`, `#lifeforce`, `#community`, etc.) onto the root `<section>` wrappers of all 10 core landing page components to match the `<Navbar />` routes. Refactored all localized CTA buttons (e.g. "Start", "Learn", "Meet", "Heal") inside individual sections to point to logical destinations within the newly anchored flow instead of dead links.
+- **Why:** To stitch the standalone components into a cohesive single-page application journey, allowing the global header navigation and inter-section buttons to smoothly transport users through the narrative using Lenis.

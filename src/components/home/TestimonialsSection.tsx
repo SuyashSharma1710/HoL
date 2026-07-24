@@ -76,7 +76,7 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="relative w-full bg-background py-24 sm:py-32 overflow-hidden text-primary">
+    <section id="testimonials" className="relative w-full bg-background py-24 sm:py-32 overflow-hidden text-primary">
       <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

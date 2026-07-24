@@ -56,7 +56,7 @@ export function ElectricSection() {
   const content = tabContent[activeTab as keyof typeof tabContent];
 
   return (
-    <section className="relative w-full bg-primary py-24 sm:py-32 overflow-hidden text-background">
+    <section id="lifeforce" className="relative w-full bg-primary py-24 sm:py-32 overflow-hidden text-background">
       {/* Background glow effects */}
       <div className="absolute top-[-20%] right-[-10%] w-150 h-150 bg-secondary/10 blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[-10%] w-125 h-125 bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
@@ -83,7 +83,7 @@ export function ElectricSection() {
           
           <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-6">
             <Link 
-              href="#explore"
+              href="#reversal"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "border-accent text-accent hover:bg-accent hover:text-primary rounded-sm px-10 py-6 font-medium text-base transition-all bg-transparent"

@@ -54,7 +54,7 @@ export function PillarsSection() {
   const selectedPillar = selectedIndex !== null ? pillars[selectedIndex] : null;
 
   return (
-    <section className="relative w-full bg-primary py-24 sm:py-32 overflow-hidden text-background">
+    <section id="pillars" className="relative w-full bg-primary py-24 sm:py-32 overflow-hidden text-background">
       {/* Internal CSS for the continuous counter-rotating animation */}
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes spin-cw {

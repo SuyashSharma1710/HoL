@@ -53,7 +53,7 @@ const cards = [
 
 export function CommunitySection() {
   return (
-    <section className="relative w-full bg-primary py-24 sm:py-32 text-background">
+    <section id="community" className="relative w-full bg-primary py-24 sm:py-32 text-background">
       <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24 relative">
           
@@ -81,7 +81,7 @@ export function CommunitySection() {
 
               <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6 pt-8">
                 <Link 
-                  href="#join"
+                  href="#cta"
                   className={cn(
                     buttonVariants({ variant: "outline", size: "lg" }),
                     "border-accent text-accent hover:bg-accent hover:text-primary rounded-sm px-10 py-6 font-medium text-base transition-all bg-transparent"

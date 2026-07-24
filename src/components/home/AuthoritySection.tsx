@@ -29,7 +29,7 @@ const itemVariants = {
 
 export function AuthoritySection() {
   return (
-    <section className="relative w-full bg-background py-24 sm:py-32 overflow-hidden">
+    <section id="authority" className="relative w-full bg-background py-24 sm:py-32 overflow-hidden">
       {/* Subtle background glow to add a mystical feel */}
       <div className="absolute top-0 left-1/4 w-full h-125 bg-secondary/5 blur-3xl rounded-full pointer-events-none" />
 
@@ -81,7 +81,7 @@ export function AuthoritySection() {
 
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6 pt-8">
               <Link 
-                href="#meet"
+                href="#community"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
                   "border-primary text-primary hover:bg-primary hover:text-background rounded-sm px-10 py-6 font-medium text-base transition-all bg-transparent"
@@ -90,7 +90,7 @@ export function AuthoritySection() {
                 Meet
               </Link>
               <Link 
-                href="#program"
+                href="#community"
                 className="group flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors px-4 py-2"
               >
                 Program 

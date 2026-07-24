@@ -114,7 +114,7 @@ export function CTASection() {
   };
 
   return (
-    <section className="w-full bg-background py-24 sm:py-32 text-primary border-t border-primary/10">
+    <section id="cta" className="w-full bg-background py-24 sm:py-32 text-primary border-t border-primary/10">
       <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           variants={containerVariants}

@@ -69,7 +69,7 @@ export function Hero() {
           className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
         >
           <Link 
-            href="#start" 
+            href="#about" 
             className={cn(
               buttonVariants({ size: "lg" }),
               "bg-background text-primary hover:bg-background/90 font-semibold px-10 py-6 text-lg rounded-sm min-w-40 shadow-lg shadow-black/20"
@@ -78,7 +78,7 @@ export function Hero() {
             Start
           </Link>
           <Link 
-            href="#learn" 
+            href="#lifeforce" 
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
               "border-white text-white hover:bg-white hover:text-black font-semibold px-10 py-6 text-lg rounded-sm bg-transparent min-w-40"

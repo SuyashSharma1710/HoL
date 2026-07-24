@@ -220,3 +220,15 @@ This document tracks all significant architectural changes, file creations, and 
 **49. Form Submission Success Modal**
 - **What:** Implemented a full-screen, animated "Thank You" modal overlay in `CTASection.tsx` that triggers immediately upon form submission.
 - **Why:** To provide clear visual feedback to the user while the system `await`s the Google Sheets webhook request, before ultimately redirecting them to WhatsApp.
+
+**50. Webhook Troubleshooting & Error Diagnosis**
+- **What:** Discovered a `401 Unauthorized` error returning from the Google Apps Script Web App during `POST` testing via the terminal.
+- **Why:** Provided explicit instructions to change the Google Apps Script deployment permissions to "Execute as: Me" and "Who has access: Anyone" to allow the `no-cors` browser requests to succeed without authentication.
+
+**51. Refactored CTA Form Success Modals**
+- **What:** Replaced the native `alert()` on the newsletter subscription form with the premium glassmorphic `AnimatePresence` modal. Converted the boolean `showThankYou` state into a unified `thankYouType` state (`"contact" | "newsletter"`) to dynamically render different success messages and loading states.
+- **Why:** To provide a consistent, ultra-premium user experience across all conversion points on the landing page, avoiding jarring native browser popups.
+
+**52. Fixed Modal Viewport Positioning**
+- **What:** Changed the thank you overlay positioning in `CTASection.tsx` from `absolute inset-0` to `fixed inset-0`.
+- **Why:** Because the parent section is `relative`, absolute positioning trapped the modal inside the section. `fixed` positioning ensures the modal perfectly centers on the user's screen viewport, regardless of scroll position.

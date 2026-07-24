@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 // Replace these with your actual details!
 const WHATSAPP_NUMBER = "1234567890"; 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz-ZZw-tetpjUYZ3-Y-hW3PgJtm-v5VXmWVIklXpUMRteFM0weuFTq_m9bRoM2JkTaN/exec"; 
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyDvwmertF6ExoJxvDJyEEPwWHcF1nbHxenBddBuv-Hqu6j9s52gJM8WzCVxTA0w4hM/exec"; 
 
 const Facebook = ({ className, strokeWidth = 2 }: { className?: string, strokeWidth?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -57,7 +57,8 @@ const socials = [
 export function CTASection() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(false);
+  const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
+  const [thankYouType, setThankYouType] = useState<"contact" | "newsletter" | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     number: "",
@@ -72,6 +73,8 @@ export function CTASection() {
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
+      setIsNewsletterSubmitting(true);
+      setThankYouType("newsletter");
       try {
         const payload = new URLSearchParams();
         payload.append("sheetName", "Sheet2"); // Routes data to the Sheet2 tab
@@ -83,10 +86,15 @@ export function CTASection() {
           body: payload,
         });
         
-        alert("Thanks for subscribing to our newsletter!");
         setEmail("");
+        setTimeout(() => {
+          setThankYouType(null);
+          setIsNewsletterSubmitting(false);
+        }, 2500); // Close after 2.5 seconds
       } catch (error) {
         console.error("Error subscribing:", error);
+        setThankYouType(null);
+        setIsNewsletterSubmitting(false);
       }
     }
   };
@@ -94,7 +102,7 @@ export function CTASection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setShowThankYou(true); // Show the thank you dialog right away
+    setThankYouType("contact"); // Show the thank you dialog right away
 
     try {
       // 1. Send data to Google Sheets via Web App URL
@@ -122,7 +130,7 @@ export function CTASection() {
 
       // Hold the thank you dialog open for a brief moment after redirect
       setTimeout(() => {
-        setShowThankYou(false);
+        setThankYouType(null);
         setIsSubmitting(false);
         setFormData({ name: "", number: "", issue: "", description: "" });
       }, 1500);
@@ -130,7 +138,7 @@ export function CTASection() {
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Something went wrong. Please try again.");
-      setShowThankYou(false);
+      setThankYouType(null);
       setIsSubmitting(false);
     }
   };
@@ -140,12 +148,12 @@ export function CTASection() {
       
       {/* Thank You Overlay Modal */}
       <AnimatePresence>
-        {showThankYou && (
+        {thankYouType && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm px-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm px-4"
           >
             <motion.div 
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -157,10 +165,19 @@ export function CTASection() {
                 <CheckCircle2 className="w-8 h-8 text-[#b69c5f]" />
               </div>
               <h3 className="font-heading text-2xl sm:text-3xl font-bold text-primary">Thank You!</h3>
-              <p className="text-primary/70 mb-4">
-                We are securely transmitting your details and connecting you to WhatsApp...
-              </p>
-              <Loader2 className="w-6 h-6 animate-spin text-[#b69c5f]" />
+              
+              {thankYouType === "contact" ? (
+                <>
+                  <p className="text-primary/70 mb-4">
+                    We are securely transmitting your details and connecting you to WhatsApp...
+                  </p>
+                  <Loader2 className="w-6 h-6 animate-spin text-[#b69c5f]" />
+                </>
+              ) : (
+                <p className="text-primary/70 mb-4">
+                  Thanks for subscribing to our newsletter! We'll keep you updated.
+                </p>
+              )}
             </motion.div>
           </motion.div>
         )}
@@ -223,10 +240,11 @@ export function CTASection() {
                 />
                 <button 
                   type="submit"
+                  disabled={isNewsletterSubmitting}
                   aria-label="Subscribe"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary text-background rounded-sm flex items-center justify-center hover:bg-primary/90 transition-colors"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-primary text-background rounded-sm flex items-center justify-center hover:bg-primary/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  <ArrowRight className="w-5 h-5" />
+                  {isNewsletterSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <ArrowRight className="w-5 h-5" />}
                 </button>
               </form>
             </motion.div>

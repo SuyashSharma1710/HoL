@@ -101,7 +101,7 @@ export function CommunitySection() {
           </div>
 
           {/* Right Side - Scrolling & Stacking Cards */}
-          <div className="w-full lg:w-1/2 relative min-h-[150vh] pb-[20vh] md:pb-[30vh]">
+          <div className="w-full lg:w-1/2 relative min-h-[300vh] lg:min-h-[400vh] pb-[20vh]">
             <ScrollStack
               itemDistance={120}
               itemStackDistance={30}

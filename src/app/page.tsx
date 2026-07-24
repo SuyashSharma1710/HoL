@@ -1,10 +1,12 @@
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/home/Hero";
-import { HealthspanSection } from "@/components/home/HealthspanSection";
-import { ElectricSection } from "@/components/home/ElectricSection";
-import { InhibitorsSection } from "@/components/home/InhibitorsSection";
-import { PillarsSection } from "@/components/home/PillarsSection";
-import { GutResetSection } from "@/components/home/GutResetSection";
-import { CommunitySection } from "@/components/home/CommunitySection";
+
+const HealthspanSection = dynamic(() => import("@/components/home/HealthspanSection").then(mod => mod.HealthspanSection));
+const ElectricSection = dynamic(() => import("@/components/home/ElectricSection").then(mod => mod.ElectricSection));
+const InhibitorsSection = dynamic(() => import("@/components/home/InhibitorsSection").then(mod => mod.InhibitorsSection));
+const PillarsSection = dynamic(() => import("@/components/home/PillarsSection").then(mod => mod.PillarsSection));
+const GutResetSection = dynamic(() => import("@/components/home/GutResetSection").then(mod => mod.GutResetSection));
+const CommunitySection = dynamic(() => import("@/components/home/CommunitySection").then(mod => mod.CommunitySection));
 
 export default function Home() {
   return (

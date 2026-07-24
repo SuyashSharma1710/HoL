@@ -126,15 +126,19 @@ export function Navbar() {
           {/* Social Icons (Hidden below xl) */}
           <div className="hidden xl:flex items-center gap-4 text-primary">
             <Link aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61591808093320" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-transform hover:scale-110">
+              <span className="sr-only">Facebook</span>
               <Facebook className="w-5 h-5" />
             </Link>
             <Link aria-label="Instagram" href="https://www.instagram.com/harmonyoflife_official/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-transform hover:scale-110">
+              <span className="sr-only">Instagram</span>
               <Instagram className="w-5 h-5" />
             </Link>
             <Link aria-label="YouTube" href="https://www.youtube.com/@Harmonyoflife-01" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-transform hover:scale-110">
+              <span className="sr-only">YouTube</span>
               <Youtube className="w-5 h-5" />
             </Link>
             <Link aria-label="LinkedIn" href="https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-transform hover:scale-110">
+              <span className="sr-only">LinkedIn</span>
               <Linkedin className="w-5 h-5" />
             </Link>
           </div>
@@ -208,10 +212,10 @@ export function Navbar() {
                 <div className="mt-auto pt-8">
                   {/* Mobile Socials */}
                   <div className="border-t border-primary/10 pt-6 flex justify-center gap-6 text-primary">
-                    <Link aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61591808093320" target="_blank" rel="noopener noreferrer"><Facebook className="w-5 h-5" /></Link>
-                    <Link aria-label="Instagram" href="https://www.instagram.com/harmonyoflife_official/?hl=en" target="_blank" rel="noopener noreferrer"><Instagram className="w-5 h-5" /></Link>
-                    <Link aria-label="YouTube" href="https://www.youtube.com/@Harmonyoflife-01" target="_blank" rel="noopener noreferrer"><Youtube className="w-5 h-5" /></Link>
-                    <Link aria-label="LinkedIn" href="https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/" target="_blank" rel="noopener noreferrer"><Linkedin className="w-5 h-5" /></Link>
+                    <Link aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61591808093320" target="_blank" rel="noopener noreferrer"><span className="sr-only">Facebook</span><Facebook className="w-5 h-5" /></Link>
+                    <Link aria-label="Instagram" href="https://www.instagram.com/harmonyoflife_official/?hl=en" target="_blank" rel="noopener noreferrer"><span className="sr-only">Instagram</span><Instagram className="w-5 h-5" /></Link>
+                    <Link aria-label="YouTube" href="https://www.youtube.com/@Harmonyoflife-01" target="_blank" rel="noopener noreferrer"><span className="sr-only">YouTube</span><Youtube className="w-5 h-5" /></Link>
+                    <Link aria-label="LinkedIn" href="https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/" target="_blank" rel="noopener noreferrer"><span className="sr-only">LinkedIn</span><Linkedin className="w-5 h-5" /></Link>
                   </div>
                   
                   {/* Mobile WhatsApp CTA */}

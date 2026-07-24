@@ -36,6 +36,7 @@ export function Hero() {
           alt="Harmony of Life Hero Background"
           fill
           priority
+          fetchPriority="high"
           className="object-cover object-center"
         />
         {/* Subtle dark overlay for text readability */}

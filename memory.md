@@ -130,5 +130,17 @@ This document tracks all significant architectural changes, file creations, and 
 - **Why:** To ensure strict adherence to standard styling guidelines and keep the codebase perfectly clean, future-proof, and lint-free.
 
 **30. Fixed Navbar Accessibility Issues**
-- **What:** Added `aria-label` attributes to all social media icon `<Link>` elements in both the desktop and mobile views of `Navbar.tsx`.
+- **What:** Added `aria-label` attributes (and `sr-only` span text) to all social media icon `<Link>` elements in both the desktop and mobile views of `Navbar.tsx`.
 - **Why:** To fix accessibility audit failures related to "Links must have discernible text" since the links previously only contained SVG icons without screen reader text.
+
+**31. Optimized LCP Image Discovery**
+- **What:** Explicitly added `fetchPriority="high"` to the `next/image` component for the background image in `Hero.tsx`.
+- **Why:** To resolve a Lighthouse "LCP Unscored" audit. Even with the `priority` prop, explicitly defining the fetch priority ensures the browser initiates the request as early as possible.
+
+**32. Deferred Render-Blocking Resources (Critical Path Optimization)**
+- **What:** Refactored `page.tsx` to dynamically import all sections below the fold using `next/dynamic`.
+- **Why:** To code-split heavy Javascript and stylesheets (like Swiper CSS) out of the initial load, dramatically reducing the maximum critical path latency for the first paint (Hero Section).
+
+**33. Fixed ScrollStack Animation Truncation**
+- **What:** Increased the right-column container in `CommunitySection.tsx` to `min-h-[400vh]` and extended the sticky end-spacer in `scroll-stack.tsx` to `h-[150vh]`.
+- **Why:** The native `position: sticky` logic requires physical parent container height to function. The final card was being forcefully ripped out of the viewport because the container ended exactly 1px after the item stacked, giving the animation zero runway to rest.

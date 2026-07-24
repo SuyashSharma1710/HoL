@@ -217,8 +217,8 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
     <div className={`relative w-full ${className}`.trim()} ref={scrollerRef}>
       <div className="scroll-stack-inner w-full">
         {children}
-        {/* Spacer so the last pin can release cleanly */}
-        <div className="scroll-stack-end w-full h-px" />
+        {/* Massive runway to keep the final card sticky while the 400vh parent finishes */}
+        <div className="scroll-stack-end w-full h-[150vh]" />
       </div>
     </div>
   );

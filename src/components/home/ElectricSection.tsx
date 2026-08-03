@@ -56,10 +56,22 @@ export function ElectricSection() {
   const content = tabContent[activeTab as keyof typeof tabContent];
 
   return (
-    <section id="lifeforce" className="relative w-full bg-primary py-24 sm:py-32 overflow-hidden text-background">
+    <section id="lifeforce" className="relative w-full bg-linear-to-b from-primary to-[#0d1c17] py-24 sm:py-32 overflow-hidden text-background">
       {/* Background glow effects */}
-      <div className="absolute top-[-20%] right-[-10%] w-150 h-150 bg-secondary/10 blur-[150px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-125 h-125 bg-accent/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-[-20%] right-[-10%] w-150 h-150 bg-secondary/10 blur-[150px] rounded-full pointer-events-none z-0" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-125 h-125 bg-accent/5 blur-[120px] rounded-full pointer-events-none z-0" />
+
+      {/* Static Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Top Left */}
+        <div className="absolute -top-[10%] -left-[10%] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] opacity-[0.08]">
+          <Image src="/logo.svg" alt="" fill className="object-contain" />
+        </div>
+        {/* Bottom Right */}
+        <div className="absolute top-[40%] -right-[15%] w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] opacity-[0.08]">
+          <Image src="/logo.svg" alt="" fill className="object-contain" />
+        </div>
+      </div>
 
       <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         

@@ -81,7 +81,37 @@ export function PillarsSection() {
       `}} />
 
       {/* Subtle Glow Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent/5 via-primary to-primary pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent/5 via-primary to-primary pointer-events-none z-0" />
+
+      {/* Static Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Top Left */}
+        <div className="absolute -top-[10%] -left-[10%] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] opacity-[0.08]">
+          <Image src="/logo.svg" alt="" fill className="object-contain" />
+        </div>
+        {/* Bottom Right */}
+        <div className="absolute top-[40%] -right-[15%] w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] opacity-[0.08]">
+          <Image src="/logo.svg" alt="" fill className="object-contain" />
+        </div>
+        {/* Top Right Small Cluster */}
+        <div className="absolute top-[5%] right-[5%] w-[40vw] h-[40vw] max-w-[400px] max-h-[400px] opacity-[0.06]">
+          <div className="absolute top-[10%] right-[30%] w-16 h-16"><Image src="/logo.svg" alt="" fill className="object-contain rotate-12" /></div>
+          <div className="absolute top-[30%] right-[10%] w-12 h-12"><Image src="/logo.svg" alt="" fill className="object-contain -rotate-12" /></div>
+          <div className="absolute top-[50%] right-[50%] w-20 h-20"><Image src="/logo.svg" alt="" fill className="object-contain rotate-45" /></div>
+          <div className="absolute top-[70%] right-[20%] w-14 h-14"><Image src="/logo.svg" alt="" fill className="object-contain -rotate-90" /></div>
+          <div className="absolute top-[20%] right-[70%] w-10 h-10"><Image src="/logo.svg" alt="" fill className="object-contain -rotate-45" /></div>
+          <div className="absolute top-[80%] right-[70%] w-8 h-8"><Image src="/logo.svg" alt="" fill className="object-contain rotate-180" /></div>
+        </div>
+        {/* Bottom Left Small Cluster */}
+        <div className="absolute bottom-[5%] left-[5%] w-[40vw] h-[40vw] max-w-[400px] max-h-[400px] opacity-[0.06]">
+          <div className="absolute bottom-[15%] left-[20%] w-16 h-16"><Image src="/logo.svg" alt="" fill className="object-contain -rotate-12" /></div>
+          <div className="absolute bottom-[35%] left-[50%] w-12 h-12"><Image src="/logo.svg" alt="" fill className="object-contain rotate-45" /></div>
+          <div className="absolute bottom-[55%] left-[10%] w-20 h-20"><Image src="/logo.svg" alt="" fill className="object-contain rotate-90" /></div>
+          <div className="absolute bottom-[75%] left-[40%] w-14 h-14"><Image src="/logo.svg" alt="" fill className="object-contain rotate-180" /></div>
+          <div className="absolute bottom-[20%] left-[70%] w-10 h-10"><Image src="/logo.svg" alt="" fill className="object-contain rotate-12" /></div>
+          <div className="absolute bottom-[80%] left-[80%] w-8 h-8"><Image src="/logo.svg" alt="" fill className="object-contain -rotate-45" /></div>
+        </div>
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         
@@ -106,7 +136,7 @@ export function PillarsSection() {
           </div>
           
           {/* Static Center Core */}
-          <div className="absolute z-20 w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl flex flex-col items-center justify-center p-4 sm:p-8 text-center pointer-events-auto">
+          <div className="absolute z-20 w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full bg-primary border border-secondary/30 shadow-2xl flex flex-col items-center justify-center p-4 sm:p-8 text-center pointer-events-auto">
             <h2 className="font-heading text-4xl sm:text-5xl lg:text-7xl text-accent mb-1 sm:mb-2">12</h2>
             <h3 className="font-heading text-base sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-4 leading-tight text-background">
               Foundational Pillars of Optimal Health

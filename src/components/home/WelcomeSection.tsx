@@ -35,7 +35,7 @@ export function WelcomeSection() {
             y: [0, -50, 0],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-200 h-200 bg-secondary/20 rounded-full blur-[120px] mix-blend-screen"
+          className="absolute w-200 h-200 bg-secondary/20 rounded-full blur-[120px] mix-blend-screen will-change-transform transform-gpu"
         />
         <motion.div 
           animate={{ 
@@ -44,24 +44,31 @@ export function WelcomeSection() {
             y: [0, 100, 0],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute w-150 h-150 bg-accent/10 rounded-full blur-[100px] mix-blend-screen"
+          className="absolute w-150 h-150 bg-accent/10 rounded-full blur-[100px] mix-blend-screen will-change-transform transform-gpu"
         />
       </div>
 
-      {/* Abstract Logo Decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center z-0 opacity-[0.03]">
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 120, repeat: Infinity, ease: "linear" }}
-          className="relative w-[150vw] h-[150vw] max-w-[2000px] max-h-[2000px] sm:w-[120vw] sm:h-[120vw]"
-        >
-          <Image 
-            src="/logo.svg" 
-            alt="Abstract Logo" 
-            fill 
-            className="object-contain"
-          />
-        </motion.div>
+      {/* Abstract Logo Decorations */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Top Left */}
+        <div className="absolute -top-[20%] -left-[10%] w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] opacity-10">
+          <Image src="/logo.svg" alt="" fill className="object-contain" />
+        </div>
+
+        {/* Bottom Right */}
+        <div className="absolute -bottom-[20%] -right-[10%] w-[90vw] h-[90vw] max-w-[900px] max-h-[900px] opacity-10">
+          <Image src="/logo.svg" alt="" fill className="object-contain" />
+        </div>
+
+        {/* Middle Right */}
+        <div className="absolute top-[30%] -right-[20%] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] opacity-[0.08]">
+          <Image src="/logo.svg" alt="" fill className="object-contain" />
+        </div>
+
+        {/* Bottom Left */}
+        <div className="absolute bottom-[10%] -left-[15%] w-[70vw] h-[70vw] max-w-[700px] max-h-[700px] opacity-[0.08]">
+          <Image src="/logo.svg" alt="" fill className="object-contain" />
+        </div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -127,14 +134,14 @@ export function WelcomeSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="relative w-full h-125 lg:h-175 lg:sticky lg:top-32"
+              className="relative w-full aspect-square lg:sticky lg:top-32"
             >
               {/* Glassmorphic ethereal frame */}
               <div className="absolute inset-0 bg-secondary/10 backdrop-blur-3xl rounded-2xl transform rotate-2 scale-[1.02] transition-transform duration-700 hover:rotate-0 border border-secondary/20 shadow-2xl shadow-black/40" />
               
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-secondary/30 shadow-inner bg-black">
                 <Image 
-                  src="/images/astral-body-optimized.webp"
+                  src="/images/astral-body-v2.png"
                   alt="Astral cellular energy body"
                   fill
                   className="object-cover object-center scale-[1.01] hover:scale-105 transition-transform duration-1000 ease-out opacity-90"

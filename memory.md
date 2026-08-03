@@ -7,7 +7,7 @@ This document tracks all significant architectural changes, file creations, and 
 ### [Initial Setup & Architecture Clean-up]
 
 **1. Streamlined `Design.md`**
-- **What:** Reduced the massive color palette to just 4 core colors (`#e9e0cf`, `#142b23`, `#607860`, `#b69c5f`). Restricted typography to 2 fonts (Noto Serif, Inter) with fluid `clamp()` sizing. Restricted spacing to 8px multiples and border radii to 8px/16px.
+- **What:** Reduced the massive color palette to just 4 core colors (`#e9e0cf`, `#142b23`, `#607860`, `#b69c5f`). Restricted typography to 2 fonts (Cormorant Garamond, Inter) with fluid `clamp()` sizing. Restricted spacing to 8px multiples and border radii to 8px/16px.
 - **Why:** To eliminate visual clutter, enforce a premium, cohesive, minimalist aesthetic, and ensure strict consistency across the UI.
 
 **2. Updated `globals.css`**
@@ -232,3 +232,15 @@ This document tracks all significant architectural changes, file creations, and 
 **52. Fixed Modal Viewport Positioning**
 - **What:** Changed the thank you overlay positioning in `CTASection.tsx` from `absolute inset-0` to `fixed inset-0`.
 - **Why:** Because the parent section is `relative`, absolute positioning trapped the modal inside the section. `fixed` positioning ensures the modal perfectly centers on the user's screen viewport, regardless of scroll position.
+
+**53. Optimized Hero Animation Performance**
+- **What:** Fixed severe scroll jitter in `WelcomeSection.tsx` by applying `will-change-transform` and `transform-gpu` to the heavy CSS blurred radial gradient blobs.
+- **Why:** To offload the expensive pixel-level `mix-blend-mode` and `blur` calculations to the GPU, restoring a butter-smooth 60fps framerate.
+
+**54. Created Interactive Lifeforce Chart**
+- **What:** Designed and built `LifeforceChart.tsx`, a custom React component using pure SVG and Framer Motion. 
+- **Why:** To perfectly replicate a provided static line chart ("Lifeforce & Cellular Charge Over Age") into an engaging, animated web asset without bloating the app with heavy chart libraries (like Chart.js or Recharts). Included a Catmull-Rom bezier curve function for perfectly smooth lines.
+
+**55. Integrated & Styled Lifeforce Chart**
+- **What:** Replaced the static image in `HealthspanSection.tsx` with the new `LifeforceChart` component. Styled the chart's SVG elements (stroke, fill) and text strictly to the `Design.md` theme (`#b69c5f` Accent Gold for natural decline, and `#607860` Secondary Sage Green for healthy intervention).
+- **Why:** To ensure the data visualization feels perfectly native to the Celestial Wellness brand aesthetic, blending seamlessly into the glassmorphic background container.

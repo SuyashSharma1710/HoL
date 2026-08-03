@@ -81,7 +81,7 @@ export function Hero() {
             href="#lifeforce" 
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
-              "border-white text-white hover:bg-white hover:text-black font-semibold px-10 py-6 text-lg rounded-sm bg-transparent min-w-40"
+              "border-white text-white hover:bg-white hover:text-white font-semibold px-10 py-6 text-lg rounded-sm bg-transparent min-w-40"
             )}
           >
             Learn

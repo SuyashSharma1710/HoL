@@ -7,11 +7,11 @@ colors:
   background: "#e9e0cf"
 typography:
   display:
-    fontFamily: Noto Serif
+    fontFamily: Cormorant Garamond
     fontSize: clamp(32px, 5vw, 48px)
     fontWeight: "600"
   heading:
-    fontFamily: Noto Serif
+    fontFamily: Cormorant Garamond
     fontSize: clamp(24px, 4vw, 32px)
     fontWeight: "500"
   body:
@@ -52,8 +52,8 @@ The palette is exceptionally focused and minimal, relying on 4 major colors (and
 
 The typography system is streamlined to just two fonts and four responsive sizes, utilizing `clamp()` for fluid scaling across devices.
 
-- **Display (`clamp(32px, 5vw, 48px)`):** Noto Serif (600 weight). Used for hero text and major section titles. Brings a sophisticated, timeless character.
-- **Heading (`clamp(24px, 4vw, 32px)`):** Noto Serif (500 weight). Used for standard section headings and emphasized block text.
+- **Display (`clamp(32px, 5vw, 48px)`):** Cormorant Garamond (600 weight). Used for hero text and major section titles. Brings a sophisticated, timeless character.
+- **Heading (`clamp(24px, 4vw, 32px)`):** Cormorant Garamond (500 weight). Used for standard section headings and emphasized block text.
 - **Body (`clamp(16px, 2vw, 18px)`):** Inter (400 weight). Provides maximum legibility for paragraphs. Default size for all paragraph content.
 - **Caption (`clamp(12px, 1.5vw, 14px)`):** Inter (500 weight). Used for metadata, small labels, and utility text.
 

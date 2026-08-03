@@ -53,7 +53,7 @@ export function Footer() {
       <FallingLeaves />
       <motion.div 
         style={{ y }} 
-        className="relative sm:fixed sm:bottom-0 sm:left-0 w-full h-auto sm:h-dvh bg-primary text-background flex flex-col justify-between pt-16 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden"
+        className="relative sm:fixed sm:bottom-0 sm:left-0 w-full h-auto sm:h-dvh bg-primary text-background flex flex-col justify-between pt-16 sm:pt-24 pb-2 sm:pb-4 px-4 sm:px-6 lg:px-8"
       >
         
         {/* Interactive Leaf Container */}
@@ -151,11 +151,11 @@ export function Footer() {
         </div>
           
           {/* Edge-to-Edge Typography */}
-          <div className="w-full shrink-0 overflow-hidden flex justify-center items-end leading-none pointer-events-none select-none">
+          <div className="w-full shrink-0 flex justify-center items-end pointer-events-none select-none">
             <ShinyText 
               text="HARMONY OF LIFE"
               speed={4}
-              className="font-heading font-bold whitespace-nowrap text-[10vw] tracking-tighter"
+              className="font-heading font-bold whitespace-nowrap text-[11.5vw] tracking-tighter leading-[0.8]"
             />
           </div>
 

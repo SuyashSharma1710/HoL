@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { LifeforceChart } from "@/components/ui/LifeforceChart";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -99,26 +100,15 @@ export function HealthspanSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right Image Container */}
+          {/* Right Chart Container */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="relative w-full aspect-square max-w-150 mx-auto lg:mx-0"
+            className="relative w-full mx-auto lg:mx-0 lg:col-span-1 flex items-center justify-center"
           >
-            {/* Glassmorphic ethereal frame */}
-            <div className="absolute inset-0 bg-white/40 backdrop-blur-3xl rounded-2xl transform rotate-3 scale-[1.02] transition-transform duration-700 hover:rotate-0 border border-white/50 shadow-2xl shadow-primary/5" />
-            
-            <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/60 shadow-inner">
-              <Image 
-                src="/images/healthspan-vitality.png"
-                alt="Ethereal representation of cellular vitality and healthspan"
-                fill
-                className="object-cover object-center scale-[1.01] hover:scale-105 transition-transform duration-1000 ease-out"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
+            <LifeforceChart />
           </motion.div>
 
         </div>

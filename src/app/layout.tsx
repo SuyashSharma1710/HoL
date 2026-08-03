@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Noto_Serif, Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 import { LenisProvider } from "@/components/layout/LenisProvider";
 
-const notoSerif = Noto_Serif({
-  variable: "--font-noto-serif",
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant-garamond",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const inter = Inter({
@@ -45,7 +46,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${notoSerif.variable} ${inter.variable} font-sans antialiased`}
+      className={`${cormorantGaramond.variable} ${inter.variable} font-sans antialiased`}
       suppressHydrationWarning
     >
       <body className="flex flex-col bg-background text-on-background pt-24" suppressHydrationWarning>

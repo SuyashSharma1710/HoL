@@ -10,7 +10,7 @@ These rules are strictly enforced for the Harmony of Life project. Any agent wor
 ## 2. Design System Strictness
 - **Colors:** You are restricted to the 4 core colors: `#e9e0cf` (Background), `#142b23` (Primary/Text), `#607860` (Secondary/Sage), and `#b69c5f` (Accent/Gold). Do not invent new colors or use standard Tailwind colors (e.g., `red-500`, `blue-500`).
 - **Typography:** 
-  - `Noto Serif` for all Headings and Display text.
+  - `Cormorant Garamond` for all Headings and Display text.
   - `Inter` for all Body and Caption text.
   - Rely exclusively on the clamped text sizes defined in `globals.css` (`text-sm`, `text-base`, `text-lg`, `text-4xl`, `text-5xl`).
 - **Spacing:** Use ONLY multiples of 8px (Tailwind classes `p-2`, `p-4`, `p-6`, `p-8`, `p-12`).

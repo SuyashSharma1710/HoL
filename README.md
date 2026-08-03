@@ -8,7 +8,7 @@ A premium, high-performance web platform focused on **Celestial Wellness**, cell
 - **Glassmorphism UI:** Sophisticated frosted-glass components tailored for an elegant "Celestial Wellness" aesthetic.
 - **Custom Visual Components:** Features interactive 3D-like elements such as the `AuroraHero`, `TwistingRibbon`, and a responsive `SolarSystem`.
 - **Global Smart Components:** Sticky navigation, persistent audio controller, and dynamic WhatsApp integration with `mix-blend-difference` visibility optimizations.
-- **Typography:** Expressive headings using *Bricolage Grotesque* and highly legible body text using *Inter*.
+- **Typography:** Expressive headings using *Cormorant Garamond* and highly legible body text using *Inter*.
 
 ## 🛠️ Technology Stack
 

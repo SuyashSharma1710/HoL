@@ -28,7 +28,7 @@
   --text-5xl: clamp(32px, 5vw, 48px); /* Display */
   
   --font-sans: var(--font-inter);
-  --font-heading: var(--font-noto-serif);
+  --font-heading: var(--font-cormorant-garamond);
 
   /* Border Radii */
   --radius-sm: 8px;

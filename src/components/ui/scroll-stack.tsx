@@ -154,14 +154,17 @@ export const ScrollStack: React.FC<ScrollStackProps> = ({
   ]);
 
   const calculateOriginalTops = useCallback(() => {
+    if (!scrollerRef.current) return;
+    
+    // Instead of forcing a layout thrashing reflow by toggling position: static, 
+    // we can calculate the exact original document position using offsetTop 
+    // relative to the relative-positioned scroller container.
+    const scrollerTop = scrollerRef.current.getBoundingClientRect().top + window.scrollY;
     const wrappers = wrappersRef.current;
     
-    // Disable sticky temporarily to get accurate document flow offsets
-    wrappers.forEach(w => w.style.position = "static");
+    originalTopsRef.current = wrappers.map(w => scrollerTop + w.offsetTop);
     
-    originalTopsRef.current = wrappers.map(w => w.getBoundingClientRect().top + window.scrollY);
-    
-    // Re-enable sticky pinning
+    // Apply sticky pinning safely without invalidating previous reads
     wrappers.forEach((w, i) => {
       w.style.position = "sticky";
       w.style.top = `calc(${stackPosition} + ${itemStackDistance * i}px)`;

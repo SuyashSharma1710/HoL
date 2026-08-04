@@ -41,6 +41,7 @@ export function Hero() {
           fetchPriority="high"
           placeholder="blur"
           sizes="100vw"
+          quality={60}
           className="object-cover object-center"
         />
         {/* Subtle dark overlay for text readability */}

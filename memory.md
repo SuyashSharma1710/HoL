@@ -316,3 +316,11 @@ This document tracks all significant architectural changes, file creations, and 
 **72. Hero Background LCP Optimization**
 - **What:** Refactored the hero background image (`new-hero-bg.jpeg`) in `Hero.tsx` to use a Next.js static import instead of a string URL, and provided an explicit `sizes` property.
 - **Why:** To eliminate a massive 1.7-second Resource Load Delay flagged by Lighthouse. Static imports allow the Next.js compiler to generate an instant blur placeholder and inject a highly-optimized `<link rel="preload">` tag into the document head, significantly improving the Largest Contentful Paint (LCP) metric, especially on mobile.
+
+**73. ScrollStack Forced Layout Thrashing Fix**
+- **What:** Refactored the `ScrollStack` component to eliminate forced synchronous layouts (layout thrashing) during initialization by replacing expensive DOM modifications (`position: static`) and measurements (`getBoundingClientRect`) with a non-destructive `offsetTop` calculation.
+- **Why:** To resolve a severe 77ms layout calculation bottleneck flagged by Lighthouse. This ensures buttery-smooth initialization and scrolling across all sections utilizing the stacking cards (Community, Living Young, Electric).
+
+**74. Responsive Image Sizing Optimization**
+- **What:** Updated the `sizes` attribute for the "Astral cellular energy body" image in `WelcomeSection.tsx` from a generic `50vw` to a precisely capped `(max-width: 1280px) 50vw, 640px`.
+- **Why:** To resolve a Lighthouse image delivery warning. By giving the Next.js `<Image>` component a strict upper bound, it prevents the downloading of unnecessarily massive images on ultra-wide monitors, saving significant bandwidth and reducing FCP/LCP.

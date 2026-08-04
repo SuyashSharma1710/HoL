@@ -145,7 +145,7 @@ export function WelcomeSection() {
                   alt="Astral cellular energy body"
                   fill
                   className="object-cover object-center scale-[1.01] hover:scale-105 transition-transform duration-1000 ease-out opacity-90"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 640px"
                 />
               </div>
             </motion.div>

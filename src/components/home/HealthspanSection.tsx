@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { LifeforceChart } from "@/components/ui/LifeforceChart";

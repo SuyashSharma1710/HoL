@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight } from "lucide-react";
-import Link from "next/link";
 import Image from "next/image";
-import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const tabs = ["Voltage", "Charge", "Healing"];

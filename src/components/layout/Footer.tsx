@@ -126,7 +126,7 @@ export function Footer() {
                     +91 880 082 8863
                   </a>
                 </li>
-                <li className="pt-2 text-background/70 text-sm leading-relaxed max-w-[200px]">
+                <li className="pt-2 text-background/70 text-sm leading-relaxed max-w-50">
                   Quest Concepts Private Limited<br/>
                   125A Shahpur Jat, Siri Fort<br/>
                   Near Lal PathLabs<br/>

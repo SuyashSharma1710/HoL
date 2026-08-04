@@ -98,7 +98,7 @@ export function WelcomeSection() {
                   Every single heartbeat and breath you take literally begins at the cellular level.
                 </p>
                 <p>
-                  At <span className="italic text-accent font-medium">Harmony of Life</span>, we believe that true health starts at the cellular level. Our philosophy is built around one fundamental principle: <span className="font-semibold italic text-background">"The healthier your cells, the greater your Cellular Charge, and the greater your Lifeforce."</span>
+                  At <span className="italic text-accent font-medium">Harmony of Life</span>, we believe that true health starts at the cellular level. Our philosophy is built around one fundamental principle: <span className="font-semibold italic text-background">&quot;The healthier your cells, the greater your Cellular Charge, and the greater your Lifeforce.&quot;</span>
                 </p>
                 <p>
                   Our mission is to help individuals optimize their health by supporting healthy cellular function through personalized nutrition, holistic wellness practices, movement, breathing, restorative sleep, stress management, and lifestyle education.

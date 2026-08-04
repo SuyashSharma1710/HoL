@@ -65,11 +65,11 @@ export function ElectricSection() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Top Left */}
         <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] max-w-150 max-h-150 opacity-[0.08]">
-          <Image src="/logo.svg" alt="" fill className="object-contain" />
+          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
         </div>
         {/* Bottom Right */}
         <div className="absolute top-[40%] right-[-15%] w-[80vw] h-[80vw] max-w-200 max-h-200 opacity-[0.08]">
-          <Image src="/logo.svg" alt="" fill className="object-contain" />
+          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
         </div>
       </div>
 

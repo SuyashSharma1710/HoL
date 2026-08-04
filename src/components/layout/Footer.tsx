@@ -121,6 +121,11 @@ export function Footer() {
                     </a>
                   </li>
                 ))}
+                <li className="pt-3">
+                  <a href="tel:+918800828863" className="text-background/90 hover:text-white transition-colors text-base font-semibold">
+                    +91 880 082 8863
+                  </a>
+                </li>
               </ul>
             </div>
 

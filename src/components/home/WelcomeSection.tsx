@@ -52,22 +52,22 @@ export function WelcomeSection() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Top Left */}
         <div className="absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] max-w-200 max-h-200 opacity-10">
-          <Image src="/logo.svg" alt="" fill className="object-contain" />
+          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
         </div>
 
         {/* Bottom Right */}
         <div className="absolute bottom-[-20%] right-[-10%] w-[90vw] h-[90vw] max-w-225 max-h-225 opacity-10">
-          <Image src="/logo.svg" alt="" fill className="object-contain" />
+          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
         </div>
 
         {/* Middle Right */}
         <div className="absolute top-[30%] right-[-20%] w-[60vw] h-[60vw] max-w-150 max-h-150 opacity-[0.08]">
-          <Image src="/logo.svg" alt="" fill className="object-contain" />
+          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
         </div>
 
         {/* Bottom Left */}
         <div className="absolute bottom-[10%] left-[-15%] w-[70vw] h-[70vw] max-w-175 max-h-175 opacity-[0.08]">
-          <Image src="/logo.svg" alt="" fill className="object-contain" />
+          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
         </div>
       </div>
 

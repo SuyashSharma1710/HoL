@@ -21,8 +21,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://theharmonyoflife.com'),
-  title: "Harmony of Life | Celestial Wellness",
-  description: "A sanctuary for digital rejuvenation, deep cellular detox, and restoring your Lifeforce through holistic celestial wellness.",
+  title: "Harmony of Life | Elevate Your Cellular Charge & Lifeforce",
+  description: "Restore your health at the cellular level. Harmony of Life provides personalized holistic protocols to increase Cellular Charge and elevate your Lifeforce.",
   keywords: ["Celestial Wellness", "Lifeforce", "Deep Detox", "Holistic Health", "Cellular Repair", "Harmony of Life"],
   alternates: {
     canonical: '/',
@@ -82,16 +82,8 @@ export default function RootLayout({
                 "name": "Harmony of Life",
                 "image": "https://theharmonyoflife.com/logo.svg",
                 "url": "https://theharmonyoflife.com",
-                "telephone": "8800828863",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "Wellness Center",
-                  "addressLocality": "New Delhi",
-                  "addressRegion": "DL",
-                  "postalCode": "110001",
-                  "addressCountry": "IN"
-                },
-                "description": "A sanctuary for digital rejuvenation, deep cellular detox, and restoring your Lifeforce.",
+                "telephone": "+918800828863",
+                "description": "Restore your health at the cellular level. Harmony of Life provides personalized holistic protocols to increase Cellular Charge and elevate your Lifeforce.",
                 "priceRange": "₹₹"
               }
             ])

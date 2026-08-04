@@ -87,29 +87,29 @@ export function PillarsSection() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Top Left */}
         <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] max-w-150 max-h-150 opacity-[0.08]">
-          <Image src="/logo.svg" alt="" fill className="object-contain" />
+          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
         </div>
         {/* Bottom Right */}
         <div className="absolute top-[40%] right-[-15%] w-[80vw] h-[80vw] max-w-200 max-h-200 opacity-[0.08]">
-          <Image src="/logo.svg" alt="" fill className="object-contain" />
+          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
         </div>
         {/* Top Right Small Cluster */}
         <div className="absolute top-[5%] right-[5%] w-[40vw] h-[40vw] max-w-100 max-h-100 opacity-[0.06]">
-          <div className="absolute top-[10%] right-[30%] w-16 h-16"><Image src="/logo.svg" alt="" fill className="object-contain rotate-12" /></div>
-          <div className="absolute top-[30%] right-[10%] w-12 h-12"><Image src="/logo.svg" alt="" fill className="object-contain -rotate-12" /></div>
-          <div className="absolute top-[50%] right-[50%] w-20 h-20"><Image src="/logo.svg" alt="" fill className="object-contain rotate-45" /></div>
-          <div className="absolute top-[70%] right-[20%] w-14 h-14"><Image src="/logo.svg" alt="" fill className="object-contain -rotate-90" /></div>
-          <div className="absolute top-[20%] right-[70%] w-10 h-10"><Image src="/logo.svg" alt="" fill className="object-contain -rotate-45" /></div>
-          <div className="absolute top-[80%] right-[70%] w-8 h-8"><Image src="/logo.svg" alt="" fill className="object-contain rotate-180" /></div>
+          <div className="absolute top-[10%] right-[30%] w-16 h-16"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-12" /></div>
+          <div className="absolute top-[30%] right-[10%] w-12 h-12"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain -rotate-12" /></div>
+          <div className="absolute top-[50%] right-[50%] w-20 h-20"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-45" /></div>
+          <div className="absolute top-[70%] right-[20%] w-14 h-14"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain -rotate-90" /></div>
+          <div className="absolute top-[20%] right-[70%] w-10 h-10"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain -rotate-45" /></div>
+          <div className="absolute top-[80%] right-[70%] w-8 h-8"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-180" /></div>
         </div>
         {/* Bottom Left Small Cluster */}
         <div className="absolute bottom-[5%] left-[5%] w-[40vw] h-[40vw] max-w-100 max-h-100 opacity-[0.06]">
-          <div className="absolute bottom-[15%] left-[20%] w-16 h-16"><Image src="/logo.svg" alt="" fill className="object-contain -rotate-12" /></div>
-          <div className="absolute bottom-[35%] left-[50%] w-12 h-12"><Image src="/logo.svg" alt="" fill className="object-contain rotate-45" /></div>
-          <div className="absolute bottom-[55%] left-[10%] w-20 h-20"><Image src="/logo.svg" alt="" fill className="object-contain rotate-90" /></div>
-          <div className="absolute bottom-[75%] left-[40%] w-14 h-14"><Image src="/logo.svg" alt="" fill className="object-contain rotate-180" /></div>
-          <div className="absolute bottom-[20%] left-[70%] w-10 h-10"><Image src="/logo.svg" alt="" fill className="object-contain rotate-12" /></div>
-          <div className="absolute bottom-[80%] left-[80%] w-8 h-8"><Image src="/logo.svg" alt="" fill className="object-contain -rotate-45" /></div>
+          <div className="absolute bottom-[15%] left-[20%] w-16 h-16"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain -rotate-12" /></div>
+          <div className="absolute bottom-[35%] left-[50%] w-12 h-12"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-45" /></div>
+          <div className="absolute bottom-[55%] left-[10%] w-20 h-20"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-90" /></div>
+          <div className="absolute bottom-[75%] left-[40%] w-14 h-14"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-180" /></div>
+          <div className="absolute bottom-[20%] left-[70%] w-10 h-10"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-12" /></div>
+          <div className="absolute bottom-[80%] left-[80%] w-8 h-8"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain -rotate-45" /></div>
         </div>
       </div>
 

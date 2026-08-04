@@ -324,3 +324,15 @@ This document tracks all significant architectural changes, file creations, and 
 **74. Responsive Image Sizing Optimization**
 - **What:** Updated the `sizes` attribute for the "Astral cellular energy body" image in `WelcomeSection.tsx` from a generic `50vw` to a precisely capped `(max-width: 1280px) 50vw, 640px`.
 - **Why:** To resolve a Lighthouse image delivery warning. By giving the Next.js `<Image>` component a strict upper bound, it prevents the downloading of unnecessarily massive images on ultra-wide monitors, saving significant bandwidth and reducing FCP/LCP.
+
+**75. SEO Metadata & Keyword Consistency Optimization**
+- **What:** Replaced the generic `<title>` and `<meta name="description">` tags in `layout.tsx` with meticulously crafted, keyword-dense copy (`Harmony of Life | Elevate Your Cellular Charge & Lifeforce` & `Restore your health at the cellular level. Harmony of Life provides personalized holistic protocols to increase Cellular Charge and elevate your Lifeforce.`).
+- **Why:** To achieve perfect keyword consistency across Title, Meta Description, and Headings tags (hitting top keywords like "Cellular Charge", "Lifeforce", "Harmony of Life") and to hit the optimal character length limits (50-60 for titles, 120-160 for descriptions) for maximum search engine visibility.
+
+**76. Decorative Image Accessibility & Alt Attributes**
+- **What:** Located all 20 occurrences of the faint background watermark `<Image src="/logo.svg" />` across `WelcomeSection`, `PillarsSection`, and `ElectricSection` and replaced their empty `alt=""` attributes with a descriptive `alt="Harmony of Life decorative element"` tag.
+- **Why:** While `alt=""` is acceptable for screen readers, strict SEO crawlers flag them as missing attributes. This provides branding context to search engines without breaking layout or accessibility.
+
+**77. Local Business Schema & Contact Info**
+- **What:** Removed a fake placeholder address from the `HealthAndBeautyBusiness` JSON-LD schema in `layout.tsx`, updated the schema telephone to the E.164 standard (`+918800828863`), synced the schema description with the new meta description, and added the phone number as a visible, clickable `tel:` link in the `Footer` Connect section.
+- **Why:** To satisfy Google's requirement that structured Local Business data accurately matches physically visible contact information on the webpage, and to remove placeholder data that could trigger search engine penalties.

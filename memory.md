@@ -304,3 +304,7 @@ This document tracks all significant architectural changes, file creations, and 
 **69. Cross-Page Navigation & Loader State Refactoring**
 - **What:** Updated the `<Navbar />` and `<Footer />` routing logic to dynamically prepend a forward slash (`/`) to all hash links (e.g., `/#lifeforce`) when the user is not on the homepage. Additionally, refactored `<Loader />` to trigger on route changes (using `usePathname`) and resolved a React strict mode warning by deriving state during the render phase instead of using `setState` in a `useEffect`.
 - **Why:** To ensure that navigation from policy pages back to homepage sections works seamlessly, and to guarantee that the loading splash screen elegantly covers all Next.js client-side route transitions without triggering performance-degrading cascading renders.
+
+**70. Static Robots.txt Configuration**
+- **What:** Replaced the dynamic Next.js App Router metadata route (`src/app/robots.ts`) with a rock-solid, static `public/robots.txt` file.
+- **Why:** To resolve a Lighthouse crawler error where `robots.ts` was occasionally failing to serve or hanging on the Turbopack dev server, ensuring bots (like Googlebot) can reliably download the crawling directives.

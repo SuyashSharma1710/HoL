@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -9,7 +10,7 @@ import { ShinyText } from "@/components/ui/shiny-text";
 import { FallingLeaves } from "@/components/ui/falling-leaves";
 
 const navLinks = [
-  { name: "About us", href: "#about" },
+  { name: "About us", href: "#welcome" },
   { name: "Lifeforce", href: "#lifeforce" },
   { name: "Living young", href: "#living-young" },
   { name: "Root cause reversal", href: "#reversal" },
@@ -36,6 +37,9 @@ const legalLinks = [
 
 export function Footer() {
   const containerRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+  const getHref = (hash: string) => pathname === "/" ? hash : `/${hash}`;
+  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end end"],
@@ -97,7 +101,7 @@ export function Footer() {
               <ul className="flex flex-col space-y-2">
                 {navLinks.map((link) => (
                   <li key={link.name}>
-                    <Link href={link.href} className="text-background/70 hover:text-background transition-colors text-base font-medium flex items-center gap-2 group w-fit">
+                    <Link href={getHref(link.href)} className="text-background/70 hover:text-background transition-colors text-base font-medium flex items-center gap-2 group w-fit">
                       {link.name}
                       <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                     </Link>

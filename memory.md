@@ -300,3 +300,7 @@ This document tracks all significant architectural changes, file creations, and 
 **68. Dedicated Legal Policy Pages**
 - **What:** Created full, dedicated routing pages for `/privacy`, `/terms`, and `/cookies` containing standard boilerplate legal text, and updated the `Footer.tsx` links to point to these new routes.
 - **Why:** To ensure strict compliance and proper SEO indexing. Dedicated URLs (unlike popups or modals) are the standard requirement for search engine bots (Googlebot) and compliance crawlers (e.g., Meta Pixel, Google Ads) to verify active policies.
+
+**69. Cross-Page Navigation & Loader State Refactoring**
+- **What:** Updated the `<Navbar />` and `<Footer />` routing logic to dynamically prepend a forward slash (`/`) to all hash links (e.g., `/#lifeforce`) when the user is not on the homepage. Additionally, refactored `<Loader />` to trigger on route changes (using `usePathname`) and resolved a React strict mode warning by deriving state during the render phase instead of using `setState` in a `useEffect`.
+- **Why:** To ensure that navigation from policy pages back to homepage sections works seamlessly, and to guarantee that the loading splash screen elegantly covers all Next.js client-side route transitions without triggering performance-degrading cascading renders.

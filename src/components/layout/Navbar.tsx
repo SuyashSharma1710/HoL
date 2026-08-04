@@ -23,6 +23,7 @@ const Linkedin = ({ className }: { className?: string }) => (
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -38,10 +39,14 @@ import {
 } from "@/components/ui/sheet";
 
 export function Navbar() {
+  const pathname = usePathname();
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  // Helper to ensure anchor links route back to the homepage if we're on a different page
+  const getHref = (hash: string) => pathname === "/" ? hash : `/${hash}`;
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -87,9 +92,9 @@ export function Navbar() {
         
         {/* Left Navigation (Desktop Only) */}
         <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold tracking-wide">
-          <Link href="#welcome" className="hover:text-secondary transition-colors">About us</Link>
-          <Link href="#lifeforce" className="hover:text-secondary transition-colors">Lifeforce</Link>
-          <Link href="#living-young" className="hover:text-secondary transition-colors">Living young</Link>
+          <Link href={getHref("#welcome")} className="hover:text-secondary transition-colors">About us</Link>
+          <Link href={getHref("#lifeforce")} className="hover:text-secondary transition-colors">Lifeforce</Link>
+          <Link href={getHref("#living-young")} className="hover:text-secondary transition-colors">Living young</Link>
           
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 hover:text-secondary transition-colors outline-none cursor-pointer group">
@@ -98,25 +103,25 @@ export function Navbar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56 bg-background/95 backdrop-blur-xl border border-primary/10 p-2 shadow-xl shadow-primary/5">
               <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium">
-                <Link href="#reversal" className="w-full h-full block py-1">Root cause reversal</Link>
+                <Link href={getHref("#reversal")} className="w-full h-full block py-1">Root cause reversal</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href="#pillars" className="w-full h-full block py-1">12 Pillars</Link>
+                <Link href={getHref("#pillars")} className="w-full h-full block py-1">12 Pillars</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href="#gut-reset" className="w-full h-full block py-1">Gut reset</Link>
+                <Link href={getHref("#gut-reset")} className="w-full h-full block py-1">Gut reset</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href="#authority" className="w-full h-full block py-1">Dr. Rastogi</Link>
+                <Link href={getHref("#authority")} className="w-full h-full block py-1">Dr. Rastogi</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href="#community" className="w-full h-full block py-1">Community</Link>
+                <Link href={getHref("#community")} className="w-full h-full block py-1">Community</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href="#testimonials" className="w-full h-full block py-1">Testimonials</Link>
+                <Link href={getHref("#testimonials")} className="w-full h-full block py-1">Testimonials</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href="#cta" className="w-full h-full block py-1">Contact us</Link>
+                <Link href={getHref("#cta")} className="w-full h-full block py-1">Contact us</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -208,43 +213,43 @@ export function Navbar() {
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-4">
-                  <Link href="#welcome" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href={getHref("#welcome")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Info className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     About us
                   </Link>
-                  <Link href="#lifeforce" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href={getHref("#lifeforce")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Sparkles className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Lifeforce
                   </Link>
-                  <Link href="#living-young" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href={getHref("#living-young")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Heart className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Living young
                   </Link>
-                  <Link href="#reversal" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group leading-tight max-w-sm">
+                  <Link href={getHref("#reversal")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group leading-tight max-w-sm">
                     <Activity className="w-5 h-5 shrink-0 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Root cause reversal
                   </Link>
-                  <Link href="#pillars" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href={getHref("#pillars")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Sparkles className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     12 Pillars
                   </Link>
-                  <Link href="#gut-reset" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href={getHref("#gut-reset")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Apple className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Gut reset
                   </Link>
-                  <Link href="#authority" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href={getHref("#authority")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Info className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Dr. Rastogi
                   </Link>
-                  <Link href="#community" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href={getHref("#community")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <MessageCircle className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Community
                   </Link>
-                  <Link href="#testimonials" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href={getHref("#testimonials")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Heart className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Testimonials
                   </Link>
-                  <Link href="#cta" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href={getHref("#cta")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <MessageCircle className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Contact us
                   </Link>

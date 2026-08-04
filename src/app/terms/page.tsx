@@ -30,7 +30,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="font-heading text-2xl sm:text-3xl text-primary font-semibold mb-4">2. Use License</h2>
             <p className="leading-relaxed mb-4">
-              Permission is granted to temporarily download one copy of the materials (information or software) on Harmony of Life's website for personal, non-commercial transitory viewing only.
+              Permission is granted to temporarily download one copy of the materials (information or software) on Harmony of Life&apos;s website for personal, non-commercial transitory viewing only.
             </p>
             <p className="leading-relaxed">
               This is the grant of a license, not a transfer of title, and under this license you may not:
@@ -38,7 +38,7 @@ export default function TermsOfService() {
             <ul className="list-disc pl-6 space-y-2 mt-4">
               <li>Modify or copy the materials;</li>
               <li>Use the materials for any commercial purpose, or for any public display (commercial or non-commercial);</li>
-              <li>Attempt to decompile or reverse engineer any software contained on Harmony of Life's website;</li>
+              <li>Attempt to decompile or reverse engineer any software contained on Harmony of Life&apos;s website;</li>
               <li>Remove any copyright or other proprietary notations from the materials.</li>
             </ul>
           </section>

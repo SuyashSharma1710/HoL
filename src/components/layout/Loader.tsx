@@ -3,25 +3,37 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export function Loader() {
+  const pathname = usePathname();
+  const [prevPathname, setPrevPathname] = useState(pathname);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Deriving state from props/hooks during render phase (React recommended pattern)
+  // This avoids cascading renders and ESLint warnings caused by setState in useEffect
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setIsLoading(true);
+  }
+
   useEffect(() => {
+    if (!isLoading) return;
+
     // Disable scrolling while loading
     document.body.style.overflow = "hidden";
     
-    // Simulate loading time
+    // Simulate loading time (you can adjust this timing)
     const timer = setTimeout(() => {
       setIsLoading(false);
       document.body.style.overflow = "unset";
-    }, 2000);
+    }, 1500); // Slightly faster for page transitions
 
     return () => {
       clearTimeout(timer);
       document.body.style.overflow = "unset";
     };
-  }, []);
+  }, [isLoading]);
 
   return (
     <AnimatePresence>

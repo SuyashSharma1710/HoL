@@ -51,22 +51,22 @@ export function WelcomeSection() {
       {/* Abstract Logo Decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Top Left */}
-        <div className="absolute -top-[20%] -left-[10%] w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] opacity-10">
+        <div className="absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] max-w-200 max-h-200 opacity-10">
           <Image src="/logo.svg" alt="" fill className="object-contain" />
         </div>
 
         {/* Bottom Right */}
-        <div className="absolute -bottom-[20%] -right-[10%] w-[90vw] h-[90vw] max-w-[900px] max-h-[900px] opacity-10">
+        <div className="absolute bottom-[-20%] right-[-10%] w-[90vw] h-[90vw] max-w-225 max-h-225 opacity-10">
           <Image src="/logo.svg" alt="" fill className="object-contain" />
         </div>
 
         {/* Middle Right */}
-        <div className="absolute top-[30%] -right-[20%] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] opacity-[0.08]">
+        <div className="absolute top-[30%] right-[-20%] w-[60vw] h-[60vw] max-w-150 max-h-150 opacity-[0.08]">
           <Image src="/logo.svg" alt="" fill className="object-contain" />
         </div>
 
         {/* Bottom Left */}
-        <div className="absolute bottom-[10%] -left-[15%] w-[70vw] h-[70vw] max-w-[700px] max-h-[700px] opacity-[0.08]">
+        <div className="absolute bottom-[10%] left-[-15%] w-[70vw] h-[70vw] max-w-175 max-h-175 opacity-[0.08]">
           <Image src="/logo.svg" alt="" fill className="object-contain" />
         </div>
       </div>

@@ -15,19 +15,19 @@ const tabContent = {
     caption: "Voltage",
     title: "The body's electric potential is the spark of life",
     description: "A cell at 70 millivolts is a factory of pure energy and repair. When that voltage drops, the machinery of life grinds down and chronic disease takes hold.",
-    image: "/images/cellular-voltage.png"
+    image: "/images/mitochondria_voltage.png"
   },
   Charge: {
     caption: "Charge",
     title: "3.5 Trillion Volts of Bioelectric Potential",
     description: "When you multiply the vast number of cells in the human body by the electrical potential of each individual cell, the result is staggering. You are power iterated.",
-    image: "/images/cellular-voltage.png"
+    image: "/images/mitochondria_charge.png"
   },
   Healing: {
     caption: "Healing",
     title: "Restoring your lifeforce unblocks your healing",
     description: "Disease is not a permanent state; it is a signal of blocked energy. By changing your cellular environment, you can unblock your Lifeforce and restore vibrant health.",
-    image: "/images/cellular-voltage.png"
+    image: "/images/mitochondria_healing.png"
   }
 };
 
@@ -64,11 +64,11 @@ export function ElectricSection() {
       {/* Static Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Top Left */}
-        <div className="absolute -top-[10%] -left-[10%] w-[60vw] h-[60vw] max-w-[600px] max-h-[600px] opacity-[0.08]">
+        <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] max-w-150 max-h-150 opacity-[0.08]">
           <Image src="/logo.svg" alt="" fill className="object-contain" />
         </div>
         {/* Bottom Right */}
-        <div className="absolute top-[40%] -right-[15%] w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] opacity-[0.08]">
+        <div className="absolute top-[40%] right-[-15%] w-[80vw] h-[80vw] max-w-200 max-h-200 opacity-[0.08]">
           <Image src="/logo.svg" alt="" fill className="object-contain" />
         </div>
       </div>

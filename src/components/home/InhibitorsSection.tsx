@@ -59,7 +59,7 @@ const inhibitors = [
   },
   {
     category: "Nutrition",
-    title: "Dead food cannot fuel a high-voltage body",
+    title: "Processed food cannot fuel a high-voltage body",
     description: "Processed ingredients and empty calories offer zero electrons for life",
     image: "/images/inhibitor-nutrition.png",
     linkText: "Nourish",

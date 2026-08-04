@@ -276,3 +276,11 @@ This document tracks all significant architectural changes, file creations, and 
 **62. Global Routing & Link Audit**
 - **What:** Conducted a comprehensive audit of every CTA button and text link across all 10 landing page sections. Corrected misaligned text (e.g., changing "Science" to "Program" in Healthspan) and fixed broken or illogical `href` anchor targets (e.g., pointing `#reversal` to `#inhibitors`, and `#community` to `#living-young` for the "Heal" button).
 - **Why:** To guarantee a flawless, logical user journey where every button seamlessly transports the user (via Lenis smooth scroll) to the exact relevant narrative section, closing all navigation loops.
+
+**63. Fixed Navbar Blur Artifact**
+- **What:** Refactored `Navbar.tsx` scroll logic to render completely transparent (`bg-transparent` with no blur) when `scrollY < 20`, and only apply the glassmorphic `backdrop-blur-md bg-background/90` when scrolling down.
+- **Why:** To eliminate a harsh 1px rendering artifact (caused by WebKit/Blink's handling of CSS `backdrop-filter`) that looked like a thin dark line slicing across the top of the Hero background image.
+
+**64. Enhanced Lifeforce Chart Contrast**
+- **What:** Replaced the translucent frosted-glass background (`bg-background/40 backdrop-blur-md`) of the `LifeforceChart.tsx` component with a crisp, solid `bg-white`.
+- **Why:** To improve data legibility and make the SVG visualization pop distinctly against the softer surrounding background palette.

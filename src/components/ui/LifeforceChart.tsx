@@ -58,7 +58,7 @@ export function LifeforceChart() {
   const cPath = catmullRom2bezier(cPoints);
 
   return (
-    <div className="w-full bg-background/40 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden p-6 sm:p-8 border border-secondary/20">
+    <div className="w-full bg-white rounded-3xl shadow-2xl overflow-hidden p-6 sm:p-8 border border-secondary/20">
       <div className="text-center mb-4 sm:mb-8">
         <h3 className="font-heading text-xl sm:text-2xl lg:text-3xl font-semibold text-primary tracking-tight">
           LIFEFORCE & <span className="text-secondary italic">CELLULAR CHARGE</span> OVER AGE

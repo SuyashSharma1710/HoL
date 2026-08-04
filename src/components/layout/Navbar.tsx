@@ -22,6 +22,7 @@ const Linkedin = ({ className }: { className?: string }) => (
 );
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -39,10 +40,18 @@ import {
 export function Navbar() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
     
+    // Determine if we've scrolled past the very top
+    if (latest > 20) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+
     // Always show navbar when at the very top
     if (latest <= 50) {
       setHidden(false);
@@ -68,7 +77,10 @@ export function Navbar() {
       initial="hidden"
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-background/80 border-b border-primary/5"
+      className={cn(
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+        scrolled ? "backdrop-blur-md bg-background/90 shadow-sm" : "bg-transparent"
+      )}
     >
       <div className="max-w-360 mx-auto px-4 lg:px-8 h-24 flex items-center justify-between">
         

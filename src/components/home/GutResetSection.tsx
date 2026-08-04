@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Pill, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
@@ -67,9 +67,7 @@ export function GutResetSection() {
             className="flex flex-col space-y-8 order-1 lg:order-2"
           >
             <motion.div variants={itemVariants}>
-              <div className="mb-8 p-4 bg-white/60 backdrop-blur-md rounded-2xl shadow-sm border border-secondary/20 inline-flex">
-                <Pill className="w-10 h-10 text-primary" strokeWidth={1.5} />
-              </div>
+                
               <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-primary font-semibold leading-[1.15]">
                 Gut reset is the command<br className="hidden sm:block" /> center of charge
               </h2>

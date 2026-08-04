@@ -336,3 +336,11 @@ This document tracks all significant architectural changes, file creations, and 
 **77. Local Business Schema & Contact Info Finalization**
 - **What:** Injected the verified physical address (Quest Concepts Private Limited, New Delhi) into the JSON-LD schema in `layout.tsx` and simultaneously rendered it as visible text in the `Footer` Connect section alongside the E.164 formatted phone number (`+918800828863`). Additionally, split the `Organization` and `LocalBusiness` schemas into two separate `<script>` tags and used the generic `@type: "LocalBusiness"` string.
 - **Why:** To satisfy Google's strict requirement that structured Local Business data accurately matches physically visible contact information on the webpage, ensuring the site ranks highly in local SEO search results without risking a penalty for hidden or dummy schema data. Furthermore, de-nesting the JSON arrays and using the generic schema type ensures compatibility with legacy automated SEO auditing tools.
+
+**78. Layout Restructuring & Force Light Mode Config**
+- **What:** 
+  1. Extracted the "Philosophy" block from the `WelcomeSection` into its own standalone `PhilosophySection.tsx` utilizing the `bg-secondary` theme color and animated glowing background orbs to distinctively break up the flow.
+  2. Moved the "Harmony of Life" tagline from the Welcome section footer into the `HealthspanSection` as its main centered header.
+  3. Streamlined CTAs across the site: Unified dual buttons in the Hero into a single "Explore" button, removed the secondary button in Healthspan leaving just "Discover", and completely removed the CTA from the Electric section.
+  4. Added `color-scheme: only light` configuration to both `globals.css` `:root` and the Next.js `Viewport` export in `layout.tsx`.
+- **Why:** Restructuring sections provided a more dramatic, paced scroll experience. Streamlining the CTAs reduces choice paralysis and focuses user navigation on the core flow. The strict color-scheme declarations prevent aggressive OS-level or browser "Auto Dark Mode" algorithms from automatically inverting the custom light beige/dark green color palettes.

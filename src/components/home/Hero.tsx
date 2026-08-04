@@ -77,19 +77,10 @@ export function Hero() {
             href="#welcome" 
             className={cn(
               buttonVariants({ size: "lg" }),
-              "bg-background text-primary hover:bg-background/90 font-semibold px-10 py-6 text-lg rounded-sm min-w-40 shadow-lg shadow-black/20"
+              "bg-background text-primary hover:bg-background/90 font-semibold px-12 py-6 text-lg rounded-sm min-w-48 shadow-lg shadow-black/20 transition-transform hover:scale-105"
             )}
           >
-            Start
-          </Link>
-          <Link 
-            href="#lifeforce" 
-            className={cn(
-              buttonVariants({ variant: "outline", size: "lg" }),
-              "border-white text-white hover:bg-white hover:text-white font-semibold px-10 py-6 text-lg rounded-sm bg-transparent min-w-40"
-            )}
-          >
-            Learn
+            Explore
           </Link>
         </motion.div>
       </motion.div>

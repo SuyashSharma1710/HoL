@@ -94,11 +94,11 @@ export function WelcomeSection() {
             {/* Left Content (Text) */}
             <div className="flex flex-col space-y-12">
               <motion.div variants={itemVariants} className="space-y-6 text-base sm:text-lg text-background/80 leading-relaxed font-sans text-left">
-                <p className="font-medium text-lg sm:text-xl text-background/90 mb-8">
-                  Every heartbeat, every breath, every thought, and every movement begins within your cells.
+                <p className="mb-8">
+                  Every single heartbeat and breath you take literally begins at the cellular level.
                 </p>
                 <p>
-                  At <span className="italic text-accent font-medium">Harmony of Life</span>, we believe that true health starts at the cellular level. Our philosophy is built around one fundamental principle: <span className="font-semibold text-background">the healthier your cells, the greater your Cellular Charge, and the greater your Lifeforce.</span>
+                  At <span className="italic text-accent font-medium">Harmony of Life</span>, we believe that true health starts at the cellular level. Our philosophy is built around one fundamental principle: <span className="font-semibold italic text-background">"The healthier your cells, the greater your Cellular Charge, and the greater your Lifeforce."</span>
                 </p>
                 <p>
                   Our mission is to help individuals optimize their health by supporting healthy cellular function through personalized nutrition, holistic wellness practices, movement, breathing, restorative sleep, stress management, and lifestyle education.
@@ -150,25 +150,6 @@ export function WelcomeSection() {
               </div>
             </motion.div>
           </div>
-
-          {/* Full Width Conclusion */}
-          <motion.div variants={itemVariants} className="pt-8 sm:pt-12 space-y-8 text-base sm:text-lg text-background/80 font-sans leading-relaxed text-center max-w-4xl mx-auto">
-            <p className="text-xl sm:text-2xl text-background/90 font-medium">We don&apos;t believe in one-size-fits-all wellness.</p>
-            <p>We believe every person is unique, which is why Harmony of Life provides a personalized approach designed to help you build sustainable habits that support your body&apos;s natural ability to produce energy, adapt, recover, and thrive.</p>
-            <p>Because when your <span className="italic text-accent font-medium">Cellular Charge</span> is supported, your cells are better equipped to communicate, generate energy, and perform their essential functions. And when your cells function at their best, your <span className="italic text-accent font-medium">Lifeforce</span> can flourish.</p>
-            <div className="pt-6 space-y-3">
-              <p className="font-semibold text-background text-xl sm:text-2xl">This is more than a wellness platform.</p>
-              <p className="font-semibold text-background text-xl sm:text-2xl">It is a movement dedicated to helping people create a healthier, more energetic, and more vibrant life from the cellular level upward.</p>
-            </div>
-          </motion.div>
-
-          {/* Footer Statement */}
-          <motion.div variants={itemVariants} className="pt-12 lg:pt-16 space-y-4 text-center max-w-4xl mx-auto">
-            <h3 className="text-4xl sm:text-5xl text-accent italic font-semibold">Harmony of Life</h3>
-            <h4 className="text-2xl sm:text-3xl text-background/90 italic font-medium leading-relaxed">
-              Powering Cellular Charge. Elevating Lifeforce. Inspiring Lifelong Wellness.
-            </h4>
-          </motion.div>
 
         </motion.div>
       </div>

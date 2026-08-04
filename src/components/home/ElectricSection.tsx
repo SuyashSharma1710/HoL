@@ -92,25 +92,7 @@ export function ElectricSection() {
           <motion.p variants={itemVariants} className="text-background/80 font-medium text-lg leading-relaxed mb-8">
             Your lifeforce is not a mystery. It is a measurable voltage that powers 50 trillion cells, each demanding a precise 70 millivolts to operate perfectly.
           </motion.p>
-          
-          <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-6">
-            <Link 
-              href="#inhibitors"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "border-accent text-accent hover:bg-accent hover:text-primary rounded-sm px-10 py-6 font-medium text-base transition-all bg-transparent"
-              )}
-            >
-              Explore
-            </Link>
-            <Link 
-              href="#pillars"
-              className="group flex items-center gap-2 text-background font-semibold hover:text-accent transition-colors px-4 py-2"
-            >
-              Pillars 
-              <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </motion.div>
+
         </motion.div>
 
         {/* Tabs */}

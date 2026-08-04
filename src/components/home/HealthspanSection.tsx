@@ -35,6 +35,23 @@ export function HealthspanSection() {
       <div className="absolute top-0 left-1/4 w-full h-125 bg-secondary/5 blur-3xl rounded-full pointer-events-none" />
 
       <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Main Centered Heading */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center max-w-4xl mx-auto mb-20 sm:mb-28"
+        >
+          <motion.h3 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl text-accent italic font-semibold mb-6">
+            Harmony of Life
+          </motion.h3>
+          <motion.h4 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl text-primary font-medium leading-relaxed italic">
+            Powering Cellular Charge. Elevating Lifeforce. Inspiring Lifelong Wellness.
+          </motion.h4>
+        </motion.div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
           {/* Left Content */}
@@ -85,17 +102,10 @@ export function HealthspanSection() {
                 href="#lifeforce"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "bg-primary text-background hover:bg-primary/90 rounded-sm px-10 py-6 font-medium text-base transition-all shadow-lg shadow-primary/10"
+                  "bg-primary text-background hover:bg-primary/90 rounded-sm px-12 py-6 font-medium text-base transition-transform hover:scale-105 shadow-lg shadow-primary/10"
                 )}
               >
                 Discover
-              </Link>
-              <Link 
-                href="#living-young"
-                className="group flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors px-4 py-2"
-              >
-                Program 
-                <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1 text-accent" />
               </Link>
             </motion.div>
           </motion.div>

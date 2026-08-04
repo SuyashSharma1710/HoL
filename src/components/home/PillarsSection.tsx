@@ -143,7 +143,7 @@ export function PillarsSection() {
             </h3>
             <div className="w-8 sm:w-12 h-1 bg-accent mb-2 sm:mb-4 rounded-full" />
             <p className="text-background/80 font-semibold text-[10px] sm:text-xs lg:text-sm uppercase tracking-widest hidden sm:block">
-              The Science and Art<br/>of Living Young
+              The Science<br/>of Living Young
             </p>
           </div>
 

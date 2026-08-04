@@ -296,3 +296,7 @@ This document tracks all significant architectural changes, file creations, and 
 **67. Codebase Linting & Cleanup**
 - **What:** Removed unused imports (e.g., `next/link` in `InhibitorsSection.tsx`) and refactored Tailwind CSS arbitrary values (`h-[1px]`, `h-[2px]`) to their canonical equivalents (`h-px`, `h-0.5`) across multiple components like `PillarsSection.tsx` and `Loader.tsx`.
 - **Why:** To resolve ESLint and Tailwind IntelliSense warnings, ensuring a clean, strict, and maintainable codebase.
+
+**68. Dedicated Legal Policy Pages**
+- **What:** Created full, dedicated routing pages for `/privacy`, `/terms`, and `/cookies` containing standard boilerplate legal text, and updated the `Footer.tsx` links to point to these new routes.
+- **Why:** To ensure strict compliance and proper SEO indexing. Dedicated URLs (unlike popups or modals) are the standard requirement for search engine bots (Googlebot) and compliance crawlers (e.g., Meta Pixel, Google Ads) to verify active policies.

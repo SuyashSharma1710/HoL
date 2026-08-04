@@ -292,3 +292,7 @@ This document tracks all significant architectural changes, file creations, and 
 **66. Global Splash Screen Loader**
 - **What:** Created and injected a new `<Loader />` component (`src/components/layout/Loader.tsx`) into the global `layout.tsx` wrapper.
 - **Why:** To provide an elegant, full-screen celestial-themed entry experience. The loader temporarily locks scrolling and plays a 2-second initial sequence (spinning logo, fading text, and progress bar) before smoothly sliding out of view to reveal the landing page.
+
+**67. Codebase Linting & Cleanup**
+- **What:** Removed unused imports (e.g., `next/link` in `InhibitorsSection.tsx`) and refactored Tailwind CSS arbitrary values (`h-[1px]`, `h-[2px]`) to their canonical equivalents (`h-px`, `h-0.5`) across multiple components like `PillarsSection.tsx` and `Loader.tsx`.
+- **Why:** To resolve ESLint and Tailwind IntelliSense warnings, ensuring a clean, strict, and maintainable codebase.

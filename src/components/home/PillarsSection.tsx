@@ -170,10 +170,10 @@ export function PillarsSection() {
                     <div className="relative flex items-center justify-center">
                       {/* Mini Star Flare Beams (Outside Glow) */}
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-50 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500">
-                        <div className="absolute w-[250%] h-[1px] bg-linear-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-0" />
-                        <div className="absolute w-[250%] h-[1px] bg-linear-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-90" />
-                        <div className="absolute w-[180%] h-[2px] bg-linear-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform rotate-45" />
-                        <div className="absolute w-[180%] h-[2px] bg-linear-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform -rotate-45" />
+                        <div className="absolute w-[250%] h-px bg-linear-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-0" />
+                        <div className="absolute w-[250%] h-px bg-linear-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-90" />
+                        <div className="absolute w-[180%] h-0.5 bg-linear-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform rotate-45" />
+                        <div className="absolute w-[180%] h-0.5 bg-linear-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform -rotate-45" />
                       </div>
 
                       <div className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full bg-primary border border-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(233,224,207,0.3)] group-hover:shadow-[0_0_25px_rgba(182,156,95,0.6)] group-hover:scale-110 group-hover:border-accent transition-all duration-300">

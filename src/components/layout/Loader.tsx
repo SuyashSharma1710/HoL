@@ -30,7 +30,7 @@ export function Loader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, y: "-100%" }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background overflow-hidden"
+          className="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-background overflow-hidden"
         >
           {/* Logo container */}
           <div className="relative flex items-center justify-center mb-8">
@@ -70,7 +70,7 @@ export function Loader() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.6 }}
-            className="w-48 h-[2px] bg-secondary/30 mt-8 rounded-full overflow-hidden relative"
+            className="w-48 h-0.5 bg-secondary/30 mt-8 rounded-full overflow-hidden relative"
           >
             <motion.div 
               initial={{ x: "-100%" }}

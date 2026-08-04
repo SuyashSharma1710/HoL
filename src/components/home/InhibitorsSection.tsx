@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, ChevronLeft, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";

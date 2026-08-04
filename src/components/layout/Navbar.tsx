@@ -41,6 +41,7 @@ export function Navbar() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -86,7 +87,7 @@ export function Navbar() {
         
         {/* Left Navigation (Desktop Only) */}
         <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold tracking-wide">
-          <Link href="#about" className="hover:text-secondary transition-colors">About us</Link>
+          <Link href="#welcome" className="hover:text-secondary transition-colors">About us</Link>
           <Link href="#lifeforce" className="hover:text-secondary transition-colors">Lifeforce</Link>
           <Link href="#living-young" className="hover:text-secondary transition-colors">Living young</Link>
           
@@ -181,7 +182,7 @@ export function Navbar() {
 
           {/* Mobile Menu (Sheet) */}
           <div className="xl:hidden flex items-center">
-            <Sheet>
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger aria-label="Open mobile menu" className="p-2 -mr-2 cursor-pointer rounded-full hover:bg-primary/5 active:bg-primary/10 transition-colors outline-none flex items-center justify-center text-primary">
                 <MenuIcon className="w-7 h-7" strokeWidth={1.5} />
               </SheetTrigger>
@@ -207,43 +208,43 @@ export function Navbar() {
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-4">
-                  <Link href="#about" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href="#welcome" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Info className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     About us
                   </Link>
-                  <Link href="#lifeforce" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href="#lifeforce" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Sparkles className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Lifeforce
                   </Link>
-                  <Link href="#living-young" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href="#living-young" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Heart className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Living young
                   </Link>
-                  <Link href="#reversal" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group leading-tight max-w-sm">
+                  <Link href="#reversal" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group leading-tight max-w-sm">
                     <Activity className="w-5 h-5 shrink-0 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Root cause reversal
                   </Link>
-                  <Link href="#pillars" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href="#pillars" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Sparkles className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     12 Pillars
                   </Link>
-                  <Link href="#gut-reset" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href="#gut-reset" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Apple className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Gut reset
                   </Link>
-                  <Link href="#authority" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href="#authority" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Info className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Dr. Rastogi
                   </Link>
-                  <Link href="#community" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href="#community" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <MessageCircle className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Community
                   </Link>
-                  <Link href="#testimonials" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href="#testimonials" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <Heart className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Testimonials
                   </Link>
-                  <Link href="#cta" className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
+                  <Link href="#cta" onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
                     <MessageCircle className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
                     Contact us
                   </Link>

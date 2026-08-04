@@ -284,3 +284,7 @@ This document tracks all significant architectural changes, file creations, and 
 **64. Enhanced Lifeforce Chart Contrast**
 - **What:** Replaced the translucent frosted-glass background (`bg-background/40 backdrop-blur-md`) of the `LifeforceChart.tsx` component with a crisp, solid `bg-white`.
 - **Why:** To improve data legibility and make the SVG visualization pop distinctly against the softer surrounding background palette.
+
+**65. Navbar Routing & Mobile UX Enhancements**
+- **What:** Refactored the "About us" links in both the desktop and mobile navigation menus to point to `#welcome` instead of `#about`. Additionally, implemented a controlled `isOpen` state on the Shadcn `<Sheet>` mobile menu, binding an `onClick={() => setIsOpen(false)}` handler to all 10 mobile navigation links.
+- **Why:** To ensure the user lands exactly at the start of the narrative introduction, and to guarantee that the mobile side-panel automatically collapses when a user selects a destination, providing a snappy, native app-like UX.

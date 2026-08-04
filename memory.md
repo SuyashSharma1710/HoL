@@ -288,3 +288,7 @@ This document tracks all significant architectural changes, file creations, and 
 **65. Navbar Routing & Mobile UX Enhancements**
 - **What:** Refactored the "About us" links in both the desktop and mobile navigation menus to point to `#welcome` instead of `#about`. Additionally, implemented a controlled `isOpen` state on the Shadcn `<Sheet>` mobile menu, binding an `onClick={() => setIsOpen(false)}` handler to all 10 mobile navigation links.
 - **Why:** To ensure the user lands exactly at the start of the narrative introduction, and to guarantee that the mobile side-panel automatically collapses when a user selects a destination, providing a snappy, native app-like UX.
+
+**66. Global Splash Screen Loader**
+- **What:** Created and injected a new `<Loader />` component (`src/components/layout/Loader.tsx`) into the global `layout.tsx` wrapper.
+- **Why:** To provide an elegant, full-screen celestial-themed entry experience. The loader temporarily locks scrolling and plays a 2-second initial sequence (spinning logo, fading text, and progress bar) before smoothly sliding out of view to reveal the landing page.

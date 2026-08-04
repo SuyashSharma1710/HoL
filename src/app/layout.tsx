@@ -3,6 +3,7 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { Loader } from "@/components/layout/Loader";
 
 import { LenisProvider } from "@/components/layout/LenisProvider";
 
@@ -50,6 +51,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex flex-col bg-background text-on-background pt-24" suppressHydrationWarning>
+        <Loader />
         <LenisProvider>
           <Navbar />
           {children}

@@ -158,7 +158,7 @@ export function WelcomeSection() {
             <p>Because when your <span className="italic text-accent font-medium">Cellular Charge</span> is supported, your cells are better equipped to communicate, generate energy, and perform their essential functions. And when your cells function at their best, your <span className="italic text-accent font-medium">Lifeforce</span> can flourish.</p>
             <div className="pt-6 space-y-3">
               <p className="font-semibold text-background text-xl sm:text-2xl">This is more than a wellness platform.</p>
-              <p className="font-semibold text-background text-xl sm:text-2xl">It is a movement dedicated to helping people create a healthier, more energetic, and more vibrant life—from the cellular level upward.</p>
+              <p className="font-semibold text-background text-xl sm:text-2xl">It is a movement dedicated to helping people create a healthier, more energetic, and more vibrant life from the cellular level upward.</p>
             </div>
           </motion.div>
 

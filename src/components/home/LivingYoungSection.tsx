@@ -32,22 +32,22 @@ const cards = [
   {
     title: "Mitochondrial revival",
     description: "Your mitochondria are the power plants of your cells. We give them the raw materials to produce clean, abundant energy again.",
-    image: "/images/healthspan-vitality.png"
+    image: "/images/Mitochondria_revival_cellular_st…_2K_202608041354.jpeg"
   },
   {
     title: "Deep detoxification",
     description: "We go beyond juice cleanses. This is a systematic removal of heavy metals and metabolic waste blocking your charge.",
-    image: "/images/inhibitor-toxins.png"
+    image: "/images/Biological_detoxification_flushi…_2K_202608041355.jpeg"
   },
   {
     title: "Personalized path",
     description: "No two bodies are the same. Your protocol adapts to your specific voltage deficits and health history.",
-    image: "/images/inhibitor-sleep.png"
+    image: "/images/Biological_healing_protocol_visu…_2K_202608041356.jpeg"
   },
   {
     title: "Measurable results",
     description: "Track your biological age, not just your weight. Watch your energy, skin, and mental clarity transform week by week.",
-    image: "/images/cellular-voltage.png"
+    image: "/images/Reversing_biological_age_visuali…_2K_202608041357.jpeg"
   }
 ];
 

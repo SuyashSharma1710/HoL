@@ -94,7 +94,7 @@ export function HealthspanSection() {
                 href="#living-young"
                 className="group flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors px-4 py-2"
               >
-                Science 
+                Program 
                 <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1 text-accent" />
               </Link>
             </motion.div>

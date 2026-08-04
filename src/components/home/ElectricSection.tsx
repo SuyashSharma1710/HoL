@@ -95,7 +95,7 @@ export function ElectricSection() {
           
           <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center gap-6">
             <Link 
-              href="#reversal"
+              href="#inhibitors"
               className={cn(
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "border-accent text-accent hover:bg-accent hover:text-primary rounded-sm px-10 py-6 font-medium text-base transition-all bg-transparent"

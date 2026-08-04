@@ -49,7 +49,7 @@ export function GutResetSection() {
             
             <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/60 shadow-inner">
               <Image 
-                src="/images/healthspan-vitality.png"
+                src="/images/Human_microbiome_biological_comm…_202608041313.jpeg"
                 alt="Gut Reset Visualization"
                 fill
                 className="object-cover object-center scale-[1.01] hover:scale-105 transition-transform duration-1000 ease-out"
@@ -81,7 +81,7 @@ export function GutResetSection() {
 
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6 pt-8">
               <Link 
-                href="#community"
+                href="#living-young"
                 className={cn(
                   buttonVariants({ size: "lg" }),
                   "bg-primary text-background hover:bg-primary/90 rounded-sm px-10 py-6 font-medium text-base transition-all shadow-lg shadow-primary/10"

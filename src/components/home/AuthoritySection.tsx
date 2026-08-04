@@ -81,19 +81,19 @@ export function AuthoritySection() {
 
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6 pt-8">
               <Link 
-                href="#community"
+                href="#cta"
                 className={cn(
                   buttonVariants({ variant: "outline", size: "lg" }),
                   "border-primary text-primary hover:bg-primary hover:text-background rounded-sm px-10 py-6 font-medium text-base transition-all bg-transparent"
                 )}
               >
-                Meet
+                Book Consultation
               </Link>
               <Link 
-                href="#community"
+                href="#living-young"
                 className="group flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors px-4 py-2"
               >
-                Program 
+                View Program 
                 <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1 text-accent" />
               </Link>
             </motion.div>
@@ -112,7 +112,7 @@ export function AuthoritySection() {
             
             <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/60 shadow-inner">
               <Image 
-                src="/images/dr._ashutosh_rastogi--optimized.webp"
+                src="/images/dr-ashutosh-rastogi.jpeg"
                 alt="Dr. Ashutosh Rastogi"
                 fill
                 className="object-cover object-center scale-[1.01] hover:scale-105 transition-transform duration-1000 ease-out"

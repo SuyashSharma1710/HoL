@@ -10,18 +10,18 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const pillars = [
-  { name: "Balance Nutrition", icon: Salad, image: "/images/inhibitor-nutrition.png", description: "Fuel your cells with living, electron-rich foods that restore your biological battery and promote optimal vitality." },
-  { name: "Deep Detox", icon: Sparkles, image: "/images/inhibitor-toxins.png", description: "Purge heavy metals, chemical toxins, and stagnant energy to open the pathways for true cellular repair." },
-  { name: "Artery Cleanse", icon: HeartPulse, image: "/images/cellular-voltage.png", description: "Clear the highways of your cardiovascular system, ensuring oxygen and nutrients flow freely to every cell." },
-  { name: "Alkaline Chemistry", icon: FlaskConical, image: "/images/healthspan-vitality.png", description: "Create an internal environment where disease cannot survive by balancing your body's pH levels." },
-  { name: "Cellular Vitality", icon: Dna, image: "/images/cellular-voltage.png", description: "Reignite your mitochondria to produce massive amounts of ATP, the pure energy currency of your body." },
-  { name: "Gut Reset", icon: ShieldPlus, image: "/images/healthspan-vitality.png", description: "Restore your microbiome to properly absorb nutrients and eliminate systemic inflammation at the source." },
-  { name: "Inflammation", icon: Flame, image: "/images/inhibitor-stress.png", description: "Extinguish the silent, smoldering fires inside your body that accelerate aging and drain your lifeforce." },
-  { name: "Deep Sleep", icon: Moon, image: "/images/inhibitor-sleep.png", description: "Enter the profound restorative states of sleep where your brain cleanses itself and your body rebuilds." },
-  { name: "Regular Exercise", icon: Activity, image: "/images/inhibitor-sedentary.png", description: "Move your physical vessel to circulate lymph, build structural integrity, and force cellular adaptation." },
-  { name: "Immunity", icon: ShieldCheck, image: "/images/healthspan-vitality.png", description: "Build an impenetrable biological defense system capable of identifying and neutralizing modern threats." },
-  { name: "Social Connect", icon: Users, image: "/images/cellular-voltage.png", description: "Harmonize your nervous system through deep, meaningful human connections and tribal belonging." },
-  { name: "Nature Connect", icon: TreePine, image: "/images/inhibitor-deficiency.png", description: "Ground yourself to the Earth's natural magnetic field to discharge EMFs and absorb free electrons." },
+  { name: "Balance Nutrition", icon: Salad, image: "/images/Balance-Nutrition.jpeg", description: "Fuel your cells with living, electron-rich foods that restore your biological battery and promote optimal vitality." },
+  { name: "Deep Detox", icon: Sparkles, image: "/images/Deep-Detox.jpeg", description: "Purge heavy metals, chemical toxins, and stagnant energy to open the pathways for true cellular repair." },
+  { name: "Artery Cleanse", icon: HeartPulse, image: "/images/Artery-Cleanse.jpeg", description: "Clear the highways of your cardiovascular system, ensuring oxygen and nutrients flow freely to every cell." },
+  { name: "Alkaline Chemistry", icon: FlaskConical, image: "/images/Alkaline-Chemistry.jpeg", description: "Create an internal environment where disease cannot survive by balancing your body's pH levels." },
+  { name: "Cellular Vitality", icon: Dna, image: "/images/Cellular-Vitality.jpeg", description: "Reignite your mitochondria to produce massive amounts of ATP, the pure energy currency of your body." },
+  { name: "Gut Reset", icon: ShieldPlus, image: "/images/Gut-Reset.jpeg", description: "Restore your microbiome to properly absorb nutrients and eliminate systemic inflammation at the source." },
+  { name: "Inflammation", icon: Flame, image: "/images/Inflammation.jpeg", description: "Extinguish the silent, smoldering fires inside your body that accelerate aging and drain your lifeforce." },
+  { name: "Deep Sleep", icon: Moon, image: "/images/Deep-Sleep.jpeg", description: "Enter the profound restorative states of sleep where your brain cleanses itself and your body rebuilds." },
+  { name: "Regular Exercise", icon: Activity, image: "/images/Regular-Exercise.jpeg", description: "Move your physical vessel to circulate lymph, build structural integrity, and force cellular adaptation." },
+  { name: "Immunity", icon: ShieldCheck, image: "/images/Immunity.jpeg", description: "Build an impenetrable biological defense system capable of identifying and neutralizing modern threats." },
+  { name: "Social Connect", icon: Users, image: "/images/Social-Connect.jpeg", description: "Harmonize your nervous system through deep, meaningful human connections and tribal belonging." },
+  { name: "Nature Connect", icon: TreePine, image: "/images/Nature-Connect.jpeg", description: "Ground yourself to the Earth's natural magnetic field to discharge EMFs and absorb free electrons." },
 ];
 
 export function PillarsSection() {
@@ -167,8 +167,19 @@ export function PillarsSection() {
                     onClick={() => setSelectedIndex(index)}
                     className="orbit-node absolute -left-10 -top-10 w-20 h-20 sm:-left-12 sm:-top-12 sm:w-24 sm:h-24 lg:-left-16 lg:-top-16 lg:w-32 lg:h-32 flex flex-col items-center justify-center gap-1 sm:gap-2 lg:gap-3 group cursor-pointer"
                   >
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:border-accent group-hover:bg-white/20 transition-all duration-300">
-                      <pillar.icon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-background group-hover:text-accent transition-colors" />
+                    <div className="relative flex items-center justify-center">
+                      {/* Mini Star Flare Beams (Outside Glow) */}
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-50 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500">
+                        <div className="absolute w-[250%] h-[1px] bg-linear-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-0" />
+                        <div className="absolute w-[250%] h-[1px] bg-linear-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-90" />
+                        <div className="absolute w-[180%] h-[2px] bg-linear-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform rotate-45" />
+                        <div className="absolute w-[180%] h-[2px] bg-linear-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform -rotate-45" />
+                      </div>
+
+                      <div className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full bg-primary border border-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(233,224,207,0.3)] group-hover:shadow-[0_0_25px_rgba(182,156,95,0.6)] group-hover:scale-110 group-hover:border-accent transition-all duration-300">
+                        {/* Icon */}
+                        <pillar.icon className="relative z-10 w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-background group-hover:text-accent transition-colors" />
+                      </div>
                     </div>
                     <span className="text-[9px] sm:text-xs lg:text-sm font-semibold text-background/90 text-center leading-tight bg-primary/80 backdrop-blur-sm px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border border-white/10 whitespace-nowrap">
                       {pillar.name}

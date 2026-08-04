@@ -32,22 +32,22 @@ const cards = [
   {
     title: "Direct support",
     description: "Real-time guidance from doctors and nutritionists on WhatsApp. No bots. No waiting rooms.",
-    image: "/images/healthspan-vitality.png"
+    image: "/images/Digital_healing_smartphone_emitt…_2K_202608041342.jpeg"
   },
   {
     title: "Shared challenges",
     description: "Prove the science to yourself. Join structured detoxes and voltage-building protocols with the tribe.",
-    image: "/images/inhibitor-toxins.png"
+    image: "/images/Healing_tribe_building_voltage_2K_202608041343.jpeg"
   },
   {
     title: "Immersive retreats",
     description: "Disconnect from the inhibitors. Reconnect with nature and your highest self in a charged environment.",
-    image: "/images/inhibitor-sleep.png"
+    image: "/images/Human_grounding_in_forest_2K_202608041344.jpeg"
   },
   {
     title: "Expert network",
     description: "Access a curated panel of healers who understand that voltage precedes chemistry.",
-    image: "/images/cellular-voltage.png"
+    image: "/images/Network_of_healers_visualization_2K_202608041345.jpeg"
   }
 ];
 

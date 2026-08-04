@@ -69,7 +69,7 @@ export function Hero() {
           className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
         >
           <Link 
-            href="#about" 
+            href="#welcome" 
             className={cn(
               buttonVariants({ size: "lg" }),
               "bg-background text-primary hover:bg-background/90 font-semibold px-10 py-6 text-lg rounded-sm min-w-40 shadow-lg shadow-black/20"

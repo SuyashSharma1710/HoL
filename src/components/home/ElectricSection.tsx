@@ -154,7 +154,7 @@ export function ElectricSection() {
                 <h3 className="font-heading text-3xl sm:text-4xl font-semibold mb-6">
                   {content.title}
                 </h3>
-                <p className="text-background/70 font-medium text-lg leading-relaxed">
+                <p className="text-white/90 font-medium text-lg leading-relaxed max-w-lg line-clamp-3">
                   {content.description}
                 </p>
               </div>

@@ -130,7 +130,7 @@ export function CommunitySection() {
                   <h3 className="font-heading text-3xl font-semibold mb-4 text-background group-hover:text-accent transition-colors">
                     {card.title}
                   </h3>
-                  <p className="text-background/70 font-medium text-lg leading-relaxed max-w-lg line-clamp-3">
+                  <p className="text-white/90 font-medium text-lg leading-relaxed max-w-lg line-clamp-3">
                     {card.description}
                   </p>
                 </ScrollStackItem>

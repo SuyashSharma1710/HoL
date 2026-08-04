@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+import heroBg from "../../../public/images/new-hero-bg.jpeg";
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -32,11 +34,13 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/new-hero-bg.jpeg"
+          src={heroBg}
           alt="Harmony of Life Hero Background"
           fill
           priority
           fetchPriority="high"
+          placeholder="blur"
+          sizes="100vw"
           className="object-cover object-center"
         />
         {/* Subtle dark overlay for text readability */}

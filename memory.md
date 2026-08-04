@@ -308,3 +308,11 @@ This document tracks all significant architectural changes, file creations, and 
 **70. Static Robots.txt Configuration**
 - **What:** Replaced the dynamic Next.js App Router metadata route (`src/app/robots.ts`) with a rock-solid, static `public/robots.txt` file.
 - **Why:** To resolve a Lighthouse crawler error where `robots.ts` was occasionally failing to serve or hanging on the Turbopack dev server, ensuring bots (like Googlebot) can reliably download the crawling directives.
+
+**71. Lighthouse Accessibility & Contrast Fixes**
+- **What:** Fixed heading hierarchy in `TestimonialsSection.tsx` (changed `<h4>` to `<h3>` for author names), added `aria-label`s to Swiper navigation buttons, and improved the contrast ratio of the description text in the scroll-stack cards across `CommunitySection`, `LivingYoungSection`, and `ElectricSection` (changing `text-background/70` to `text-white/90`).
+- **Why:** To resolve strict Lighthouse accessibility warnings, ensuring perfect screen reader compatibility, proper semantic structure, and WCAG AA compliant text contrast.
+
+**72. Hero Background LCP Optimization**
+- **What:** Refactored the hero background image (`new-hero-bg.jpeg`) in `Hero.tsx` to use a Next.js static import instead of a string URL, and provided an explicit `sizes` property.
+- **Why:** To eliminate a massive 1.7-second Resource Load Delay flagged by Lighthouse. Static imports allow the Next.js compiler to generate an instant blur placeholder and inject a highly-optimized `<link rel="preload">` tag into the document head, significantly improving the Largest Contentful Paint (LCP) metric, especially on mobile.

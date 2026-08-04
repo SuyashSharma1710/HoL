@@ -110,10 +110,10 @@ export function TestimonialsSection() {
           className="relative w-full group"
         >
           {/* Custom Navigation Buttons */}
-          <button className="testimonial-prev absolute left-2 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
+          <button aria-label="Previous testimonial" className="testimonial-prev absolute left-2 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
             <ChevronLeft className="w-6 h-6 stroke-3" />
           </button>
-          <button className="testimonial-next absolute right-2 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
+          <button aria-label="Next testimonial" className="testimonial-next absolute right-2 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-[0_4px_14px_rgba(20,43,35,0.15)] text-primary hover:scale-105 transition-all focus:outline-none disabled:opacity-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100">
             <ChevronRight className="w-6 h-6 stroke-3" />
           </button>
 
@@ -166,7 +166,7 @@ export function TestimonialsSection() {
                       />
                     </div>
                     <div>
-                      <h4 className="font-bold text-primary text-sm">{item.name}</h4>
+                      <h3 className="font-bold text-primary text-sm">{item.name}</h3>
                       <p className="text-primary/60 font-medium text-xs">{item.role}</p>
                     </div>
                   </div>

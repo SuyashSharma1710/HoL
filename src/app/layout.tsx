@@ -83,6 +83,14 @@ export default function RootLayout({
                 "image": "https://theharmonyoflife.com/logo.svg",
                 "url": "https://theharmonyoflife.com",
                 "telephone": "+918800828863",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "125A Shahpur Jat, Siri Fort, Near Lal PathLabs",
+                  "addressLocality": "New Delhi",
+                  "addressRegion": "DL",
+                  "postalCode": "110049",
+                  "addressCountry": "IN"
+                },
                 "description": "Restore your health at the cellular level. Harmony of Life provides personalized holistic protocols to increase Cellular Charge and elevate your Lifeforce.",
                 "priceRange": "₹₹"
               }

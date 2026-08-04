@@ -333,6 +333,6 @@ This document tracks all significant architectural changes, file creations, and 
 - **What:** Located all 20 occurrences of the faint background watermark `<Image src="/logo.svg" />` across `WelcomeSection`, `PillarsSection`, and `ElectricSection` and replaced their empty `alt=""` attributes with a descriptive `alt="Harmony of Life decorative element"` tag.
 - **Why:** While `alt=""` is acceptable for screen readers, strict SEO crawlers flag them as missing attributes. This provides branding context to search engines without breaking layout or accessibility.
 
-**77. Local Business Schema & Contact Info**
-- **What:** Removed a fake placeholder address from the `HealthAndBeautyBusiness` JSON-LD schema in `layout.tsx`, updated the schema telephone to the E.164 standard (`+918800828863`), synced the schema description with the new meta description, and added the phone number as a visible, clickable `tel:` link in the `Footer` Connect section.
-- **Why:** To satisfy Google's requirement that structured Local Business data accurately matches physically visible contact information on the webpage, and to remove placeholder data that could trigger search engine penalties.
+**77. Local Business Schema & Contact Info Finalization**
+- **What:** Injected the verified physical address (Quest Concepts Private Limited, New Delhi) into the `HealthAndBeautyBusiness` JSON-LD schema in `layout.tsx` and simultaneously rendered it as visible text in the `Footer` Connect section alongside the E.164 formatted phone number (`+918800828863`). 
+- **Why:** To satisfy Google's strict requirement that structured Local Business data accurately matches physically visible contact information on the webpage, ensuring the site ranks highly in local SEO search results without risking a penalty for hidden or dummy schema data.

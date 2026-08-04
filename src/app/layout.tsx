@@ -58,43 +58,48 @@ export default function RootLayout({
           <Footer />
         </LenisProvider>
 
-        {/* Structured Data (Schema.org) */}
+        {/* Organization Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "Harmony of Life",
-                "url": "https://theharmonyoflife.com",
-                "logo": "https://theharmonyoflife.com/logo.svg",
-                "sameAs": [
-                  "https://www.facebook.com/profile.php?id=61591808093320",
-                  "https://www.instagram.com/harmonyoflife_official/?hl=en",
-                  "https://www.youtube.com/@Harmonyoflife-01",
-                  "https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/"
-                ]
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Harmony of Life",
+              "url": "https://theharmonyoflife.com",
+              "logo": "https://theharmonyoflife.com/logo.svg",
+              "sameAs": [
+                "https://www.facebook.com/profile.php?id=61591808093320",
+                "https://www.instagram.com/harmonyoflife_official/?hl=en",
+                "https://www.youtube.com/@Harmonyoflife-01",
+                "https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/"
+              ]
+            })
+          }}
+        />
+
+        {/* Local Business Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Harmony of Life",
+              "image": "https://theharmonyoflife.com/logo.svg",
+              "url": "https://theharmonyoflife.com",
+              "telephone": "+918800828863",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "125A Shahpur Jat, Siri Fort, Near Lal PathLabs",
+                "addressLocality": "New Delhi",
+                "addressRegion": "DL",
+                "postalCode": "110049",
+                "addressCountry": "IN"
               },
-              {
-                "@context": "https://schema.org",
-                "@type": "HealthAndBeautyBusiness",
-                "name": "Harmony of Life",
-                "image": "https://theharmonyoflife.com/logo.svg",
-                "url": "https://theharmonyoflife.com",
-                "telephone": "+918800828863",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "125A Shahpur Jat, Siri Fort, Near Lal PathLabs",
-                  "addressLocality": "New Delhi",
-                  "addressRegion": "DL",
-                  "postalCode": "110049",
-                  "addressCountry": "IN"
-                },
-                "description": "Restore your health at the cellular level. Harmony of Life provides personalized holistic protocols to increase Cellular Charge and elevate your Lifeforce.",
-                "priceRange": "₹₹"
-              }
-            ])
+              "description": "Restore your health at the cellular level. Harmony of Life provides personalized holistic protocols to increase Cellular Charge and elevate your Lifeforce.",
+              "priceRange": "₹₹"
+            })
           }}
         />
       </body>

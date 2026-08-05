@@ -13,7 +13,7 @@ const bentoItems = [
     className: "md:col-span-2 overflow-hidden relative rounded-3xl bg-primary text-background group min-h-[400px] border border-white/10 shadow-2xl", 
     imageContainer: "absolute inset-0 w-full h-full",
     imageClass: "object-cover object-right w-full h-full group-hover:scale-105 transition-transform duration-1000",
-    contentClass: "relative z-10 w-full md:w-[60%] p-8 sm:p-12 flex flex-col justify-center h-full",
+    contentClass: "relative z-10 w-[60%] p-8 sm:p-12 flex flex-col justify-center h-full",
     overlay: "absolute inset-0 bg-linear-to-r from-primary via-primary/90 to-transparent z-0"
   },
   {

@@ -364,3 +364,7 @@ This document tracks all significant architectural changes, file creations, and 
 **83. Expanded Electric Section Bento Grid**
 - **What:** Removed the restrictive `max-w-6xl` class from the bento grid container in `ElectricSection.tsx`, allowing the layout to naturally inherit and fill the parent `max-w-360` (1440px) width.
 - **Why:** To perfectly align the width of the Electric section with the massive, immersive layout constraints of the other core sections (like Healthspan), maximizing screen real estate and visual impact.
+
+**84. SEO Sitemap & Robots.txt Expansion**
+- **What:** Updated the Next.js `sitemap.ts` to dynamically include the newly created `/privacy`, `/terms`, and `/cookies` dedicated legal routes with appropriate indexing priorities. Validated and standardized `public/robots.txt` to perfectly direct crawlers to the dynamically generated `sitemap.xml`.
+- **Why:** To ensure search engine bots (like Googlebot) are explicitly instructed to crawl and index all compliance and legal pages, which is critical for ad platform verification and holistic site SEO.

@@ -42,3 +42,22 @@ next-env.d.ts
 
 # old components
 old-site-comp/
+
+# OS generated files
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
+[Tt]humbs.db
+[Dd]esktop.ini
+
+# Editor / IDE generated files
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.eslintcache

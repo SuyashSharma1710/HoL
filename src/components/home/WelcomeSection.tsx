@@ -27,26 +27,7 @@ export function WelcomeSection() {
   return (
     <section id="welcome" className="relative w-full py-24 sm:py-32 lg:py-40 bg-primary text-background overflow-hidden">
       {/* Animated Gradient Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center">
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.2, 1],
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-200 h-200 bg-secondary/20 rounded-full blur-[120px] mix-blend-screen will-change-transform transform-gpu"
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.5, 1],
-            x: [0, -100, 0],
-            y: [0, 100, 0],
-          }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute w-150 h-150 bg-accent/10 rounded-full blur-[100px] mix-blend-screen will-change-transform transform-gpu"
-        />
-      </div>
+      
 
       {/* Abstract Logo Decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">

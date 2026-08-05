@@ -375,5 +375,6 @@ This document tracks all significant architectural changes, file creations, and 
   2. Overhauled the `CTASection.tsx` to feature targeted recruitment copy for "Wellness Relationship Managers".
   3. Perfected the form card scroll-sticking logic in `CTASection.tsx` by abandoning static offsets in favor of dynamic viewport math (`top-[max(2rem,calc(50vh-17rem))]`), ensuring the form perfectly centers itself on the screen while scrolling regardless of display height, without breaking initial alignment.
   4. Swept the codebase to fix IDE linter warnings (replaced arbitrary `pb-[350px]` with canonical `pb-87.5` in GutReset, removed unused `cn` utility from ElectricSection).
-- **Why:** To maintain pixel-perfect responsive layouts and high-end interactive polish across the entire scrolling journey, while ensuring the copy matches the latest marketing strategy.
-
+**86. Welcome Section Aesthetics Update**
+- **What:** Swapped the animated gradient radial blobs in `WelcomeSection.tsx` for a custom green curtain pattern background (`green-colour-curtain-pattern-background-abstract-banner-multipurpose-design-optimized.webp`).
+- **Why:** To test and iterate on the visual texture of the first major content block, aligning with the user's specific requested asset.

@@ -29,34 +29,40 @@ const itemVariants = {
 
 export function GutResetSection() {
   return (
-    <section id="gut-reset" className="relative w-full bg-background py-24 sm:py-32 overflow-hidden">
-      {/* Subtle background glow to add a mystical feel, mirroring HealthspanSection */}
-      <div className="absolute top-0 right-1/4 w-full h-125 bg-secondary/5 blur-3xl rounded-full pointer-events-none" />
+    <section id="gut-reset" className="relative w-full bg-background overflow-hidden min-h-200 flex items-center">
+      
+      {/* Full-width Image Background */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        {/* Desktop Image (Landscape) */}
+        <Image 
+          src="/images/Human_microbiome_biological_landscape.png"
+          alt="Gut Reset Visualization"
+          fill
+          className="hidden lg:block object-cover object-left opacity-100"
+          sizes="100vw"
+          priority
+        />
+        {/* Mobile Image (Portrait) */}
+        <Image 
+          src="/images/Human_microbiome_biological_portraite.png"
+          alt="Gut Reset Visualization"
+          fill
+          className="block lg:hidden object-cover object-bottom opacity-90"
+          sizes="100vw"
+          priority
+        />
+        {/* Desktop: fade from right to left (since text is on the right) */}
+        <div className="hidden lg:block absolute inset-0 bg-linear-to-l from-background via-background/95 to-transparent z-10" />
+        
+        {/* Mobile: fade from top to bottom (so text is readable on top, image visible on bottom) */}
+        <div className="lg:hidden absolute inset-0 bg-linear-to-b from-background via-background/60 to-transparent z-10" />
+      </div>
 
-      <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-20 max-w-360 mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-87.5 sm:pt-32 sm:pb-112.5 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
-          {/* Left Image Container (Matches Healthspan styling but on the left) */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="relative w-full aspect-square max-w-150 mx-auto lg:mx-0 order-2 lg:order-1"
-          >
-            {/* Glassmorphic ethereal frame - rotated slightly opposite to Healthspan */}
-            <div className="absolute inset-0 bg-white/40 backdrop-blur-3xl rounded-2xl transform -rotate-3 scale-[1.02] transition-transform duration-700 hover:rotate-0 border border-white/50 shadow-2xl shadow-primary/5" />
-            
-            <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/60 shadow-inner">
-              <Image 
-                src="/images/Human_microbiome_biological_comm…_202608041313.jpeg"
-                alt="Gut Reset Visualization"
-                fill
-                className="object-cover object-center scale-[1.01] hover:scale-105 transition-transform duration-1000 ease-out"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </motion.div>
+          {/* Left column is left empty on desktop to show the background image */}
+          <div className="hidden lg:block h-70" />
 
           {/* Right Content */}
           <motion.div 
@@ -64,10 +70,9 @@ export function GutResetSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-col space-y-8 order-1 lg:order-2"
+            className="flex flex-col space-y-8"
           >
             <motion.div variants={itemVariants}>
-                
               <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-primary font-semibold leading-[1.15]">
                 Gut reset is the command<br className="hidden sm:block" /> center of charge
               </h2>
@@ -82,21 +87,23 @@ export function GutResetSection() {
                 href="#living-young"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "bg-primary text-background hover:bg-primary/90 rounded-sm px-10 py-6 font-medium text-base transition-all shadow-lg shadow-primary/10"
+                  "bg-primary text-background hover:bg-primary/90 rounded-sm px-10 py-6 font-medium text-base transition-all shadow-sm"
                 )}
               >
                 Heal
               </Link>
               <Link 
                 href="#pillars"
-                className="group flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors px-4 py-2"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "border-primary text-primary hover:bg-primary hover:text-background rounded-sm px-8 py-6 font-medium text-base transition-all group flex items-center gap-2 bg-transparent"
+                )}
               >
                 Pillars 
-                <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1 text-accent" />
+                <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1 text-primary group-hover:text-background" />
               </Link>
             </motion.div>
           </motion.div>
-
         </div>
       </div>
     </section>

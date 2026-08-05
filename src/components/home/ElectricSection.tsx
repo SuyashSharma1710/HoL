@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 
 const bentoItems = [
   {
@@ -13,7 +12,7 @@ const bentoItems = [
     image: "/images/mitochondria_charge.png",
     className: "md:col-span-2 overflow-hidden relative rounded-3xl bg-primary text-background group min-h-[400px] border border-white/10 shadow-2xl", 
     imageContainer: "absolute inset-0 w-full h-full",
-    imageClass: "object-cover object-right w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-1000",
+    imageClass: "object-cover object-right w-full h-full group-hover:scale-105 transition-transform duration-1000",
     contentClass: "relative z-10 w-full md:w-[60%] p-8 sm:p-12 flex flex-col justify-center h-full",
     overlay: "absolute inset-0 bg-linear-to-r from-primary via-primary/90 to-transparent z-0"
   },
@@ -25,7 +24,7 @@ const bentoItems = [
     image: "/images/cellular-voltage.png",
     className: "md:col-span-1 md:row-span-2 overflow-hidden relative rounded-3xl bg-[#0a1511] text-background group min-h-[450px] md:min-h-full border border-white/5 shadow-2xl",
     imageContainer: "absolute inset-0 w-full h-full",
-    imageClass: "object-cover object-top w-full h-full opacity-70 group-hover:scale-105 transition-transform duration-1000",
+    imageClass: "object-cover object-top w-full h-full group-hover:scale-105 transition-transform duration-1000",
     contentClass: "relative z-10 h-full w-full p-8 sm:p-10 flex flex-col justify-end pt-32",
     overlay: "absolute inset-0 bg-linear-to-t from-[#0a1511] via-[#0a1511]/90 to-transparent z-0"
   },
@@ -37,7 +36,7 @@ const bentoItems = [
     image: "/images/mitochondria_voltage.png",
     className: "md:col-span-1 overflow-hidden relative rounded-3xl bg-primary text-background group min-h-[350px] border border-white/10 shadow-2xl",
     imageContainer: "absolute inset-0 w-full h-full",
-    imageClass: "object-cover object-center w-full h-full opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000",
+    imageClass: "object-cover object-center w-full h-full opacity-80 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000",
     contentClass: "relative z-10 p-8 sm:p-10 flex flex-col justify-end h-full",
     overlay: "absolute inset-0 bg-linear-to-t from-primary via-primary/80 to-transparent z-0"
   },
@@ -49,7 +48,7 @@ const bentoItems = [
     image: "/images/mitochondria_healing.png",
     className: "md:col-span-1 overflow-hidden relative rounded-3xl bg-accent text-primary group min-h-[350px] shadow-2xl",
     imageContainer: "absolute inset-0 w-full h-full",
-    imageClass: "object-cover object-center w-full h-full opacity-20 mix-blend-multiply group-hover:scale-105 transition-transform duration-1000",
+    imageClass: "object-cover object-center w-full h-full opacity-40 mix-blend-multiply group-hover:scale-105 transition-transform duration-1000",
     contentClass: "relative z-10 p-8 sm:p-10 flex flex-col justify-end h-full",
     overlay: "absolute inset-0 bg-linear-to-t from-accent via-accent/70 to-transparent z-0"
   }

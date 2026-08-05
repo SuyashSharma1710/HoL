@@ -368,3 +368,12 @@ This document tracks all significant architectural changes, file creations, and 
 **84. SEO Sitemap & Robots.txt Expansion**
 - **What:** Updated the Next.js `sitemap.ts` to dynamically include the newly created `/privacy`, `/terms`, and `/cookies` dedicated legal routes with appropriate indexing priorities. Validated and standardized `public/robots.txt` to perfectly direct crawlers to the dynamically generated `sitemap.xml`.
 - **Why:** To ensure search engine bots (like Googlebot) are explicitly instructed to crawl and index all compliance and legal pages, which is critical for ad platform verification and holistic site SEO.
+
+**85. Generative Imagery Expansion & Layout Polish**
+- **What:** 
+  1. Updated `GutResetSection.tsx` to conditionally render two bespoke generative microbiome images (landscape for desktop, portrait for mobile), matching the immersive layout strategy of the Authority section. 
+  2. Overhauled the `CTASection.tsx` to feature targeted recruitment copy for "Wellness Relationship Managers".
+  3. Perfected the form card scroll-sticking logic in `CTASection.tsx` by abandoning static offsets in favor of dynamic viewport math (`top-[max(2rem,calc(50vh-17rem))]`), ensuring the form perfectly centers itself on the screen while scrolling regardless of display height, without breaking initial alignment.
+  4. Swept the codebase to fix IDE linter warnings (replaced arbitrary `pb-[350px]` with canonical `pb-87.5` in GutReset, removed unused `cn` utility from ElectricSection).
+- **Why:** To maintain pixel-perfect responsive layouts and high-end interactive polish across the entire scrolling journey, while ensuring the copy matches the latest marketing strategy.
+

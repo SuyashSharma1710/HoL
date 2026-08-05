@@ -29,11 +29,37 @@ const itemVariants = {
 
 export function AuthoritySection() {
   return (
-    <section id="authority" className="relative w-full bg-background py-24 sm:py-32 overflow-hidden">
-      {/* Subtle background glow to add a mystical feel */}
-      <div className="absolute top-0 left-1/4 w-full h-125 bg-secondary/5 blur-3xl rounded-full pointer-events-none" />
+    <section id="authority" className="relative w-full bg-background overflow-hidden min-h-200 flex items-center">
+      
+      {/* Full-width Image Background */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        {/* Desktop Image (Landscape) */}
+        <Image 
+          src="/images/drrastogilandscape.png"
+          alt="Dr. Ashutosh Rastogi"
+          fill
+          className="hidden lg:block object-cover object-right "
+          sizes="100vw"
+          priority
+        />
+        {/* Mobile Image (Portrait) */}
+        <Image 
+          src="/images/drrastogiportraite.png"
+          alt="Dr. Ashutosh Rastogi"
+          fill
+          className="block lg:hidden object-cover object-bottom opacity-100"
+          sizes="100vw"
+          priority
+        />
+        {/* Gradient overlays matching the bento grid effect */}
+        {/* Desktop: fade from left to right */}
+        <div className="hidden lg:block absolute inset-0 bg-linear-to-r from-background via-background/60 to-transparent z-10" />
+        
+        {/* Mobile: fade from top to bottom (so text is readable on top, image visible on bottom) */}
+        <div className="lg:hidden absolute inset-0 bg-linear-to-b from-background via-background/60 to-transparent z-10" />
+      </div>
 
-      <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-20 max-w-360 mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-87.5 sm:pt-32 sm:pb-112.5 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
           {/* Left Content */}
@@ -59,7 +85,6 @@ export function AuthoritySection() {
 
             <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
               <div className="relative">
-                {/* Minimalist vertical line indicator */}
                 <div className="absolute left-0 top-2 bottom-0 w-0.5 bg-primary/10 rounded-full" />
                 <div className="pl-6">
                   <h3 className="font-heading text-xl font-semibold text-primary mb-2">His vision</h3>
@@ -83,44 +108,28 @@ export function AuthoritySection() {
               <Link 
                 href="#cta"
                 className={cn(
-                  buttonVariants({ variant: "outline", size: "lg" }),
-                  "border-primary text-primary hover:bg-primary hover:text-background rounded-sm px-10 py-6 font-medium text-base transition-all bg-transparent"
+                  buttonVariants({ size: "lg" }),
+                  "bg-primary text-background hover:bg-primary/90 rounded-sm px-10 py-6 font-medium text-base transition-all shadow-sm"
                 )}
               >
                 Book Consultation
               </Link>
               <Link 
                 href="#living-young"
-                className="group flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors px-4 py-2"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "lg" }),
+                  "border-primary text-primary hover:bg-primary hover:text-background rounded-sm px-8 py-6 font-medium text-base transition-all group flex items-center gap-2 bg-transparent"
+                )}
               >
                 View Program 
-                <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1 text-accent" />
+                <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1 text-primary group-hover:text-background" />
               </Link>
             </motion.div>
           </motion.div>
 
-          {/* Right Image Container */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="relative w-full aspect-square max-w-150 mx-auto lg:mx-0"
-          >
-            {/* Glassmorphic ethereal frame */}
-            <div className="absolute inset-0 bg-white/40 backdrop-blur-3xl rounded-2xl transform rotate-3 scale-[1.02] transition-transform duration-700 hover:rotate-0 border border-white/50 shadow-2xl shadow-primary/5" />
-            
-            <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/60 shadow-inner">
-              <Image 
-                src="/images/dr-ashutosh-rastogi.jpeg"
-                alt="Dr. Ashutosh Rastogi"
-                fill
-                className="object-cover object-center scale-[1.01] hover:scale-105 transition-transform duration-1000 ease-out"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
-          </motion.div>
-
+          {/* Right column is left empty on desktop to show the background image */}
+          <div className="hidden lg:block h-150" />
+          
         </div>
       </div>
     </section>

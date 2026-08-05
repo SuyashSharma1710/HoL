@@ -175,7 +175,7 @@ export function CTASection() {
                 </>
               ) : (
                 <p className="text-primary/70 mb-4">
-                  Thanks for subscribing to our newsletter! We'll keep you updated.
+                  Thanks for subscribing to our newsletter! We&apos;ll keep you updated.
                 </p>
               )}
             </motion.div>
@@ -194,12 +194,20 @@ export function CTASection() {
           {/* Left Column - Socials & Info */}
           <div className="flex flex-col space-y-12">
             <motion.div variants={itemVariants}>
-              <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.15] mb-6">
-                Connect with the tribe
+              <h2 className="font-heading text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-6">
+                Ready to turn your passion for wellness into purpose? <span className="inline-block">🌿</span>
               </h2>
-              <p className="text-primary/80 font-medium text-lg leading-relaxed max-w-xl">
-                The first step is a conversation with an expert who understands your voltage and your unique health history. Reach out to us directly or connect through our social channels.
-              </p>
+              <div className="text-primary/80 font-medium text-lg leading-relaxed max-w-xl space-y-4">
+                <p>
+                  Join <span className="font-bold italic text-primary">Harmony of Life</span> as a Wellness Relationship Manager and inspire lives, build meaningful connections, and grow with a community that truly cares.
+                </p>
+                <p className="font-semibold text-accent">
+                  ✨ Step in. Stand out. Make a difference.
+                </p>
+                <p>
+                  DM us to begin your journey!
+                </p>
+              </div>
             </motion.div>
 
             <motion.div variants={itemVariants} className="pt-4 border-t border-primary/10">
@@ -251,7 +259,7 @@ export function CTASection() {
           </div>
 
           {/* Right Column - Contact Form */}
-          <motion.div variants={itemVariants} className="bg-white p-8 sm:p-10 lg:p-12 rounded-lg shadow-sm border border-primary/5">
+          <motion.div variants={itemVariants} className="bg-white p-8 sm:p-10 lg:p-12 rounded-lg shadow-sm border border-primary/5 h-fit self-start lg:sticky lg:top-[max(2rem,calc(50vh-17rem))]">
             <h3 className="font-heading text-2xl font-bold mb-8">Start your journey</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">

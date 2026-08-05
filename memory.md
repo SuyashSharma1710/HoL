@@ -378,3 +378,7 @@ This document tracks all significant architectural changes, file creations, and 
 **86. Welcome Section Aesthetics Update**
 - **What:** Swapped the animated gradient radial blobs in `WelcomeSection.tsx` for a custom green curtain pattern background (`green-colour-curtain-pattern-background-abstract-banner-multipurpose-design-optimized.webp`).
 - **Why:** To test and iterate on the visual texture of the first major content block, aligning with the user's specific requested asset.
+
+**87. Philosophy Section Visual Expansion**
+- **What:** Injected two generative landscape images (`1st-optimized.webp` and `2nd-optimized.webp`) into `PhilosophySection.tsx` to break up the dense text blocks. Constrained their widths to `max-w-2xl` and locked the aspect ratio to `16:9` (`aspect-video`) to ensure they act as elegant inline frames rather than massive full-bleed blocks.
+- **Why:** To improve narrative pacing and visual engagement, ensuring the "Science/Philosophy" content remains as visually premium as the rest of the site.

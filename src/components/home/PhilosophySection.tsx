@@ -40,6 +40,17 @@ export function PhilosophySection() {
           <motion.p variants={itemVariants} className="text-2xl sm:text-3xl text-background font-medium mb-12">
             We don&apos;t believe in one-size-fits-all wellness.
           </motion.p>
+          
+          <motion.div variants={itemVariants} className="relative w-full max-w-2xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-2xl mb-12 border border-white/10">
+            <Image 
+              src="/images/1st-optimized.webp"
+              alt="Personalized Wellness"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 42rem"
+            />
+          </motion.div>
+
           <motion.p variants={itemVariants}>
             We believe every person is unique, which is why Harmony of Life provides a personalized approach designed to help you build sustainable habits that support your body&apos;s natural ability to produce energy, adapt, recover, and thrive.
           </motion.p>
@@ -49,6 +60,16 @@ export function PhilosophySection() {
           <motion.div variants={itemVariants} className="pt-10 space-y-4">
             <p className="font-semibold text-background text-2xl sm:text-3xl">This is more than a wellness platform.</p>
             <p className="font-semibold text-background text-xl sm:text-2xl">It is a movement dedicated to helping people create a healthier, more energetic, and more vibrant life from the cellular level upward.</p>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="relative w-full max-w-2xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-2xl mt-12 border border-white/10">
+            <Image 
+              src="/images/2nd-optimized.webp"
+              alt="Cellular Life Movement"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 42rem"
+            />
           </motion.div>
         </motion.div>
       </div>

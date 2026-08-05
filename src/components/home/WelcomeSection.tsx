@@ -73,7 +73,7 @@ export function WelcomeSection() {
           {/* Two Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left Content (Text) */}
-            <div className="flex flex-col space-y-12">
+            <div className="flex flex-col space-y-12 order-2 lg:order-1">
               <motion.div variants={itemVariants} className="space-y-6 text-base sm:text-lg text-background/80 leading-relaxed font-sans text-left">
                 <p className="mb-8">
                   Every heartbeat, every breath, every thought, and every movement begins within your cells.
@@ -115,7 +115,7 @@ export function WelcomeSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="relative w-full aspect-square lg:sticky lg:top-32"
+              className="relative w-full aspect-square lg:sticky lg:top-32 order-1 lg:order-2"
             >
               {/* Glassmorphic ethereal frame */}
               <div className="absolute inset-0 bg-secondary/10 backdrop-blur-3xl rounded-2xl transform rotate-2 scale-[1.02] transition-transform duration-700 hover:rotate-0 border border-secondary/20 shadow-2xl shadow-black/40" />

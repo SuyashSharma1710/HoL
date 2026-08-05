@@ -42,7 +42,7 @@ export function HealthspanSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center max-w-4xl mx-auto mb-20 sm:mb-28"
         >
-          <motion.h3 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl text-accent italic font-semibold mb-6">
+          <motion.h3 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl text-accent font-semibold mb-6">
             Harmony of Life
           </motion.h3>
           <motion.h4 variants={itemVariants} className="text-2xl sm:text-3xl md:text-4xl text-primary font-medium leading-relaxed italic">

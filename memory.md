@@ -356,3 +356,11 @@ This document tracks all significant architectural changes, file creations, and 
 **81. Refactored Electric Section to Bento Grid Layout**
 - **What:** Replaced the hidden tabbed interface in `ElectricSection.tsx` with a visually immersive Bento Grid layout. Displayed all core concepts (Charge, Discharge, Voltage, Healing) simultaneously using full-width images masked by smooth, gradual CSS gradient overlays (`bg-linear-to-r`, `bg-linear-to-t`) that fade seamlessly into the background without sudden cutoffs. Added a new dedicated "Cellular Discharge" card.
 - **Why:** To massively increase the visual impact of the "You are electric" section, allowing users to instantaneously grasp the concepts of lifeforce, voltage, and cellular drain simply by scrolling.
+
+**82. Polished Abstract Watermark Opacities**
+- **What:** Standardized the opacity of the rotating decorative logo watermarks across sections. Specifically, updated `WelcomeSection.tsx` background elements from `opacity-10` to `opacity-[0.08]` to match the subtle aesthetic used in `ElectricSection.tsx`.
+- **Why:** To ensure strict visual consistency and maintain the premium, subtle dark-mode aesthetic defined in the design system.
+
+**83. Expanded Electric Section Bento Grid**
+- **What:** Removed the restrictive `max-w-6xl` class from the bento grid container in `ElectricSection.tsx`, allowing the layout to naturally inherit and fill the parent `max-w-360` (1440px) width.
+- **Why:** To perfectly align the width of the Electric section with the massive, immersive layout constraints of the other core sections (like Healthspan), maximizing screen real estate and visual impact.

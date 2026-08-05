@@ -51,12 +51,12 @@ export function WelcomeSection() {
       {/* Abstract Logo Decorations */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         {/* Top Left */}
-        <div className="absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] max-w-200 max-h-200 opacity-10">
+        <div className="absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] max-w-200 max-h-200 opacity-[0.08]">
           <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
         </div>
 
         {/* Bottom Right */}
-        <div className="absolute bottom-[-20%] right-[-10%] w-[90vw] h-[90vw] max-w-225 max-h-225 opacity-10">
+        <div className="absolute bottom-[-20%] right-[-10%] w-[90vw] h-[90vw] max-w-225 max-h-225 opacity-[0.08]">
           <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
         </div>
 

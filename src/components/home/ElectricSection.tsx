@@ -119,7 +119,7 @@ export function ElectricSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
+          className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
         >
           {bentoItems.map((item) => (
             <motion.div key={item.id} variants={itemVariants} className={item.className}>

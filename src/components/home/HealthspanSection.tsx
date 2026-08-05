@@ -65,7 +65,7 @@ export function HealthspanSection() {
                 Healthspan
               </p>
               <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-primary font-semibold leading-[1.15]">
-                You are living longer but <br className="hidden sm:block" /> are you living healthier?
+                You are living longer but are you living healthier?
               </h2>
             </motion.div>
             

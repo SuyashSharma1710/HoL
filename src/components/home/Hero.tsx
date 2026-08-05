@@ -66,7 +66,7 @@ export function Hero() {
           variants={itemVariants}
           className="text-base sm:text-lg md:text-xl max-w-2xl text-white/90 font-medium mb-10 leading-relaxed"
         >
-          Every heartbeat and breath begins within your cells. Support healthy cellular function to flourish.
+          Every single heartbeat and breath you take literally begins at the cellular level.<br /> Support healthy cellular function to flourish.
         </motion.p>
 
         <motion.div 

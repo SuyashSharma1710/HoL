@@ -95,7 +95,7 @@ export function WelcomeSection() {
             <div className="flex flex-col space-y-12">
               <motion.div variants={itemVariants} className="space-y-6 text-base sm:text-lg text-background/80 leading-relaxed font-sans text-left">
                 <p className="mb-8">
-                  Every single heartbeat and breath you take literally begins at the cellular level.
+                  Every heartbeat, every breath, every thought, and every movement begins within your cells.
                 </p>
                 <p>
                   At <span className="italic text-accent font-medium">Harmony of Life</span>, we believe that true health starts at the cellular level. Our philosophy is built around one fundamental principle: <span className="font-semibold italic text-background">&quot;The healthier your cells, the greater your Cellular Charge, and the greater your Lifeforce.&quot;</span>

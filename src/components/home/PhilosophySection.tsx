@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -13,20 +14,17 @@ const itemVariants = {
 
 export function PhilosophySection() {
   return (
-    <section className="relative w-full py-24 sm:py-32 lg:py-40 bg-secondary text-background overflow-hidden">
+    <section className="relative w-full py-24 sm:py-32 lg:py-40 text-background overflow-hidden">
       
-      {/* Animated Abstract Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <motion.div 
-          animate={{ scale: [1, 1.2, 1], x: [0, 100, 0], y: [0, 50, 0] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-1/2 -left-1/4 w-full h-full bg-primary/40 rounded-full blur-[120px]"
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image 
+          src="/images/A_minimalist_ethereal_backgrou_2-optimized.webp"
+          alt="Philosophy Background"
+          fill
+          className="object-cover"
         />
-        <motion.div 
-          animate={{ scale: [1, 1.4, 1], x: [0, -100, 0], y: [0, -50, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-1/4 -right-1/4 w-[120%] h-[120%] bg-accent/15 rounded-full blur-[150px] mix-blend-overlay"
-        />
+        <div className="absolute inset-0 bg-secondary/80 mix-blend-multiply" />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +44,7 @@ export function PhilosophySection() {
             We believe every person is unique, which is why Harmony of Life provides a personalized approach designed to help you build sustainable habits that support your body&apos;s natural ability to produce energy, adapt, recover, and thrive.
           </motion.p>
           <motion.p variants={itemVariants}>
-            Because when your <span className="italic text-accent font-semibold">Cellular Charge</span> is supported, your cells are better equipped to communicate, generate energy, and perform their essential functions. And when your cells function at their best, your <span className="italic text-accent font-semibold">Lifeforce</span> can flourish.
+            Because when your <span className="italic text-primary font-semibold">Cellular Charge</span> is supported, your cells are better equipped to communicate, generate energy, and perform their essential functions. And when your cells function at their best, your <span className="italic text-primary font-semibold">Lifeforce</span> can flourish.
           </motion.p>
           <motion.div variants={itemVariants} className="pt-10 space-y-4">
             <p className="font-semibold text-background text-2xl sm:text-3xl">This is more than a wellness platform.</p>

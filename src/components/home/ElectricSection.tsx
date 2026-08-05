@@ -1,32 +1,59 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-const tabs = ["Voltage", "Charge", "Healing"];
-
-const tabContent = {
-  Voltage: {
+const bentoItems = [
+  {
+    id: "charge",
+    caption: "Lifeforce",
+    title: "3.5 Trillion Volts",
+    description: "Your entire being is powered by an immense bioelectric network. 50 trillion cells each holding a precise charge create the measurable voltage of your lifeforce.",
+    image: "/images/mitochondria_charge.png",
+    className: "md:col-span-2 overflow-hidden relative rounded-3xl bg-primary text-background group min-h-[400px] border border-white/10 shadow-2xl", 
+    imageContainer: "absolute inset-0 w-full h-full",
+    imageClass: "object-cover object-right w-full h-full opacity-80 group-hover:scale-105 transition-transform duration-1000",
+    contentClass: "relative z-10 w-full md:w-[60%] p-8 sm:p-12 flex flex-col justify-center h-full",
+    overlay: "absolute inset-0 bg-linear-to-r from-primary via-primary/90 to-transparent z-0"
+  },
+  {
+    id: "discharge",
+    caption: "The Drain",
+    title: "Cellular Discharge",
+    description: "When toxins and stress overwhelm the system, cells lose their electrical charge. Below 50mV, a cell cannot heal—triggering rapid aging, inflammation, and chronic fatigue.",
+    image: "/images/cellular-voltage.png",
+    className: "md:col-span-1 md:row-span-2 overflow-hidden relative rounded-3xl bg-[#0a1511] text-background group min-h-[450px] md:min-h-full border border-white/5 shadow-2xl",
+    imageContainer: "absolute inset-0 w-full h-full",
+    imageClass: "object-cover object-top w-full h-full opacity-70 group-hover:scale-105 transition-transform duration-1000",
+    contentClass: "relative z-10 h-full w-full p-8 sm:p-10 flex flex-col justify-end pt-32",
+    overlay: "absolute inset-0 bg-linear-to-t from-[#0a1511] via-[#0a1511]/90 to-transparent z-0"
+  },
+  {
+    id: "voltage",
     caption: "Voltage",
-    title: "The body's electric potential is the spark of life",
-    description: "A cell at 70 millivolts is a factory of pure energy and repair. When that voltage drops, the machinery of life grinds down and chronic disease takes hold.",
-    image: "/images/mitochondria_voltage.png"
+    title: "The Spark of Life",
+    description: "A healthy cell operates at 70 millivolts—a factory of pure energy, repair, and regeneration.",
+    image: "/images/mitochondria_voltage.png",
+    className: "md:col-span-1 overflow-hidden relative rounded-3xl bg-primary text-background group min-h-[350px] border border-white/10 shadow-2xl",
+    imageContainer: "absolute inset-0 w-full h-full",
+    imageClass: "object-cover object-center w-full h-full opacity-40 mix-blend-overlay group-hover:scale-105 transition-transform duration-1000",
+    contentClass: "relative z-10 p-8 sm:p-10 flex flex-col justify-end h-full",
+    overlay: "absolute inset-0 bg-linear-to-t from-primary via-primary/80 to-transparent z-0"
   },
-  Charge: {
-    caption: "Charge",
-    title: "3.5 Trillion Volts of Bioelectric Potential",
-    description: "When you multiply the vast number of cells in the human body by the electrical potential of each individual cell, the result is staggering. You are power iterated.",
-    image: "/images/mitochondria_charge.png"
-  },
-  Healing: {
+  {
+    id: "healing",
     caption: "Healing",
-    title: "Restoring your lifeforce unblocks your healing",
-    description: "Disease is not a permanent state; it is a signal of blocked energy. By changing your cellular environment, you can unblock your Lifeforce and restore vibrant health.",
-    image: "/images/mitochondria_healing.png"
+    title: "Unblock Energy",
+    description: "Disease is simply a signal of blocked energy. Restoring your cellular environment unblocks your Lifeforce.",
+    image: "/images/mitochondria_healing.png",
+    className: "md:col-span-1 overflow-hidden relative rounded-3xl bg-accent text-primary group min-h-[350px] shadow-2xl",
+    imageContainer: "absolute inset-0 w-full h-full",
+    imageClass: "object-cover object-center w-full h-full opacity-20 mix-blend-multiply group-hover:scale-105 transition-transform duration-1000",
+    contentClass: "relative z-10 p-8 sm:p-10 flex flex-col justify-end h-full",
+    overlay: "absolute inset-0 bg-linear-to-t from-accent via-accent/70 to-transparent z-0"
   }
-};
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -49,9 +76,6 @@ const itemVariants = {
 };
 
 export function ElectricSection() {
-  const [activeTab, setActiveTab] = useState(tabs[0]);
-  const content = tabContent[activeTab as keyof typeof tabContent];
-
   return (
     <section id="lifeforce" className="relative w-full bg-linear-to-b from-primary to-[#0d1c17] py-24 sm:py-32 overflow-hidden text-background">
       {/* Background glow effects */}
@@ -60,13 +84,11 @@ export function ElectricSection() {
 
       {/* Static Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {/* Top Left */}
         <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] max-w-150 max-h-150 opacity-[0.08]">
-          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
+          <Image src="/logo.svg" alt="Harmony of Life" fill className="object-contain" />
         </div>
-        {/* Bottom Right */}
         <div className="absolute top-[40%] right-[-15%] w-[80vw] h-[80vw] max-w-200 max-h-200 opacity-[0.08]">
-          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
+          <Image src="/logo.svg" alt="Harmony of Life" fill className="object-contain" />
         </div>
       </div>
 
@@ -78,10 +100,10 @@ export function ElectricSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-3xl mx-auto flex flex-col items-center mb-16"
+          className="text-center max-w-3xl mx-auto flex flex-col items-center mb-16 sm:mb-24"
         >
           <motion.p variants={itemVariants} className="font-semibold text-accent tracking-widest uppercase text-sm mb-4">
-            Science
+            Cellular Charge
           </motion.p>
           <motion.h2 variants={itemVariants} className="font-heading text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.15] mb-6">
             You are electric
@@ -89,72 +111,36 @@ export function ElectricSection() {
           <motion.p variants={itemVariants} className="text-background/80 font-medium text-lg leading-relaxed mb-8">
             Your lifeforce is not a mystery. It is a measurable voltage that powers 50 trillion cells, each demanding a precise 70 millivolts to operate perfectly.
           </motion.p>
-
         </motion.div>
 
-        {/* Tabs */}
-        <div className="flex items-center gap-8 mb-16 border-b border-white/10 w-full justify-center max-w-xl mx-auto">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={cn(
-                "pb-4 text-lg font-medium transition-colors relative",
-                activeTab === tab ? "text-accent" : "text-background/50 hover:text-background"
-              )}
-            >
-              {tab}
-              {activeTab === tab && (
-                <motion.div 
-                  layoutId="activeTabIndicator"
-                  className="absolute -bottom-px left-0 right-0 h-0.5 bg-accent"
-                  initial={false}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        {/* Bento Grid */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="w-full max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8"
+        >
+          {bentoItems.map((item) => (
+            <motion.div key={item.id} variants={itemVariants} className={item.className}>
+              <div className={item.imageContainer}>
+                <Image 
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className={item.imageClass}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* Tab Content Area */}
-        <div className="w-full max-w-5xl mx-auto relative lg:min-h-100">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20 w-full"
-            >
-              
-              {/* Text Side */}
-              <div className="w-full lg:w-1/2 flex flex-col text-center lg:text-left">
-                <h3 className="font-heading text-3xl sm:text-4xl font-semibold mb-6">
-                  {content.title}
-                </h3>
-                <p className="text-white/90 font-medium text-lg leading-relaxed max-w-lg line-clamp-3">
-                  {content.description}
-                </p>
               </div>
-
-              {/* Image Side */}
-              <div className="w-full lg:w-1/2 relative aspect-square max-w-md mx-auto lg:mx-0">
-                <div className="absolute inset-0 bg-accent/5 rounded-3xl transform rotate-3 transition-transform duration-700 hover:rotate-0" />
-                <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/10 bg-primary shadow-2xl">
-                  <Image 
-                    src={content.image}
-                    alt={content.title}
-                    fill
-                    className="object-cover object-center scale-[1.02] hover:scale-105 transition-transform duration-1000"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
+              {item.overlay && <div className={item.overlay} />}
+              <div className={item.contentClass}>
+                <p className="font-semibold tracking-widest uppercase text-xs mb-3 opacity-90">{item.caption}</p>
+                <h3 className="font-heading text-2xl sm:text-3xl font-semibold mb-4 leading-tight">{item.title}</h3>
+                <p className="opacity-80 leading-relaxed text-sm sm:text-base font-medium">{item.description}</p>
               </div>
-
             </motion.div>
-          </AnimatePresence>
-        </div>
+          ))}
+        </motion.div>
 
       </div>
     </section>

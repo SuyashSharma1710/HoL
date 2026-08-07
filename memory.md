@@ -492,3 +492,8 @@ _(Append new actions below this line as the project progresses)_
 
 - **What:** Injected a primary "Start Your Journey" CTA button (`Link`) directly below the main header in `PillarsSection.tsx`. Additionally, integrated a full-width CTA button inside the detailed Pillar popup modal. Added an `onClick` handler to the modal CTA that automatically closes the popup (`setSelectedIndex(null)`) before executing the route.
 - **Why:** To capture high-intent users immediately after they interact with the core framework. The auto-closing modal logic ensures the smooth Lenis scroll to the `#cta` section isn't visually blocked by the overlay.
+
+**92. Pillars Section UI Restructuring**
+
+- **What:** Relocated the "Direct charge, Meditation, Dhyan" glassmorphic pill badge from the bottom of the orbit container directly into the main section header. Conversely, shifted the main "Start Your Journey" CTA button from the top header down to the bottom callout space beneath the 12-pillar orbital diagram.
+- **Why:** To create a cleaner visual hierarchy. Establishing the core philosophy in the header frames the interactive orbit, while placing the CTA at the bottom ensures it acts as the final logical conversion step after the user has engaged with the framework.

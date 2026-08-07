@@ -129,21 +129,24 @@ export function PillarsSection() {
           <p className="font-semibold text-accent tracking-widest uppercase text-sm mb-4">
             The Framework
           </p>
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-background font-semibold leading-[1.15] mb-6">
+          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-background font-semibold leading-[1.15] mb-8">
             How we restore your cellular charge
           </h2>
-          <p className="text-background/70 font-medium text-lg leading-relaxed mb-8">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="mb-8 flex items-center gap-4 bg-white/5 backdrop-blur-md px-8 py-4 rounded-full border border-white/10 shadow-xl"
+          >
+            <Zap className="w-8 h-8 text-accent animate-pulse" />
+            <p className="font-heading text-xl md:text-2xl font-semibold text-background tracking-wide">
+              Direct charge, Meditation, Dhyan
+            </p>
+          </motion.div>
+          <p className="text-background/70 font-medium text-lg leading-relaxed">
             A holistic protocol designed to address the root electrical cause of disease, increasing your lifeforce one pillar at a time.
           </p>
-          <Link 
-            href="#cta"
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "bg-background text-primary hover:bg-background/90 rounded-[8px] px-12 py-6 font-medium text-base transition-transform hover:scale-105 shadow-lg shadow-black/20"
-            )}
-          >
-            Start Your Journey
-          </Link>
         </motion.div>
 
         {/* Orbit Container */}
@@ -228,13 +231,18 @@ export function PillarsSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.21, 0.47, 0.32, 0.98] as const }}
-          className="mt-8 flex items-center gap-4 bg-white/10 backdrop-blur-md px-8 py-4 rounded-full border border-white/20 shadow-xl"
+          transition={{ duration: 0.8, delay: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="mt-16 sm:mt-24"
         >
-          <Zap className="w-8 h-8 text-accent animate-pulse" />
-          <p className="font-heading text-xl font-bold text-background">
-            Direct charge, Meditation, Dhyan
-          </p>
+          <Link 
+            href="#cta"
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "bg-background text-primary hover:bg-background/90 rounded-[8px] px-12 py-6 font-medium text-base transition-transform hover:scale-105 shadow-lg shadow-black/20"
+            )}
+          >
+            Start Your Journey
+          </Link>
         </motion.div>
 
       </div>

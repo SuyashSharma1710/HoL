@@ -62,10 +62,10 @@ export function WelcomeSection() {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center max-w-4xl mx-auto space-y-6">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-primary leading-[1.15]">
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-semibold text-primary leading-[1.15] mb-6">
               Welcome to Harmony of Life
             </h2>
-            <p className="text-lg text-secondary italic font-medium leading-relaxed">
+            <p className="text-lg leading-relaxed font-medium text-secondary italic">
               Increase Your Cellular Charge. Elevate Your Lifeforce. Transform Your Life.
             </p>
           </motion.div>
@@ -74,7 +74,7 @@ export function WelcomeSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left Content (Text) */}
             <div className="flex flex-col space-y-12 order-2 lg:order-1">
-              <motion.div variants={itemVariants} className="space-y-6 text-base sm:text-lg text-primary/80 leading-relaxed font-sans text-left">
+              <motion.div variants={itemVariants} className="space-y-6 text-lg leading-relaxed font-medium text-primary/80 text-left">
                 <p className="mb-8">
                   Every heartbeat, every breath, every thought, and every movement begins within your cells.
                 </p>
@@ -87,8 +87,8 @@ export function WelcomeSection() {
               </motion.div>
 
               <motion.div variants={itemVariants} className="bg-primary/5 border border-secondary/30 rounded-2xl p-8 sm:p-10 backdrop-blur-sm">
-                <h3 className="text-3xl text-primary mb-6 italic">Our Objective</h3>
-                <ul className="space-y-4 text-base sm:text-lg text-primary/90 font-medium">
+                <h3 className="font-heading text-2xl sm:text-3xl font-semibold mb-4 leading-tight text-primary italic">Our Objective</h3>
+                <ul className="space-y-4 text-lg font-medium text-primary/90">
                   <li className="flex items-start gap-3">
                     <span className="text-secondary mt-1">•</span>
                     <span>Support healthy Cellular Charge.</span>

@@ -194,7 +194,7 @@ export function CTASection() {
           {/* Left Column - Socials & Info */}
           <div className="flex flex-col space-y-12">
             <motion.div variants={itemVariants}>
-              <h2 className="font-heading text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-6">
+              <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.15] mb-6">
                 Ready to turn your passion for wellness into purpose? <span className="inline-block">🌿</span>
               </h2>
               <div className="text-primary/80 font-medium text-lg leading-relaxed max-w-xl space-y-4">
@@ -211,9 +211,9 @@ export function CTASection() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="pt-4 border-t border-primary/10">
-              <h3 className="font-semibold text-sm tracking-widest uppercase text-accent mb-6">
+              <p className="font-semibold text-accent tracking-widest uppercase text-sm mb-4">
                 Follow our journey
-              </h3>
+              </p>
               <div className="flex flex-wrap gap-4">
                 {socials.map((social) => (
                   <a 
@@ -231,9 +231,9 @@ export function CTASection() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="pt-10 border-t border-primary/10">
-              <h3 className="font-semibold text-sm tracking-widest uppercase text-accent mb-4">
+              <p className="font-semibold text-accent tracking-widest uppercase text-sm mb-4">
                 Join our newsletter
-              </h3>
+              </p>
               <p className="text-primary/70 text-sm mb-6 max-w-md">
                 Get weekly insights on longevity, cellular voltage, and optimizing your healthspan.
               </p>
@@ -260,7 +260,7 @@ export function CTASection() {
 
           {/* Right Column - Contact Form */}
           <motion.div variants={itemVariants} className="bg-white p-8 sm:p-10 lg:p-12 rounded-lg shadow-sm border border-primary/5 h-fit self-start lg:sticky lg:top-[max(2rem,calc(50vh-17rem))]">
-            <h3 className="font-heading text-2xl font-bold mb-8">Start your journey</h3>
+            <h3 className="font-heading text-2xl sm:text-3xl font-semibold mb-8">Start your journey</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

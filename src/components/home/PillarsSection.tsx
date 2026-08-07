@@ -137,12 +137,26 @@ export function PillarsSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="mb-8 flex items-center gap-4 bg-white/5 backdrop-blur-md px-8 py-4 rounded-full border border-white/10 shadow-xl"
+            className="mb-8 relative flex items-center justify-center group"
           >
-            <Zap className="w-8 h-8 text-accent animate-pulse" />
-            <p className="font-heading text-xl md:text-2xl font-semibold text-background tracking-wide">
-              Direct charge, Meditation, Dhyan
-            </p>
+            {/* Pill Starburst Beams & Glow */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110">
+              {/* Central Hotspot */}
+              <div className="absolute w-[110%] h-[150%] rounded-full bg-accent/20 blur-xl" />
+              
+              {/* Flare Beams */}
+              <div className="absolute w-[140%] h-[1.5px] bg-linear-to-r from-transparent via-accent/90 to-transparent blur-[1px] transform rotate-0" />
+              <div className="absolute h-50 w-[1.5px] bg-linear-to-b from-transparent via-accent/90 to-transparent blur-[1px] transform rotate-0" />
+              <div className="absolute w-[60%] h-0.5 bg-linear-to-r from-transparent via-accent/50 to-transparent blur-[2px] transform rotate-35" />
+              <div className="absolute w-[60%] h-0.5 bg-linear-to-r from-transparent via-accent/50 to-transparent blur-[2px] transform -rotate-35" />
+            </div>
+
+            <div className="relative z-10 flex items-center gap-4 bg-primary/40 backdrop-blur-xl px-8 py-4 rounded-full border border-white/10 shadow-[0_0_30px_rgba(182,156,95,0.15)]">
+              <Zap className="w-8 h-8 text-accent animate-pulse" />
+              <p className="font-heading text-xl md:text-2xl font-semibold text-background tracking-wide">
+                Direct charge, Meditation, Dhyan
+              </p>
+            </div>
           </motion.div>
           <p className="text-background/70 font-medium text-lg leading-relaxed">
             A holistic protocol designed to address the root electrical cause of disease, increasing your lifeforce one pillar at a time.
@@ -241,7 +255,7 @@ export function PillarsSection() {
               "bg-background text-primary hover:bg-background/90 rounded-[8px] px-12 py-6 font-medium text-base transition-transform hover:scale-105 shadow-lg shadow-black/20"
             )}
           >
-            Start Your Journey
+            Start Your Wellness Journey
           </Link>
         </motion.div>
 
@@ -307,7 +321,7 @@ export function PillarsSection() {
                       "bg-primary text-background hover:bg-primary/90 rounded-[8px] w-full font-medium text-base transition-transform hover:scale-[1.02] shadow-lg shadow-primary/10"
                     )}
                   >
-                    Start Your Journey
+                    Start Your Wellness Journey
                   </Link>
                 </div>
 

@@ -33,7 +33,7 @@ export function PhilosophySection() {
             <p className="font-semibold text-secondary tracking-widest uppercase text-sm mb-4">
               Our Philosophy
             </p>
-            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.15] text-primary">
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-semibold leading-[1.15] text-primary mb-6">
               We don&apos;t believe in one-size-fits-all wellness.
             </h2>
           </motion.div>
@@ -72,7 +72,7 @@ export function PhilosophySection() {
               <p className="text-4xl font-heading font-medium text-primary leading-tight mb-6">
                 We believe every person is unique.
               </p>
-              <p className="text-base sm:text-lg text-primary/80 font-sans leading-relaxed">
+              <p className="text-lg leading-relaxed font-medium text-primary/80">
                 Harmony of Life provides a personalized approach designed to help you build sustainable habits that support your body&apos;s natural ability to produce energy, adapt, recover, and thrive.
               </p>
             </motion.div>
@@ -84,7 +84,7 @@ export function PhilosophySection() {
               transition={{ duration: 0.8, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="pl-6 sm:pl-8 border-l border-secondary/30"
             >
-              <p className="text-base sm:text-lg text-primary/80 font-sans leading-relaxed">
+              <p className="text-lg leading-relaxed font-medium text-primary/80">
                 Because when your <span className="italic font-semibold text-primary">Cellular Charge</span> is supported, your cells are better equipped to communicate, generate energy, and perform their essential functions. And when your cells function at their best, your <span className="italic font-semibold text-primary">Lifeforce</span> can flourish.
               </p>
             </motion.div>

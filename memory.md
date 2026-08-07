@@ -494,6 +494,13 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** To capture high-intent users immediately after they interact with the core framework. The auto-closing modal logic ensures the smooth Lenis scroll to the `#cta` section isn't visually blocked by the overlay.
 
 **92. Pillars Section UI Restructuring**
-
 - **What:** Relocated the "Direct charge, Meditation, Dhyan" glassmorphic pill badge from the bottom of the orbit container directly into the main section header. Conversely, shifted the main "Start Your Journey" CTA button from the top header down to the bottom callout space beneath the 12-pillar orbital diagram.
 - **Why:** To create a cleaner visual hierarchy. Establishing the core philosophy in the header frames the interactive orbit, while placing the CTA at the bottom ensures it acts as the final logical conversion step after the user has engaged with the framework.
+
+**93. Global Typography Standardization**
+- **What:** Executed a codebase-wide sweep to strictly enforce the landing page typography tokens. Replaced non-semantic `<h3>` eyebrows with stylized `<p>` tags, injected missing `font-heading` classes on `<h2>` elements in `WelcomeSection.tsx`, and locked in the `md:text-6xl font-semibold` standard across the board.
+- **Why:** To ensure a flawlessly uniform visual rhythm as the user scrolls, cementing a highly premium, cohesive brand aesthetic.
+
+**94. Core Pill Starburst Flare**
+- **What:** Injected a cinematic CSS starburst flare behind the "Direct charge, Meditation, Dhyan" pill badge in `PillarsSection.tsx`. This utilizes multiple overlapping linear-gradient lines (`rotate-0`, `rotate-90`, `rotate-35`) and a deep blurred hotspot, mirroring the central orbit core's aesthetic.
+- **Why:** To instantly draw the user's eye to the central philosophy of the framework while maintaining the energetic, cosmic visual theme.

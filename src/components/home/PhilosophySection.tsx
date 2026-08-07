@@ -46,7 +46,7 @@ export function PhilosophySection() {
           <div className="lg:col-span-7 relative">
             <motion.div 
               style={{ y: y1 }}
-              className="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[3/4] rounded-[16px] overflow-hidden shadow-2xl shadow-primary/10"
+              className="relative w-full aspect-4/5 sm:aspect-4/3 lg:aspect-3/4 rounded-[16px] overflow-hidden shadow-2xl shadow-primary/10"
             >
               {/* Added scale to prevent empty edges during parallax */}
               <Image 
@@ -68,7 +68,7 @@ export function PhilosophySection() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="pl-6 sm:pl-8 border-l border-secondary/30 relative"
             >
-              <div className="absolute top-0 left-0 w-[3px] h-12 bg-accent rounded-full -translate-x-[1.5px]" />
+              <div className="absolute top-0 left-0 w-0.75 h-12 bg-accent rounded-full translate-x-[-1.5px]" />
               <p className="text-4xl font-heading font-medium text-primary leading-tight mb-6">
                 We believe every person is unique.
               </p>
@@ -92,9 +92,9 @@ export function PhilosophySection() {
         </div>
 
         {/* Cinematic Closing Statement / Glassmorphic Overlap */}
-        <div className="relative w-full h-[500px] sm:h-auto sm:aspect-[16/9] lg:aspect-[21/9] rounded-[16px] overflow-hidden mt-24 lg:mt-48 shadow-2xl shadow-primary/10">
+        <div className="relative w-full h-125 sm:h-auto sm:aspect-video lg:aspect-21/9 rounded-[16px] overflow-hidden mt-24 lg:mt-48 shadow-2xl shadow-primary/10">
           {/* Background Image with slow upward parallax */}
-          <motion.div style={{ y: y2 }} className="absolute inset-0 origin-center h-[120%] -top-[10%]">
+          <motion.div style={{ y: y2 }} className="absolute inset-0 origin-center h-[120%] top-[-10%]">
             <Image 
               src="/images/2nd-optimized.webp"
               alt="Cellular Life Movement"

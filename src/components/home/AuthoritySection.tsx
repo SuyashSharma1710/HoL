@@ -59,7 +59,7 @@ export function AuthoritySection() {
         <div className="lg:hidden absolute inset-0 bg-linear-to-b from-background via-background/60 to-transparent z-10" />
       </div>
 
-      <div className="relative z-20 max-w-360 mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-87.5 sm:pt-32 sm:pb-112.5 lg:py-32">
+      <div className="relative z-20 max-w-360 mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-95 sm:pt-32 sm:pb-112.5 lg:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
           {/* Left Content */}
@@ -104,7 +104,7 @@ export function AuthoritySection() {
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6 pt-8">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 pt-8">
               <Link 
                 href="#cta"
                 className={cn(
@@ -128,7 +128,7 @@ export function AuthoritySection() {
           </motion.div>
 
           {/* Right column is left empty on desktop to show the background image */}
-          <div className="hidden lg:block h-150" />
+          <div className="hidden lg:block h-120" />
           
         </div>
       </div>

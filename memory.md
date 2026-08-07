@@ -382,3 +382,14 @@ This document tracks all significant architectural changes, file creations, and 
 **87. Philosophy Section Visual Expansion**
 - **What:** Injected two generative landscape images (`1st-optimized.webp` and `2nd-optimized.webp`) into `PhilosophySection.tsx` to break up the dense text blocks. Constrained their widths to `max-w-2xl` and locked the aspect ratio to `16:9` (`aspect-video`) to ensure they act as elegant inline frames rather than massive full-bleed blocks.
 - **Why:** To improve narrative pacing and visual engagement, ensuring the "Science/Philosophy" content remains as visually premium as the rest of the site.
+
+**88. Layout Spacing & Swiper Standardization**
+- **What:** Fixed the Swiper centering bug on desktop in `InhibitorsSection.tsx` by turning off `centeredSlides` for larger breakpoints. Stacked the CTA buttons vertically on mobile inside `GutResetSection.tsx` and `AuthoritySection.tsx`. Synchronized the spacer height (`h-120`) across these sections for uniform scroll rhythm. Added missing `sizes` attributes to Next.js `Image` components in `TestimonialsSection.tsx` to clear browser warnings.
+- **Why:** To ensure pixel-perfect responsive layouts on mobile devices and clear up any lingering warnings in the console, resulting in a cleaner user experience.
+
+**89. Philosophy Section Awwwards-level Redesign**
+- **What:** Completely overhauled `PhilosophySection.tsx` into a high-end, premium editorial layout featuring an asymmetrical 12-column grid, massive cinematic typography, and buttery-smooth Framer Motion parallax scrolling. 
+  - Flipped the color palette to `bg-background` (cream) and `text-primary` (dark green) to inject negative space and contrast.
+  - Implemented a massive frosted glassmorphic card (`backdrop-blur-2xl`) overlapping the final image.
+  - Meticulously synced the heading font sizes (`text-4xl sm:text-5xl md:text-6xl`), max-widths (`max-w-3xl`), and eyebrow margins (`mb-4`) to perfectly match the adjacent `PillarsSection.tsx`.
+- **Why:** The user requested an "Awwwards-level" design upgrade for this specific section. The new layout breaks away from the generic centered-stack format and provides a cinematic, highly immersive narrative reading experience that remains strictly compliant with the `Design.md` aesthetic tokens.

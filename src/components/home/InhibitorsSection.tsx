@@ -179,9 +179,9 @@ export function InhibitorsSection() {
               nextEl: '.inhibitor-next',
             }}
             breakpoints={{
-              640: { slidesPerView: 2.2 },
-              1024: { slidesPerView: 3.2 },
-              1440: { slidesPerView: 4 },
+              640: { slidesPerView: 2.2, centeredSlides: false },
+              1024: { slidesPerView: 3.2, centeredSlides: false },
+              1440: { slidesPerView: 4, centeredSlides: false },
             }}
             className="w-full px-4 pt-8! pb-12!"
           >

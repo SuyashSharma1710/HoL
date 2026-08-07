@@ -28,7 +28,7 @@ const itemVariants = {
 
 export function HealthspanSection() {
   return (
-    <section id="about" className="relative w-full py-24 sm:py-32 lg:py-40 bg-background overflow-hidden">
+    <section id="about" className="relative w-full py-24 sm:py-32 bg-background overflow-hidden">
       {/* Subtle background glow to add a mystical feel */}
       <div className="absolute top-0 left-1/4 w-full h-125 bg-secondary/5 blur-3xl rounded-full pointer-events-none" />
 

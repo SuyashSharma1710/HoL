@@ -115,6 +115,25 @@ export function PillarsSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         
+        {/* Section Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const }}
+          className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 flex flex-col items-center"
+        >
+          <p className="font-semibold text-accent tracking-widest uppercase text-sm mb-4">
+            The Framework
+          </p>
+          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-background font-semibold leading-[1.15] mb-6">
+            How we restore your cellular charge
+          </h2>
+          <p className="text-background/70 font-medium text-lg leading-relaxed">
+            A holistic protocol designed to address the root electrical cause of disease, increasing your lifeforce one pillar at a time.
+          </p>
+        </motion.div>
+
         {/* Orbit Container */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}

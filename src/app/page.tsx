@@ -19,11 +19,11 @@ export default function Home() {
     <main className="min-h-dvh bg-background w-full flex flex-col">
       <Hero />
       <WelcomeSection />
+      <PillarsSection />
       <PhilosophySection />
       <HealthspanSection />
       <ElectricSection />
       <InhibitorsSection />
-      <PillarsSection />
       <GutResetSection />
       <AuthoritySection />
       <CommunitySection />

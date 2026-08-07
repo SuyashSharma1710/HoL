@@ -8,6 +8,9 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 
 const pillars = [
   { name: "Balance Nutrition", icon: Salad, image: "/images/Balance-Nutrition.jpeg", description: "Fuel your cells with living, electron-rich foods that restore your biological battery and promote optimal vitality." },
@@ -129,9 +132,18 @@ export function PillarsSection() {
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-background font-semibold leading-[1.15] mb-6">
             How we restore your cellular charge
           </h2>
-          <p className="text-background/70 font-medium text-lg leading-relaxed">
+          <p className="text-background/70 font-medium text-lg leading-relaxed mb-8">
             A holistic protocol designed to address the root electrical cause of disease, increasing your lifeforce one pillar at a time.
           </p>
+          <Link 
+            href="#cta"
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "bg-background text-primary hover:bg-background/90 rounded-[8px] px-12 py-6 font-medium text-base transition-transform hover:scale-105 shadow-lg shadow-black/20"
+            )}
+          >
+            Start Your Journey
+          </Link>
         </motion.div>
 
         {/* Orbit Container */}
@@ -278,6 +290,17 @@ export function PillarsSection() {
                   <p className="text-primary/70 font-medium text-lg leading-relaxed mb-8">
                     {selectedPillar.description}
                   </p>
+                  
+                  <Link 
+                    href="#cta"
+                    onClick={() => setSelectedIndex(null)}
+                    className={cn(
+                      buttonVariants({ size: "lg" }),
+                      "bg-primary text-background hover:bg-primary/90 rounded-[8px] w-full font-medium text-base transition-transform hover:scale-[1.02] shadow-lg shadow-primary/10"
+                    )}
+                  >
+                    Start Your Journey
+                  </Link>
                 </div>
 
                 {/* Bottom Navigation */}

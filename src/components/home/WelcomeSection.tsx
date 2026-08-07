@@ -25,7 +25,7 @@ const itemVariants = {
 
 export function WelcomeSection() {
   return (
-    <section id="welcome" className="relative w-full py-24 sm:py-32 lg:py-40 bg-primary text-background overflow-hidden">
+    <section id="welcome" className="relative w-full py-24 sm:py-32 bg-background text-primary overflow-hidden">
       {/* Animated Gradient Background */}
       
 
@@ -62,10 +62,10 @@ export function WelcomeSection() {
         >
           {/* Header */}
           <motion.div variants={itemVariants} className="text-center max-w-4xl mx-auto space-y-6">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-accent leading-[1.15]">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-semibold text-primary leading-[1.15]">
               Welcome to Harmony of Life
             </h2>
-            <p className="text-2xl sm:text-3xl text-background/90 italic font-medium">
+            <p className="text-lg text-secondary italic font-medium leading-relaxed">
               Increase Your Cellular Charge. Elevate Your Lifeforce. Transform Your Life.
             </p>
           </motion.div>
@@ -74,35 +74,35 @@ export function WelcomeSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left Content (Text) */}
             <div className="flex flex-col space-y-12 order-2 lg:order-1">
-              <motion.div variants={itemVariants} className="space-y-6 text-base sm:text-lg text-background/80 leading-relaxed font-sans text-left">
+              <motion.div variants={itemVariants} className="space-y-6 text-base sm:text-lg text-primary/80 leading-relaxed font-sans text-left">
                 <p className="mb-8">
                   Every heartbeat, every breath, every thought, and every movement begins within your cells.
                 </p>
                 <p>
-                  At <span className="italic text-accent font-medium">Harmony of Life</span>, we believe that true health starts at the cellular level. Our philosophy is built around one fundamental principle: <span className="font-semibold italic text-background">&quot;The healthier your cells, the greater your Cellular Charge, and the greater your Lifeforce.&quot;</span>
+                  At <span className="italic text-secondary font-medium">Harmony of Life</span>, we believe that true health starts at the cellular level. Our philosophy is built around one fundamental principle: <span className="font-semibold italic text-primary">&quot;The healthier your cells, the greater your Cellular Charge, and the greater your Lifeforce.&quot;</span>
                 </p>
                 <p>
                   Our mission is to help individuals optimize their health by supporting healthy cellular function through personalized nutrition, holistic wellness practices, movement, breathing, restorative sleep, stress management, and lifestyle education.
                 </p>
               </motion.div>
 
-              <motion.div variants={itemVariants} className="bg-background/5 border border-secondary/30 rounded-2xl p-8 sm:p-10 backdrop-blur-sm">
-                <h3 className="text-3xl text-accent mb-6 italic">Our Objective</h3>
-                <ul className="space-y-4 text-base sm:text-lg text-background/90 font-medium">
+              <motion.div variants={itemVariants} className="bg-primary/5 border border-secondary/30 rounded-2xl p-8 sm:p-10 backdrop-blur-sm">
+                <h3 className="text-3xl text-primary mb-6 italic">Our Objective</h3>
+                <ul className="space-y-4 text-base sm:text-lg text-primary/90 font-medium">
                   <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-secondary mt-1">•</span>
                     <span>Support healthy Cellular Charge.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-secondary mt-1">•</span>
                     <span>Increase Lifeforce through healthy cellular function.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-secondary mt-1">•</span>
                     <span>Empower every individual with a personalized wellness journey.</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1">•</span>
+                    <span className="text-secondary mt-1">•</span>
                     <span>Build a thriving community dedicated to lifelong vitality.</span>
                   </li>
                 </ul>

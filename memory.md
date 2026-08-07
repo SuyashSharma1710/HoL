@@ -393,3 +393,11 @@ This document tracks all significant architectural changes, file creations, and 
   - Implemented a massive frosted glassmorphic card (`backdrop-blur-2xl`) overlapping the final image.
   - Meticulously synced the heading font sizes (`text-4xl sm:text-5xl md:text-6xl`), max-widths (`max-w-3xl`), and eyebrow margins (`mb-4`) to perfectly match the adjacent `PillarsSection.tsx`.
 - **Why:** The user requested an "Awwwards-level" design upgrade for this specific section. The new layout breaks away from the generic centered-stack format and provides a cinematic, highly immersive narrative reading experience that remains strictly compliant with the `Design.md` aesthetic tokens.
+
+**90. Welcome Section Light-Mode Inversion & Typography Polish**
+- **What:** Refactored `WelcomeSection.tsx` from a dark theme (`bg-primary`) to a light cream theme (`bg-background`). Inverted all internal text classes (`text-primary`, `text-secondary`) to ensure optimal contrast. Stripped excess vertical padding (`lg:py-40` down to `py-24 sm:py-32`) and scaled down the subtitle text from `text-3xl` to a refined `text-lg leading-relaxed`.
+- **Why:** To standardize vertical spacing globally (matching ElectricSection) and provide necessary visual relief (light mode) immediately following the dark Hero section.
+
+**91. Pillar Section Global CTA Integration**
+- **What:** Injected a primary "Start Your Journey" CTA button (`Link`) directly below the main header in `PillarsSection.tsx`. Additionally, integrated a full-width CTA button inside the detailed Pillar popup modal. Added an `onClick` handler to the modal CTA that automatically closes the popup (`setSelectedIndex(null)`) before executing the route.
+- **Why:** To capture high-intent users immediately after they interact with the core framework. The auto-closing modal logic ensures the smooth Lenis scroll to the `#cta` section isn't visually blocked by the overlay.

@@ -14,11 +14,11 @@ import { buttonVariants } from "@/components/ui/button";
 
 const pillars = [
   { name: "Balance Nutrition", icon: Salad, image: "/images/Balance-Nutrition.jpeg", description: "Fuel your cells with living, electron-rich foods that restore your biological battery and promote optimal vitality." },
-  { name: "Deep Detox", icon: Sparkles, image: "/images/Deep-Detox.jpeg", description: "Purge heavy metals, chemical toxins, and stagnant energy to open the pathways for true cellular repair." },
-  { name: "Artery Cleanse", icon: HeartPulse, image: "/images/Artery-Cleanse.jpeg", description: "Clear the highways of your cardiovascular system, ensuring oxygen and nutrients flow freely to every cell." },
+  { name: "Deep Detox", icon: Sparkles, image: "/images/Deep-Detox.png", description: "Purge heavy metals, chemical toxins, and stagnant energy to open the pathways for true cellular repair." },
+  { name: "Artery Cleanse", icon: HeartPulse, image: "/images/Artery-Cleanse.png", description: "Clear the highways of your cardiovascular system, ensuring oxygen and nutrients flow freely to every cell." },
   { name: "Alkaline Chemistry", icon: FlaskConical, image: "/images/Alkaline-Chemistry.jpeg", description: "Create an internal environment where disease cannot survive by balancing your body's pH levels." },
   { name: "Cellular Vitality", icon: Dna, image: "/images/Cellular-Vitality.jpeg", description: "Reignite your mitochondria to produce massive amounts of ATP, the pure energy currency of your body." },
-  { name: "Gut Reset", icon: ShieldPlus, image: "/images/Gut-Reset.jpeg", description: "Restore your microbiome to properly absorb nutrients and eliminate systemic inflammation at the source." },
+  { name: "Gut Reset", icon: ShieldPlus, image: "/images/Gut-Reset.png", description: "Restore your microbiome to properly absorb nutrients and eliminate systemic inflammation at the source." },
   { name: "Inflammation", icon: Flame, image: "/images/Inflammation.jpeg", description: "Extinguish the silent, smoldering fires inside your body that accelerate aging and drain your lifeforce." },
   { name: "Deep Sleep", icon: Moon, image: "/images/Deep-Sleep.jpeg", description: "Enter the profound restorative states of sleep where your brain cleanses itself and your body rebuilds." },
   { name: "Regular Exercise", icon: Activity, image: "/images/Regular-Exercise.jpeg", description: "Move your physical vessel to circulate lymph, build structural integrity, and force cellular adaptation." },

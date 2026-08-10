@@ -504,3 +504,9 @@ _(Append new actions below this line as the project progresses)_
 **94. Core Pill Starburst Flare**
 - **What:** Injected a cinematic CSS starburst flare behind the "Direct charge, Meditation, Dhyan" pill badge in `PillarsSection.tsx`. This utilizes multiple overlapping linear-gradient lines (`rotate-0`, `rotate-90`, `rotate-35`) and a deep blurred hotspot, mirroring the central orbit core's aesthetic.
 - **Why:** To instantly draw the user's eye to the central philosophy of the framework while maintaining the energetic, cosmic visual theme.
+
+**95. Pillars & Gut Reset Image Generation Update**
+- **What:** Generated new custom imagery and updated component references:
+  1. **PillarsSection**: Updated "Deep Detox" to a text-free side-by-side comparison of a toxic vs healthy cell. Updated "Artery Cleanse" to a side-by-side comparison of a clogged vs clean artery.
+  2. **GutResetSection**: Replaced previous images with a dedicated, text-free 3D medical illustration of a glowing human digestive system, tailored specifically for desktop (left-aligned) and mobile (bottom-aligned) viewports.
+- **Why:** To enhance visual communication in the scientific sections, providing clear, high-quality bespoke medical illustrations that follow the celestial wellness design system without conflicting text overlays.

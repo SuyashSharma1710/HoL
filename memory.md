@@ -510,3 +510,7 @@ _(Append new actions below this line as the project progresses)_
   1. **PillarsSection**: Updated "Deep Detox" to a text-free side-by-side comparison of a toxic vs healthy cell. Updated "Artery Cleanse" to a side-by-side comparison of a clogged vs clean artery.
   2. **GutResetSection**: Replaced previous images with a dedicated, text-free 3D medical illustration of a glowing human digestive system, tailored specifically for desktop (left-aligned) and mobile (bottom-aligned) viewports.
 - **Why:** To enhance visual communication in the scientific sections, providing clear, high-quality bespoke medical illustrations that follow the celestial wellness design system without conflicting text overlays.
+
+**96. Legal Pages Padding Adjustment**
+- **What:** Removed the extra top padding (`pt-32`) from the `<main>` container in `privacy/page.tsx`, `terms/page.tsx`, and `cookies/page.tsx`.
+- **Why:** To correct spacing issues at the top of the legal pages, ensuring the content is flush and positioned correctly relative to the global navigation header.

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CookiePolicy() {
   return (
-    <main className="min-h-screen bg-background pt-32 pb-24 px-4 lg:px-8">
+    <main className="min-h-screen bg-background pb-24 px-4 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <Link href="/" className="inline-flex items-center gap-2 text-secondary hover:text-primary transition-colors font-semibold mb-8 group">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />

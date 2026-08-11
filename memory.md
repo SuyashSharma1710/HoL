@@ -518,3 +518,12 @@ _(Append new actions below this line as the project progresses)_
 **97. Hero Section Typography & Grammar Polish**
 - **What:** Fixed an unescaped single quote in `Hero.tsx` that causes JSX compilation/linting errors (changed `"World's"` to `"The world&apos;s"`). Corrected grammatical flow by adding "The" at the beginning, normalizing the capitalization of "personalized health", and changing "decision" to the plural "decisions".
 - **Why:** To prevent React build errors related to unescaped entities in JSX and to ensure the landing page hero copy reads naturally and professionally.
+
+**98. Complete Overhaul of WhySection (The Blueprint & Approach)**
+- **What:**
+  1. Restructured `WhySection.tsx` into a strict sequence (Intro -> Blueprint Sticky Scroll -> Approach Bento Grid -> Resolution) to exactly match marketing copy.
+  2. Extracted "Why HOL" into a dedicated, standard-sized section heading.
+  3. Replaced the simple 4-column Approach stats grid with an asymmetrical 4x2 creative Bento Grid.
+  4. Generated and integrated 4 unique cinematic abstract images (`bento-diabetic.png`, `bento-obese.png`, `bento-ed.png`, `bento-alcohol.png`) as dark frosted backgrounds for the Bento cards.
+  5. Enforced strict `Design.md` `text-lg` and `text-5xl` typography clamping across the section to resolve arbitrary Tailwind classes.
+- **Why:** To massively elevate the visual impact of the Blueprint and Crisis Stats sections, ensuring they feel like a premium, interactive presentation while strictly adhering to the celestial wellness design system.

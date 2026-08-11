@@ -514,3 +514,7 @@ _(Append new actions below this line as the project progresses)_
 **96. Legal Pages Padding Adjustment**
 - **What:** Removed the extra top padding (`pt-32`) from the `<main>` container in `privacy/page.tsx`, `terms/page.tsx`, and `cookies/page.tsx`.
 - **Why:** To correct spacing issues at the top of the legal pages, ensuring the content is flush and positioned correctly relative to the global navigation header.
+
+**97. Hero Section Typography & Grammar Polish**
+- **What:** Fixed an unescaped single quote in `Hero.tsx` that causes JSX compilation/linting errors (changed `"World's"` to `"The world&apos;s"`). Corrected grammatical flow by adding "The" at the beginning, normalizing the capitalization of "personalized health", and changing "decision" to the plural "decisions".
+- **Why:** To prevent React build errors related to unescaped entities in JSX and to ensure the landing page hero copy reads naturally and professionally.

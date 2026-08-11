@@ -59,14 +59,14 @@ export function Hero() {
           variants={itemVariants}
           className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl tracking-tight leading-tight mb-6"
         >
-          Increase your cellular charge <br className="hidden sm:block" /> and transform your life
+          Welcome to<br className="hidden sm:block" /> Harmony of Life
         </motion.h1>
 
         <motion.p 
           variants={itemVariants}
           className="text-base sm:text-lg md:text-xl max-w-2xl text-white/90 font-medium mb-10 leading-relaxed"
         >
-          Every single heartbeat and breath you take literally begins at the cellular level.<br /> Support healthy cellular function to flourish.
+          The world&apos;s 1<sup>st</sup> personalized health community where you can make informed health decisions.
         </motion.p>
 
         <motion.div 

@@ -527,3 +527,13 @@ _(Append new actions below this line as the project progresses)_
   4. Generated and integrated 4 unique cinematic abstract images (`bento-diabetic.png`, `bento-obese.png`, `bento-ed.png`, `bento-alcohol.png`) as dark frosted backgrounds for the Bento cards.
   5. Enforced strict `Design.md` `text-lg` and `text-5xl` typography clamping across the section to resolve arbitrary Tailwind classes.
 - **Why:** To massively elevate the visual impact of the Blueprint and Crisis Stats sections, ensuring they feel like a premium, interactive presentation while strictly adhering to the celestial wellness design system.
+
+**99. Philosophy Section Simplification**
+- **What:** Commented out the "Massive Opening Statement" and "Asymmetric Editorial Grid" in `PhilosophySection.tsx`, retaining only the cinematic closing statement (the large parallax background image with the floating frosted glass card).
+- **Why:** To streamline the section and focus the user's attention entirely on the core "movement" message, while preserving the unused layout code for potential future use.
+
+**100. Why Section Resolution Editorial Redesign**
+- **What:** Redesigned the Resolution card at the end of `WhySection.tsx` from a simple bulleted list into a massive, wide split-panel editorial layout. 
+  - Generated and integrated a new custom image (`root-cause.png`) for the left panel.
+  - Replaced bullet points with large, premium serif typography (`font-heading`) and gold accents for the right panel.
+- **Why:** To make the culmination of the "Why HOL" section feel like a high-end magazine spread, maximizing visual impact and adhering to the premium celestial wellness aesthetic.

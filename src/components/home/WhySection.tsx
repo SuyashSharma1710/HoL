@@ -302,16 +302,42 @@ export function WhySection() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="bg-primary/40 backdrop-blur-2xl border border-white/10 p-8 sm:p-12 lg:p-16 rounded-[16px] max-w-4xl text-center shadow-2xl shadow-black/50 w-full sm:w-auto relative overflow-hidden"
+            className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 bg-background rounded-[16px] overflow-hidden shadow-2xl shadow-black/80 border border-white/20 relative"
           >
-            {/* Subtle inner glow */}
-            <div className="absolute inset-0 bg-linear-to-b from-white/5 to-transparent pointer-events-none" />
+            {/* Subtle inner shadow for depth */}
+            <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(20,43,35,0.05)] pointer-events-none z-20" />
             
-            <ul className="text-white/90 text-lg font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-sm mb-6 relative z-10 text-left space-y-4">
-              <li>• Harmony of life addresses this challenge by identifying and looking at the root cause of the root cause.</li>
-              <li>• HOL is built based on this concept.</li>
-              <li>• All these healthcare challenges will be resolved by increasing your <span className="text-accent italic">Lifeforce</span> and <span className="text-accent italic">Cellular Charge</span>.</li>
-            </ul>
+            {/* Image Side */}
+            <div className="relative h-[300px] lg:h-auto w-full">
+              <Image 
+                src="/images/root-cause.png" 
+                alt="Root Cause"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            
+            {/* Editorial Text Side */}
+            <div className="p-8 sm:p-12 lg:p-20 flex flex-col justify-center relative z-10">
+              <p className="font-semibold text-secondary tracking-widest uppercase text-sm mb-6">
+                The Resolution
+              </p>
+              
+              <h3 className="font-heading text-4xl sm:text-5xl font-semibold text-primary leading-[1.15] mb-8">
+                Addressing the <span className="italic text-accent">root cause</span> of the root cause.
+              </h3>
+              
+              <div className="space-y-6">
+                <p className="text-lg text-primary/80 leading-relaxed font-medium border-l-2 border-accent pl-6">
+                  Harmony of Life is built entirely on this fundamental concept.
+                </p>
+                
+                <p className="text-lg text-primary font-medium leading-relaxed">
+                  All these modern healthcare challenges will be resolved by increasing your <strong className="font-semibold text-accent italic">Lifeforce</strong> and <strong className="font-semibold text-accent italic">Cellular Charge</strong>.
+                </p>
+              </div>
+            </div>
           </motion.div>
         </div>
 

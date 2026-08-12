@@ -5,10 +5,10 @@ import Image from "next/image";
 import { useRef } from "react";
 
 const blueprintData = [
-  { title: "Our Aim", content: "To empower people with the right knowledge about their health and help prevent the growing lifestyle disorder in India.", image: "/images/our_aim.png" },
-  { title: "Our Vision", content: "To make a world where people create happy healthier lives.", image: "/images/our_vision.png" },
-  { title: "Our Mission", content: "To create a trusted science-backed ecosystem that delivers personalized health solutions.", image: "/images/our_mission.png" },
-  { title: "Our Objective", content: "To train wellness relationship managers on the tenets of optimal health.", image: "/images/our_objectives.png" }
+  { title: "Our Aim", content: "To empower people with the right knowledge about their health and help prevent the growing lifestyle disorder in India.", image: "/images/our-aim.png" },
+  { title: "Our Vision", content: "To make a world where people create happy healthier lives.", image: "/images/our-vision.png" },
+  { title: "Our Mission", content: "To create a trusted science-backed ecosystem that delivers personalized health solutions.", image: "/images/our-mission.png" },
+  { title: "Our Objective", content: "To train wellness relationship managers on the tenets of optimal health.", image: "/images/our-objective.png" }
 ];
 
 export function WhySection() {
@@ -98,8 +98,8 @@ export function WhySection() {
         </div>
 
         {/* PART 1: The Blueprint (Hover Expanding Cards) */}
-        <div className="w-full flex flex-col items-center pt-12 pb-24 px-4 sm:px-6 lg:px-8">
-          <div className="w-full max-w-7xl mx-auto lg:h-[60vh] lg:min-h-[500px] flex flex-col lg:flex-row gap-4 lg:gap-6">
+        <div className="w-full flex flex-col items-center pt-12 pb-32 px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-7xl mx-auto lg:h-[60vh] lg:min-h-[300px] flex flex-col lg:flex-row gap-4 lg:gap-6">
             {blueprintData.map((item, idx) => (
               <div 
                 key={idx}
@@ -110,7 +110,7 @@ export function WhySection() {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover transition-transform duration-1000 lg:group-hover:scale-105"
+                  className="object-cover transition-all duration-1000 lg:group-hover:scale-105"
                   sizes="(max-width: 1024px) 100vw, 25vw"
                 />
                 
@@ -143,19 +143,18 @@ export function WhySection() {
         </div>
 
         {/* PART 2: The Approach (Crisis Stats Bento Grid) */}
-        <div className="min-h-screen w-full flex flex-col items-center justify-center py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="w-full flex flex-col items-center pb-24 sm:pb-16 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-360 mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className="text-center mb-16 lg:mb-24"
+              className="text-center mb-12"
             >
-              <h3 className="font-heading text-5xl font-semibold leading-[1.1] text-primary mb-6 drop-shadow-sm">
+              <h3 className="font-heading text-5xl font-semibold leading-[1.1] text-primary drop-shadow-sm">
                 Approach
               </h3>
-              <div className="w-24 h-1 bg-accent rounded-full mx-auto shadow-sm" />
             </motion.div>
 
             {/* Asymmetrical Bento Grid Stats */}
@@ -171,7 +170,7 @@ export function WhySection() {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
-                  <Image src="/images/bento-diabetic-literal.png" alt="Diabetic statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <Image src="/images/bento-diabetic-indian.png" alt="Diabetic statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
                 </div>
                 
                 {/* Dark spot for text readability */}
@@ -197,7 +196,7 @@ export function WhySection() {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
-                  <Image src="/images/bento-obese-literal.png" alt="Obesity statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <Image src="/images/bento-obese-indian.png" alt="Obesity statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
                 </div>
                 
                 {/* Dark spot for text readability */}
@@ -217,7 +216,7 @@ export function WhySection() {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
-                  <Image src="/images/bento-ed-literal.png" alt="Erectile Dysfunction statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
+                  <Image src="/images/bento-ed-indian.png" alt="Erectile Dysfunction statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
                 </div>
                 
                 {/* Dark spot for text readability */}
@@ -237,7 +236,7 @@ export function WhySection() {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
-                  <Image src="/images/bento-alcohol-literal.png" alt="Alcohol consumption statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
+                  <Image src="/images/bento-alcohol-indian.png" alt="Alcohol consumption statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
                 </div>
                 
                 {/* Dark spot for text readability */}
@@ -252,7 +251,7 @@ export function WhySection() {
         </div>
 
         {/* PART 3: The Resolution */}
-        <div className="min-h-screen w-full flex items-center justify-center py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen w-full flex items-center justify-center py-24 sm:pb-32 sm:pt-16 px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}

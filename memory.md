@@ -564,3 +564,13 @@ _(Append new actions below this line as the project progresses)_
 **106. Resolution Image Update**
 - **What:** Replaced the abstract golden roots image (`root-cause.png`) with a new, bespoke cinematic photograph (`resolution-joyful.png`) featuring a vibrant Indian woman at sunrise in nature.
 - **Why:** To literally and joyfully represent the concept of "increasing your Lifeforce and Cellular Charge", bringing a relatable human element to the closing statement rather than a purely abstract scientific visual.
+
+**107. Lifeforce Sequence Section Image and Styling Updates**
+- **What:** Changed image in Card 3 to `young-man-raising-hands-sunset-sky-after-training.jpg`. Applied `saturate-[1.5]` and `contrast-125` to boost image color.
+- **Why:** User requested a bright, wide natural landscape image.
+- **What:** Added a large, faint, slowly rotating `logo.svg` to the background of Card 1.
+- **Why:** User requested an active abstract element after removing the moving text.
+
+**108. Inhibitors Section Image Updates**
+- **What:** Updated images for all slides (Toxins, Stress, Sleep, Nutrition, Movement, Deficiency) to point to new user-provided images.
+- **Why:** User provided specific images matching the eyebrow headings.

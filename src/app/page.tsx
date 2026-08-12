@@ -21,7 +21,7 @@ export default function Home() {
       <Hero />
       <WhySection />
       <PhilosophySection />
-      {/* <LifeforceSequenceSection /> */}
+      <LifeforceSequenceSection />
       <PillarsSection />
       <HealthspanSection />
       <ElectricSection />

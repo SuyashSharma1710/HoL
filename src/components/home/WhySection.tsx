@@ -144,7 +144,7 @@ export function WhySection() {
 
         {/* PART 2: The Approach (Crisis Stats Bento Grid) */}
         <div className="w-full flex flex-col items-center pb-24 sm:pb-16 px-4 sm:px-6 lg:px-8">
-          <div className="w-full max-w-360 mx-auto">
+          <div className="w-full max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}

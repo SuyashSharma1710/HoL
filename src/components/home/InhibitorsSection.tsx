@@ -37,7 +37,7 @@ const inhibitors = [
     category: "Toxins",
     title: "Environmental poisons short-circuit your cellular wiring daily",
     description: "Heavy metals and chemicals in your air and water block electron flow",
-    image: "/images/inhibitor-toxins-v3.png",
+    image: "/images/toxin.png",
     linkText: "Detox",
     linkHref: "#detox",
     detailedContent: "Every day, our bodies are bombarded with synthetic chemicals, heavy metals, and environmental pollutants. These invisible toxins settle deep within our tissues, acting as literal roadblocks to the electrical currents that run our cellular machinery. By actively detoxifying, we remove these blockages and allow our bioelectric pathways to flow freely once again."
@@ -46,7 +46,7 @@ const inhibitors = [
     category: "Stress",
     title: "Chronic stress is a constant and corrosive energy leak",
     description: "Cortisol floods your system and drains your life-giving voltage reserves",
-    image: "/images/inhibitor-stress-v3.png",
+    image: "/images/stress.png",
     linkText: "Calm",
     linkHref: "#calm",
     detailedContent: "When the body is trapped in a constant 'fight or flight' state, cortisol is continuously pumped into the bloodstream. This chronic stress response aggressively consumes your cellular energy, acting like a short circuit that drains your biological battery faster than you can recharge it. Mastering your nervous system is the key to sealing this leak."
@@ -55,7 +55,7 @@ const inhibitors = [
     category: "Sleep",
     title: "Poor sleep fails to recharge your biological battery",
     description: "Without deep rest your cells cannot repair or reach full potential",
-    image: "/images/inhibitor-sleep-v3.png",
+    image: "/images/sleep.png",
     linkText: "Restore",
     linkHref: "#restore",
     detailedContent: "Sleep is the only time your body enters a profound state of biological repair and cellular regeneration. When sleep is fragmented or shallow, the 'battery charging' cycle is interrupted. Your brain cannot clear metabolic waste, and your cells wake up already depleted. Deep, restorative sleep is non-negotiable for high cellular voltage."
@@ -64,7 +64,7 @@ const inhibitors = [
     category: "Nutrition",
     title: "Processed food cannot fuel a high-voltage body",
     description: "Processed ingredients and empty calories offer zero electrons for life",
-    image: "/images/inhibitor-nutrition-v3.png",
+    image: "/images/nutrition.png",
     linkText: "Nourish",
     linkHref: "#nourish",
     detailedContent: "The human body is an electrical machine that requires living, electron-dense fuel to run efficiently. Highly processed, artificial foods are biologically 'dead' they lack the raw energy and structured water necessary to power your mitochondria. True vitality requires a shift back to natural, vibrant, and mineral-rich living foods."
@@ -73,7 +73,7 @@ const inhibitors = [
     category: "Movement",
     title: "Sitting halts cellular energy production",
     description: "A sedentary lifestyle causes energy pathways to stagnate and lose their glow",
-    image: "/images/Person_slumped_in_office_chair_202608041222.jpeg",
+    image: "/images/movement.png",
     linkText: "Activate",
     linkHref: "#activate",
     detailedContent: "Movement is the catalyst for energy production. When we remain sedentary for long hours, our lymphatic system stagnates, circulation drops, and mitochondria go dormant. Regular, purposeful movement forces the body to adapt, creating new energy pathways and literally increasing the physical capacity of your cellular battery."
@@ -82,7 +82,7 @@ const inhibitors = [
     category: "Deficiency",
     title: "Lacking the raw materials for ATP",
     description: "Nutrient deficiencies leave your cells hollow and unable to hold a charge",
-    image: "/images/Human_cell_nutrient_deficiency_v…_202608041224.jpeg",
+    image: "/images/deficiency.png",
     linkText: "Replenish",
     linkHref: "#replenish",
     detailedContent: "Just as a car cannot run without oil, your cells cannot produce ATP (energy) without the correct micronutrients, minerals, and vitamins. In the modern era, depleted soils often mean our food lacks these crucial raw materials. Repleting your body with targeted, high-quality nutrients ensures your cells have the physical building blocks they need to hold a massive charge."

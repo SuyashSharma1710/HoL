@@ -537,3 +537,10 @@ _(Append new actions below this line as the project progresses)_
   - Generated and integrated a new custom image (`root-cause.png`) for the left panel.
   - Replaced bullet points with large, premium serif typography (`font-heading`) and gold accents for the right panel.
 - **Why:** To make the culmination of the "Why HOL" section feel like a high-end magazine spread, maximizing visual impact and adhering to the premium celestial wellness aesthetic.
+
+**101. Tailwind Canonical Classes & Parallax Polish**
+- **What:** 
+  1. Resolved all Tailwind CSS Intellisense lint warnings in `WhySection.tsx` by replacing arbitrary spacing and opacity values (e.g., `min-h-[200px]`, `text-white/[0.06]`) with their canonical equivalents (`min-h-50`, `text-white/6`).
+  2. Removed an unused `y1` variable from `PhilosophySection.tsx`.
+  3. Upgraded the static sticky background images in `WhySection.tsx` with a slow, upward parallax scrolling effect (`useTransform` from `10%` to `-10%`) so they glide in the same direction as the content scroll.
+- **Why:** To ensure strict compliance with Tailwind CSS v4 standards and to provide a smooth, cinematic visual experience as the user scrolls through the tall sticky sections.

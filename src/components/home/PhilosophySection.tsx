@@ -14,7 +14,6 @@ export function PhilosophySection() {
   });
 
   // Subtle parallax for images
-  const y1 = useTransform(scrollYProgress, [0, 1], ["-5%", "15%"]);
   const y2 = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
@@ -94,7 +93,7 @@ export function PhilosophySection() {
         === TEMPORARILY HIDDEN === */}
 
         {/* Cinematic Closing Statement / Glassmorphic Overlap */}
-        <div className="relative w-full h-125 sm:h-auto sm:aspect-video lg:aspect-21/9 overflow-hidden shadow-2xl shadow-primary/10">
+        <div className="relative w-full min-h-dvh sm:h-auto sm:aspect-video overflow-hidden shadow-2xl shadow-primary/10">
           {/* Background Image with slow upward parallax */}
           <motion.div style={{ y: y2 }} className="absolute inset-0 origin-center h-[120%] top-[-10%]">
             <Image 

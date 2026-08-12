@@ -52,6 +52,11 @@ export function WhySection() {
   const crisisOpacity = useTransform(scrollYProgress, [0.4, 0.55, 0.8, 0.9], [0, 0.6, 0.6, 0]);
   const cellularOpacity = useTransform(scrollYProgress, [0.8, 0.9, 1], [0, 0.5, 0.5]);
 
+  // Parallax for the background layers
+  // Since the background container is 'sticky' (doesn't scroll), we move the image UP ("10%" to "-10%") 
+  // to simulate it scrolling up slowly, in the same direction as the content.
+  const bgY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
+
   return (
     <section ref={containerRef} id="why" className="relative w-full bg-primary text-background">
       
@@ -59,35 +64,35 @@ export function WhySection() {
       <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
         
         {/* Layer 1: Vision (Blueprint) */}
-        <motion.div style={{ opacity: visionOpacity }} className="absolute inset-0">
+        <motion.div style={{ opacity: visionOpacity, y: bgY }} className="absolute inset-0 h-[120%] top-[-10%] origin-center">
           <Image 
             src="/images/vision-celestial.png"
             alt="Celestial Wellness Vision"
             fill
-            className="object-cover mix-blend-screen"
+            className="object-cover mix-blend-screen scale-105"
             sizes="100vw"
             priority
           />
         </motion.div>
 
         {/* Layer 2: Crisis (Approach/Stats) */}
-        <motion.div style={{ opacity: crisisOpacity }} className="absolute inset-0">
+        <motion.div style={{ opacity: crisisOpacity, y: bgY }} className="absolute inset-0 h-[120%] top-[-10%] origin-center">
           <Image 
             src="/images/crisis-abstract.png"
             alt="Modern Health Crisis"
             fill
-            className="object-cover mix-blend-screen"
+            className="object-cover mix-blend-screen scale-105"
             sizes="100vw"
           />
         </motion.div>
 
         {/* Layer 3: Cellular Charge (Resolution) */}
-        <motion.div style={{ opacity: cellularOpacity }} className="absolute inset-0">
+        <motion.div style={{ opacity: cellularOpacity, y: bgY }} className="absolute inset-0 h-[120%] top-[-10%] origin-center">
           <Image 
             src="/images/cellular-charge.png"
             alt="Cellular Lifeforce"
             fill
-            className="object-cover mix-blend-screen"
+            className="object-cover mix-blend-screen scale-105"
             sizes="100vw"
           />
         </motion.div>
@@ -97,7 +102,7 @@ export function WhySection() {
       </div>
 
       {/* FOREGROUND SCROLLING CONTENT */}
-      <div className="relative z-20 -mt-[100vh] w-full">
+      <div className="relative z-20 mt-[-100vh] w-full">
         
         {/* MAIN INTRO: Why HOL */}
         <div className="w-full flex flex-col items-center justify-center pt-24 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8">
@@ -154,7 +159,7 @@ export function WhySection() {
               </div>
 
               {/* Right Column: Active Content Container */}
-              <div className="lg:col-span-7 relative h-[300px] sm:h-[400px] flex items-center">
+              <div className="lg:col-span-7 relative h-75 sm:h-100 flex items-center">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={activeIndex}
@@ -178,7 +183,7 @@ export function WhySection() {
                     </div>
 
                     {/* Faint Background Number */}
-                    <div className="absolute -right-4 -bottom-6 text-[12rem] sm:text-[16rem] font-heading font-bold text-white/[0.06] select-none pointer-events-none leading-none z-10">
+                    <div className="absolute -right-4 -bottom-6 text-[12rem] sm:text-[16rem] font-heading font-bold text-white/6 select-none pointer-events-none leading-none z-10">
                       0{activeIndex + 1}
                     </div>
                     
@@ -218,16 +223,16 @@ export function WhySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8 }}
-                className="md:col-span-2 lg:col-span-2 lg:row-span-2 border border-white/10 p-10 sm:p-14 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col justify-end relative overflow-hidden group min-h-[350px]"
+                className="md:col-span-2 lg:col-span-2 lg:row-span-2 border border-white/10 p-10 sm:p-14 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col justify-end relative overflow-hidden group min-h-87.5"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                   <Image src="/images/bento-diabetic.png" alt="Diabetic statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
-                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/60 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/40 transition-colors duration-500" />
                 </div>
                 
                 {/* Background Watermark */}
-                <div className="absolute -top-12 -right-4 text-[14rem] font-heading font-bold text-white/[0.04] select-none pointer-events-none leading-none group-hover:text-white/[0.08] transition-colors duration-700 z-10">
+                <div className="absolute -top-12 -right-4 text-[14rem] font-heading font-bold text-white/4 select-none pointer-events-none leading-none group-hover:text-white/8 transition-colors duration-700 z-10">
                   1:4
                 </div>
                 <div className="relative z-20">
@@ -242,17 +247,17 @@ export function WhySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: 0.15 }}
-                className="md:col-span-2 lg:col-span-2 lg:row-span-1 border border-white/10 p-8 sm:p-10 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col sm:flex-row sm:items-center justify-between relative overflow-hidden group min-h-[200px]"
+                className="md:col-span-2 lg:col-span-2 lg:row-span-1 border border-white/10 p-8 sm:p-10 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col sm:flex-row sm:items-center justify-between relative overflow-hidden group min-h-50"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                   <Image src="/images/bento-obese.png" alt="Obesity statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
-                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/60 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/40 transition-colors duration-500" />
                 </div>
                 
                 <div className="absolute inset-0 bg-linear-to-r from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
                 <span className="block text-6xl font-heading font-bold text-white mb-4 sm:mb-0 drop-shadow-sm relative z-20">1 in 4</span>
-                <span className="block text-lg font-medium text-white/90 leading-snug drop-shadow-sm sm:text-right max-w-[200px] relative z-20">People are obese.</span>
+                <span className="block text-lg font-medium text-white/90 leading-snug drop-shadow-sm sm:text-right max-w-50 relative z-20">People are obese.</span>
               </motion.div>
 
               {/* Card 3 (ED) - Square */}
@@ -261,12 +266,12 @@ export function WhySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="md:col-span-1 lg:col-span-1 lg:row-span-1 border border-white/10 p-8 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col items-center text-center justify-center relative overflow-hidden group min-h-[200px]"
+                className="md:col-span-1 lg:col-span-1 lg:row-span-1 border border-white/10 p-8 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col items-center text-center justify-center relative overflow-hidden group min-h-50"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                   <Image src="/images/bento-ed.png" alt="Erectile Dysfunction statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
-                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/60 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/40 transition-colors duration-500" />
                 </div>
                 
                 <span className="block text-5xl font-heading font-bold text-white mb-4 drop-shadow-sm transition-transform duration-500 group-hover:scale-110 relative z-20">40%</span>
@@ -279,12 +284,12 @@ export function WhySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: 0.45 }}
-                className="md:col-span-1 lg:col-span-1 lg:row-span-1 border border-white/10 p-8 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col items-center text-center justify-center relative overflow-hidden group min-h-[200px]"
+                className="md:col-span-1 lg:col-span-1 lg:row-span-1 border border-white/10 p-8 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col items-center text-center justify-center relative overflow-hidden group min-h-50"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                   <Image src="/images/bento-alcohol.png" alt="Alcohol consumption statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
-                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/60 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/40 transition-colors duration-500" />
                 </div>
                 
                 <span className="block text-5xl font-heading font-bold text-white mb-4 drop-shadow-sm transition-transform duration-500 group-hover:scale-110 relative z-20">2x</span>
@@ -308,7 +313,7 @@ export function WhySection() {
             <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(20,43,35,0.05)] pointer-events-none z-20" />
             
             {/* Image Side */}
-            <div className="relative h-[300px] lg:h-auto w-full">
+            <div className="relative h-75 lg:h-auto w-full">
               <Image 
                 src="/images/root-cause.png" 
                 alt="Root Cause"

@@ -560,3 +560,7 @@ _(Append new actions below this line as the project progresses)_
 **105. Spacing and Mobile Viewport Standardization**
 - **What:** Scaled down extreme padding values (`pt-24/32` to `pt-12`) above the Blueprint gallery to conform with `Design.md`'s strict maximum 48px spacing rule. On mobile screens, removed the fixed height container constraint and applied `aspect-square` to individual Blueprint cards.
 - **Why:** To fix excessive dead space on desktop and ensure the expanding gallery stacks neatly into beautifully legible square cards on mobile devices.
+
+**106. Resolution Image Update**
+- **What:** Replaced the abstract golden roots image (`root-cause.png`) with a new, bespoke cinematic photograph (`resolution-joyful.png`) featuring a vibrant Indian woman at sunrise in nature.
+- **Why:** To literally and joyfully represent the concept of "increasing your Lifeforce and Cellular Charge", bringing a relatable human element to the closing statement rather than a purely abstract scientific visual.

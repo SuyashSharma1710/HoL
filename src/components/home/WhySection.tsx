@@ -257,7 +257,7 @@ export function WhySection() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 bg-background rounded-[16px] overflow-hidden shadow-2xl shadow-primary/10 border border-primary/20 relative"
+            className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 bg-background rounded-[16px] overflow-hidden shadow-2xl shadow-primary/10 border border-primary/20 relative"
           >
             {/* Subtle inner shadow for depth */}
             <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(20,43,35,0.05)] pointer-events-none z-20" />
@@ -265,7 +265,7 @@ export function WhySection() {
             {/* Image Side */}
             <div className="relative h-75 lg:h-auto w-full">
               <Image 
-                src="/images/root-cause.png" 
+                src="/images/resolution-joyful.png" 
                 alt="Root Cause"
                 fill
                 className="object-cover"

@@ -1,48 +1,23 @@
 "use client";
 
-import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 const blueprintData = [
-  { title: "Our Aim", content: "To empower people with the right knowledge about their health and help prevent the growing lifestyle disorder in India.", image: "/images/blueprint-aim.png" },
-  { title: "Our Vision", content: "To make a world where people create happy healthier lives.", image: "/images/blueprint-vision.png" },
-  { title: "Our Mission", content: "To create a trusted science-backed ecosystem that delivers personalized health solutions.", image: "/images/blueprint-mission.png" },
-  { title: "Our Objective", content: "To train wellness relationship managers on the tenets of optimal health.", image: "/images/blueprint-objective.png" }
+  { title: "Our Aim", content: "To empower people with the right knowledge about their health and help prevent the growing lifestyle disorder in India.", image: "/images/our_aim.png" },
+  { title: "Our Vision", content: "To make a world where people create happy healthier lives.", image: "/images/our_vision.png" },
+  { title: "Our Mission", content: "To create a trusted science-backed ecosystem that delivers personalized health solutions.", image: "/images/our_mission.png" },
+  { title: "Our Objective", content: "To train wellness relationship managers on the tenets of optimal health.", image: "/images/our_objectives.png" }
 ];
 
 export function WhySection() {
   const containerRef = useRef<HTMLElement>(null);
-  const part1Ref = useRef<HTMLDivElement>(null); // The Blueprint (Sticky)
-  const [activeIndex, setActiveIndex] = useState(0);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
-
-  const { scrollYProgress: part1Progress } = useScroll({
-    target: part1Ref,
-    offset: ["start start", "end end"]
-  });
-
-  useMotionValueEvent(part1Progress, "change", (latest) => {
-    if (latest < 0.25) setActiveIndex(0);
-    else if (latest < 0.5) setActiveIndex(1);
-    else if (latest < 0.75) setActiveIndex(2);
-    else setActiveIndex(3);
-  });
-
-  const handleNavClick = (idx: number) => {
-    if (!part1Ref.current) return;
-    const absoluteTop = part1Ref.current.getBoundingClientRect().top + window.scrollY;
-    const targetScroll = absoluteTop + (idx * window.innerHeight);
-    
-    window.scrollTo({
-      top: targetScroll,
-      behavior: "smooth"
-    });
-  };
 
   // Background Opacity Crossfades mapped to the new sequence:
   // 0-50%: Blueprint (Vision Celestial) - Since Blueprint takes 400vh out of the ~600vh total
@@ -58,7 +33,7 @@ export function WhySection() {
   const bgY = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
 
   return (
-    <section ref={containerRef} id="why" className="relative w-full bg-primary text-background">
+    <section ref={containerRef} id="why" className="relative w-full bg-background text-primary">
       
       {/* STICKY BACKGROUND CONTAINER */}
       <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
@@ -98,14 +73,14 @@ export function WhySection() {
         </motion.div>
 
         {/* Base dark overlay to ensure text is always readable */}
-        <div className="absolute inset-0 bg-primary/70 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-background/85 z-10 pointer-events-none" />
       </div>
 
       {/* FOREGROUND SCROLLING CONTENT */}
       <div className="relative z-20 mt-[-100vh] w-full">
         
         {/* MAIN INTRO: Why HOL */}
-        <div className="w-full flex flex-col items-center justify-center pt-24 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="w-full flex flex-col items-center justify-center pt-32 px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,88 +88,57 @@ export function WhySection() {
             transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="text-center max-w-4xl mx-auto flex flex-col items-center"
           >
-            <h2 className="font-heading text-5xl font-semibold leading-[1.15] text-white mb-4 drop-shadow-sm">
+            <h2 className="font-heading text-5xl font-semibold leading-[1.15] text-primary mb-4 drop-shadow-sm">
               Why Harmony of Life ?
             </h2>
-            <p className="text-lg font-heading font-medium text-white/90 drop-shadow-sm">
+            <p className="text-lg font-heading font-medium text-primary/90 drop-shadow-sm">
               To Stop the rise of lifestyle disorders in India.
             </p>
           </motion.div>
         </div>
 
-        {/* PART 1: The Blueprint (Split-Screen Sticky Scroll) */}
-        <div ref={part1Ref} className="relative w-full h-[400vh]">
-          <div className="sticky top-0 h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
-            
-            <div className="w-full max-w-360 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 h-full items-center">
-              
-              {/* Left Column: Headings & Navigation */}
-              <div className="lg:col-span-5 flex flex-col justify-center">
+        {/* PART 1: The Blueprint (Hover Expanding Cards) */}
+        <div className="w-full flex flex-col items-center pt-12 pb-24 px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-7xl mx-auto lg:h-[60vh] lg:min-h-[500px] flex flex-col lg:flex-row gap-4 lg:gap-6">
+            {blueprintData.map((item, idx) => (
+              <div 
+                key={idx}
+                className="group relative flex-1 lg:hover:flex-[1.5] transition-all duration-700 ease-in-out lg:h-full aspect-square lg:aspect-auto rounded-[16px] overflow-hidden cursor-pointer shadow-xl shadow-primary/10 border border-primary/10"
+              >
+                {/* Background Image */}
+                <Image 
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-1000 lg:group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 25vw"
+                />
                 
-                {/* Tenets List */}
-                <div className="flex flex-col space-y-6 lg:space-y-10">
-                  {blueprintData.map((block, idx) => (
-                    <div 
-                      key={idx} 
-                      className="relative flex items-center cursor-pointer group"
-                      onClick={() => handleNavClick(idx)}
-                    >
-                      {activeIndex === idx && (
-                        <motion.div 
-                          layoutId="active-indicator"
-                          className="absolute left-0 w-2 h-2 rounded-full bg-accent shadow-sm" 
-                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        />
-                      )}
-                      <h2 
-                        className={`font-heading text-4xl sm:text-5xl font-semibold transition-all duration-700 drop-shadow-sm group-hover:text-white/40 ${
-                          activeIndex === idx ? "text-accent translate-x-6 group-hover:text-accent" : "text-white/20"
-                        }`}
-                      >
-                        {block.title}
-                      </h2>
+                {/* Dark gradient at bottom for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 lg:group-hover:opacity-100 transition-opacity duration-700" />
+                
+                {/* Number Watermark */}
+                <div className="absolute -right-4 -top-6 text-[8rem] font-heading font-bold text-white/5 select-none pointer-events-none leading-none z-10 transition-colors duration-700 lg:group-hover:text-white/10">
+                  0{idx + 1}
+                </div>
+
+                {/* Content Container */}
+                <div className="absolute inset-x-0 bottom-0 p-6 sm:p-8 flex flex-col justify-end z-20">
+                  <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-white drop-shadow-lg mb-2 lg:mb-4 whitespace-nowrap">
+                    {item.title}
+                  </h2>
+                  
+                  {/* Slide up content via grid transition on desktop, always visible on mobile */}
+                  <div className="grid grid-rows-[1fr] lg:grid-rows-[0fr] lg:group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 lg:group-hover:delay-300 delay-0 ease-in-out">
+                    <div className="overflow-hidden">
+                      <p className="text-base sm:text-lg font-medium text-white/90 leading-snug drop-shadow-md pb-2">
+                        {item.content}
+                      </p>
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
-
-              {/* Right Column: Active Content Container */}
-              <div className="lg:col-span-7 relative h-75 sm:h-100 flex items-center">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeIndex}
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -40 }}
-                    transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-                    className="absolute inset-0 rounded-[16px] shadow-2xl shadow-black/40 overflow-hidden flex flex-col justify-center border border-white/10"
-                  >
-                    {/* Background Image for the Card */}
-                    <div className="absolute inset-0 z-0">
-                      <Image 
-                        src={blueprintData[activeIndex].image}
-                        alt={blueprintData[activeIndex].title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                      />
-                      {/* Dark overlay to ensure text readability */}
-                      <div className="absolute inset-0 bg-primary/70 mix-blend-multiply" />
-                    </div>
-
-                    {/* Faint Background Number */}
-                    <div className="absolute -right-4 -bottom-6 text-[12rem] sm:text-[16rem] font-heading font-bold text-white/6 select-none pointer-events-none leading-none z-10">
-                      0{activeIndex + 1}
-                    </div>
-                    
-                    <p className="font-heading text-4xl leading-snug font-medium text-white drop-shadow-sm relative z-20 px-8 sm:px-12">
-                      {blueprintData[activeIndex].content}
-                    </p>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-
-            </div>
+            ))}
           </div>
         </div>
 
@@ -208,7 +152,7 @@ export function WhySection() {
               transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
               className="text-center mb-16 lg:mb-24"
             >
-              <h3 className="font-heading text-5xl font-semibold leading-[1.1] text-white mb-6 drop-shadow-sm">
+              <h3 className="font-heading text-5xl font-semibold leading-[1.1] text-primary mb-6 drop-shadow-sm">
                 Approach
               </h3>
               <div className="w-24 h-1 bg-accent rounded-full mx-auto shadow-sm" />
@@ -223,21 +167,23 @@ export function WhySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8 }}
-                className="md:col-span-2 lg:col-span-2 lg:row-span-2 border border-white/10 p-10 sm:p-14 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col justify-end relative overflow-hidden group min-h-87.5"
+                className="md:col-span-2 lg:col-span-2 lg:row-span-2 border border-primary/10 p-10 sm:p-14 rounded-[16px] shadow-2xl shadow-primary/10 flex flex-col justify-end relative overflow-hidden group min-h-87.5"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
-                  <Image src="/images/bento-diabetic.png" alt="Diabetic statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
-                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/40 transition-colors duration-500" />
+                  <Image src="/images/bento-diabetic-literal.png" alt="Diabetic statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
                 </div>
                 
+                {/* Dark spot for text readability */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,rgba(0,0,0,0.7)_0%,transparent_70%)] z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-80" />
+                
                 {/* Background Watermark */}
-                <div className="absolute -top-12 -right-4 text-[14rem] font-heading font-bold text-white/4 select-none pointer-events-none leading-none group-hover:text-white/8 transition-colors duration-700 z-10">
+                <div className="absolute -top-12 -right-4 text-[14rem] font-heading font-bold text-white/10 select-none pointer-events-none leading-none group-hover:text-white/15 transition-colors duration-700 z-10">
                   1:4
                 </div>
                 <div className="relative z-20">
-                  <span className="block text-7xl sm:text-8xl font-heading font-bold text-accent mb-6 drop-shadow-sm transition-transform duration-500 group-hover:translate-x-2">1 in 4</span>
-                  <span className="block text-lg font-medium text-white/90 leading-snug drop-shadow-sm max-w-xs transition-transform duration-500 group-hover:translate-x-2">People are diabetic or prediabetic.</span>
+                  <span className="block text-7xl sm:text-8xl font-heading font-bold text-white mb-6 drop-shadow-lg transition-transform duration-500 group-hover:translate-x-2">1 in 4</span>
+                  <span className="block text-lg font-medium text-white/95 leading-snug drop-shadow-lg max-w-xs transition-transform duration-500 group-hover:translate-x-2">People are diabetic or prediabetic.</span>
                 </div>
               </motion.div>
 
@@ -247,17 +193,18 @@ export function WhySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: 0.15 }}
-                className="md:col-span-2 lg:col-span-2 lg:row-span-1 border border-white/10 p-8 sm:p-10 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col sm:flex-row sm:items-center justify-between relative overflow-hidden group min-h-50"
+                className="md:col-span-2 lg:col-span-2 lg:row-span-1 border border-primary/10 p-8 sm:p-10 rounded-[16px] shadow-2xl shadow-primary/10 flex flex-col sm:flex-row sm:items-center justify-between relative overflow-hidden group min-h-50"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
-                  <Image src="/images/bento-obese.png" alt="Obesity statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
-                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/40 transition-colors duration-500" />
+                  <Image src="/images/bento-obese-literal.png" alt="Obesity statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 50vw" />
                 </div>
                 
-                <div className="absolute inset-0 bg-linear-to-r from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
-                <span className="block text-6xl font-heading font-bold text-white mb-4 sm:mb-0 drop-shadow-sm relative z-20">1 in 4</span>
-                <span className="block text-lg font-medium text-white/90 leading-snug drop-shadow-sm sm:text-right max-w-50 relative z-20">People are obese.</span>
+                {/* Dark spot for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70 z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-80" />
+                
+                <span className="block text-6xl font-heading font-bold text-white mb-4 sm:mb-0 drop-shadow-lg relative z-20">1 in 4</span>
+                <span className="block text-lg font-medium text-white/95 leading-snug drop-shadow-lg sm:text-right max-w-50 relative z-20">People are obese.</span>
               </motion.div>
 
               {/* Card 3 (ED) - Square */}
@@ -266,16 +213,18 @@ export function WhySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="md:col-span-1 lg:col-span-1 lg:row-span-1 border border-white/10 p-8 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col items-center text-center justify-center relative overflow-hidden group min-h-50"
+                className="md:col-span-1 lg:col-span-1 lg:row-span-1 border border-primary/10 p-8 rounded-[16px] shadow-2xl shadow-primary/10 flex flex-col items-center text-center justify-center relative overflow-hidden group min-h-50"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
-                  <Image src="/images/bento-ed.png" alt="Erectile Dysfunction statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
-                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/40 transition-colors duration-500" />
+                  <Image src="/images/bento-ed-literal.png" alt="Erectile Dysfunction statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
                 </div>
                 
-                <span className="block text-5xl font-heading font-bold text-white mb-4 drop-shadow-sm transition-transform duration-500 group-hover:scale-110 relative z-20">40%</span>
-                <span className="block text-lg font-medium text-white/90 leading-snug drop-shadow-sm relative z-20">Men over 40 have Erectile dysfunction.</span>
+                {/* Dark spot for text readability */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.6)_0%,transparent_75%)] z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-80" />
+                
+                <span className="block text-5xl font-heading font-bold text-white mb-4 drop-shadow-lg transition-transform duration-500 group-hover:scale-110 relative z-20">40%</span>
+                <span className="block text-lg font-medium text-white/95 leading-snug drop-shadow-lg relative z-20">Men over 40 have Erectile dysfunction.</span>
               </motion.div>
 
               {/* Card 4 (Alcohol) - Square */}
@@ -284,16 +233,18 @@ export function WhySection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: 0.45 }}
-                className="md:col-span-1 lg:col-span-1 lg:row-span-1 border border-white/10 p-8 rounded-[16px] shadow-2xl shadow-black/40 flex flex-col items-center text-center justify-center relative overflow-hidden group min-h-50"
+                className="md:col-span-1 lg:col-span-1 lg:row-span-1 border border-primary/10 p-8 rounded-[16px] shadow-2xl shadow-primary/10 flex flex-col items-center text-center justify-center relative overflow-hidden group min-h-50"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
-                  <Image src="/images/bento-alcohol.png" alt="Alcohol consumption statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
-                  <div className="absolute inset-0 bg-primary/80 mix-blend-multiply group-hover:bg-primary/40 transition-colors duration-500" />
+                  <Image src="/images/bento-alcohol-literal.png" alt="Alcohol consumption statistics" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 25vw" />
                 </div>
                 
-                <span className="block text-5xl font-heading font-bold text-white mb-4 drop-shadow-sm transition-transform duration-500 group-hover:scale-110 relative z-20">2x</span>
-                <span className="block text-lg font-medium text-white/90 leading-snug drop-shadow-sm relative z-20">Alcohol consumption doubled since the 2000s.</span>
+                {/* Dark spot for text readability */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.6)_0%,transparent_75%)] z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-80" />
+                
+                <span className="block text-5xl font-heading font-bold text-white mb-4 drop-shadow-lg transition-transform duration-500 group-hover:scale-110 relative z-20">2x</span>
+                <span className="block text-lg font-medium text-white/95 leading-snug drop-shadow-lg relative z-20">Alcohol consumption doubled since the 2000s.</span>
               </motion.div>
 
             </div>
@@ -307,7 +258,7 @@ export function WhySection() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 bg-background rounded-[16px] overflow-hidden shadow-2xl shadow-black/80 border border-white/20 relative"
+            className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 bg-background rounded-[16px] overflow-hidden shadow-2xl shadow-primary/10 border border-primary/20 relative"
           >
             {/* Subtle inner shadow for depth */}
             <div className="absolute inset-0 shadow-[inset_0_0_60px_rgba(20,43,35,0.05)] pointer-events-none z-20" />

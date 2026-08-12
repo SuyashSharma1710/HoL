@@ -3,7 +3,7 @@ import { Hero } from "@/components/home/Hero";
 
 const WhySection = dynamic(() => import("@/components/home/WhySection").then(mod => mod.WhySection));
 const PhilosophySection = dynamic(() => import("@/components/home/PhilosophySection").then(mod => mod.PhilosophySection));
-const WelcomeSection = dynamic(() => import("@/components/home/WelcomeSection").then(mod => mod.WelcomeSection));
+const LifeforceSequenceSection = dynamic(() => import("@/components/home/LifeforceSequenceSection").then(mod => mod.LifeforceSequenceSection));
 const HealthspanSection = dynamic(() => import("@/components/home/HealthspanSection").then(mod => mod.HealthspanSection));
 const ElectricSection = dynamic(() => import("@/components/home/ElectricSection").then(mod => mod.ElectricSection));
 const InhibitorsSection = dynamic(() => import("@/components/home/InhibitorsSection").then(mod => mod.InhibitorsSection));
@@ -21,7 +21,7 @@ export default function Home() {
       <Hero />
       <WhySection />
       <PhilosophySection />
-      <WelcomeSection />
+      {/* <LifeforceSequenceSection /> */}
       <PillarsSection />
       <HealthspanSection />
       <ElectricSection />

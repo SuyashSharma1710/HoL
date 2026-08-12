@@ -544,3 +544,19 @@ _(Append new actions below this line as the project progresses)_
   2. Removed an unused `y1` variable from `PhilosophySection.tsx`.
   3. Upgraded the static sticky background images in `WhySection.tsx` with a slow, upward parallax scrolling effect (`useTransform` from `10%` to `-10%`) so they glide in the same direction as the content scroll.
 - **Why:** To ensure strict compliance with Tailwind CSS v4 standards and to provide a smooth, cinematic visual experience as the user scrolls through the tall sticky sections.
+
+**102. Light Theme Migration for WhySection**
+- **What:** Replaced the dark background (`bg-primary`) and white text (`text-white`) with the lighter theme (`bg-background` and `text-primary`) across the remaining sections of `WhySection.tsx` (Bento Grid and Resolution panel) to adhere strictly to the celestial wellness palette defined in `Design.md`.
+- **Why:** To ensure uniform aesthetic continuity across the landing page, avoiding overly harsh dark sections unless explicitly intended for impact (like the Hero).
+
+**103. Literal Photographic Upgrades (Bento Grid)**
+- **What:** Generated and swapped in literal, high-end cinematic photographs for the Bento grid cards (`bento-diabetic-literal.png`, etc.) instead of the previous abstract images. Removed full-card cream opacity washes in favor of targeted dark CSS radial/linear gradients placed explicitly behind the text elements. Reverted card text to white (`text-white`) with strong drop shadows.
+- **Why:** The user required clear, grounded imagery that literally conveyed the health crises (Diabetic, Obese, ED, Alcohol) while ensuring text legibility was not compromised by the photography.
+
+**104. Blueprint Interactive Hover Gallery Redesign**
+- **What:** Completely deleted the complex `400vh` sticky-scroll logic for "The Blueprint" section in `WhySection.tsx`. Replaced it with a high-performance horizontal hover accordion gallery. The cards sit on an 80vh container, flexing out on hover (`flex-1` to `flex-[1.5]`) and sliding descriptive text up smoothly using CSS grid transitions (`grid-rows-[0fr]` to `grid-rows-[1fr]`). 
+- **Why:** To massively reduce the scroll burden of the page while maintaining an engaging, interactive presentation for the Blueprint tenets.
+
+**105. Spacing and Mobile Viewport Standardization**
+- **What:** Scaled down extreme padding values (`pt-24/32` to `pt-12`) above the Blueprint gallery to conform with `Design.md`'s strict maximum 48px spacing rule. On mobile screens, removed the fixed height container constraint and applied `aspect-square` to individual Blueprint cards.
+- **Why:** To fix excessive dead space on desktop and ensure the expanding gallery stacks neatly into beautifully legible square cards on mobile devices.

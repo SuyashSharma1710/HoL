@@ -574,3 +574,12 @@ _(Append new actions below this line as the project progresses)_
 **108. Inhibitors Section Image Updates**
 - **What:** Updated images for all slides (Toxins, Stress, Sleep, Nutrition, Movement, Deficiency) to point to new user-provided images.
 - **Why:** User provided specific images matching the eyebrow headings.
+
+**109. Updated Symmetrical Logo Asset**
+- **What:** Updated `public/logo.svg` to a balanced, square 1:1 aspect ratio (`1507x1507` viewBox) with updated path coordinates and refined petal fills (`#C7C3B8`, `#8FAE9C`, `#E9DDC7`, `#5A7161`).
+- **Why:** To ensure the brandmark is perfectly symmetrical and scales cleanly without distortion across all navigational headers, rotating background watermarks, and mobile menus.
+
+**110. Archive Folder Exclusion in TypeScript Config**
+- **What:** Added `"old-site-comp"` and `"harmony-of-life"` to the `exclude` array in `tsconfig.json`.
+- **Why:** To prevent archived/legacy component backups from being caught in Next.js production type checks, ensuring clean and deterministic builds.
+

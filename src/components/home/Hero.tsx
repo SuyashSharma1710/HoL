@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-import heroBg from "../../../public/images/new-hero-bg.jpeg";
+import heroBg from "../../../public/images/herobannerflaire.jpeg";
 
 const containerVariants = {
   hidden: { opacity: 0 },

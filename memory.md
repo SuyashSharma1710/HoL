@@ -596,5 +596,14 @@ _(Append new actions below this line as the project progresses)_
 - **What:** Refined `Hero.tsx` heading to cleanly split "Welcome to" (`font-text`) and "Harmony of Life" (`font-heading`). Updated stat callout numbers in `WhySection.tsx` from `font-heading` to `font-text` for clean numeric clarity.
 - **Why:** To ensure crisp font hierarchy and stylistic consistency across all primary landing page sections.
 
+**113. Added Organic Sway Motion to Decorative Leaves (`WhyHolSection.tsx`)**
+- **What:** Integrated continuous, organic Framer Motion breeze animations to the top-left palm leaf and bottom-left foliage overlays:
+  - Top-left palm leaf: Positioned at `-top-30 -left-10` with gentle rotational drift (`rotate: [0, 2.5, -1.5, 2, 0]`, `y: [0, -6, 2, -4, 0]`, `x: [0, 4, -2, 3, 0]`) anchored at `transformOrigin: "top left"` across an 8-second easing cycle.
+  - Bottom-left green foliage: Positioned at `-bottom-50 -left-10` with counter-balancing organic breeze sway (`rotate: [0, -2, 1.5, -1.5, 0]`, `y: [0, 5, -2, 4, 0]`, `x: [0, -3, 2, -2, 0]`) anchored at `transformOrigin: "bottom left"` across a 9.5-second easing cycle.
+  - Updated "Our Aim" copy to: *"to empower people with the science backed knowledge about their health so that they live young."*
+- **Why:** To bring dynamic life, organic breathing texture, and meditative visual depth to the "Why Harmony of Life" section while ensuring natural positioning and accurate brand copy.
+
+
+
 
 

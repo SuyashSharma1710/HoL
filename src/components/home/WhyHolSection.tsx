@@ -6,7 +6,7 @@ import Image from "next/image";
 const cards = [
   {
     title: "Our Aim",
-    description: "To empower people with the right knowledge about their health and help prevent the growing lifestyle disorder in India.",
+    description: "to empower people with the science backed knowledge about their health so that they live young.",
   },
   {
     title: "Our Vision",
@@ -68,15 +68,30 @@ export function WhyHolSection() {
         whileInView={{ opacity: 1, y: 0, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="absolute -top-30 left-0 z-20 pointer-events-none w-50  aspect-[480/960]"
+        className="absolute -top-30 -left-10 z-20 pointer-events-none w-50 aspect-[480/960]"
       >
-        <Image 
-          src="/images/topleft.png" 
-          alt="Decorative palm leaf"
-          fill
-          className="object-contain object-top-left"
-          priority
-        />
+        <motion.div
+          animate={{
+            rotate: [0, 2.5, -1.5, 2, 0],
+            y: [0, -6, 2, -4, 0],
+            x: [0, 4, -2, 3, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{ transformOrigin: "top left" }}
+          className="relative w-full h-full"
+        >
+          <Image 
+            src="/images/topleft.png" 
+            alt="Decorative palm leaf"
+            fill
+            className="object-contain object-top-left"
+            priority
+          />
+        </motion.div>
       </motion.div>
 
       {/* Bottom Left Leaf Decoration */}
@@ -85,14 +100,29 @@ export function WhyHolSection() {
         whileInView={{ opacity: 1, y: 0, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="absolute -bottom-50 left-0 z-20 pointer-events-none w-50  aspect-[370/960]"
+        className="absolute -bottom-50 -left-10 z-20 pointer-events-none w-50 aspect-[370/960]"
       >
-        <Image 
-          src="/images/bottomleftleaf.png" 
-          alt="Decorative green foliage"
-          fill
-          className="object-contain object-bottom-left"
-        />
+        <motion.div
+          animate={{
+            rotate: [0, -2, 1.5, -1.5, 0],
+            y: [0, 5, -2, 4, 0],
+            x: [0, -3, 2, -2, 0],
+          }}
+          transition={{
+            duration: 9.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{ transformOrigin: "bottom left" }}
+          className="relative w-full h-full"
+        >
+          <Image 
+            src="/images/bottomleftleaf.png" 
+            alt="Decorative green foliage"
+            fill
+            className="object-contain object-bottom-left"
+          />
+        </motion.div>
       </motion.div>
 
       {/* Main Content Grid */}

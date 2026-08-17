@@ -123,7 +123,7 @@ export function WhyHolSection() {
             viewport={{ once: true, margin: "-50px" }}
             className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6"
           >
-            {cards.map((card, index) => (
+            {cards.map((card) => (
               <motion.div
                 key={card.title}
                 variants={cardVariants}

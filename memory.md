@@ -605,8 +605,39 @@ _(Append new actions below this line as the project progresses)_
 - **What:** Updated the hero background image in `Hero.tsx` to `herobannerflaire.jpeg` (`public/images/herobannerflaire.jpeg`) with static blur optimization and high fetch priority.
 - **Why:** To integrate the warm, vibrant Indian community vitality visual with golden sunlight flares as the main hero banner.
 
+**116. Hero Scroll Indicator Integration**
+- **What:** Replaced the primary CTA button in `Hero.tsx` with a centered, minimalist animated scroll indicator mouse pill (`border-2 border-white/90 rounded-full`) featuring a smooth looping inner dot animation and linking smoothly to `#why-hol`.
+- **Why:** To match the user's design wireframe and provide an elegant, non-intrusive cue prompting users to scroll into the journey.
 
+**117. Added Hero Header Top Beige Gradient**
+- **What:** Injected a soft, top-down beige gradient (`bg-gradient-to-b from-background via-background/60 to-transparent h-48 sm:h-56 lg:h-64`) at the top of `Hero.tsx`.
+- **Why:** To provide an ultra-clean, branded background backdrop behind the sticky global Navbar, maximizing legibility for navigation links and logo while smoothly blending into the sunny nature background image.
 
+**118. Created Dedicated IssuesSection (`IssuesSection.tsx`)**
+- **What:** Built a standalone component `IssuesSection.tsx` utilizing `issuesbg.jpeg` (4-quadrant photo montage covering Diabetes, Obesity, ED, and Alcohol).
+  - Designed a centered, frosted glassmorphic card with automated 4-second looping cycling text (`AnimatePresence`) transitioning through the 4 health crises.
+  - Added interactive pagination dots, hover-pause behavior, and left/right chevron navigation.
+  - Streamlined `WhySection.tsx` to cleanly focus on "The Resolution" (Root cause reversal).
+  - Integrated `IssuesSection` into `src/app/page.tsx`.
+- **Why:** To translate the crisis stats into a high-impact, focused interactive carousel directly matching the dedicated background collage.
+
+**119. IssuesSection Pure Text Cycling Refinement**
+- **What:** Removed the frosted glass card container, borders, shadows, pagination dots, and navigation arrow buttons in `IssuesSection.tsx`.
+- **Why:** To let the large typography cycle seamlessly directly on the open center area of the `issuesbg.jpeg` background montage without any UI container artifacts.
+
+**120. WhyHolSection Bottom Gradient Merge**
+- **What:** Added a soft bottom-up beige gradient (`bg-gradient-to-t from-background via-background/60 to-transparent h-36 sm:h-48 lg:h-64`) at the base of `WhyHolSection.tsx` and enhanced the top gradient in `IssuesSection.tsx`.
+- **Why:** To eliminate the abrupt hard image edge and create a smooth, organic visual blend merging the two sections together.
+
+**121. Merged The Resolution & 12 Pillars Framework (`PillarsSection.tsx`)**
+- **What:** Merged the content from `WhySection.tsx` ("The Resolution - Addressing the root cause of the root cause" with `resolution-joyful.png` and "Direct charge, Meditation, Dhyan" glowing badge) directly into `PillarsSection.tsx` as Part 1, followed immediately by the 12 Foundational Pillars Solar Orbital System as Part 2.
+  - Formatted both sections into a unified deep sacred forest green (`bg-primary` / `#142b23`) with glowing gold accents (`#b69c5f`) and celestial ambient watermarks.
+  - Removed duplicate `<WhySection />` import from `src/app/page.tsx`.
+- **Why:** To create a cohesive, uninterrupted narrative flow from root-cause thesis into the 12-pillar operational protocol with a unified aesthetic.
+
+**122. Landing Page Section Sequence Flow Optimization (`page.tsx`)**
+- **What:** Positioned `<PillarsSection />` directly following `<IssuesSection />` in `src/app/page.tsx` (`Hero` -> `WhyHolSection` -> `IssuesSection` -> `PillarsSection` -> `PhilosophySection` -> `LifeforceSequenceSection` ...).
+- **Why:** To provide an immediate resolution and operational framework directly after presenting the lifestyle crisis statistics.
 
 
 

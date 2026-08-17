@@ -60,6 +60,9 @@ export function WhyHolSection() {
         />
         {/* Subtle base overlay for balanced contrast */}
         <div className="absolute inset-0 bg-background/10 pointer-events-none" />
+        
+        {/* Bottom beige gradient for seamless section merging */}
+        <div className="absolute inset-x-0 bottom-0 h-36 sm:h-48 lg:h-64 bg-gradient-to-t from-background via-background/60 to-transparent pointer-events-none z-1" />
       </div>
 
       {/* Top Left Leaf Decoration */}

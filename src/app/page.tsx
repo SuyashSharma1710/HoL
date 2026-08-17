@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import { Hero } from "@/components/home/Hero";
 
 const WhyHolSection = dynamic(() => import("@/components/home/WhyHolSection").then(mod => mod.WhyHolSection));
-const WhySection = dynamic(() => import("@/components/home/WhySection").then(mod => mod.WhySection));
+const IssuesSection = dynamic(() => import("@/components/home/IssuesSection").then(mod => mod.IssuesSection));
 const PhilosophySection = dynamic(() => import("@/components/home/PhilosophySection").then(mod => mod.PhilosophySection));
 const LifeforceSequenceSection = dynamic(() => import("@/components/home/LifeforceSequenceSection").then(mod => mod.LifeforceSequenceSection));
 const HealthspanSection = dynamic(() => import("@/components/home/HealthspanSection").then(mod => mod.HealthspanSection));
@@ -21,10 +21,10 @@ export default function Home() {
     <main className="min-h-dvh bg-background w-full flex flex-col">
       <Hero />
       <WhyHolSection />
-      <WhySection />
+      <IssuesSection />
+      <PillarsSection />
       <PhilosophySection />
       <LifeforceSequenceSection />
-      <PillarsSection />
       <HealthspanSection />
       <ElectricSection />
       <InhibitorsSection />

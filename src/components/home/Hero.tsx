@@ -3,8 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 import heroBg from "../../../public/images/herobannerflaire.jpeg";
 
@@ -30,7 +28,7 @@ const itemVariants = {
 
 export function Hero() {
   return (
-    <section className="relative w-full h-screen min-h-150 flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-screen min-h-150 -mt-24 flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -44,8 +42,11 @@ export function Hero() {
           quality={60}
           className="object-cover object-center"
         />
+        {/* Top beige gradient to provide background for the header */}
+        <div className="absolute inset-x-0 top-0 h-48 sm:h-56 lg:h-64 bg-gradient-to-b from-background via-background/60 to-transparent pointer-events-none z-1" />
+
         {/* Subtle dark overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
       {/* Content */}
@@ -57,32 +58,51 @@ export function Hero() {
       >
         <motion.h1 
           variants={itemVariants}
-          className="font-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl tracking-tight leading-tight mb-6"
+          className="max-w-4xl tracking-tight leading-tight mb-6"
         >
-          Welcome to<br className="hidden sm:block" /> <span className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl"> Harmony of Life </span>
+          <span className="block font-text text-2xl sm:text-3xl lg:text-4xl font-medium text-white/95 mb-2 sm:mb-3 drop-shadow-sm">
+            Welcome to
+          </span>
+          <span className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white drop-shadow-sm">
+            Harmony of Life
+          </span>
         </motion.h1>
 
         <motion.p 
           variants={itemVariants}
-          className="text-base sm:text-lg md:text-xl max-w-2xl text-white/90 font-medium mb-10 leading-relaxed"
+          className="text-base sm:text-lg md:text-xl max-w-2xl text-white/90 mb-10 leading-relaxed"
         >
           The world&apos;s 1<sup>st</sup> personalized health community where you can make informed health decisions.
         </motion.p>
+      </motion.div>
 
-        <motion.div 
-          variants={itemVariants}
-          className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
+      {/* Bottom Centered Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.8 }}
+        className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 z-20"
+      >
+        <Link 
+          href="#why-hol" 
+          aria-label="Scroll to next section"
+          className="block group"
         >
-          <Link 
-            href="#welcome" 
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "bg-background text-primary hover:bg-background/90 font-semibold px-12 py-6 text-lg rounded-sm min-w-48 shadow-lg shadow-black/20 transition-transform hover:scale-105"
-            )}
-          >
-            Explore
-          </Link>
-        </motion.div>
+          <div className="w-6.5 sm:w-7 h-11 sm:h-12 rounded-full border-2 border-white/90 flex justify-center p-1.5 transition-all duration-300 group-hover:border-white group-hover:scale-105 shadow-md shadow-black/20">
+            <motion.div
+              animate={{
+                y: [0, 18, 0],
+                opacity: [1, 0.4, 1],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="w-2.5 h-2.5 rounded-full bg-white shadow-xs"
+            />
+          </div>
+        </Link>
       </motion.div>
     </section>
   );

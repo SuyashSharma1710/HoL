@@ -83,104 +83,135 @@ export function PillarsSection() {
         @media (min-width: 1024px) { .orbit-container { --orbit-radius: 340px; } }
       `}} />
 
-      {/* Subtle Glow Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent/5 via-primary to-primary pointer-events-none z-0" />
+      {/* Subtle Ambient Radial Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-accent/10 via-primary to-primary pointer-events-none z-0" />
 
-      {/* Static Background Elements */}
+      {/* Static Background Watermarks */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {/* Top Left */}
-        <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] max-w-150 max-h-150 opacity-[0.08]">
-          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
+        {/* Top Left Watermark */}
+        <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] max-w-150 max-h-150 opacity-[0.06]">
+          <Image src="/logo.svg" alt="Harmony of Life watermark" fill className="object-contain" />
         </div>
-        {/* Bottom Right */}
-        <div className="absolute top-[40%] right-[-15%] w-[80vw] h-[80vw] max-w-200 max-h-200 opacity-[0.08]">
-          <Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain" />
-        </div>
-        {/* Top Right Small Cluster */}
-        <div className="absolute top-[5%] right-[5%] w-[40vw] h-[40vw] max-w-100 max-h-100 opacity-[0.06]">
-          <div className="absolute top-[10%] right-[30%] w-16 h-16"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-12" /></div>
-          <div className="absolute top-[30%] right-[10%] w-12 h-12"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain -rotate-12" /></div>
-          <div className="absolute top-[50%] right-[50%] w-20 h-20"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-45" /></div>
-          <div className="absolute top-[70%] right-[20%] w-14 h-14"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain -rotate-90" /></div>
-          <div className="absolute top-[20%] right-[70%] w-10 h-10"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain -rotate-45" /></div>
-          <div className="absolute top-[80%] right-[70%] w-8 h-8"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-180" /></div>
-        </div>
-        {/* Bottom Left Small Cluster */}
-        <div className="absolute bottom-[5%] left-[5%] w-[40vw] h-[40vw] max-w-100 max-h-100 opacity-[0.06]">
-          <div className="absolute bottom-[15%] left-[20%] w-16 h-16"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain -rotate-12" /></div>
-          <div className="absolute bottom-[35%] left-[50%] w-12 h-12"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-45" /></div>
-          <div className="absolute bottom-[55%] left-[10%] w-20 h-20"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-90" /></div>
-          <div className="absolute bottom-[75%] left-[40%] w-14 h-14"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-180" /></div>
-          <div className="absolute bottom-[20%] left-[70%] w-10 h-10"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain rotate-12" /></div>
-          <div className="absolute bottom-[80%] left-[80%] w-8 h-8"><Image src="/logo.svg" alt="Harmony of Life decorative element" fill className="object-contain -rotate-45" /></div>
+        {/* Bottom Right Watermark */}
+        <div className="absolute top-[45%] right-[-15%] w-[80vw] h-[80vw] max-w-200 max-h-200 opacity-[0.06]">
+          <Image src="/logo.svg" alt="Harmony of Life watermark" fill className="object-contain" />
         </div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
         
-        {/* Section Header */}
+        {/* ========================================================= */}
+        {/* PART 1: THE RESOLUTION (Addressing the Root Cause)       */}
+        {/* ========================================================= */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="w-full mb-24 sm:mb-32"
+        >
+          {/* Section Eyebrow & Main Title */}
+          <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+            <span className="inline-block font-semibold text-accent tracking-widest uppercase text-xs sm:text-sm mb-3">
+              The Resolution
+            </span>
+            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl text-background font-semibold leading-[1.15] drop-shadow-xs">
+              Addressing the <span className="italic text-accent">root cause</span> of the root cause.
+            </h2>
+          </div>
+
+          {/* Unified Resolution Presentation Card */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-primary/60 backdrop-blur-xl rounded-3xl p-6 sm:p-10 lg:p-12 border border-white/15 shadow-2xl shadow-black/30 relative overflow-hidden">
+            
+            {/* Ambient Card Corner Glow */}
+            <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-accent/10 blur-3xl pointer-events-none" />
+
+            {/* Left Column: Joyful Resolution Visual */}
+            <div className="lg:col-span-5 relative h-72 sm:h-96 lg:h-110 w-full rounded-2xl overflow-hidden shadow-xl border border-white/10">
+              <Image 
+                src="/images/resolution-joyful.png" 
+                alt="Root Cause Reversal - Increasing Cellular Lifeforce"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent pointer-events-none" />
+            </div>
+
+            {/* Right Column: Editorial Resolution Narrative & Charge Callout */}
+            <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
+              
+              <p className="text-lg sm:text-xl text-background/90 font-medium leading-relaxed border-l-2 border-accent pl-5">
+                Harmony of Life is built entirely on this fundamental concept.
+              </p>
+
+              <p className="text-base sm:text-lg text-background/80 font-normal leading-relaxed">
+                All modern healthcare challenges and chronic lifestyle disorders are resolved by increasing your <strong className="font-semibold text-accent italic">Lifeforce</strong> and <strong className="font-semibold text-accent italic">Cellular Charge</strong>.
+              </p>
+
+              {/* Glowing Direct Charge / Dhyan Badge */}
+              <div className="pt-4">
+                <div className="relative flex items-center justify-start group max-w-fit">
+                  {/* Starburst Flare Beams */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-80 group-hover:opacity-100 transition-all duration-700">
+                    <div className="absolute w-[110%] h-[150%] rounded-full bg-accent/20 blur-xl" />
+                    <div className="absolute w-[140%] h-[1.5px] bg-gradient-to-r from-transparent via-accent/90 to-transparent blur-[1px]" />
+                  </div>
+
+                  <div className="relative z-10 flex items-center gap-3.5 bg-primary/80 backdrop-blur-xl px-6 py-3.5 rounded-full border border-white/20 shadow-[0_0_25px_rgba(182,156,95,0.2)]">
+                    <Zap className="w-6 h-6 text-accent animate-pulse" />
+                    <span className="font-heading text-lg sm:text-xl font-semibold text-background tracking-wide">
+                      Direct charge, Meditation, Dhyan
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </motion.div>
+
+
+        {/* ========================================================= */}
+        {/* PART 2: THE 12 FOUNDATIONAL PILLARS FRAMEWORK             */}
+        {/* ========================================================= */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const }}
+          transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 flex flex-col items-center"
         >
-          <p className="font-semibold text-accent tracking-widest uppercase text-sm mb-4">
+          <span className="font-semibold text-accent tracking-widest uppercase text-xs sm:text-sm mb-3 block">
             The Framework
-          </p>
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-background font-semibold leading-[1.15] mb-8">
+          </span>
+          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl text-background font-semibold leading-[1.15] mb-6">
             How we restore your cellular charge
           </h2>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="mb-8 relative flex items-center justify-center group"
-          >
-            {/* Pill Starburst Beams & Glow */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110">
-              {/* Central Hotspot */}
-              <div className="absolute w-[110%] h-[150%] rounded-full bg-accent/20 blur-xl" />
-              
-              {/* Flare Beams */}
-              <div className="absolute w-[140%] h-[1.5px] bg-linear-to-r from-transparent via-accent/90 to-transparent blur-[1px] transform rotate-0" />
-              <div className="absolute h-50 w-[1.5px] bg-linear-to-b from-transparent via-accent/90 to-transparent blur-[1px] transform rotate-0" />
-              <div className="absolute w-[60%] h-0.5 bg-linear-to-r from-transparent via-accent/50 to-transparent blur-[2px] transform rotate-35" />
-              <div className="absolute w-[60%] h-0.5 bg-linear-to-r from-transparent via-accent/50 to-transparent blur-[2px] transform -rotate-35" />
-            </div>
-
-            <div className="relative z-10 flex items-center gap-4 bg-primary/40 backdrop-blur-xl px-8 py-4 rounded-full border border-white/10 shadow-[0_0_30px_rgba(182,156,95,0.15)]">
-              <Zap className="w-8 h-8 text-accent animate-pulse" />
-              <p className="font-heading text-xl md:text-2xl font-semibold text-background tracking-wide">
-                Direct charge, Meditation, Dhyan
-              </p>
-            </div>
-          </motion.div>
-          <p className="text-background/70 font-medium text-lg leading-relaxed">
+          <p className="text-background/75 font-medium text-base sm:text-lg leading-relaxed max-w-2xl">
             A holistic protocol designed to address the root electrical cause of disease, increasing your lifeforce one pillar at a time.
           </p>
         </motion.div>
 
-        {/* Orbit Container */}
+        {/* Orbit Solar System Container */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] as const }}
+          transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="orbit-container relative w-full max-w-200 aspect-square flex items-center justify-center my-8 md:my-0"
         >
           
-          {/* Sun-like Flare Effect */}
+          {/* Central Sun-like Flare Effect */}
           <div className="absolute z-10 flex items-center justify-center pointer-events-none animate-pulse" style={{ animationDuration: '5s' }}>
             <div className="absolute w-48 h-48 rounded-full bg-white/80 blur-2xl z-10" />
             <div className="absolute w-100 h-100 rounded-full bg-accent/40 blur-[90px]" />
             <div className="absolute w-175 h-175 rounded-full bg-accent/10 blur-[120px]" />
-            <div className="absolute w-225 h-1 bg-linear-to-r from-transparent via-accent/80 to-transparent blur-xs transform rotate-0" />
-            <div className="absolute w-225 h-1 bg-linear-to-r from-transparent via-accent/80 to-transparent blur-xs transform rotate-90" />
-            <div className="absolute w-225 h-2 bg-linear-to-r from-transparent via-accent/40 to-transparent blur-sm transform rotate-45" />
-            <div className="absolute w-225 h-2 bg-linear-to-r from-transparent via-accent/40 to-transparent blur-sm transform -rotate-45" />
+            <div className="absolute w-225 h-1 bg-gradient-to-r from-transparent via-accent/80 to-transparent blur-xs transform rotate-0" />
+            <div className="absolute w-225 h-1 bg-gradient-to-r from-transparent via-accent/80 to-transparent blur-xs transform rotate-90" />
+            <div className="absolute w-225 h-2 bg-gradient-to-r from-transparent via-accent/40 to-transparent blur-sm transform rotate-45" />
+            <div className="absolute w-225 h-2 bg-gradient-to-r from-transparent via-accent/40 to-transparent blur-sm transform -rotate-45" />
           </div>
           
           {/* Static Center Core */}
@@ -195,10 +226,10 @@ export function PillarsSection() {
             </p>
           </div>
 
-          {/* Rotating Ring */}
+          {/* Rotating Orbital Ring */}
           <div className="absolute inset-0 rounded-full orbit-ring">
             
-            {/* The 12 Pillars Nodes */}
+            {/* The 12 Pillars Planetary Nodes */}
             {pillars.map((pillar, index) => {
               const angle = (index / 12) * Math.PI * 2;
               const adjustedAngle = angle - Math.PI / 2;
@@ -216,12 +247,12 @@ export function PillarsSection() {
                     className="orbit-node absolute -left-10 -top-10 w-20 h-20 sm:-left-12 sm:-top-12 sm:w-24 sm:h-24 lg:-left-16 lg:-top-16 lg:w-32 lg:h-32 flex flex-col items-center justify-center gap-1 sm:gap-2 lg:gap-3 group cursor-pointer"
                   >
                     <div className="relative flex items-center justify-center">
-                      {/* Mini Star Flare Beams (Outside Glow) */}
+                      {/* Mini Star Flare Beams */}
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-50 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500">
-                        <div className="absolute w-[250%] h-px bg-linear-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-0" />
-                        <div className="absolute w-[250%] h-px bg-linear-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-90" />
-                        <div className="absolute w-[180%] h-0.5 bg-linear-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform rotate-45" />
-                        <div className="absolute w-[180%] h-0.5 bg-linear-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform -rotate-45" />
+                        <div className="absolute w-[250%] h-px bg-gradient-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-0" />
+                        <div className="absolute w-[250%] h-px bg-gradient-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-90" />
+                        <div className="absolute w-[180%] h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform rotate-45" />
+                        <div className="absolute w-[180%] h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform -rotate-45" />
                       </div>
 
                       <div className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full bg-primary border border-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(233,224,207,0.3)] group-hover:shadow-[0_0_25px_rgba(182,156,95,0.6)] group-hover:scale-110 group-hover:border-accent transition-all duration-300">
@@ -240,7 +271,7 @@ export function PillarsSection() {
           </div>
         </motion.div>
 
-        {/* Bottom Callout */}
+        {/* Bottom CTA Action */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -278,15 +309,16 @@ export function PillarsSection() {
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-5xl max-h-full overflow-y-auto overflow-x-hidden bg-background shadow-2xl rounded-3xl flex flex-col md:flex-row"
             >
-              {/* Close Button (Absolute to the whole modal) */}
+              {/* Close Button */}
               <button 
                 onClick={() => setSelectedIndex(null)}
-                className="absolute z-20 top-4 right-4 p-2 bg-white/50 backdrop-blur-md text-primary/70 hover:text-primary transition-colors rounded-full hover:bg-secondary/20"
+                className="absolute z-20 top-4 right-4 p-2 bg-white/50 backdrop-blur-md text-primary/70 hover:text-primary transition-colors rounded-full hover:bg-secondary/20 cursor-pointer"
+                aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              {/* Left Side - Full Image */}
+              {/* Left Side: Full Image */}
               <div className="relative w-full md:w-1/2 aspect-square md:aspect-auto md:min-h-125 bg-primary/5">
                 <Image 
                   src={selectedPillar.image} 
@@ -294,11 +326,10 @@ export function PillarsSection() {
                   fill
                   className="object-cover object-center"
                 />
-                {/* Subtle overlay gradient so the image isn't too flat */}
-                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
               </div>
 
-              {/* Right Side - Content & Navigation */}
+              {/* Right Side: Pillar Content & Navigation */}
               <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-between">
                 <div>
                   <div className="w-16 h-16 rounded-2xl bg-secondary/10 border border-secondary/20 flex items-center justify-center mb-8 text-accent shadow-inner">
@@ -329,7 +360,7 @@ export function PillarsSection() {
                 <div className="flex items-center justify-between pt-8 border-t border-secondary/20 mt-auto">
                   <button 
                     onClick={handlePrev}
-                    className="flex items-center gap-2 px-4 py-2 text-primary font-semibold hover:text-accent transition-colors group"
+                    className="flex items-center gap-2 px-4 py-2 text-primary font-semibold hover:text-accent transition-colors group cursor-pointer"
                   >
                     <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
                     Previous
@@ -341,7 +372,7 @@ export function PillarsSection() {
 
                   <button 
                     onClick={handleNext}
-                    className="flex items-center gap-2 px-4 py-2 text-primary font-semibold hover:text-accent transition-colors group"
+                    className="flex items-center gap-2 px-4 py-2 text-primary font-semibold hover:text-accent transition-colors group cursor-pointer"
                   >
                     Next
                     <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />

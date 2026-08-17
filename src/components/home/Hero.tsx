@@ -57,9 +57,9 @@ export function Hero() {
       >
         <motion.h1 
           variants={itemVariants}
-          className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl tracking-tight leading-tight mb-6"
+          className="font-text text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl tracking-tight leading-tight mb-6"
         >
-          Welcome to<br className="hidden sm:block" /> Harmony of Life
+          Welcome to<br className="hidden sm:block" /> <span className="font-heading">Harmony of Life</span>
         </motion.h1>
 
         <motion.p 

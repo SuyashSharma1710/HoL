@@ -583,3 +583,18 @@ _(Append new actions below this line as the project progresses)_
 - **What:** Added `"old-site-comp"` and `"harmony-of-life"` to the `exclude` array in `tsconfig.json`.
 - **Why:** To prevent archived/legacy component backups from being caught in Next.js production type checks, ensuring clean and deterministic builds.
 
+**111. Created Why Harmony of Life Section (`WhyHolSection.tsx`)**
+- **What:** Built a dedicated `WhyHolSection.tsx` matching the user's mockup featuring:
+  - Top-left palm leaf (`topleft.png`) and bottom-left leaf (`bottomleftleaf.png`) decorative entrance overlays with custom offset coordinates (`-top-30`, `-bottom-50`, `w-50`).
+  - Full-bleed ambient background image (`whybg.jpeg`) with yogic cellular charging visual.
+  - Left column typography displaying "Why Harmony of Life ?".
+  - 2x2 grid of 4 cards (Our Aim, Our Vision, Our Mission, Our Objective) using the glowing `cardbg.png` background, `bg-white/80` backdrop blend, rounded corners, and Framer Motion stagger animations.
+  - Integrated dynamically into `src/app/page.tsx`.
+- **Why:** To provide an ultra-clean, elegant, and faithful visual section communicating the organization's foundational pillars and vision.
+
+**112. Hero & Why Section Typography Refinements**
+- **What:** Refined `Hero.tsx` heading to cleanly split "Welcome to" (`font-text`) and "Harmony of Life" (`font-heading`). Updated stat callout numbers in `WhySection.tsx` from `font-heading` to `font-text` for clean numeric clarity.
+- **Why:** To ensure crisp font hierarchy and stylistic consistency across all primary landing page sections.
+
+
+

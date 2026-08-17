@@ -91,7 +91,7 @@ export function WhySection() {
             <h2 className="font-heading text-5xl font-semibold leading-[1.15] text-primary mb-4 drop-shadow-sm">
               Why Harmony of Life ?
             </h2>
-            <p className="text-lg font-heading font-medium text-primary/90 drop-shadow-sm">
+            <p className="text-lg font-text font-medium text-primary/90 drop-shadow-sm">
               To Stop the rise of lifestyle disorders in India.
             </p>
           </motion.div>
@@ -181,7 +181,7 @@ export function WhySection() {
                   1:4
                 </div>
                 <div className="relative z-20">
-                  <span className="block text-7xl sm:text-8xl font-heading font-bold text-white mb-6 drop-shadow-lg transition-transform duration-500 group-hover:translate-x-2">1 in 4</span>
+                  <span className="block text-7xl sm:text-8xl font-text font-bold text-white mb-6 drop-shadow-lg transition-transform duration-500 group-hover:translate-x-2">1 in 4</span>
                   <span className="block text-lg font-medium text-white/95 leading-snug drop-shadow-lg max-w-xs transition-transform duration-500 group-hover:translate-x-2">People are diabetic or prediabetic.</span>
                 </div>
               </motion.div>
@@ -202,7 +202,7 @@ export function WhySection() {
                 {/* Dark spot for text readability */}
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/70 z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-80" />
                 
-                <span className="block text-6xl font-heading font-bold text-white mb-4 sm:mb-0 drop-shadow-lg relative z-20">1 in 4</span>
+                <span className="block text-6xl font-text font-bold text-white mb-4 sm:mb-0 drop-shadow-lg relative z-20">1 in 4</span>
                 <span className="block text-lg font-medium text-white/95 leading-snug drop-shadow-lg sm:text-right max-w-50 relative z-20">People are obese.</span>
               </motion.div>
 
@@ -222,7 +222,7 @@ export function WhySection() {
                 {/* Dark spot for text readability */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.6)_0%,transparent_75%)] z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-80" />
                 
-                <span className="block text-5xl font-heading font-bold text-white mb-4 drop-shadow-lg transition-transform duration-500 group-hover:scale-110 relative z-20">40%</span>
+                <span className="block text-5xl font-text font-bold text-white mb-4 drop-shadow-lg transition-transform duration-500 group-hover:scale-110 relative z-20">40%</span>
                 <span className="block text-lg font-medium text-white/95 leading-snug drop-shadow-lg relative z-20">Men over 40 have Erectile dysfunction.</span>
               </motion.div>
 
@@ -242,7 +242,7 @@ export function WhySection() {
                 {/* Dark spot for text readability */}
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.6)_0%,transparent_75%)] z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-80" />
                 
-                <span className="block text-5xl font-heading font-bold text-white mb-4 drop-shadow-lg transition-transform duration-500 group-hover:scale-110 relative z-20">2x</span>
+                <span className="block text-5xl font-text font-bold text-white mb-4 drop-shadow-lg transition-transform duration-500 group-hover:scale-110 relative z-20">2x</span>
                 <span className="block text-lg font-medium text-white/95 leading-snug drop-shadow-lg relative z-20">Alcohol consumption doubled since the 2000s.</span>
               </motion.div>
 

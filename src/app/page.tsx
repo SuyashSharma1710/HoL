@@ -6,6 +6,7 @@ const AgingSlidesSection = dynamic(() => import("@/components/home/AgingSlidesSe
 const WhyHolSection = dynamic(() => import("@/components/home/WhyHolSection").then(mod => mod.WhyHolSection));
 const IssuesSection = dynamic(() => import("@/components/home/IssuesSection").then(mod => mod.IssuesSection));
 const PhilosophySection = dynamic(() => import("@/components/home/PhilosophySection").then(mod => mod.PhilosophySection));
+const CellularWorldSection = dynamic(() => import("@/components/home/CellularWorldSection").then(mod => mod.CellularWorldSection));
 const LifeforceSequenceSection = dynamic(() => import("@/components/home/LifeforceSequenceSection").then(mod => mod.LifeforceSequenceSection));
 const HealthspanSection = dynamic(() => import("@/components/home/HealthspanSection").then(mod => mod.HealthspanSection));
 const ElectricSection = dynamic(() => import("@/components/home/ElectricSection").then(mod => mod.ElectricSection));
@@ -26,8 +27,9 @@ export default function Home() {
       <AgingSlidesSection />
       <WhyHolSection />
       <IssuesSection />
-      <PillarsSection />
       <PhilosophySection />
+      <CellularWorldSection />
+      <PillarsSection />
       <LifeforceSequenceSection />
       <HealthspanSection />
       <ElectricSection />

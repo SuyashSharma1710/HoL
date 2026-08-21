@@ -95,7 +95,7 @@ export function Hero() {
             {/* Eyebrow Mission Statement */}
             <motion.p 
               variants={itemVariants}
-              className="font-sans font-semibold text-[11px] sm:text-xs md:text-[13px] tracking-[0.2em] text-primary/95 uppercase mb-3 sm:mb-4"
+              className="font-sans font-bold text-[11px] sm:text-xs md:text-[13px] tracking-[0.2em] text-primary/95 uppercase mb-3 sm:mb-4"
             >
               INDIA&apos;S FIRST PERSONALISED HEALTH &amp; WELLNESS COMMUNITY
             </motion.p>

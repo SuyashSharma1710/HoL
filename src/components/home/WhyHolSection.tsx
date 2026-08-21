@@ -1,24 +1,88 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { Target, Eye, Dna, GraduationCap } from "lucide-react";
 
-const cards = [
+interface WhyCard {
+  id: string;
+  badgeTitle: string;
+  image: string;
+  alt: string;
+  icon: React.ComponentType<{ className?: string }>;
+  iconBg: string;
+  titleColor: string;
+  highlightColor: string;
+  renderDescription: () => React.ReactNode;
+}
+
+const whyCards: WhyCard[] = [
   {
-    title: "Our Aim",
-    description: "to empower people with the science backed knowledge about their health so that they live young.",
+    id: "aim",
+    badgeTitle: "Our Aim",
+    image: "/images/our-aim.png",
+    alt: "Our Aim - Woman meditating outdoors surrounded by nature and nutrition",
+    icon: Target,
+    iconBg: "bg-[#548753] shadow-[#548753]/30",
+    titleColor: "text-[#2e5d42]",
+    highlightColor: "text-[#3f7c57]",
+    renderDescription: () => (
+      <>
+        To empower people with the science backed knowledge about their health. so that they can{" "}
+        <strong className="font-semibold text-[#3f7c57]">live young.</strong>
+      </>
+    ),
   },
   {
-    title: "Our Vision",
-    description: "To create a world where people live happy, healthier lives without the fear of having lifestyle disorders .",
+    id: "vision",
+    badgeTitle: "Our Vision",
+    image: "/images/our-vision.png",
+    alt: "Our Vision - Two hands holding green mossy globe in lush valley",
+    icon: Eye,
+    iconBg: "bg-[#2f79a8] shadow-[#2f79a8]/30",
+    titleColor: "text-[#1d5276]",
+    highlightColor: "text-[#266896]",
+    renderDescription: () => (
+      <>
+        To create a world where people live{" "}
+        <strong className="font-semibold text-[#266896]">happy, healthier</strong> lives without
+        the fear of having lifestyle disorders.
+      </>
+    ),
   },
   {
-    title: "Our Mission",
-    description: "To create a trusted science-backed ecosystem that delivers personalized health solutions.",
+    id: "mission",
+    badgeTitle: "Our Mission",
+    image: "/images/our-mission.png",
+    alt: "Our Mission - Sprouting plant in glass sphere surrounded by wellness nodes",
+    icon: Dna,
+    iconBg: "bg-[#277e74] shadow-[#277e74]/30",
+    titleColor: "text-[#1c5d57]",
+    highlightColor: "text-[#24796f]",
+    renderDescription: () => (
+      <>
+        To create a science backed ecosystem where people get{" "}
+        <strong className="font-semibold text-[#24796f]">personalised health</strong> solution for
+        lifestyle disorder.
+      </>
+    ),
   },
   {
-    title: "Our Objective",
-    description: "To train wellness realtionship managers on the tenets of cellular health .",
+    id: "objective",
+    badgeTitle: "Our Objective",
+    image: "/images/our-objective.png",
+    alt: "Our Objective - Training wellness relationship managers in cellular health",
+    icon: GraduationCap,
+    iconBg: "bg-[#2b6ba1] shadow-[#2b6ba1]/30",
+    titleColor: "text-[#1b436a]",
+    highlightColor: "text-[#255e94]",
+    renderDescription: () => (
+      <>
+        To train Wellness Relationship Managers on the tenets of{" "}
+        <strong className="font-semibold text-[#255e94]">cellular health.</strong>
+      </>
+    ),
   },
 ];
 
@@ -27,18 +91,18 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2,
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
     },
   },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 35 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] as const },
+    transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] },
   },
 };
 
@@ -46,145 +110,104 @@ export function WhyHolSection() {
   return (
     <section 
       id="why-hol" 
-      className="relative w-full py-20 sm:py-28 lg:py-32 flex items-center justify-center bg-background overflow-hidden"
+      className="relative w-full py-20 sm:py-28 lg:py-32 flex flex-col items-center justify-center bg-background overflow-hidden"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image & Atmospheric Wash */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
         <Image 
-          src="/images/whybg.jpeg"
-          alt="Harmony of Life Background"
+          src="/images/why-hol-botanical-bg.jpg"
+          alt="Why Harmony of Life Botanical Background"
           fill
           className="object-cover object-center"
           priority
           sizes="100vw"
         />
-        {/* Subtle base overlay for balanced contrast */}
-        <div className="absolute inset-0 bg-background/10 pointer-events-none" />
-        
-        {/* Bottom beige gradient for seamless section merging */}
-        <div className="absolute inset-x-0 bottom-0 h-36 sm:h-48 lg:h-64 bg-gradient-to-t from-background via-background/60 to-transparent pointer-events-none z-1" />
+        {/* Soft edge blends */}
+        <div className="absolute inset-x-0 top-0 h-32 sm:h-44 bg-linear-to-b from-background via-background/40 to-transparent pointer-events-none z-1" />
+        <div className="absolute inset-x-0 bottom-0 h-32 sm:h-44 bg-linear-to-t from-background via-background/40 to-transparent pointer-events-none z-1" />
       </div>
 
-      {/* Top Left Leaf Decoration */}
-      <motion.div 
-        initial={{ opacity: 0, y: -30, x: -20 }}
-        whileInView={{ opacity: 1, y: 0, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="absolute -top-30 -left-10 z-20 pointer-events-none w-50 aspect-[480/960]"
-      >
-        <motion.div
-          animate={{
-            rotate: [0, 2.5, -1.5, 2, 0],
-            y: [0, -6, 2, -4, 0],
-            x: [0, 4, -2, 3, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          style={{ transformOrigin: "top left" }}
-          className="relative w-full h-full"
-        >
-          <Image 
-            src="/images/topleft.png" 
-            alt="Decorative palm leaf"
-            fill
-            className="object-contain object-top-left"
-            priority
-          />
-        </motion.div>
-      </motion.div>
-
-      {/* Bottom Left Leaf Decoration */}
-      <motion.div 
-        initial={{ opacity: 0, y: 30, x: -20 }}
-        whileInView={{ opacity: 1, y: 0, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="absolute -bottom-50 -left-10 z-20 pointer-events-none w-50 aspect-[370/960]"
-      >
-        <motion.div
-          animate={{
-            rotate: [0, -2, 1.5, -1.5, 0],
-            y: [0, 5, -2, 4, 0],
-            x: [0, -3, 2, -2, 0],
-          }}
-          transition={{
-            duration: 9.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          style={{ transformOrigin: "bottom left" }}
-          className="relative w-full h-full"
-        >
-          <Image 
-            src="/images/bottomleftleaf.png" 
-            alt="Decorative green foliage"
-            fill
-            className="object-contain object-bottom-left"
-          />
-        </motion.div>
-      </motion.div>
-
-      {/* Main Content Grid */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
-          
-          {/* Left Column: Heading */}
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="lg:col-span-5 flex flex-col justify-center text-left"
-          >
-            <span className="block font-heading text-3xl sm:text-4xl lg:text-5xl font-normal text-primary mb-2 sm:mb-3 drop-shadow-xs tracking-tight">
-              Why
-            </span>
-            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium text-primary tracking-tight leading-[1.1] drop-shadow-xs">
-              Harmony of Life ?
-            </h2>
-          </motion.div>
-
-          {/* Right Column: 2x2 Cards Grid */}
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
+      {/* Main Content Container */}
+      <div className="relative z-10 w-full max-w-360 mx-auto px-4 sm:px-6 lg:px-12">
+        
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6"
+            transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="font-heading text-4xl sm:text-5xl lg:text-6xl font-medium text-primary tracking-tight leading-[1.15] mb-3 sm:mb-4"
           >
-            {cards.map((card) => (
-              <motion.div
-                key={card.title}
-                variants={cardVariants}
-                whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                className="relative overflow-hidden rounded-2xl bg-white/80 sm:rounded-3xl p-6 sm:p-8 lg:p-8 xl:p-10 shadow-lg shadow-primary/5 border border-white/70 backdrop-blur-xs flex flex-col justify-start min-h-56 sm:min-h-64 lg:min-h-70 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/10 group"
-              >
-                {/* Card Background Image */}
-                <Image
-                  src="/images/cardbg.png"
-                  alt=""
-                  fill
-                  className="object-cover object-center -z-10 transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                />
+            Why Harmony of Life ?
+          </motion.h2>
 
-                {/* Card Content */}
-                <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-medium text-primary leading-tight mb-3 sm:mb-4">
-                  {card.title}
-                </h3>
-                <p className="font-text text-sm sm:text-base text-primary/85 leading-relaxed font-normal">
-                  {card.description}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="font-sans text-base sm:text-lg lg:text-xl text-primary/80 font-normal leading-relaxed"
+          >
+            To Stop the rise of{" "}
+            <span className="font-semibold text-[#2d5c43]">lifestyle disorders</span> in India.
+          </motion.p>
         </div>
+
+        {/* 4 Cards Grid */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-7 items-stretch"
+        >
+          {whyCards.map((card) => {
+            const Icon = card.icon;
+            return (
+              <motion.div
+                key={card.id}
+                variants={cardVariants}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                className="relative flex flex-col bg-white/75 backdrop-blur-md rounded-3xl overflow-hidden border border-white/90 shadow-lg shadow-primary/5 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-400 group"
+              >
+                {/* Top Image Frame */}
+                <div className="relative w-full aspect-4/3 sm:aspect-1/1 lg:aspect-4/3 overflow-hidden rounded-t-3xl bg-primary/5">
+                  <Image
+                    src={card.image}
+                    alt={card.alt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
+                </div>
+
+                {/* Floating Round Icon Badge Overlapping Seam */}
+                <div className="relative flex justify-center -mt-7 z-10">
+                  <div className={`w-14 h-14 rounded-full ${card.iconBg} border-[2.5px] border-white flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-6 h-6 stroke-[1.85]" />
+                  </div>
+                </div>
+
+                {/* Card Content Block */}
+                <div className="p-6 pt-3.5 pb-8 flex flex-col items-center text-center flex-1 justify-between bg-linear-to-b from-white/95 to-white/80">
+                  <h3 className={`font-heading text-2xl sm:text-[26px] font-semibold ${card.titleColor} leading-tight mb-2.5`}>
+                    {card.badgeTitle}
+                  </h3>
+
+                  <p className="font-sans text-[13.5px] sm:text-[14px] text-primary/80 leading-relaxed font-normal">
+                    {card.renderDescription()}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
       </div>
     </section>
   );
 }
+
+export const WhySection = WhyHolSection;

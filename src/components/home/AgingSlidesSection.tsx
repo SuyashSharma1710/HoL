@@ -40,11 +40,15 @@ export function AgingSlidesSection() {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   }, []);
 
+  const goToSlide = useCallback((idx: number) => {
+    setCurrentIndex(idx);
+  }, []);
+
   useEffect(() => {
     if (isPaused) return;
     const timer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
     return () => clearInterval(timer);
-  }, [isPaused, nextSlide]);
+  }, [isPaused, nextSlide, currentIndex]);
 
   return (
     <section 
@@ -106,7 +110,7 @@ export function AgingSlidesSection() {
               return (
                 <button
                   key={slide.id}
-                  onClick={() => setCurrentIndex(idx)}
+                  onClick={() => goToSlide(idx)}
                   aria-label={`Go to slide ${idx + 1}: ${slide.label}`}
                   className={`relative h-1.5 sm:h-2 rounded-full transition-all duration-500 overflow-hidden cursor-pointer ${
                     isActive ? "w-8 sm:w-16 md:w-20 bg-primary/20" : "w-2 sm:w-3 bg-primary/25 hover:bg-primary/45"

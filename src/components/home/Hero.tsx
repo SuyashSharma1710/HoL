@@ -37,7 +37,7 @@ const annotationVariants = {
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-[100dvh] lg:h-[100dvh] -mt-24 flex items-center overflow-hidden pt-28 pb-16 lg:py-0">
+    <section className="relative w-full min-h-dvh lg:h-dvh -mt-24 flex items-center overflow-hidden pt-28 pb-16 lg:py-0">
       {/* Background Image & Atmospheric Layers */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -251,7 +251,7 @@ export function Hero() {
               variants={annotationVariants}
               initial="hidden"
               animate="visible"
-              className="absolute top-[56%] -right-[2%] xl:right-[2%] flex items-center gap-2.5"
+              className="absolute top-[56%] right-[-2%] xl:right-[2%] flex items-center gap-2.5"
             >
               <div className="w-2 h-2 rounded-full bg-glow ring-2 ring-accent shadow-[0_0_8px_#ffd875] animate-pulse" />
               <div className="w-10 xl:w-14 h-px bg-accent/80" />

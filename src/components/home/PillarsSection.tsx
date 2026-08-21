@@ -135,7 +135,7 @@ export function PillarsSection() {
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-primary/60 via-transparent to-transparent pointer-events-none" />
             </div>
 
             {/* Right Column: Editorial Resolution Narrative & Charge Callout */}
@@ -155,7 +155,7 @@ export function PillarsSection() {
                   {/* Starburst Flare Beams */}
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-80 group-hover:opacity-100 transition-all duration-700">
                     <div className="absolute w-[110%] h-[150%] rounded-full bg-accent/20 blur-xl" />
-                    <div className="absolute w-[140%] h-[1.5px] bg-gradient-to-r from-transparent via-accent/90 to-transparent blur-[1px]" />
+                    <div className="absolute w-[140%] h-[1.5px] bg-linear-to-r from-transparent via-accent/90 to-transparent blur-[1px]" />
                   </div>
 
                   <div className="relative z-10 flex items-center gap-3.5 bg-primary/80 backdrop-blur-xl px-6 py-3.5 rounded-full border border-white/20 shadow-[0_0_25px_rgba(182,156,95,0.2)]">
@@ -208,10 +208,10 @@ export function PillarsSection() {
             <div className="absolute w-48 h-48 rounded-full bg-white/80 blur-2xl z-10" />
             <div className="absolute w-100 h-100 rounded-full bg-accent/40 blur-[90px]" />
             <div className="absolute w-175 h-175 rounded-full bg-accent/10 blur-[120px]" />
-            <div className="absolute w-225 h-1 bg-gradient-to-r from-transparent via-accent/80 to-transparent blur-xs transform rotate-0" />
-            <div className="absolute w-225 h-1 bg-gradient-to-r from-transparent via-accent/80 to-transparent blur-xs transform rotate-90" />
-            <div className="absolute w-225 h-2 bg-gradient-to-r from-transparent via-accent/40 to-transparent blur-sm transform rotate-45" />
-            <div className="absolute w-225 h-2 bg-gradient-to-r from-transparent via-accent/40 to-transparent blur-sm transform -rotate-45" />
+            <div className="absolute w-225 h-1 bg-linear-to-r from-transparent via-accent/80 to-transparent blur-xs transform rotate-0" />
+            <div className="absolute w-225 h-1 bg-linear-to-r from-transparent via-accent/80 to-transparent blur-xs transform rotate-90" />
+            <div className="absolute w-225 h-2 bg-linear-to-r from-transparent via-accent/40 to-transparent blur-sm transform rotate-45" />
+            <div className="absolute w-225 h-2 bg-linear-to-r from-transparent via-accent/40 to-transparent blur-sm transform -rotate-45" />
           </div>
           
           {/* Static Center Core */}
@@ -249,10 +249,10 @@ export function PillarsSection() {
                     <div className="relative flex items-center justify-center">
                       {/* Mini Star Flare Beams */}
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-50 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500">
-                        <div className="absolute w-[250%] h-px bg-gradient-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-0" />
-                        <div className="absolute w-[250%] h-px bg-gradient-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-90" />
-                        <div className="absolute w-[180%] h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform rotate-45" />
-                        <div className="absolute w-[180%] h-0.5 bg-gradient-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform -rotate-45" />
+                        <div className="absolute w-[250%] h-px bg-linear-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-0" />
+                        <div className="absolute w-[250%] h-px bg-linear-to-r from-transparent via-accent/80 to-transparent blur-[1px] transform rotate-90" />
+                        <div className="absolute w-[180%] h-0.5 bg-linear-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform rotate-45" />
+                        <div className="absolute w-[180%] h-0.5 bg-linear-to-r from-transparent via-accent/40 to-transparent blur-[2px] transform -rotate-45" />
                       </div>
 
                       <div className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full bg-primary border border-white/20 flex items-center justify-center shadow-[0_0_15px_rgba(233,224,207,0.3)] group-hover:shadow-[0_0_25px_rgba(182,156,95,0.6)] group-hover:scale-110 group-hover:border-accent transition-all duration-300">
@@ -326,7 +326,7 @@ export function PillarsSection() {
                   fill
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent pointer-events-none" />
               </div>
 
               {/* Right Side: Pillar Content & Navigation */}

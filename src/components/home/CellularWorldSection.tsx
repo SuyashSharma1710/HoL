@@ -50,7 +50,7 @@ export function CellularWorldSection() {
           
           {/* Radial soft center wash for optimal text contrast and reading clarity */}
           <div className="absolute inset-0 bg-background/10 pointer-events-none" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(233,224,207,0.75)_0%,_rgba(233,224,207,0.3)_60%,_transparent_100%)] pointer-events-none z-1" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(233,224,207,0.75)_0%,rgba(233,224,207,0.3)_60%,transparent_100%)] pointer-events-none z-1" />
 
           {/* Seamless top & bottom gradient feathering for flawless section flow */}
           <div className="absolute inset-x-0 top-0 h-28 sm:h-40 lg:h-48 bg-linear-to-b from-background via-background/70 to-transparent pointer-events-none z-1" />
@@ -200,9 +200,9 @@ export function CellularWorldSection() {
                 </div>
 
                 {/* Right Column: Increase Your Lifeforce Pillar Emblem Banner */}
-                <div className="lg:col-span-4 relative overflow-hidden rounded-3xl bg-linear-to-br from-[#12362f] via-[#17443c] to-[#0c2621] text-white p-8 sm:p-10 flex flex-col items-center justify-center text-center shadow-2xl border border-accent/40 min-h-[360px] lg:min-h-[420px]">
+                <div className="lg:col-span-4 relative overflow-hidden rounded-3xl bg-linear-to-br from-[#12362f] via-[#17443c] to-[#0c2621] text-white p-8 sm:p-10 flex flex-col items-center justify-center text-center shadow-2xl border border-accent/40 min-h-90 lg:min-h-105">
                   {/* Glowing Ambient Halo */}
-                  <div className="absolute inset-0 opacity-25 pointer-events-none bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent/50 via-transparent to-transparent" />
+                  <div className="absolute inset-0 opacity-25 pointer-events-none bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-accent/50 via-transparent to-transparent" />
 
                   {/* Sacred Tree Emblem in Golden Sun Ring */}
                   <div className="relative mb-6 w-20 h-20 sm:w-24 sm:h-24 rounded-full border-2 border-accent/60 bg-accent/15 flex items-center justify-center shadow-[0_0_24px_rgba(183,135,54,0.35)]">
@@ -309,7 +309,7 @@ export function CellularWorldSection() {
                   </div>
 
                   {/* Chart Visualization */}
-                  <div className="relative w-full aspect-[16/11] bg-[#fcfbf9] rounded-lg border border-primary/15 p-2 overflow-hidden">
+                  <div className="relative w-full aspect-16/11 bg-[#fcfbf9] rounded-lg border border-primary/15 p-2 overflow-hidden">
                     {/* Optimal Healthy Shaded Zone (70mV - 90mV) */}
                     <div className="absolute left-[12%] right-[4%] top-[10%] bottom-[35%] bg-accent/10 border-b border-dashed border-accent/40 pointer-events-none">
                       <span className="absolute top-1 right-2 text-[9px] font-sans font-semibold text-accent/80">

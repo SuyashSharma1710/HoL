@@ -812,6 +812,27 @@ _(Append new actions below this line as the project progresses)_
   - **Multi-Plane Depth:** As foreground cards scroll across the 3 panels ($0\% \rightarrow -66.6\%$), the background artwork drifts slowly in the same RTL direction ($0\% \rightarrow -25\%$), creating immersive parallax depth.
 - **Why:** Creates a dynamic, cinematic scrolling experience as the user explores the cellular health journey.
 
+**148. Applied Canonical Tailwind CSS Utility Classes (`CellularWorldSection.tsx`)**
+- **What:** Cleaned up Tailwind v4 class syntax according to linter suggestions:
+  - Converted `min-h-[360px]` and `lg:min-h-[420px]` to standard utility tokens `min-h-90` and `lg:min-h-105`.
+  - Converted `aspect-[16/11]` to `aspect-16/11`.
+  - Normalized arbitrary radial-gradient string syntax without redundant underscore whitespace.
+- **Why:** Ensures strict adherence to Tailwind CSS compiler standards and zero linter warnings.
+
+**149. Resolved ESLint and Tailwind Class Diagnostics Across Components**
+- **What:** Fixed all reported linter warnings:
+  - **`PhilosophySection.tsx`:** Removed unused imports (`Sparkles`, `ArrowRight`, `Link`).
+  - **`WhyHolSection.tsx`:** Converted `sm:aspect-1/1` to canonical `sm:aspect-square`.
+  - **`PillarsSection.tsx`:** Replaced all legacy `bg-gradient-to-t` and `bg-gradient-to-r` with canonical Tailwind v4 `bg-linear-to-t` and `bg-linear-to-r`.
+- **Why:** Delivers clean, warning-free compiler logs and optimized class bundles.
+
+**150. Fixed TypeScript 2322 Variants Incompatibility (`WhyHolSection.tsx`)**
+- **What:** Explicitly annotated `containerVariants: Variants` and `cardVariants: Variants` importing `type Variants` from `framer-motion`.
+- **Why:** Resolves TypeScript easing array inference error when passing variants to `motion.div`.
+
+
+
+
 
 
 

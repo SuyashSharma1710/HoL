@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Target, Eye, Dna, GraduationCap } from "lucide-react";
 
 interface WhyCard {
@@ -86,7 +86,7 @@ const whyCards: WhyCard[] = [
   },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -97,7 +97,7 @@ const containerVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 35 },
   visible: {
     opacity: 1,
@@ -172,7 +172,7 @@ export function WhyHolSection() {
                 className="relative flex flex-col bg-white/75 backdrop-blur-md rounded-3xl overflow-hidden border border-white/90 shadow-lg shadow-primary/5 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-400 group"
               >
                 {/* Top Image Frame */}
-                <div className="relative w-full aspect-4/3 sm:aspect-1/1 lg:aspect-4/3 overflow-hidden rounded-t-3xl bg-primary/5">
+                <div className="relative w-full aspect-4/3 sm:aspect-square lg:aspect-4/3 overflow-hidden rounded-t-3xl bg-primary/5">
                   <Image
                     src={card.image}
                     alt={card.alt}

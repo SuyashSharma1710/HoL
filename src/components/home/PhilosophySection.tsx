@@ -3,8 +3,6 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Sparkles, ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 export function PhilosophySection() {
   const containerRef = useRef<HTMLElement>(null);

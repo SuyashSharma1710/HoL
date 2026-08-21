@@ -3,81 +3,159 @@ name: Celestial Wellness
 colors:
   primary: "#142b23"
   secondary: "#607860"
-  accent: "#b69c5f"
+  accent: "#b78736"
   background: "#e9e0cf"
+  glow: "#ffd875"
 typography:
   display:
     fontFamily: Cormorant Garamond
-    fontSize: clamp(32px, 5vw, 48px)
+    fontSize: clamp(36px, 5.5vw, 64px)
     fontWeight: "600"
+  displayItalic:
+    fontFamily: Cormorant Garamond
+    fontSize: clamp(32px, 5vw, 56px)
+    fontWeight: "500"
+    fontStyle: italic
+  eyebrow:
+    fontFamily: Inter
+    fontSize: clamp(11px, 1.2vw, 13px)
+    fontWeight: "600"
+    letterSpacing: "0.2em"
+    textTransform: uppercase
   heading:
     fontFamily: Cormorant Garamond
-    fontSize: clamp(24px, 4vw, 32px)
+    fontSize: clamp(24px, 4vw, 36px)
     fontWeight: "500"
   body:
     fontFamily: Inter
-    fontSize: clamp(16px, 2vw, 18px)
+    fontSize: clamp(15px, 1.8vw, 18px)
     fontWeight: "400"
-  caption:
+    lineHeight: "1.7"
+  annotation:
     fontFamily: Inter
-    fontSize: clamp(12px, 1.5vw, 14px)
+    fontSize: clamp(12px, 1.4vw, 14px)
     fontWeight: "500"
 rounded:
   sm: 8px
   lg: 16px
+  full: 9999px
 spacing:
   8: 8px
   16: 16px
   24: 24px
   32: 32px
   48: 48px
+  64: 64px
 ---
 
-## Brand & Style
+# Design System: Celestial Wellness & Science of Living Young
 
-This design system centers on a "Celestial Wellness" identity—a sanctuary for digital rejuvenation that balances the mystical with the organic. The aesthetic is rooted in **Minimalism** with **Glassmorphism** accents, prioritizing vast negative space and a sense of "digital breathing room."
+This design system defines the visual language and interactive standards for the **Harmony of Life** platform. Inspired by the harmony between clinical cellular biology and ethereal Vedic longevity science, the aesthetic merges majestic Himalayan sunrise warmth, botanical greens, and luminous bio-electric constellation graphics.
 
-The target audience seeks tranquility, premium health insights, and spiritual alignment. The UI should evoke a sense of calm authority, mystery, and grounding. Visuals are ethereal yet structured, using soft light play and natural botanical tones to create a high-end, meditative atmosphere.
+---
 
-## Colors
+## 1. Brand Identity & Visual Atmosphere
 
-The palette is exceptionally focused and minimal, relying on 4 major colors (and their accent shades) to prevent visual clutter and maintain a serene, high-end feel:
+- **Theme & Feeling:** Serene, scientific, majestic, rejuvenating, and deeply grounded in nature.
+- **Lighting & Ambiance:** Luminous golden-hour dawn rays breaking across misty mountain peaks, illuminating human vitality through glowing golden bio-electric neural/cellular constellations.
+- **Visual Tenets:**
+  1. **Dual-Tone Editorial Typography:** Pairing authoritative deep forest green serif headings with fluid, warm gold italicized accents.
+  2. **Bio-Electric Constellation Imagery:** Technical yet poetic network graphics with glowing nodes, radial halos, and delicate pointer annotations illustrating cellular charge.
+  3. **Luminous Glassmorphism:** Translucent frosted overlays and pill-shaped interactive controls floating seamlessly over atmospheric landscape visuals.
 
-- **Background (`#e9e0cf`):** A warm, soft cream. The base surface color that provides a grounding foundation for the entire site.
-- **Primary (`#142b23`):** A deep, dark green. Used for primary text, active states, and full-bleed dark sections to create stark, beautiful contrast.
-- **Secondary (`#607860`):** A muted sage green. Used for soft primary accents, borders, and structural elements.
-- **Accent (`#b69c5f`):** A warm gold. Reserved for highlights, celestial accents, buttons, and high-importance interactive elements.
+---
 
-## Typography
+## 2. Color Palette
 
-The typography system is streamlined to just two fonts and four responsive sizes, utilizing `clamp()` for fluid scaling across devices.
+The color system is focused on warm earth, sacred forest, and celestial golden light:
 
-- **Display (`clamp(32px, 5vw, 48px)`):** Cormorant Garamond (600 weight). Used for hero text and major section titles. Brings a sophisticated, timeless character.
-- **Heading (`clamp(24px, 4vw, 32px)`):** Cormorant Garamond (500 weight). Used for standard section headings and emphasized block text.
-- **Body (`clamp(16px, 2vw, 18px)`):** Inter (400 weight). Provides maximum legibility for paragraphs. Default size for all paragraph content.
-- **Caption (`clamp(12px, 1.5vw, 14px)`):** Inter (500 weight). Used for metadata, small labels, and utility text.
+| Token | Hex Value | Semantic Role & Usage |
+| :--- | :--- | :--- |
+| **`Primary`** | `#142b23` | Deep Sacred Forest / Pine Black. Primary typography, high-contrast dark sections, and foundational text hierarchy. |
+| **`Accent / Gold`** | `#b78736` | Radiant Amber Gold. Editorial italic highlights, solid pill CTAs, constellation nodes, accent divider bars, and annotation pointer dots. |
+| **`Secondary / Sage`** | `#607860` | Muted Botanical Sage. Subtle borders, secondary accents, supporting icons, and frosted outline buttons. |
+| **`Background`** | `#e9e0cf` | Soft Warm Cream / Earth Sand. Base canvas for light sections, creating a grounding, organic feel. |
+| **`Celestial Glow`**| `#ffd875` | Luminous Solar Flare / Bio-Electric White-Gold. Radial glow effects, constellation vertex illumination, and focal halos. |
+| **`Mist Gradient`** | `#ebf3ec` → `#f7f4ec` | Atmospheric Mountain Mist. Smooth transitions from morning sky to lush green valleys. |
 
-## Layout & Spacing
+---
 
-The layout philosophy uses a strict **8px Grid** to create a mathematical, rhythmic sanctuary feel. 
+## 3. Typography Hierarchy
 
-- **Grid System:** A base unit of 8px governs all spacing, margins, padding, and gaps.
-- **Allowed Spacing Steps:** 
-  - `8px`
-  - `16px`
-  - `24px`
-  - `32px`
-  - `48px`
+The typographic scale combines classical editorial prestige with crisp, clinical modern sans-serif:
 
-## Shapes & Borders
+```
+[DISPLAY HEADING]        Cormorant Garamond (600)   #142b23   "Harmony of Life,"
+[DISPLAY ITALIC ACCENT]  Cormorant Garamond (500i)  #b78736   "The Science of Living Young."
+        ─── (Gold Accent Line / Divider: 48px × 2px #b78736) ───
+[EYEBROW / MISSION]      Inter (600, UPPERCASE)     #142b23   "INDIA'S FIRST PERSONALISED HEALTH & WELLNESS COMMUNITY"
+[BODY / NARRATIVE]       Inter (400, Relaxed)       #142b23   "Rooted in science. Guided by nature. Focused on you..."
+[ANNOTATIONS / NODES]    Inter (500)                #142b23   "• Increase Lifeforce" | "• Cellular Vitality"
+```
 
-The shape language is simple and structured, utilizing only two border radius values to maintain consistency:
+### Typographic Specifications
 
-- **8px:** Used for smaller components like buttons, chips, and inputs.
-- **16px:** Used for larger containers, cards, and prominent layout elements.
+1. **Display Primary (`clamp(36px, 5.5vw, 64px)`):**
+   - Font: `Cormorant Garamond`, SemiBold (600).
+   - Style: Upright, tight line-height (`leading-[1.1]`), deep primary forest green (`#142b23`).
+2. **Display Accent / Italic (`clamp(32px, 5vw, 56px)`):**
+   - Font: `Cormorant Garamond`, Medium Italic (500).
+   - Style: Cursive elegance, golden amber tone (`#b78736`), rendered seamlessly on the subsequent line.
+3. **Eyebrow Label (`clamp(11px, 1.2vw, 13px)`):**
+   - Font: `Inter`, SemiBold (600).
+   - Style: Uppercase, generous tracking (`letter-spacing: 0.2em` / `tracking-[0.2em]`), crisp dark forest text.
+4. **Section Headings (`clamp(24px, 4vw, 36px)`):**
+   - Font: `Cormorant Garamond`, Medium (500), used across body section titles.
+5. **Body Copy (`clamp(15px, 1.8vw, 18px)`):**
+   - Font: `Inter`, Regular (400), leading-relaxed (`leading-[1.7]`), high contrast dark green/charcoal.
+6. **Technical Callout Annotations (`clamp(12px, 1.4vw, 14px)`):**
+   - Font: `Inter`, Medium (500), paired with thin directional connector lines and glowing anchor nodes.
 
-## Components & Effects
+---
 
-- **Glassmorphism Layers:** Floating global UI elements use a frosted glass effect with the primary or background colors.
-- **Buttons:** Primary buttons use Dark Green or Accent Gold.
-- **Cards:** Use appropriate spacing and 16px border radius to soften the interface.
+## 4. Shapes, Geometry & Spacing
+
+### Border Radii
+- **Full Pill (`rounded-full` / `9999px`):** Primary and secondary interactive action buttons, category chips, status tags, and floating callout badges.
+- **Card Containers (`16px` / `rounded-2xl`):** Glassmorphic content cards, modal sheets, and bento modules.
+- **Micro Radii (`8px` / `rounded-sm`):** Inputs, tooltips, and compact dialog elements.
+
+### Spacing Scale (Strict 8px Rhythmic Grid)
+- `8px` (`p-2`, `gap-2`)
+- `16px` (`p-4`, `gap-4`)
+- `24px` (`p-6`, `gap-6`)
+- `32px` (`p-8`, `gap-8`)
+- `48px` (`p-12`, `gap-12`)
+- `64px` (`p-16`, `gap-16`)
+
+---
+
+## 5. UI Components & Key Patterns
+
+### A. Dual Button Action Cluster
+Hero and major conversion blocks feature a cohesive pair of full-pill buttons:
+1. **Primary Solid CTA ("Join the Community"):**
+   - Background: Solid warm amber-gold (`#b78736` / `bg-[#b78736]`).
+   - Text: Crisp white (`text-white`), font-sans medium (`font-medium`), smooth hover lift with golden halo glow (`shadow-[0_8px_24px_rgba(183,135,54,0.3)]`).
+   - Shape: `rounded-full`, generous padding (`px-8 py-3.5`).
+2. **Secondary Outlined CTA ("Discover More"):**
+   - Background: Translucent frosted cream/glass (`bg-[#e9e0cf]/30 backdrop-blur-md`).
+   - Border: Delicate amber-gold / sage hairline border (`border border-[#b78736]/50`).
+   - Text: Deep forest / amber tone (`text-[#142b23]`), smooth background fill transition on hover.
+   - Shape: `rounded-full`, matching padding (`px-8 py-3.5`).
+
+### B. Bio-Electric Constellation & Annotation Graphics
+- **Visual Execution:** High-resolution cinematic photograph of a subject looking upward into morning sunlight, overlaid with a luminous golden sacred geometry / neural network mesh.
+- **Interactive Technical Callouts:**
+  - Hairline connector lines extending horizontally from the figure toward label text.
+  - Glowing anchor dot (`w-2 h-2 rounded-full bg-[#ffd875] ring-2 ring-[#b78736]`).
+  - Annotation labels:
+    - *Increase Lifeforce*
+    - *Improve Healthspan*
+    - *Cellular Vitality*
+    - *Personalised Wellness*
+    - *Science Backed Solutions*
+
+### C. Glassmorphic Surface Treatment
+- Frosted overlays using `backdrop-blur-md` or `backdrop-blur-xl` combined with light tinted backgrounds (`bg-white/20` or `bg-background/80`).
+- Subtle light borders (`border border-white/40` or `border-[#b78736]/20`) to catch ambient illumination.

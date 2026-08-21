@@ -3,25 +3,25 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Info, Sparkles, Heart, Activity, Apple, MessageCircle, MenuIcon, ChevronDown } from "lucide-react";
-
-const Facebook = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-);
-
-const Instagram = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-);
-
-const Youtube = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
-);
-
-const Linkedin = ({ className }: { className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-);
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { buttonVariants } from "@/components/ui/button";
+import { 
+  Info, 
+  Sparkles, 
+  Heart, 
+  Activity, 
+  Apple, 
+  MessageCircle, 
+  MenuIcon, 
+  ChevronDown, 
+  ArrowUpRight,
+  Zap,
+  Sun,
+  Leaf,
+  UserCheck,
+  Users,
+  Quote,
+  Send
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import {
@@ -38,12 +38,29 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+const Facebook = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+);
+
+const Instagram = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className={className}><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+);
+
+const Youtube = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+);
+
+const Linkedin = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+);
+
 export function Navbar() {
   const pathname = usePathname();
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   // Helper to ensure anchor links route back to the homepage if we're on a different page
   const getHref = (hash: string) => pathname === "/" ? hash : `/${hash}`;
@@ -51,21 +68,21 @@ export function Navbar() {
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
     
-    // Determine if we've scrolled past the very top
-    if (latest > 20) {
+    // Determine if we've scrolled past the top threshold
+    if (latest > 24) {
       setScrolled(true);
     } else {
       setScrolled(false);
     }
 
     // Always show navbar when at the very top
-    if (latest <= 50) {
+    if (latest <= 60) {
       setHidden(false);
       return;
     }
 
-    // Hide when scrolling down past 100px
-    if (latest > previous && latest > 100) {
+    // Hide when scrolling down past 120px
+    if (latest > previous && latest > 120) {
       setHidden(true);
     } 
     // Show when scrolling up
@@ -82,95 +99,185 @@ export function Navbar() {
       }}
       initial="hidden"
       animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
       className={cn(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
-        scrolled ? "backdrop-blur-md bg-background/90 shadow-sm" : "bg-transparent"
+        "fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-out",
+        scrolled 
+          ? "bg-background/90 backdrop-blur-xl border-b border-primary/10 shadow-xs shadow-primary/5 py-0" 
+          : "bg-transparent py-1 sm:py-2"
       )}
     >
-      <div className="max-w-360 mx-auto px-4 lg:px-8 h-24 flex items-center justify-between">
+      <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
         
-        {/* Left Navigation (Desktop Only) */}
-        <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold tracking-wide">
-          <Link href={getHref("#welcome")} className="hover:text-secondary transition-colors">About us</Link>
-          <Link href={getHref("#lifeforce")} className="hover:text-secondary transition-colors">Lifeforce</Link>
-          <Link href={getHref("#living-young")} className="hover:text-secondary transition-colors">Living young</Link>
+        {/* Left Navigation (Desktop) */}
+        <nav className="hidden xl:flex items-center gap-1.5 text-sm font-medium">
+          <Link 
+            href={getHref("#welcome")} 
+            className="px-3.5 py-2 rounded-full text-primary/80 hover:text-primary hover:bg-primary/5 active:bg-primary/10 transition-all duration-200"
+          >
+            About us
+          </Link>
+          <Link 
+            href={getHref("#lifeforce")} 
+            className="px-3.5 py-2 rounded-full text-primary/80 hover:text-primary hover:bg-primary/5 active:bg-primary/10 transition-all duration-200"
+          >
+            Lifeforce
+          </Link>
+          <Link 
+            href={getHref("#living-young")} 
+            className="px-3.5 py-2 rounded-full text-primary/80 hover:text-primary hover:bg-primary/5 active:bg-primary/10 transition-all duration-200"
+          >
+            Living young
+          </Link>
           
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 hover:text-secondary transition-colors outline-none cursor-pointer group">
-              Explore 
-              <ChevronDown className="w-4 h-4 opacity-70 group-hover:opacity-100 transition-opacity" />
+          <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
+            <DropdownMenuTrigger className="flex items-center gap-1.5 px-3.5 py-2 rounded-full text-primary/80 hover:text-primary hover:bg-primary/5 transition-all duration-200 outline-none cursor-pointer group">
+              <span>Explore</span>
+              <ChevronDown className={cn(
+                "w-3.5 h-3.5 opacity-60 transition-transform duration-300 ease-out group-hover:opacity-100",
+                dropdownOpen ? "rotate-180 text-accent" : ""
+              )} />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="start" className="w-56 bg-background/95 backdrop-blur-xl border border-primary/10 p-2 shadow-xl shadow-primary/5">
-              <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium">
-                <Link href={getHref("#reversal")} className="w-full h-full block py-1">Root cause reversal</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href={getHref("#pillars")} className="w-full h-full block py-1">12 Pillars</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href={getHref("#gut-reset")} className="w-full h-full block py-1">Gut reset</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href={getHref("#authority")} className="w-full h-full block py-1">Dr. Rastogi</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href={getHref("#community")} className="w-full h-full block py-1">Community</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href={getHref("#testimonials")} className="w-full h-full block py-1">Testimonials</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="cursor-pointer rounded-md text-sm font-medium mt-1">
-                <Link href={getHref("#cta")} className="w-full h-full block py-1">Contact us</Link>
-              </DropdownMenuItem>
+            <DropdownMenuContent 
+              align="start" 
+              sideOffset={10}
+              className="w-80 bg-background/95 backdrop-blur-2xl border border-accent/25 p-2 rounded-2xl shadow-2xl shadow-primary/15 animate-in fade-in-0 zoom-in-95 duration-200"
+            >
+              {/* Dropdown Header */}
+              <div className="px-3 pt-2 pb-2 mb-1 border-b border-primary/10 flex items-center justify-between">
+                <span className="text-[10px] font-semibold tracking-[0.18em] text-primary/60 uppercase">
+                  Explore Sanctuary
+                </span>
+                <Sparkles className="w-3.5 h-3.5 text-accent animate-pulse" />
+              </div>
+
+              {/* Navigation Items */}
+              {[
+                { 
+                  href: "#reversal", 
+                  label: "Root cause reversal", 
+                  desc: "Addressing cellular discharge",
+                  icon: Zap 
+                },
+                { 
+                  href: "#pillars", 
+                  label: "12 Foundational Pillars", 
+                  desc: "Longevity & cellular framework",
+                  icon: Sun 
+                },
+                { 
+                  href: "#gut-reset", 
+                  label: "Gut reset", 
+                  desc: "Microbiome charging protocols",
+                  icon: Leaf 
+                },
+                { 
+                  href: "#authority", 
+                  label: "Dr. Rastogi", 
+                  desc: "Clinical background & philosophy",
+                  icon: UserCheck 
+                },
+                { 
+                  href: "#community", 
+                  label: "Community", 
+                  desc: "Living young with the tribe",
+                  icon: Users 
+                },
+                { 
+                  href: "#testimonials", 
+                  label: "Testimonials", 
+                  desc: "Transformation stories",
+                  icon: Quote 
+                },
+                { 
+                  href: "#cta", 
+                  label: "Contact us", 
+                  desc: "Connect on WhatsApp & leads",
+                  icon: Send 
+                },
+              ].map((item) => {
+                const ItemIcon = item.icon;
+                return (
+                  <DropdownMenuItem 
+                    key={item.href} 
+                    className="cursor-pointer rounded-xl text-primary/90 hover:text-primary hover:bg-primary/5 focus:bg-primary/5 transition-all duration-200 my-0.5 p-0 outline-none group"
+                  >
+                    <Link 
+                      href={getHref(item.href)} 
+                      onClick={() => setDropdownOpen(false)}
+                      className="w-full flex items-center gap-3 py-2 px-2.5"
+                    >
+                      {/* Icon Badge */}
+                      <div className="w-9 h-9 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-secondary group-hover:text-accent group-hover:bg-accent/15 group-hover:border-accent/40 group-hover:scale-105 transition-all duration-300 shrink-0 shadow-xs">
+                        <ItemIcon className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[13px] font-semibold text-primary group-hover:text-primary transition-colors leading-snug">
+                          {item.label}
+                        </div>
+                        <div className="text-[11px] text-primary/55 group-hover:text-primary/75 transition-colors font-normal truncate">
+                          {item.desc}
+                        </div>
+                      </div>
+
+                      {/* Arrow */}
+                      <ArrowUpRight className="w-4 h-4 text-primary/30 group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0" />
+                    </Link>
+                  </DropdownMenuItem>
+                );
+              })}
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>
 
-        {/* Center Logo (Desktop) / Left Logo (Mobile) */}
+        {/* Center Logo */}
         <div className="xl:absolute xl:left-1/2 xl:-translate-x-1/2 shrink-0">
-          <Link href="/" className="flex items-center gap-2 lg:gap-3 group">
-            
-            <div className="relative flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-              {/* Strong White Radial Glow */}
-              <div className="absolute inset-0 scale-[1.7] bg-white blur-lg rounded-full -z-10 group-hover:scale-[1.9] transition-transform duration-300"></div>
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group py-1">
+            <div className="relative flex items-center justify-center">
+              {/* Refined Ambient Glow */}
+              <div className="absolute inset-0 scale-[1.6] bg-accent/20 blur-md rounded-full -z-10 group-hover:scale-[1.8] group-hover:bg-accent/30 transition-all duration-500" />
+              <div className="absolute inset-0 scale-[1.3] bg-white blur-sm rounded-full -z-10" />
               
               <Image 
                 src="/logo.svg" 
                 alt="Harmony of Life Logo" 
                 width={48} 
                 height={48} 
-                className="w-10 h-10 lg:w-12 lg:h-12 animate-[spin_20s_linear_infinite] relative z-10"
+                className="w-9 h-9 sm:w-11 sm:h-11 animate-[spin_25s_linear_infinite] relative z-10 drop-shadow-xs transition-transform duration-500 group-hover:scale-105"
               />
             </div>
 
-            <span className="font-heading text-xl sm:text-2xl lg:text-3xl tracking-tight text-primary mt-1 relative z-10 drop-shadow-sm">
-              Harmony of life
+            <span className="font-heading text-xl sm:text-2xl lg:text-3xl font-medium tracking-tight text-primary relative z-10 transition-colors duration-300 group-hover:text-primary">
+              Harmony of Life
             </span>
           </Link>
         </div>
 
-        {/* Right Action (Socials + CTA) */}
-        <div className="flex items-center gap-4 xl:gap-6">
+        {/* Right Action (Socials + WhatsApp CTA) */}
+        <div className="flex items-center gap-4 sm:gap-6">
           
-          {/* Social Icons (Hidden below xl) */}
-          <div className="hidden xl:flex items-center gap-4 text-primary">
-            <Link aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61591808093320" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-transform hover:scale-110">
-              <span className="sr-only">Facebook</span>
-              <Facebook className="w-5 h-5" />
-            </Link>
-            <Link aria-label="Instagram" href="https://www.instagram.com/harmonyoflife_official/?hl=en" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-transform hover:scale-110">
-              <span className="sr-only">Instagram</span>
-              <Instagram className="w-5 h-5" />
-            </Link>
-            <Link aria-label="YouTube" href="https://www.youtube.com/@Harmonyoflife-01" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-transform hover:scale-110">
-              <span className="sr-only">YouTube</span>
-              <Youtube className="w-5 h-5" />
-            </Link>
-            <Link aria-label="LinkedIn" href="https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-transform hover:scale-110">
-              <span className="sr-only">LinkedIn</span>
-              <Linkedin className="w-5 h-5" />
-            </Link>
+          {/* Social Icons (Desktop) */}
+          <div className="hidden xl:flex items-center gap-3 text-primary/70">
+            {[
+              { href: "https://www.facebook.com/profile.php?id=61591808093320", label: "Facebook", Icon: Facebook },
+              { href: "https://www.instagram.com/harmonyoflife_official/?hl=en", label: "Instagram", Icon: Instagram },
+              { href: "https://www.youtube.com/@Harmonyoflife-01", label: "YouTube", Icon: Youtube },
+              { href: "https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/", label: "LinkedIn", Icon: Linkedin },
+            ].map(({ href, label, Icon }) => (
+              <Link 
+                key={label}
+                aria-label={label} 
+                href={href} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 rounded-full hover:bg-primary/5 hover:text-accent active:scale-95 transition-all duration-200"
+              >
+                <span className="sr-only">{label}</span>
+                <Icon className="w-4.5 h-4.5" />
+              </Link>
+            ))}
           </div>
 
           {/* WhatsApp CTA */}
@@ -179,103 +286,112 @@ export function Navbar() {
               href="https://wa.me/918800828863" 
               target="_blank" 
               rel="noopener noreferrer"
-              className={buttonVariants({ className: "bg-green-600 hover:bg-green-700 text-white rounded-full px-6 font-medium shadow-lg shadow-green-900/20" })}
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/95 text-background font-medium text-sm px-5 py-2.5 rounded-full border border-accent/40 hover:border-accent shadow-sm hover:shadow-md hover:shadow-accent/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 group"
             >
-              Connect on WhatsApp
+              <MessageCircle className="w-4 h-4 text-accent transition-transform duration-300 group-hover:scale-110" />
+              <span>Connect on WhatsApp</span>
             </Link>
           </div>
 
-          {/* Mobile Menu (Sheet) */}
+          {/* Mobile Menu Trigger (Sheet) */}
           <div className="xl:hidden flex items-center">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger aria-label="Open mobile menu" className="p-2 -mr-2 cursor-pointer rounded-full hover:bg-primary/5 active:bg-primary/10 transition-colors outline-none flex items-center justify-center text-primary">
-                <MenuIcon className="w-7 h-7" strokeWidth={1.5} />
+              <SheetTrigger 
+                aria-label="Open mobile menu" 
+                className="p-2.5 -mr-2 cursor-pointer rounded-full text-primary hover:bg-primary/5 active:bg-primary/10 transition-colors outline-none flex items-center justify-center"
+              >
+                <MenuIcon className="w-6 h-6" strokeWidth={1.75} />
               </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:w-112.5 bg-background/95 backdrop-blur-xl border-l border-primary/10 p-6 sm:p-8 overflow-y-auto flex flex-col">
-                <SheetHeader>
-                  <SheetTitle className="text-left mb-6">
-                    <div className="flex items-center gap-2 group w-fit">
-                      <div className="relative flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                        {/* Strong White Radial Glow */}
-                        <div className="absolute inset-0 scale-[1.7] bg-white blur-lg rounded-full -z-10 group-hover:scale-[1.9] transition-transform duration-300"></div>
-                        <Image 
-                          src="/logo.svg" 
-                          alt="Harmony of Life Logo" 
-                          width={48} 
-                          height={48} 
-                          className="w-10 h-10 animate-[spin_20s_linear_infinite] relative z-10"
-                        />
+              <SheetContent side="right" className="w-full sm:w-105 bg-background/98 backdrop-blur-2xl border-l border-primary/10 p-6 sm:p-8 overflow-y-auto flex flex-col justify-between">
+                <div>
+                  <SheetHeader>
+                    <SheetTitle className="text-left mb-8">
+                      <div className="flex items-center gap-2.5 group w-fit">
+                        <div className="relative flex items-center justify-center">
+                          <div className="absolute inset-0 scale-[1.6] bg-accent/20 blur-md rounded-full -z-10" />
+                          <Image 
+                            src="/logo.svg" 
+                            alt="Harmony of Life Logo" 
+                            width={40} 
+                            height={40} 
+                            className="w-9 h-9 animate-[spin_25s_linear_infinite] relative z-10"
+                          />
+                        </div>
+                        <span className="font-heading text-2xl tracking-tight text-primary font-medium">
+                          Harmony of Life
+                        </span>
                       </div>
-                      <span className="font-heading text-xl sm:text-2xl tracking-tight text-primary mt-1 relative z-10 drop-shadow-sm">
-                        Harmony of life
-                      </span>
-                    </div>
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col gap-4">
-                  <Link href={getHref("#welcome")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
-                    <Info className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                    About us
-                  </Link>
-                  <Link href={getHref("#lifeforce")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
-                    <Sparkles className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                    Lifeforce
-                  </Link>
-                  <Link href={getHref("#living-young")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
-                    <Heart className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                    Living young
-                  </Link>
-                  <Link href={getHref("#reversal")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group leading-tight max-w-sm">
-                    <Activity className="w-5 h-5 shrink-0 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                    Root cause reversal
-                  </Link>
-                  <Link href={getHref("#pillars")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
-                    <Sparkles className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                    12 Pillars
-                  </Link>
-                  <Link href={getHref("#gut-reset")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
-                    <Apple className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                    Gut reset
-                  </Link>
-                  <Link href={getHref("#authority")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
-                    <Info className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                    Dr. Rastogi
-                  </Link>
-                  <Link href={getHref("#community")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
-                    <MessageCircle className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                    Community
-                  </Link>
-                  <Link href={getHref("#testimonials")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
-                    <Heart className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                    Testimonials
-                  </Link>
-                  <Link href={getHref("#cta")} onClick={() => setIsOpen(false)} className="flex items-center gap-3 text-lg font-medium hover:text-secondary transition-colors group">
-                    <MessageCircle className="w-5 h-5 opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all" />
-                    Contact us
-                  </Link>
+                    </SheetTitle>
+                  </SheetHeader>
+
+                  {/* Navigation Links */}
+                  <div className="flex flex-col space-y-1">
+                    {[
+                      { href: "#welcome", label: "About us", icon: Info },
+                      { href: "#lifeforce", label: "Lifeforce", icon: Sparkles },
+                      { href: "#living-young", label: "Living young", icon: Heart },
+                      { href: "#reversal", label: "Root cause reversal", icon: Zap },
+                      { href: "#pillars", label: "12 Pillars", icon: Sun },
+                      { href: "#gut-reset", label: "Gut reset", icon: Leaf },
+                      { href: "#authority", label: "Dr. Rastogi", icon: UserCheck },
+                      { href: "#community", label: "Community", icon: Users },
+                      { href: "#testimonials", label: "Testimonials", icon: Quote },
+                      { href: "#cta", label: "Contact us", icon: Send },
+                    ].map((item) => {
+                      const Icon = item.icon;
+                      return (
+                        <Link 
+                          key={item.href}
+                          href={getHref(item.href)} 
+                          onClick={() => setIsOpen(false)} 
+                          className="flex items-center justify-between px-3 py-2.5 rounded-lg text-base font-medium text-primary/85 hover:text-primary hover:bg-primary/5 active:bg-primary/10 transition-colors group"
+                        >
+                          <div className="flex items-center gap-3">
+                            <Icon className="w-4.5 h-4.5 text-secondary group-hover:text-accent transition-colors" />
+                            <span>{item.label}</span>
+                          </div>
+                          <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 text-accent transition-opacity" />
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
                 
-                <div className="mt-auto pt-8">
-                  {/* Mobile Socials */}
-                  <div className="border-t border-primary/10 pt-6 flex justify-center gap-6 text-primary">
-                    <Link aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61591808093320" target="_blank" rel="noopener noreferrer"><span className="sr-only">Facebook</span><Facebook className="w-5 h-5" /></Link>
-                    <Link aria-label="Instagram" href="https://www.instagram.com/harmonyoflife_official/?hl=en" target="_blank" rel="noopener noreferrer"><span className="sr-only">Instagram</span><Instagram className="w-5 h-5" /></Link>
-                    <Link aria-label="YouTube" href="https://www.youtube.com/@Harmonyoflife-01" target="_blank" rel="noopener noreferrer"><span className="sr-only">YouTube</span><Youtube className="w-5 h-5" /></Link>
-                    <Link aria-label="LinkedIn" href="https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/" target="_blank" rel="noopener noreferrer"><span className="sr-only">LinkedIn</span><Linkedin className="w-5 h-5" /></Link>
+                {/* Footer Drawer Info */}
+                <div className="pt-8 mt-6 border-t border-primary/10 space-y-6">
+                  {/* Social Links */}
+                  <div className="flex justify-center gap-4 text-primary/70">
+                    {[
+                      { href: "https://www.facebook.com/profile.php?id=61591808093320", label: "Facebook", Icon: Facebook },
+                      { href: "https://www.instagram.com/harmonyoflife_official/?hl=en", label: "Instagram", Icon: Instagram },
+                      { href: "https://www.youtube.com/@Harmonyoflife-01", label: "YouTube", Icon: Youtube },
+                      { href: "https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/", label: "LinkedIn", Icon: Linkedin },
+                    ].map(({ href, label, Icon }) => (
+                      <Link 
+                        key={label}
+                        aria-label={label} 
+                        href={href} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="p-2.5 rounded-full bg-primary/5 hover:bg-primary/10 hover:text-accent transition-colors"
+                      >
+                        <span className="sr-only">{label}</span>
+                        <Icon className="w-4.5 h-4.5" />
+                      </Link>
+                    ))}
                   </div>
                   
-                  {/* Mobile WhatsApp CTA */}
-                  <div className="mt-6">
-                    <Link 
-                      href="https://wa.me/918800828863" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className={buttonVariants({ className: "w-full bg-green-600 hover:bg-green-700 text-white rounded-full px-6 py-5 text-base font-medium shadow-lg shadow-green-900/20 flex items-center justify-center gap-2" })}
-                    >
-                      <MessageCircle className="w-5 h-5" />
-                      Connect on WhatsApp
-                    </Link>
-                  </div>
+                  {/* Mobile WhatsApp Button */}
+                  <Link 
+                    href="https://wa.me/918800828863" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="w-full bg-primary hover:bg-primary/95 text-background rounded-full px-6 py-3.5 text-base font-medium border border-accent/40 shadow-md shadow-primary/10 flex items-center justify-center gap-2.5 transition-transform active:scale-[0.98]"
+                  >
+                    <MessageCircle className="w-5 h-5 text-accent" />
+                    <span>Connect on WhatsApp</span>
+                  </Link>
                 </div>
               </SheetContent>
             </Sheet>

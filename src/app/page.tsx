@@ -12,6 +12,8 @@ const HealthspanSection = dynamic(() => import("@/components/home/HealthspanSect
 const ElectricSection = dynamic(() => import("@/components/home/ElectricSection").then(mod => mod.ElectricSection));
 const InhibitorsSection = dynamic(() => import("@/components/home/InhibitorsSection").then(mod => mod.InhibitorsSection));
 const PillarsSection = dynamic(() => import("@/components/home/PillarsSection").then(mod => mod.PillarsSection));
+const ScienceSolutionsSection = dynamic(() => import("@/components/home/ScienceSolutionsSection").then(mod => mod.ScienceSolutionsSection));
+const NextStepSection = dynamic(() => import("@/components/home/NextStepSection").then(mod => mod.NextStepSection));
 const GutResetSection = dynamic(() => import("@/components/home/GutResetSection").then(mod => mod.GutResetSection));
 const CommunitySection = dynamic(() => import("@/components/home/CommunitySection").then(mod => mod.CommunitySection));
 const AuthoritySection = dynamic(() => import("@/components/home/AuthoritySection").then(mod => mod.AuthoritySection));
@@ -30,6 +32,8 @@ export default function Home() {
       <PhilosophySection />
       <CellularWorldSection />
       <PillarsSection />
+      <ScienceSolutionsSection />
+      <NextStepSection />
       <LifeforceSequenceSection />
       <HealthspanSection />
       <ElectricSection />

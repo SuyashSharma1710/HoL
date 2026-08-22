@@ -243,7 +243,7 @@ export function PillarsSection() {
             display: stage1Display,
             pointerEvents: stage1PointerEvents
           }}
-          className="absolute inset-0 z-10 flex items-center justify-center p-4 sm:p-6 lg:p-8"
+          className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-8 lg:px-12 xl:px-16 py-6 sm:py-8"
         >
           <div className="relative w-full max-w-5xl mx-auto bg-white/80 backdrop-blur-2xl border border-white/95 sm:border-accent/40 rounded-3xl shadow-2xl p-8 sm:p-12 lg:p-16 text-center overflow-hidden">
             
@@ -296,7 +296,7 @@ export function PillarsSection() {
             display: stage2Display,
             pointerEvents: stage2PointerEvents
           }}
-          className="absolute inset-0 z-10 flex items-center justify-center p-3 sm:p-6 lg:p-8"
+          className="absolute inset-0 z-10 flex items-center justify-center px-4 sm:px-8 lg:px-12 xl:px-16 py-4 sm:py-6"
         >
           <div className="relative w-full max-w-6xl mx-auto bg-white/80 backdrop-blur-2xl border border-white/95 sm:border-accent/35 rounded-3xl shadow-2xl p-5 sm:p-8 lg:p-10 max-h-[92vh] overflow-y-auto lg:overflow-hidden flex flex-col justify-center">
             
@@ -420,10 +420,10 @@ export function PillarsSection() {
             display: stage3Display,
             pointerEvents: stage3PointerEvents
           }}
-          className="absolute inset-0 z-15 flex items-center justify-center p-3 sm:p-5 lg:p-8 xl:p-10"
+          className="absolute inset-0 z-15 flex items-center justify-center px-4 sm:px-8 lg:px-12 xl:px-16 py-3 sm:py-6"
         >
           {/* Open Full-Width Presentation Board (Not a small card box) */}
-          <div className="relative w-full max-w-7xl 2xl:max-w-[1720px] mx-auto h-full max-h-[96vh] flex flex-col justify-between overflow-y-auto lg:overflow-hidden">
+          <div className="relative w-full max-w-360 mx-auto h-full max-h-[96vh] flex flex-col justify-between overflow-y-auto lg:overflow-hidden">
             
             {/* Top-Right Background Ambient Avatar Silhouette */}
             <div className="absolute right-2 top-0 w-48 h-36 sm:w-64 sm:h-48 lg:w-80 lg:h-56 pointer-events-none opacity-40 mix-blend-multiply overflow-hidden hidden sm:block">

@@ -9,50 +9,142 @@ import {
 import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
 
 const pillars = [
-  { num: "01", name: "Balanced Nutrition", icon: Salad, image: "/images/balanced-nutritionp.jpeg" },
-  { num: "02", name: "Deep Detox", icon: Sparkles, image: "/images/deep-detoxp.jpeg" },
-  { num: "03", name: "Artery Cleanse", icon: HeartPulse, image: "/images/artery-cleansp.jpeg" },
-  { num: "04", name: "Gut Reset", icon: ShieldPlus, image: "/images/gut-resetp.jpeg" },
-  { num: "05", name: "Cellular Vitality", icon: Zap, image: "/images/cellular-vitalityp.jpeg" },
-  { num: "06", name: "Inflammation Support", icon: Flame, image: "/images/inflamantionp.jpeg" },
-  { num: "07", name: "Immunity Strength", icon: ShieldCheck, image: "/images/immunityp.jpeg" },
-  { num: "08", name: "Deep Sleep", icon: Moon, image: "/images/deep-sleepp.jpeg" },
-  { num: "09", name: "Regular Exercise & Yoga", icon: Activity, image: "/images/regular-exercisep.jpeg" },
-  { num: "10", name: "Nature Connect", icon: TreePine, image: "/images/nature-connectp.jpeg" },
-  { num: "11", name: "Social Connect", icon: Users, image: "/images/social-connectp.jpeg" },
-  { num: "12", name: "Alkaline Chemistry", icon: FlaskConical, image: "/images/alkaline-chemistryp.jpeg" },
+  { 
+    num: "01", 
+    name: "Balanced Nutrition", 
+    icon: Salad, 
+    circleGraphic: "/images/Balance-Nutrition.jpeg",
+    image: "/images/balanced-nutritionp.jpeg",
+    desc: "Provide your cells with clean, real, and nutrient-dense food to fuel energy, support repair, and maintain optimal cellular function."
+  },
+  { 
+    num: "02", 
+    name: "Deep Detox", 
+    icon: Sparkles, 
+    circleGraphic: "/images/Deep-Detox.jpeg",
+    image: "/images/deep-detoxp.jpeg",
+    desc: "Remove accumulated toxins from the body at the cellular level to reduce toxic load and restore natural flow and clarity."
+  },
+  { 
+    num: "03", 
+    name: "Artery Cleanse", 
+    icon: HeartPulse, 
+    circleGraphic: "/images/Artery-Cleanse.jpeg",
+    image: "/images/artery-cleansp.jpeg",
+    desc: "Keep your arteries clean and flexible to ensure smooth blood flow, oxygen delivery, and strong heart health."
+  },
+  { 
+    num: "04", 
+    name: "Gut Reset", 
+    icon: ShieldPlus, 
+    circleGraphic: "/images/Gut-Reset.jpeg",
+    image: "/images/gut-resetp.jpeg",
+    desc: "Heal the gut, improve digestion, and build a strong foundation for immunity, mood, and hormonal balance."
+  },
+  { 
+    num: "05", 
+    name: "Cellular Vitality", 
+    icon: Zap, 
+    circleGraphic: "/images/Cellular-Vitality.jpeg",
+    image: "/images/cellular-vitalityp.jpeg",
+    desc: "Boost your cellular charge and energy production to enhance stamina, focus, and overall lifeforce."
+  },
+  { 
+    num: "06", 
+    name: "Inflammation Support", 
+    icon: Flame, 
+    circleGraphic: "/images/Inflammation.jpeg",
+    image: "/images/inflamantionp.jpeg",
+    desc: "Reduce chronic inflammation that silently damages cells and tissues, and accelerate healing from the inside out."
+  },
+  { 
+    num: "07", 
+    name: "Immunity Strength", 
+    icon: ShieldCheck, 
+    circleGraphic: "/images/Immunity.jpeg",
+    image: "/images/immunityp.jpeg",
+    desc: "Strengthen your natural defences to protect against illness, infections, and modern lifestyle challenges."
+  },
+  { 
+    num: "08", 
+    name: "Deep Sleep", 
+    icon: Moon, 
+    circleGraphic: "/images/Deep-Sleep.jpeg",
+    image: "/images/deep-sleepp.jpeg",
+    desc: "Improve sleep quality and duration to allow your body and mind to repair, regenerate, and recharge deeply."
+  },
+  { 
+    num: "09", 
+    name: "Regular Exercise & Yoga", 
+    icon: Activity, 
+    circleGraphic: "/images/Regular-Exercise.jpeg",
+    image: "/images/regular-exercisep.jpeg",
+    desc: "Move your body daily to improve circulation, flexibility, strength, and metabolic efficiency."
+  },
+  { 
+    num: "10", 
+    name: "Nature Connect", 
+    icon: TreePine, 
+    circleGraphic: "/images/Nature-Connect.jpeg",
+    image: "/images/nature-connectp.jpeg",
+    desc: "Reconnect with nature to reduce stress, balance emotions, and enhance your body's natural healing intelligence."
+  },
+  { 
+    num: "11", 
+    name: "Social Connect", 
+    icon: Users, 
+    circleGraphic: "/images/Social-Connect.jpeg",
+    image: "/images/social-connectp.jpeg",
+    desc: "Nurture meaningful relationships that uplift, support, and create emotional wellbeing."
+  },
+  { 
+    num: "12", 
+    name: "Alkaline Chemistry", 
+    icon: FlaskConical, 
+    circleGraphic: "/images/Alkaline-Chemistry.jpeg",
+    image: "/images/alkaline-chemistryp.jpeg",
+    desc: "Maintain an alkaline internal environment to support optimal cellular function and long-term health."
+  },
 ];
 
 export function PillarsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  // Pinned scroll management across 2 stages
+  // Pinned scroll management across 3 stages
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // Stage 1: "HOW DO WE INCREASE CELLULAR CHARGE" card
-  const stage1Opacity = useTransform(scrollYProgress, [0, 0.32, 0.44], [1, 1, 0]);
-  const stage1Scale = useTransform(scrollYProgress, [0, 0.32, 0.44], [1, 1, 0.9]);
-  const stage1Y = useTransform(scrollYProgress, [0, 0.32, 0.44], [0, 0, -40]);
-  const stage1Display = useTransform(scrollYProgress, (v) => v > 0.45 ? "none" : "flex");
-  const stage1PointerEvents = useTransform(scrollYProgress, (v) => v > 0.45 ? "none" : "auto");
+  // Stage 1 (0% - 28%): "HOW DO WE INCREASE CELLULAR CHARGE" question card
+  const stage1Opacity = useTransform(scrollYProgress, [0, 0.20, 0.28], [1, 1, 0]);
+  const stage1Scale = useTransform(scrollYProgress, [0, 0.20, 0.28], [1, 1, 0.9]);
+  const stage1Y = useTransform(scrollYProgress, [0, 0.20, 0.28], [0, 0, -30]);
+  const stage1Display = useTransform(scrollYProgress, (v) => v > 0.29 ? "none" : "flex");
+  const stage1PointerEvents = useTransform(scrollYProgress, (v) => v > 0.29 ? "none" : "auto");
 
-  // Stage 2: "THE FRAMEWORK: How we restore your cellular charge" card + 12 Pillars Orbit
-  const stage2Opacity = useTransform(scrollYProgress, [0.45, 0.58, 1], [0, 1, 1]);
-  const stage2Scale = useTransform(scrollYProgress, [0.45, 0.58, 1], [0.94, 1, 1]);
-  const stage2Y = useTransform(scrollYProgress, [0.45, 0.58, 1], [40, 0, 0]);
-  const stage2Display = useTransform(scrollYProgress, (v) => v < 0.43 ? "none" : "flex");
-  const stage2PointerEvents = useTransform(scrollYProgress, (v) => v < 0.43 ? "none" : "auto");
+  // Stage 2 (30% - 58%): "THE FRAMEWORK" split card with Prana Energy Avatar & Orbit
+  const stage2Opacity = useTransform(scrollYProgress, [0.30, 0.38, 0.54, 0.60], [0, 1, 1, 0]);
+  const stage2Scale = useTransform(scrollYProgress, [0.30, 0.38, 0.54, 0.60], [0.94, 1, 1, 0.94]);
+  const stage2Y = useTransform(scrollYProgress, [0.30, 0.38, 0.54, 0.60], [30, 0, 0, -30]);
+  const stage2Display = useTransform(scrollYProgress, (v) => (v < 0.29 || v > 0.61) ? "none" : "flex");
+  const stage2PointerEvents = useTransform(scrollYProgress, (v) => (v < 0.29 || v > 0.61) ? "none" : "auto");
+
+  // Stage 3 (62% - 100%): Full-Width 12 Foundational Pillars Grid Board (Open Area)
+  const stage3Opacity = useTransform(scrollYProgress, [0.62, 0.70, 1], [0, 1, 1]);
+  const stage3Scale = useTransform(scrollYProgress, [0.62, 0.70, 1], [0.96, 1, 1]);
+  const stage3Y = useTransform(scrollYProgress, [0.62, 0.70, 1], [30, 0, 0]);
+  const stage3Display = useTransform(scrollYProgress, (v) => v < 0.61 ? "none" : "flex");
+  const stage3PointerEvents = useTransform(scrollYProgress, (v) => v < 0.61 ? "none" : "auto");
+
+  // Dynamic Background Contrast Wash (Fades when Stage 3 enters for crystal clear reading)
+  const stage3BackdropOpacity = useTransform(scrollYProgress, [0.58, 0.68, 1], [0, 0.92, 0.92]);
 
   // Scroll Progress indicator
-  const progressWidth = useTransform(scrollYProgress, [0, 1], ["15%", "100%"]);
+  const progressWidth = useTransform(scrollYProgress, [0, 1], ["10%", "100%"]);
 
   const handleNext = useCallback(() => {
     if (selectedIndex !== null) {
@@ -91,13 +183,13 @@ export function PillarsSection() {
     <section 
       id="pillars" 
       ref={containerRef} 
-      className="relative w-full h-[240vh] bg-background text-primary"
+      className="relative w-full h-[360vh] bg-background text-primary"
     >
       {/* Sticky Viewport Shell */}
       <div className="sticky top-0 h-dvh w-full overflow-hidden flex items-center justify-center select-none">
         
         {/* ========================================================= */}
-        {/* SINGLE UNIFIED BACKGROUND CANVAS (Fixed for both stages)  */}
+        {/* SINGLE UNIFIED BACKGROUND CANVAS                         */}
         {/* ========================================================= */}
         <div className="absolute inset-0 z-0">
           {/* Desktop Background (16:9) */}
@@ -124,10 +216,16 @@ export function PillarsSection() {
             />
           </div>
 
+          {/* Dynamic Backdrop Fade Overlay for Stage 3 */}
+          <motion.div 
+            style={{ opacity: stage3BackdropOpacity }} 
+            className="absolute inset-0 bg-[#e9e0cf]/90 backdrop-blur-md z-1 pointer-events-none"
+          />
+
           {/* Atmospheric Ambient Gradients & Edge Transitions */}
-          <div className="absolute inset-0 bg-background/5 pointer-events-none" />
-          <div className="absolute inset-x-0 top-0 h-32 sm:h-48 lg:h-56 bg-linear-to-b from-background via-background/60 to-transparent pointer-events-none z-1" />
-          <div className="absolute inset-x-0 bottom-0 h-32 sm:h-48 lg:h-56 bg-linear-to-t from-background via-background/60 to-transparent pointer-events-none z-1" />
+          <div className="absolute inset-0 bg-background/5 pointer-events-none z-1" />
+          <div className="absolute inset-x-0 top-0 h-28 sm:h-40 bg-linear-to-b from-background via-background/60 to-transparent pointer-events-none z-2" />
+          <div className="absolute inset-x-0 bottom-0 h-28 sm:h-40 bg-linear-to-t from-background via-background/60 to-transparent pointer-events-none z-2" />
         </div>
 
         {/* Ambient Center Glow Flare */}
@@ -234,7 +332,7 @@ export function PillarsSection() {
                   <span className="font-heading font-bold text-5xl sm:text-6xl lg:text-7xl text-primary leading-none">
                     12
                   </span>
-                  <p className="font-heading font-medium text-sm sm:text-base lg:text-lg text-primary/90 leading-tight max-w-[170px]">
+                  <p className="font-heading font-medium text-sm sm:text-base lg:text-lg text-primary/90 leading-tight max-w-42.5">
                     Foundational Pillars of Optimal Health
                   </p>
                 </div>
@@ -249,10 +347,10 @@ export function PillarsSection() {
               </div>
 
               {/* Right Column: Interactive Circular 12-Pillar Orbit with Energy Body */}
-              <div className="lg:col-span-7 relative w-full aspect-square max-w-[420px] sm:max-w-[480px] lg:max-w-[520px] mx-auto flex items-center justify-center my-2 sm:my-0">
+              <div className="lg:col-span-7 relative w-full aspect-square max-w-105 sm:max-w-120 lg:max-w-130 mx-auto flex items-center justify-center my-2 sm:my-0">
                 
                 {/* Circular Orbit Ring Guide Track */}
-                <div className="absolute w-[85%] h-[85%] rounded-full border border-accent/30 shadow-[0_0_20px_rgba(183,135,54,0.15),_inset_0_0_20px_rgba(183,135,54,0.15)] pointer-events-none" />
+                <div className="absolute w-[85%] h-[85%] rounded-full border border-accent/30 shadow-[0_0_20px_rgba(183,135,54,0.15),inset_0_0_20px_rgba(183,135,54,0.15)] pointer-events-none" />
 
                 {/* Center Holographic Prana Energy Body Avatar */}
                 <div className="relative z-10 w-60 h-44 sm:w-70 sm:h-70 lg:w-85 lg:h-85 overflow-hidden flex items-center justify-center">
@@ -312,13 +410,121 @@ export function PillarsSection() {
 
 
         {/* ========================================================= */}
+        {/* STAGE 3: FULL-WIDTH 12 FOUNDATIONAL PILLARS GRID BOARD    */}
+        {/* ========================================================= */}
+        <motion.div 
+          style={{ 
+            opacity: stage3Opacity, 
+            scale: stage3Scale, 
+            y: stage3Y,
+            display: stage3Display,
+            pointerEvents: stage3PointerEvents
+          }}
+          className="absolute inset-0 z-15 flex items-center justify-center p-3 sm:p-5 lg:p-8 xl:p-10"
+        >
+          {/* Open Full-Width Presentation Board (Not a small card box) */}
+          <div className="relative w-full max-w-7xl 2xl:max-w-[1720px] mx-auto h-full max-h-[96vh] flex flex-col justify-between overflow-y-auto lg:overflow-hidden">
+            
+            {/* Top-Right Background Ambient Avatar Silhouette */}
+            <div className="absolute right-2 top-0 w-48 h-36 sm:w-64 sm:h-48 lg:w-80 lg:h-56 pointer-events-none opacity-40 mix-blend-multiply overflow-hidden hidden sm:block">
+              <Image
+                src="/images/prana-energy-avatar.png"
+                alt="Prana Cellular Aura"
+                fill
+                className="object-contain object-top-right"
+              />
+            </div>
+
+            {/* Top Section Header & Narrative (Design.md Dual-Tone Editorial Typography) */}
+            <div className="relative z-10 space-y-1.5 sm:space-y-2 text-left max-w-3xl pr-4">
+              {/* Eyebrow Pill */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-accent/15 border border-accent/35 text-primary">
+                <span className="font-sans font-semibold text-[10px] sm:text-xs tracking-[0.2em] uppercase">
+                  THE FRAMEWORK
+                </span>
+              </div>
+
+              {/* Main Heading */}
+              <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-primary tracking-tight leading-[1.1]">
+                12 Foundational Pillars <br className="hidden sm:inline" />
+                <span className="italic font-medium text-accent">of Optimal Health</span>
+              </h2>
+
+              {/* Sub-heading Bar */}
+              <div className="flex items-center gap-2 sm:gap-3 pt-0.5">
+                <div className="w-12 h-0.5 bg-accent/80 rounded-full" />
+                <span className="font-sans font-semibold text-[9.5px] sm:text-xs tracking-[0.2em] text-accent uppercase">
+                  THE SCIENCE OF LIVING YOUNG
+                </span>
+                <div className="w-12 h-0.5 bg-accent/80 rounded-full" />
+              </div>
+
+              {/* Narrative Copy */}
+              <p className="font-sans text-[11px] sm:text-xs lg:text-sm text-primary/85 leading-relaxed">
+                A holistic protocol designed to address the root electrical cause of disease, increasing your <strong className="font-semibold text-primary">lifeforce</strong> one pillar at a time.
+              </p>
+            </div>
+
+            {/* 12 Pillars Full Responsive Grid (6 cols on Desktop / 3-4 cols on Tablet / 2 cols on Mobile) */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-2.5 lg:gap-3 xl:gap-3.5 my-2 sm:my-3">
+              {pillars.map((pillar, index) => (
+                <div
+                  key={pillar.num}
+                  onClick={() => setSelectedIndex(index)}
+                  className="relative group bg-white/85 hover:bg-white backdrop-blur-xl border border-white/95 hover:border-accent/60 rounded-2xl p-2.5 sm:p-3 flex flex-col items-center text-center shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer hover:-translate-y-1"
+                >
+                  {/* Number Badge Tag (Full Pill) */}
+                  <div className="absolute top-2 left-2 w-5 h-5 rounded-full bg-accent/20 border border-accent/40 text-primary font-mono text-[9px] font-bold flex items-center justify-center group-hover:bg-accent group-hover:text-white transition-colors">
+                    {pillar.num}
+                  </div>
+
+                  {/* Circular 3D Artwork Image */}
+                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 lg:w-15 lg:h-15 xl:w-16 xl:h-16 rounded-full overflow-hidden border-2 border-white shadow-sm my-1 group-hover:scale-108 transition-transform duration-300">
+                    <Image
+                      src={pillar.circleGraphic}
+                      alt={pillar.name}
+                      fill
+                      sizes="80px"
+                      className="object-cover object-center"
+                    />
+                    <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-accent/30 pointer-events-none" />
+                  </div>
+
+                  {/* Pillar Title (Cormorant Garamond) */}
+                  <h3 className="font-heading font-semibold text-xs sm:text-[13px] lg:text-sm text-primary leading-tight mt-1 mb-1 group-hover:text-[#1a4a40] transition-colors">
+                    {pillar.name}
+                  </h3>
+
+                  {/* Pillar Description (Inter) */}
+                  <p className="font-sans text-[9.5px] sm:text-[10px] xl:text-[10.5px] text-primary/80 leading-[1.3] line-clamp-3 group-hover:text-primary transition-colors">
+                    {pillar.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom Lotus Tagline Bar */}
+            <div className="flex items-center justify-center gap-2 sm:gap-4 pt-1 sm:pt-2 border-t border-accent/20">
+              <div className="w-8 sm:w-20 h-px bg-accent/60" />
+              <div className="flex items-center gap-1.5 text-primary/80 font-heading italic text-xs sm:text-sm text-center">
+                <LotusIcon className="w-3.5 h-3.5 text-accent stroke-accent" />
+                <span>Small daily choices. Big cellular impact. Infinite possibilities.</span>
+              </div>
+              <div className="w-8 sm:w-20 h-px bg-accent/60" />
+            </div>
+
+          </div>
+        </motion.div>
+
+
+        {/* ========================================================= */}
         {/* BOTTOM FLOATING SCROLL PROGRESS CONTROLLER                */}
         {/* ========================================================= */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 bg-background/90 backdrop-blur-md px-4 py-2 rounded-full border border-accent/35 shadow-xl shadow-primary/5">
-          <span className="font-sans font-semibold text-[11px] tracking-wider text-primary/70 uppercase">
-            Scroll to Reveal Framework
+        <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 bg-background/90 backdrop-blur-md px-4 py-2 rounded-full border border-accent/35 shadow-xl shadow-primary/5">
+          <span className="font-sans font-semibold text-[10px] sm:text-[11px] tracking-wider text-primary/70 uppercase">
+            Scroll Framework Journey
           </span>
-          <div className="w-20 h-1.5 bg-primary/15 rounded-full overflow-hidden">
+          <div className="w-20 sm:w-24 h-1.5 bg-primary/15 rounded-full overflow-hidden">
             <motion.div style={{ width: progressWidth }} className="h-full bg-accent rounded-full" />
           </div>
           <ChevronRight className="w-3.5 h-3.5 text-accent animate-pulse" />
@@ -370,7 +576,7 @@ export function PillarsSection() {
               </div>
 
               {/* Central Poster Display (Strict Non-Collapsing 3:4 Frame with Loading State) */}
-              <div className="relative w-[280px] sm:w-[340px] md:w-[380px] max-w-[88vw] aspect-[3/4] max-h-[58vh] sm:max-h-[64vh] rounded-2xl overflow-hidden shadow-xl border border-accent/30 bg-[#f4eee4] flex items-center justify-center">
+              <div className="relative w-70 sm:w-85 md:w-95 max-w-[88vw] aspect-3/4 max-h-[58vh] sm:max-h-[64vh] rounded-2xl overflow-hidden shadow-xl border border-accent/30 bg-[#f4eee4] flex items-center justify-center">
                 
                 {/* Luminous Lotus Loading Placeholder */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-radial from-accent/20 via-background/80 to-background/95 z-0">
@@ -394,7 +600,7 @@ export function PillarsSection() {
                 />
               </div>
 
-              {/* Primary Full-Width CTA (Old CTA Restored) */}
+              {/* Primary Full-Width CTA */}
               <Link 
                 href="#cta"
                 onClick={() => setSelectedIndex(null)}
@@ -457,3 +663,4 @@ function LotusIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+

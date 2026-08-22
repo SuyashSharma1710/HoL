@@ -911,6 +911,54 @@ _(Append new actions below this line as the project progresses)_
   - **Restored Signature CTA:** Restored the full-width solid amber-gold *"Start Your Wellness Journey"* button and bottom Previous / Next pagination controls.
 - **Why:** Eliminates layout-shift collapsing, avoids cropping, and delivers a polished luxury modal experience adhering strictly to `Design.md`.
 
+**156. Code Quality & Canonical Tailwind CSS Pass (`PillarsSection.tsx`)**
+- **What:** Cleaned up linting diagnostics and modernized utility classes:
+  - Removed unused imports (`cn`, `buttonVariants`) while preserving `ChevronDown` for Stage 1 scroll guide prompt.
+  - Converted arbitrary bracket widths and aspect ratios to Tailwind v4 canonical classes (`max-w-[170px]` $\rightarrow$ `max-w-42.5`, `max-w-[420px]` $\rightarrow$ `max-w-105`, `sm:max-w-[480px]` $\rightarrow$ `sm:max-w-120`, `lg:max-w-[520px]` $\rightarrow$ `lg:max-w-130`, `w-[280px]` $\rightarrow$ `w-70`, `sm:w-[340px]` $\rightarrow$ `sm:w-85`, `md:w-[380px]` $\rightarrow$ `md:w-95`, `aspect-[3/4]` $\rightarrow$ `aspect-3/4`).
+  - Cleaned redundant whitespace in multi-layer inset box-shadow class string.
+- **Why:** Maintains zero-warning policy, optimizes bundle footprint, and aligns with Tailwind CSS compiler standards.
+
+**157. Integrated 3-Stage Pinned Scroll & Full-Width 12 Pillars Grid Board (`PillarsSection.tsx`)**
+- **What:** Upgraded the section from a 2-stage to a 3-stage pinned scroll experience over `h-[360vh]`:
+  - **Stage 1 (0%–28%):** Centered *"HOW DO WE INCREASE CELLULAR CHARGE"* question card with gold star divider and bouncing chevron.
+  - **Stage 2 (30%–58%):** Split container with *"THE FRAMEWORK: How we restore your cellular charge"* + Prana Energy Avatar and 12-pillar rotating orbit badges.
+  - **Stage 3 (62%–100%):** Full-width **12 Foundational Pillars of Optimal Health** grid board matching the presentation reference slide (not confined to a small card).
+  - **Dynamic Background Fade:** Added `stage3BackdropOpacity` smoothly transitioning an ambient frosted wash (`bg-[#e9e0cf]/90 backdrop-blur-md`) as Stage 3 enters, maximizing text legibility across all 12 cards.
+  - **Complete 12-Pillar Data & Graphics:** Added rich descriptions and 3D circular bio-graphics (`/images/Balance-Nutrition.jpeg`, `/images/Deep-Detox.jpeg`, etc.) with amber-gold number badges (`01`–`12`).
+  - **Dual Access to 3:4 Lightbox:** Clicking any card in either Stage 2 or Stage 3 opens the high-resolution 3:4 infographic poster modal.
+  - **Bottom Tagline:** Added the signature *"Small daily choices. Big cellular impact. Infinite possibilities."* with Sacred Lotus emblem.
+- **Why:** Fulfills the user requirement for a full-width presentation board in Stage 3 with active background fading for optimal readability while preserving the interactive orbit and modal lightbox.
+
+**158. Design.md Strict Compliance Audit (`PillarsSection.tsx`)**
+- **What:** Audited all visual elements against `Design.md`:
+  - **Open Full-Width Canvas:** Removed boxed card wrapper from Stage 3, allowing the 12 pillars grid to expand edge-to-edge over the dynamic contrast backdrop wash.
+  - **Dual-Tone Editorial Typography:** Headings locked to `Cormorant Garamond` (Forest Green `#142b23` display paired with Amber-Gold `#b78736` italic accent); body/descriptions locked to `Inter` (regular `#142b23/85`).
+  - **4-Color Palette Strictness:** Restricted strictly to `#e9e0cf`, `#142b23`, `#607860`, `#b78736`, and `#ffd875`.
+  - **Shapes & Spacing Scale:** 16px (`rounded-2xl`) card containers, 9999px (`rounded-full`) pill badges/buttons, and strict 8px rhythmic spacing multiples.
+- **Why:** Ensures 100% adherence to the Celestial Wellness design tokens and agent rules.
+
+**159. Screen Edge Horizontal Spacing Standardization (Sections 1–8)**
+- **What:** Unified horizontal container edge padding across the first 8 landing page sections:
+  - Scaled strictly to `px-4 sm:px-8 lg:px-12 xl:px-16` (16px Mobile / 32px Tablet / 48px Desktop / 64px Ultra-Wide).
+  - Applied across:
+    1. [`src/components/home/Hero.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/Hero.tsx)
+    2. [`src/components/home/ValuePropsBanner.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/ValuePropsBanner.tsx) (Edge-masked infinite marquee)
+    3. [`src/components/home/AgingSlidesSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/AgingSlidesSection.tsx) (Panoramic edge-to-edge frame)
+    4. [`src/components/home/WhyHolSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/WhyHolSection.tsx)
+    5. [`src/components/home/IssuesSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/IssuesSection.tsx)
+    6. [`src/components/home/PhilosophySection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/PhilosophySection.tsx)
+    7. [`src/components/home/CellularWorldSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/CellularWorldSection.tsx) (All 3 horizontal scroll panels)
+    8. [`src/components/home/PillarsSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/PillarsSection.tsx) (All 3 vertical scroll stages)
+- **Why:** Eliminates visual jitter and ensures an uninterrupted, luxury visual rhythm as the user scrolls down the page.
+
+**160. Design.md Spacing Tokens Synchronized with Hero**
+- **What:** Updated [`Design.md`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/Design.md) frontmatter and Section 4 with the definitive spacing specifications:
+  - **Containers Scale:** `heroMax: 1440px` (`max-w-360`), `standard: 1280px` (`max-w-7xl`), `focus: 1024px` (`max-w-5xl`), `narrow: 896px` (`max-w-4xl`).
+  - **Screen-Edge Horizontal Gutter:** `mobile: 16px` (`px-4`), `tablet: 32px` (`sm:px-8`), `desktop: 48px` (`lg:px-12`), `ultraWide: 64px` (`xl:px-16`).
+  - **Vertical Section Sizing:** `min-h-dvh lg:h-dvh -mt-24 pt-28 pb-16 lg:py-0` for hero; `py-20 sm:py-28 lg:py-32` for flow sections; `sticky top-0 h-dvh` for pinned narrative sequences.
+  - **Grid & Component Gaps:** `gap-8` for two-column desktop split; `gap-4 sm:gap-6` for card grids.
+- **Why:** Keeps the project design token documentation 100% in sync with actual production implementations.
+
 
 
 

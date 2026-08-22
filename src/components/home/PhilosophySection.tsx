@@ -47,7 +47,7 @@ export function PhilosophySection() {
         <div className="absolute inset-x-0 bottom-0 h-32 sm:h-48 lg:h-56 bg-linear-to-t from-background via-background/60 to-transparent pointer-events-none z-10" />
 
         {/* Luminous Glassmorphic Statement Card */}
-        <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex items-center justify-center">
+        <div className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-8 lg:px-12 xl:px-16 py-20 flex items-center justify-center">
           <motion.div 
             initial={{ opacity: 0, scale: 0.96, y: 24 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}

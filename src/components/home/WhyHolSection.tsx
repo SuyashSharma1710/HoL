@@ -128,7 +128,7 @@ export function WhyHolSection() {
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full max-w-360 mx-auto px-4 sm:px-6 lg:px-12">
+      <div className="relative z-10 w-full max-w-360 mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20">

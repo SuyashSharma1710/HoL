@@ -66,7 +66,7 @@ export function CellularWorldSection() {
           {/* ========================================================= */}
           {/* PANEL 1: OPEN HERO EDITORIAL — WELCOME TO CELLULAR HEALTH */}
           {/* ========================================================= */}
-          <div className="w-screen h-full shrink-0 flex items-center justify-center px-4 sm:px-8 lg:px-16 py-12">
+          <div className="w-screen h-full shrink-0 flex items-center justify-center px-4 sm:px-8 lg:px-12 xl:px-16 py-12">
             <div className="w-full max-w-5xl mx-auto flex flex-col items-center text-center">
               
               {/* Luminous Frosted Heading Backplate for Ultra-Crisp Visibility */}
@@ -153,7 +153,7 @@ export function CellularWorldSection() {
           {/* ========================================================= */}
           {/* PANEL 2: ASYMMETRIC QUOTE & SACRED TREE PILLAR            */}
           {/* ========================================================= */}
-          <div className="w-screen h-full shrink-0 flex items-center justify-center px-4 sm:px-8 lg:px-16 py-12">
+          <div className="w-screen h-full shrink-0 flex items-center justify-center px-4 sm:px-8 lg:px-12 xl:px-16 py-12">
             <div className="w-full max-w-5xl mx-auto">
               
               {/* Asymmetric 2-Column Floating Stage */}
@@ -228,7 +228,7 @@ export function CellularWorldSection() {
           {/* ========================================================= */}
           {/* PANEL 3: YOU ARE ELECTRIC & VOLTAGE / AGE SCIENTIFIC CARD */}
           {/* ========================================================= */}
-          <div className="w-screen h-full shrink-0 flex items-center justify-center px-4 sm:px-8 lg:px-16 py-12">
+          <div className="w-screen h-full shrink-0 flex items-center justify-center px-4 sm:px-8 lg:px-12 xl:px-16 py-12">
             <div className="w-full max-w-5xl mx-auto">
               
               {/* Split Calculation & Interactive Graph Grid */}

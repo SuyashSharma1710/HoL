@@ -63,7 +63,7 @@ export function Hero() {
       </div>
 
       {/* Main Content Layout */}
-      <div className="relative z-10 w-full max-w-360 mx-auto px-5 sm:px-8 lg:px-14">
+      <div className="relative z-10 w-full max-w-360 mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* Left Text & Conversion Block */}

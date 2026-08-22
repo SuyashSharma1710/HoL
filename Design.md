@@ -46,6 +46,16 @@ spacing:
   32: 32px
   48: 48px
   64: 64px
+containers:
+  heroMax: 1440px # max-w-360
+  standard: 1280px # max-w-7xl
+  focus: 1024px # max-w-5xl
+  narrow: 896px # max-w-4xl
+edgePadding:
+  mobile: 16px # px-4 (< 640px)
+  tablet: 32px # sm:px-8 (640px - 1024px)
+  desktop: 48px # lg:px-12 (1024px - 1280px)
+  ultraWide: 64px # xl:px-16 (> 1280px)
 ---
 
 # Design System: Celestial Wellness & Science of Living Young
@@ -87,7 +97,7 @@ The typographic scale combines classical editorial prestige with crisp, clinical
 ```
 [DISPLAY HEADING]        Cormorant Garamond (600)   #142b23   "Harmony of Life,"
 [DISPLAY ITALIC ACCENT]  Cormorant Garamond (500i)  #b78736   "The Science of Living Young."
-        ─── (Gold Accent Line / Divider: 48px × 2px #b78736) ───
+        ─── (Gold Accent Line / Divider: 56px × 2.5px #b78736) ───
 [EYEBROW / MISSION]      Inter (600, UPPERCASE)     #142b23   "INDIA'S FIRST PERSONALISED HEALTH & WELLNESS COMMUNITY"
 [BODY / NARRATIVE]       Inter (400, Relaxed)       #142b23   "Rooted in science. Guided by nature. Focused on you..."
 [ANNOTATIONS / NODES]    Inter (500)                #142b23   "• Increase Lifeforce" | "• Cellular Vitality"
@@ -97,10 +107,10 @@ The typographic scale combines classical editorial prestige with crisp, clinical
 
 1. **Display Primary (`clamp(36px, 5.5vw, 64px)`):**
    - Font: `Cormorant Garamond`, SemiBold (600).
-   - Style: Upright, tight line-height (`leading-[1.1]`), deep primary forest green (`#142b23`).
+   - Style: Upright, tight line-height (`leading-[1.06]`), deep primary forest green (`#142b23`).
 2. **Display Accent / Italic (`clamp(32px, 5vw, 56px)`):**
    - Font: `Cormorant Garamond`, Medium Italic (500).
-   - Style: Cursive elegance, golden amber tone (`#b78736`), rendered seamlessly on the subsequent line.
+   - Style: Cursive elegance, golden amber tone (`#b78736`), rendered seamlessly on the subsequent line (`leading-[1.12]`).
 3. **Eyebrow Label (`clamp(11px, 1.2vw, 13px)`):**
    - Font: `Inter`, SemiBold (600).
    - Style: Uppercase, generous tracking (`letter-spacing: 0.2em` / `tracking-[0.2em]`), crisp dark forest text.
@@ -113,11 +123,35 @@ The typographic scale combines classical editorial prestige with crisp, clinical
 
 ---
 
-## 4. Shapes, Geometry & Spacing
+## 4. Shapes, Geometry & Spacing (Hero-Aligned System)
+
+### Screen-Edge Horizontal Gutter Standard
+All main page sections adhere to the exact horizontal responsive padding rhythm established by the Hero component:
+- **Mobile (`< 640px`):** `px-4` (16px edge padding)
+- **Tablet (`sm`, 640px–1024px):** `sm:px-8` (32px edge padding)
+- **Desktop (`lg`, 1024px–1280px):** `lg:px-12` (48px edge padding)
+- **Ultra-Wide (`xl`, `> 1280px`):** `xl:px-16` (64px edge padding)
+
+### Layout Containers
+- **Primary Hero / Full-Bleed Sections:** `max-w-360 mx-auto` (1440px max content width).
+- **Standard Content Sections:** `max-w-7xl mx-auto` (1280px).
+- **Focused Editorial Sections:** `max-w-5xl mx-auto` (1024px).
+- **Data / Crisis Callout Cards:** `max-w-4xl mx-auto` (896px).
+
+### Vertical Section Sizing & Rhythms
+- **Hero Viewport:** `min-h-dvh lg:h-dvh -mt-24 pt-28 pb-16 lg:py-0` (includes 112px `pt-28` navbar offset on mobile/tablet and full-height centered layout on desktop).
+- **Standard Flow Sections:** `py-20 sm:py-28 lg:py-32` (80px / 112px / 128px vertical padding).
+- **Pinned Storytelling Sequences:** `sticky top-0 h-dvh` nested inside runway height (`h-[300vh]`, `h-[360vh]`).
+
+### Grid & Component Gaps
+- **Desktop Split Grid Gap:** `gap-8` (32px) in 12-column layouts (`grid grid-cols-1 lg:grid-cols-12 gap-8 items-center`).
+- **Card Bento Grids:** `gap-4 sm:gap-6` (16px–24px).
+- **Micro Gaps:** `gap-2` (8px), `gap-3.5` (14px) for pill items and icon badges.
 
 ### Border Radii
 - **Full Pill (`rounded-full` / `9999px`):** Primary and secondary interactive action buttons, category chips, status tags, and floating callout badges.
 - **Card Containers (`16px` / `rounded-2xl`):** Glassmorphic content cards, modal sheets, and bento modules.
+- **Mega Shells (`24px` / `rounded-3xl`):** Major spotlight cards, modal dialogs, and feature containers.
 - **Micro Radii (`8px` / `rounded-sm`):** Inputs, tooltips, and compact dialog elements.
 
 ### Spacing Scale (Strict 8px Rhythmic Grid)

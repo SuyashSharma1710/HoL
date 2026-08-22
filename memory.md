@@ -494,32 +494,39 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** To capture high-intent users immediately after they interact with the core framework. The auto-closing modal logic ensures the smooth Lenis scroll to the `#cta` section isn't visually blocked by the overlay.
 
 **92. Pillars Section UI Restructuring**
+
 - **What:** Relocated the "Direct charge, Meditation, Dhyan" glassmorphic pill badge from the bottom of the orbit container directly into the main section header. Conversely, shifted the main "Start Your Journey" CTA button from the top header down to the bottom callout space beneath the 12-pillar orbital diagram.
 - **Why:** To create a cleaner visual hierarchy. Establishing the core philosophy in the header frames the interactive orbit, while placing the CTA at the bottom ensures it acts as the final logical conversion step after the user has engaged with the framework.
 
 **93. Global Typography Standardization**
+
 - **What:** Executed a codebase-wide sweep to strictly enforce the landing page typography tokens. Replaced non-semantic `<h3>` eyebrows with stylized `<p>` tags, injected missing `font-heading` classes on `<h2>` elements in `WelcomeSection.tsx`, and locked in the `md:text-6xl font-semibold` standard across the board.
 - **Why:** To ensure a flawlessly uniform visual rhythm as the user scrolls, cementing a highly premium, cohesive brand aesthetic.
 
 **94. Core Pill Starburst Flare**
+
 - **What:** Injected a cinematic CSS starburst flare behind the "Direct charge, Meditation, Dhyan" pill badge in `PillarsSection.tsx`. This utilizes multiple overlapping linear-gradient lines (`rotate-0`, `rotate-90`, `rotate-35`) and a deep blurred hotspot, mirroring the central orbit core's aesthetic.
 - **Why:** To instantly draw the user's eye to the central philosophy of the framework while maintaining the energetic, cosmic visual theme.
 
 **95. Pillars & Gut Reset Image Generation Update**
+
 - **What:** Generated new custom imagery and updated component references:
   1. **PillarsSection**: Updated "Deep Detox" to a text-free side-by-side comparison of a toxic vs healthy cell. Updated "Artery Cleanse" to a side-by-side comparison of a clogged vs clean artery.
   2. **GutResetSection**: Replaced previous images with a dedicated, text-free 3D medical illustration of a glowing human digestive system, tailored specifically for desktop (left-aligned) and mobile (bottom-aligned) viewports.
 - **Why:** To enhance visual communication in the scientific sections, providing clear, high-quality bespoke medical illustrations that follow the celestial wellness design system without conflicting text overlays.
 
 **96. Legal Pages Padding Adjustment**
+
 - **What:** Removed the extra top padding (`pt-32`) from the `<main>` container in `privacy/page.tsx`, `terms/page.tsx`, and `cookies/page.tsx`.
 - **Why:** To correct spacing issues at the top of the legal pages, ensuring the content is flush and positioned correctly relative to the global navigation header.
 
 **97. Hero Section Typography & Grammar Polish**
+
 - **What:** Fixed an unescaped single quote in `Hero.tsx` that causes JSX compilation/linting errors (changed `"World's"` to `"The world&apos;s"`). Corrected grammatical flow by adding "The" at the beginning, normalizing the capitalization of "personalized health", and changing "decision" to the plural "decisions".
 - **Why:** To prevent React build errors related to unescaped entities in JSX and to ensure the landing page hero copy reads naturally and professionally.
 
 **98. Complete Overhaul of WhySection (The Blueprint & Approach)**
+
 - **What:**
   1. Restructured `WhySection.tsx` into a strict sequence (Intro -> Blueprint Sticky Scroll -> Approach Bento Grid -> Resolution) to exactly match marketing copy.
   2. Extracted "Why HOL" into a dedicated, standard-sized section heading.
@@ -529,61 +536,74 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** To massively elevate the visual impact of the Blueprint and Crisis Stats sections, ensuring they feel like a premium, interactive presentation while strictly adhering to the celestial wellness design system.
 
 **99. Philosophy Section Simplification**
+
 - **What:** Commented out the "Massive Opening Statement" and "Asymmetric Editorial Grid" in `PhilosophySection.tsx`, retaining only the cinematic closing statement (the large parallax background image with the floating frosted glass card).
 - **Why:** To streamline the section and focus the user's attention entirely on the core "movement" message, while preserving the unused layout code for potential future use.
 
 **100. Why Section Resolution Editorial Redesign**
-- **What:** Redesigned the Resolution card at the end of `WhySection.tsx` from a simple bulleted list into a massive, wide split-panel editorial layout. 
+
+- **What:** Redesigned the Resolution card at the end of `WhySection.tsx` from a simple bulleted list into a massive, wide split-panel editorial layout.
   - Generated and integrated a new custom image (`root-cause.png`) for the left panel.
   - Replaced bullet points with large, premium serif typography (`font-heading`) and gold accents for the right panel.
 - **Why:** To make the culmination of the "Why HOL" section feel like a high-end magazine spread, maximizing visual impact and adhering to the premium celestial wellness aesthetic.
 
 **101. Tailwind Canonical Classes & Parallax Polish**
-- **What:** 
+
+- **What:**
   1. Resolved all Tailwind CSS Intellisense lint warnings in `WhySection.tsx` by replacing arbitrary spacing and opacity values (e.g., `min-h-[200px]`, `text-white/[0.06]`) with their canonical equivalents (`min-h-50`, `text-white/6`).
   2. Removed an unused `y1` variable from `PhilosophySection.tsx`.
   3. Upgraded the static sticky background images in `WhySection.tsx` with a slow, upward parallax scrolling effect (`useTransform` from `10%` to `-10%`) so they glide in the same direction as the content scroll.
 - **Why:** To ensure strict compliance with Tailwind CSS v4 standards and to provide a smooth, cinematic visual experience as the user scrolls through the tall sticky sections.
 
 **102. Light Theme Migration for WhySection**
+
 - **What:** Replaced the dark background (`bg-primary`) and white text (`text-white`) with the lighter theme (`bg-background` and `text-primary`) across the remaining sections of `WhySection.tsx` (Bento Grid and Resolution panel) to adhere strictly to the celestial wellness palette defined in `Design.md`.
 - **Why:** To ensure uniform aesthetic continuity across the landing page, avoiding overly harsh dark sections unless explicitly intended for impact (like the Hero).
 
 **103. Literal Photographic Upgrades (Bento Grid)**
+
 - **What:** Generated and swapped in literal, high-end cinematic photographs for the Bento grid cards (`bento-diabetic-literal.png`, etc.) instead of the previous abstract images. Removed full-card cream opacity washes in favor of targeted dark CSS radial/linear gradients placed explicitly behind the text elements. Reverted card text to white (`text-white`) with strong drop shadows.
 - **Why:** The user required clear, grounded imagery that literally conveyed the health crises (Diabetic, Obese, ED, Alcohol) while ensuring text legibility was not compromised by the photography.
 
 **104. Blueprint Interactive Hover Gallery Redesign**
-- **What:** Completely deleted the complex `400vh` sticky-scroll logic for "The Blueprint" section in `WhySection.tsx`. Replaced it with a high-performance horizontal hover accordion gallery. The cards sit on an 80vh container, flexing out on hover (`flex-1` to `flex-[1.5]`) and sliding descriptive text up smoothly using CSS grid transitions (`grid-rows-[0fr]` to `grid-rows-[1fr]`). 
+
+- **What:** Completely deleted the complex `400vh` sticky-scroll logic for "The Blueprint" section in `WhySection.tsx`. Replaced it with a high-performance horizontal hover accordion gallery. The cards sit on an 80vh container, flexing out on hover (`flex-1` to `flex-[1.5]`) and sliding descriptive text up smoothly using CSS grid transitions (`grid-rows-[0fr]` to `grid-rows-[1fr]`).
 - **Why:** To massively reduce the scroll burden of the page while maintaining an engaging, interactive presentation for the Blueprint tenets.
 
 **105. Spacing and Mobile Viewport Standardization**
+
 - **What:** Scaled down extreme padding values (`pt-24/32` to `pt-12`) above the Blueprint gallery to conform with `Design.md`'s strict maximum 48px spacing rule. On mobile screens, removed the fixed height container constraint and applied `aspect-square` to individual Blueprint cards.
 - **Why:** To fix excessive dead space on desktop and ensure the expanding gallery stacks neatly into beautifully legible square cards on mobile devices.
 
 **106. Resolution Image Update**
+
 - **What:** Replaced the abstract golden roots image (`root-cause.png`) with a new, bespoke cinematic photograph (`resolution-joyful.png`) featuring a vibrant Indian woman at sunrise in nature.
 - **Why:** To literally and joyfully represent the concept of "increasing your Lifeforce and Cellular Charge", bringing a relatable human element to the closing statement rather than a purely abstract scientific visual.
 
 **107. Lifeforce Sequence Section Image and Styling Updates**
+
 - **What:** Changed image in Card 3 to `young-man-raising-hands-sunset-sky-after-training.jpg`. Applied `saturate-[1.5]` and `contrast-125` to boost image color.
 - **Why:** User requested a bright, wide natural landscape image.
 - **What:** Added a large, faint, slowly rotating `logo.svg` to the background of Card 1.
 - **Why:** User requested an active abstract element after removing the moving text.
 
 **108. Inhibitors Section Image Updates**
+
 - **What:** Updated images for all slides (Toxins, Stress, Sleep, Nutrition, Movement, Deficiency) to point to new user-provided images.
 - **Why:** User provided specific images matching the eyebrow headings.
 
 **109. Updated Symmetrical Logo Asset**
+
 - **What:** Updated `public/logo.svg` to a balanced, square 1:1 aspect ratio (`1507x1507` viewBox) with updated path coordinates and refined petal fills (`#C7C3B8`, `#8FAE9C`, `#E9DDC7`, `#5A7161`).
 - **Why:** To ensure the brandmark is perfectly symmetrical and scales cleanly without distortion across all navigational headers, rotating background watermarks, and mobile menus.
 
 **110. Archive Folder Exclusion in TypeScript Config**
+
 - **What:** Added `"old-site-comp"` and `"harmony-of-life"` to the `exclude` array in `tsconfig.json`.
 - **Why:** To prevent archived/legacy component backups from being caught in Next.js production type checks, ensuring clean and deterministic builds.
 
 **111. Created Why Harmony of Life Section (`WhyHolSection.tsx`)**
+
 - **What:** Built a dedicated `WhyHolSection.tsx` matching the user's mockup featuring:
   - Top-left palm leaf (`topleft.png`) and bottom-left leaf (`bottomleftleaf.png`) decorative entrance overlays with custom offset coordinates (`-top-30`, `-bottom-50`, `w-50`).
   - Full-bleed ambient background image (`whybg.jpeg`) with yogic cellular charging visual.
@@ -593,27 +613,32 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** To provide an ultra-clean, elegant, and faithful visual section communicating the organization's foundational pillars and vision.
 
 **112. Hero & Why Section Typography Refinements**
+
 - **What:** Refined `Hero.tsx` heading to cleanly split "Welcome to" (`font-text`) and "Harmony of Life" (`font-heading`). Updated stat callout numbers in `WhySection.tsx` from `font-heading` to `font-text` for clean numeric clarity.
 - **Why:** To ensure crisp font hierarchy and stylistic consistency across all primary landing page sections.
 
 **113. Added Organic Sway Motion to Decorative Leaves (`WhyHolSection.tsx`)**
+
 - **What:** Integrated continuous, organic Framer Motion breeze animations to the top-left palm leaf and bottom-left foliage overlays:
   - Top-left palm leaf: Positioned at `-top-30 -left-10` with gentle rotational drift (`rotate: [0, 2.5, -1.5, 2, 0]`, `y: [0, -6, 2, -4, 0]`, `x: [0, 4, -2, 3, 0]`) anchored at `transformOrigin: "top left"` across an 8-second easing cycle.
   - Bottom-left green foliage: Positioned at `-bottom-50 -left-10` with counter-balancing organic breeze sway (`rotate: [0, -2, 1.5, -1.5, 0]`, `y: [0, 5, -2, 4, 0]`, `x: [0, -3, 2, -2, 0]`) anchored at `transformOrigin: "bottom left"` across a 9.5-second easing cycle.
-  - Updated "Our Aim" copy to: *"to empower people with the science backed knowledge about their health so that they live young."*
-**114. Hero Background Asset Update**
+  - Updated "Our Aim" copy to: _"to empower people with the science backed knowledge about their health so that they live young."_
+    **114. Hero Background Asset Update**
 - **What:** Updated the hero background image in `Hero.tsx` to `herobannerflaire.jpeg` (`public/images/herobannerflaire.jpeg`) with static blur optimization and high fetch priority.
 - **Why:** To integrate the warm, vibrant Indian community vitality visual with golden sunlight flares as the main hero banner.
 
 **116. Hero Scroll Indicator Integration**
+
 - **What:** Replaced the primary CTA button in `Hero.tsx` with a centered, minimalist animated scroll indicator mouse pill (`border-2 border-white/90 rounded-full`) featuring a smooth looping inner dot animation and linking smoothly to `#why-hol`.
 - **Why:** To match the user's design wireframe and provide an elegant, non-intrusive cue prompting users to scroll into the journey.
 
 **117. Added Hero Header Top Beige Gradient**
+
 - **What:** Injected a soft, top-down beige gradient (`bg-gradient-to-b from-background via-background/60 to-transparent h-48 sm:h-56 lg:h-64`) at the top of `Hero.tsx`.
 - **Why:** To provide an ultra-clean, branded background backdrop behind the sticky global Navbar, maximizing legibility for navigation links and logo while smoothly blending into the sunny nature background image.
 
 **118. Created Dedicated IssuesSection (`IssuesSection.tsx`)**
+
 - **What:** Built a standalone component `IssuesSection.tsx` utilizing `issuesbg.jpeg` (4-quadrant photo montage covering Diabetes, Obesity, ED, and Alcohol).
   - Designed a centered, frosted glassmorphic card with automated 4-second looping cycling text (`AnimatePresence`) transitioning through the 4 health crises.
   - Added interactive pagination dots, hover-pause behavior, and left/right chevron navigation.
@@ -622,34 +647,41 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** To translate the crisis stats into a high-impact, focused interactive carousel directly matching the dedicated background collage.
 
 **119. IssuesSection Pure Text Cycling Refinement**
+
 - **What:** Removed the frosted glass card container, borders, shadows, pagination dots, and navigation arrow buttons in `IssuesSection.tsx`.
 - **Why:** To let the large typography cycle seamlessly directly on the open center area of the `issuesbg.jpeg` background montage without any UI container artifacts.
 
 **120. WhyHolSection Bottom Gradient Merge**
+
 - **What:** Added a soft bottom-up beige gradient (`bg-gradient-to-t from-background via-background/60 to-transparent h-36 sm:h-48 lg:h-64`) at the base of `WhyHolSection.tsx` and enhanced the top gradient in `IssuesSection.tsx`.
 - **Why:** To eliminate the abrupt hard image edge and create a smooth, organic visual blend merging the two sections together.
 
 **121. Merged The Resolution & 12 Pillars Framework (`PillarsSection.tsx`)**
+
 - **What:** Merged the content from `WhySection.tsx` ("The Resolution - Addressing the root cause of the root cause" with `resolution-joyful.png` and "Direct charge, Meditation, Dhyan" glowing badge) directly into `PillarsSection.tsx` as Part 1, followed immediately by the 12 Foundational Pillars Solar Orbital System as Part 2.
   - Formatted both sections into a unified deep sacred forest green (`bg-primary` / `#142b23`) with glowing gold accents (`#b69c5f`) and celestial ambient watermarks.
   - Removed duplicate `<WhySection />` import from `src/app/page.tsx`.
 - **Why:** To create a cohesive, uninterrupted narrative flow from root-cause thesis into the 12-pillar operational protocol with a unified aesthetic.
 
 **122. Landing Page Section Sequence Flow Optimization (`page.tsx`)**
+
 - **What:** Positioned `<PillarsSection />` directly following `<IssuesSection />` in `src/app/page.tsx` (`Hero` -> `WhyHolSection` -> `IssuesSection` -> `PillarsSection` -> `PhilosophySection` -> `LifeforceSequenceSection` ...).
 - **Why:** To provide an immediate resolution and operational framework directly after presenting the lifestyle crisis statistics.
 
 **123. Installed Taste-Skill Suite (`.agents/skills`)**
+
 - **What:** Installed the full `Leonxlnx/taste-skill` v2 bundle into `.agents/skills/`, including `design-taste-frontend` (v2 core), `design-taste-frontend-v1`, `minimalist-ui`, `industrial-brutalist-ui`, `high-end-visual-design`, `redesign-existing-projects`, `brandkit`, `stitch-design-taste`, `gpt-taste`, `image-to-code`, `imagegen-frontend-web`, `imagegen-frontend-mobile`, and `full-output-enforcement`.
 - **Why:** To equip the agent with the anti-slop frontend design taste protocol for intelligent brief inference, custom aesthetic selection, and production-grade UI design.
 
 **124. Redesigned Hero & Navbar (`Hero.tsx` & `Navbar.tsx`)**
+
 - **What:** Applied the `redesign-existing-projects` anti-slop audit to upgrade the global Navbar and Hero components:
   - **`Navbar.tsx`:** Replaced generic green buttons with deep forest green base (`bg-primary`) and gold accent borders (`border-accent/40`); added true glassmorphism (`backdrop-blur-xl bg-background/90 border-b border-primary/10`), animated chevron in Explore dropdown, smooth navigation link hover states, and unified mobile drawer styling.
   - **`Hero.tsx`:** Upgraded to modern `h-[100dvh]` to eliminate mobile Safari layout jumping; added an ethereal eyebrow badge ("Cellular Health & Longevity Sanctuary"), editorial display typography with `text-balance`, layered radial lighting/spotlight for high-contrast readability, and dual luxury CTA buttons ("Explore Journey" + "Discover Lifeforce").
 - **Why:** To eliminate AI design slop and generic UI patterns, elevating the first visual fold into a breathtaking, cohesive Celestial Wellness luxury aesthetic.
 
 **125. Design System Overhaul via Reference Image (`Design.md`)**
+
 - **What:** Completely overhauled `Design.md` to reflect the provided hero reference design:
   - **Typography:** Codified the signature dual-tone lockup — Cormorant Garamond semi-bold primary heading (`"Harmony of Life,"`) paired with medium italic golden accent (`"The Science of Living Young."`), accompanied by tracked all-caps sans-serif eyebrow (`"INDIA'S FIRST PERSONALISED HEALTH & WELLNESS COMMUNITY"`) and relaxed narrative body copy.
   - **Color Tokens:** Calibrated the palette to feature radiant amber-gold (`#b78736`), celestial glow (`#ffd875`), deep pine forest (`#142b23`), muted sage (`#607860`), and grounding warm cream (`#e9e0cf`).
@@ -658,6 +690,7 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** To anchor the project's source of design truth to the new visual direction, guaranteeing strict design consistency across future section implementations.
 
 **126. Hero Redesign & Generative Celestial Vitality Asset Integration (`Hero.tsx`)**
+
 - **What:** Completely redesigned `Hero.tsx` to match the user's reference mockup:
   - **Generative Background Asset:** Generated a photorealistic widescreen Himalayan sunrise visual (`hero-vitality-banner.jpg`) featuring a serene woman in profile with glowing golden bio-electric constellation nodes, neural light rings, and expansive misty green mountain vistas.
   - **Left Editorial Layout:** Implemented the dual-tone Cormorant Garamond title (`"Harmony of Life,"` + `"The Science of Living Young."`), amber-gold accent divider bar, tracked uppercase mission eyebrow (`"INDIA'S FIRST PERSONALISED HEALTH & WELLNESS COMMUNITY"`), and fluid body narrative.
@@ -666,30 +699,35 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** To bring the landing page hero into 100% visual fidelity with the approved creative direction.
 
 **127. Subtle Shining Shimmer Effects on Pill Elements (`Hero.tsx`)**
+
 - **What:** Injected smooth, GPU-accelerated angled light sheen animations (`bg-linear-to-r skew-x-12`) across the primary solid gold CTA, secondary frosted outline button, desktop annotation callouts, and mobile tag badges.
 - **Why:** To give all interactive pill controls an ethereal, living vitality glow matching the celestial wellness aesthetic without creating visual clutter.
 
 **128. Elevated Navbar Dropdown Experience (`Navbar.tsx`)**
+
 - **What:** Upgraded the "Explore" dropdown menu from plain text to a rich, luxury-tier card:
   - **Contextual Lucide Icons:** Added dedicated icons (`Zap`, `Sun`, `Leaf`, `UserCheck`, `Users`, `Quote`, `Send`) housed in glowing rounded-xl badge containers.
-  - **Subtitles & Descriptions:** Added concise, informative one-line value descriptions beneath each section title (e.g. *"Addressing cellular discharge"*, *"Longevity & cellular framework"*, *"Microbiome charging protocols"*).
+  - **Subtitles & Descriptions:** Added concise, informative one-line value descriptions beneath each section title (e.g. _"Addressing cellular discharge"_, _"Longevity & cellular framework"_, _"Microbiome charging protocols"_).
   - **Refined Aesthetics:** Added an "EXPLORE SANCTUARY" header with pulsing sparkle accent, glassmorphic backdrop blur, smooth arrow hover transitions, and synchronized mobile drawer navigation.
 - **Why:** To create an engaging, intuitive, and high-converting exploration menu for site visitors.
 
 **129. Created Value Proposition Trust Banner (`ValuePropsBanner.tsx`)**
+
 - **What:** Built a dedicated 5-pillar trust/value proposition banner directly below the Hero section:
-  - **5 Core Pillars:** *Science Backed*, *Personalised*, *Holistic Approach*, *Community Driven*, and *Sustainable Results*.
+  - **5 Core Pillars:** _Science Backed_, _Personalised_, _Holistic Approach_, _Community Driven_, and _Sustainable Results_.
   - **Visual Treatment:** Circular amber-gold line-art icon badges (`Atom`, `User`, `Leaf`, `Users`, `ShieldCheck`), uppercase tracked headings, concise subheadings, delicate desktop vertical hairlines, and smooth Framer Motion stagger entrance.
   - **Page Integration:** Dynamically imported and injected into `src/app/page.tsx` right beneath `<Hero />`.
 - **Why:** To bridge the Hero section and core narrative with strong, instant trust markers matching the reference design.
 
 **130. Refactored Value Props into 4-Item Infinite Marquee (`ValuePropsBanner.tsx`)**
-- **What:** Refactored the banner to display the 4 core pillars (*Science Backed*, *Personalised*, *Holistic Approach*, *Community Driven*) operating as a continuous, buttery-smooth infinite marquee.
+
+- **What:** Refactored the banner to display the 4 core pillars (_Science Backed_, _Personalised_, _Holistic Approach_, _Community Driven_) operating as a continuous, buttery-smooth infinite marquee.
   - **Smooth Infinite Loop:** Quad-duplicated track looping seamlessly at a relaxed, legible 55s tempo with zero visible seams or jumps.
   - **Edge Masking & Interactions:** Dual gradient side fades and instant hover-pause interaction (`hover:[animation-play-state:paused]`).
 - **Why:** To keep the section dynamic, clean, and interactive while maintaining a relaxed reading rhythm.
 
 **131. Created Aging Philosophy Dissolving Slide Section (`AgingSlidesSection.tsx`)**
+
 - **What:** Built a dedicated widescreen crossfading slide carousel (`AgingSlidesSection.tsx`) placed in the 3rd section position of `page.tsx`:
   - **Image Cycling:** Smooth dissolving crossfade transitions cycling between `age1.jpeg`, `age2.jpeg`, and `age3.jpeg` every 6 seconds.
   - **Interactive Features:** Animated progress bar indicators, manual previous/next slide arrow navigation, play/pause controls, and automatic pause on hover.
@@ -697,6 +735,7 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** To introduce the core philosophy of "Aging is more than a number" and "Lifespan vs Healthspan" early in the user's scroll journey.
 
 **132. Converted Aging Slides to Full-Screen with RTL Atmospheric Beige Wash (`AgingSlidesSection.tsx`)**
+
 - **What:** Upgraded the dissolving slide sequence into a full-screen edge-to-edge experience (`h-[100dvh]` / `100vw`):
   - **RTL Gradient Overlay:** Added a right-to-left beige wash (`bg-linear-to-l from-background/95 via-background/70 ... to-transparent`) echoing the atmospheric lighting treatment of the Hero section.
   - **Edge Blending:** Added top and bottom ambient gradient fades (`bg-linear-to-b` / `bg-linear-to-t`) and left edge feathering for smooth narrative integration into the page scroll.
@@ -704,43 +743,50 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** To create an immersive, cinematic full-viewport presentation matching the brand's visual identity.
 
 **133. Locked Slide Dimensions to Exact 2:1 Native Image Ratio (`AgingSlidesSection.tsx`)**
+
 - **What:** Replaced the viewport-locked height with the image's native `aspect-[2/1]` (7500x3750) ratio.
   - **Uncropped Presentation:** Guarantees that 100% of the slide text, graphics, and portraiture remain uncropped and proportional across all device viewports.
   - **Responsive Controls:** Dynamically scaled the floating chevron arrow buttons and bottom timer indicators for optimal usability on mobile and desktop.
 - **Why:** To respect the native composition and typography layout baked into the high-resolution slide graphics.
 
 **134. Disabled Pause on Hover (`AgingSlidesSection.tsx`)**
+
 - **What:** Removed hover mouse listeners (`onMouseEnter` / `onMouseLeave`) from the dissolving slide carousel so slides cycle continuously without interruption when cursor is placed over the section.
 - **Why:** Per user request to ensure uninterrupted ambient autoplay.
 
 **135. Integrated Navigation Arrows into Floating Control Pill (`AgingSlidesSection.tsx`)**
+
 - **What:** Unified all navigation controls inside the bottom floating frosted glass pill widget:
   - **Left & Right Chevrons:** Added `ChevronLeft` on the left end and `ChevronRight` on the right end of the controller pill.
   - **Cleaner Interface:** Removed edge-screen floating arrows, keeping the photography canvas completely clean and uncluttered.
 - **Why:** To match the user's reference control pill layout and streamline the slide interaction UX.
 
 **136. Auto-Slide Timer Reset on User Navigation (`AgingSlidesSection.tsx`)**
+
 - **What:** Hooked `currentIndex` into the `useEffect` timer dependency array.
   - Whenever the user clicks Previous, Next, or a specific slide indicator pill, the active autoplay timer interval and animated progress bar immediately clear and restart fresh from 0 for the full duration.
 - **Why:** Prevents premature slide skipping when users manually navigate between slides.
 
 **137. Redesigned "Why Harmony of Life ?" 4-Card Section (`WhyHolSection.tsx`)**
+
 - **What:** Re-architected the section to match the approved 4-column brand blueprint reference:
   - **Header Block:** Centered display serif `"Why Harmony of Life ?"` with subtitle `"To Stop the rise of lifestyle disorders in India."`.
   - **Generative Botanical Background:** Generated and applied `why-hol-botanical-bg.jpg` featuring watercolor cream & light sage wash with top-left eucalyptus leaves and flowing organic light lines.
   - **4 Pillars in 4-Column Layout:**
-    1. *Our Aim* (`our-aim.png`): Meditating woman in forest, `Target` bullseye green badge (`#548753`), text ending in highlighted `"live young."`.
-    2. *Our Vision* (`our-vision.png`): Hands holding mossy globe, `Eye` blue badge (`#2f79a8`), text with highlighted `"happy, healthier"`.
-    3. *Our Mission* (`our-mission.png`): Sprouting plant in glass orb with health nodes, `Dna` teal badge (`#277e74`), text with highlighted `"personalised health"`.
-    4. *Our Objective* (`our-objective.png`): Training wellness team in biophilic conference room, `GraduationCap` deep-blue badge (`#2b6ba1`), text with highlighted `"cellular health."`.
+    1. _Our Aim_ (`our-aim.png`): Meditating woman in forest, `Target` bullseye green badge (`#548753`), text ending in highlighted `"live young."`.
+    2. _Our Vision_ (`our-vision.png`): Hands holding mossy globe, `Eye` blue badge (`#2f79a8`), text with highlighted `"happy, healthier"`.
+    3. _Our Mission_ (`our-mission.png`): Sprouting plant in glass orb with health nodes, `Dna` teal badge (`#277e74`), text with highlighted `"personalised health"`.
+    4. _Our Objective_ (`our-objective.png`): Training wellness team in biophilic conference room, `GraduationCap` deep-blue badge (`#2b6ba1`), text with highlighted `"cellular health."`.
   - **Card Structure:** Overlapping floating circular icon badges at the card image seam, frosted glassmorphic card bodies (`bg-white/75 backdrop-blur-md`), hover lifts (`-translate-y-2`), and responsive staggered reveal animation.
 - **Why:** To align the section 1:1 with the brand's mission framework and reference visual identity.
 
 **138. Added Atmospheric Gradient Edge Shading (`PhilosophySection.tsx`)**
+
 - **What:** Added top and bottom beige gradient fades (`bg-linear-to-b` and `bg-linear-to-t from-background via-background/60 to-transparent`) overlaying the cinematic cellular background image.
 - **Why:** Eliminates the hard top border seam and smoothly merges `PhilosophySection` into the adjacent section above.
 
 **139. Upgraded Philosophy Section to 100% Design.md Compliance (`PhilosophySection.tsx`)**
+
 - **What:** Fully aligned the philosophy statement card with the core design system tokens:
   - **Dual-Tone Editorial Typography:** Heading in `Cormorant Garamond` with italicized accent in `#ffd875` (Celestial Glow).
   - **Tracked Eyebrow:** Added `"OUR CORE PHILOSOPHY"` pill badge with `Sparkles` icon (`Inter` 600 `tracking-[0.2em]`).
@@ -750,6 +796,7 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** To bring the philosophy section to full visual parity with the design system specifications.
 
 **140. Upgraded Issues Section with Design.md Tokens and Progress Controls (`IssuesSection.tsx`)**
+
 - **What:** Enhanced the lifestyle disorders crisis section:
   - **Tracked Eyebrow Pill Badge:** Floating category tag with `AlertCircle` icon and `tracking-[0.2em]` uppercase typography (`bg-accent/20 border-accent/40 text-primary`).
   - **Amber Gold Divider:** Added signature 48px gold accent line (`bg-accent/80`) between the big impact stat and description.
@@ -758,18 +805,20 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** To bring full visual cohesion, interactive polish, and design system compliance to the crisis statistics section.
 
 **141. Created "Welcome to the World of Cellular Health" Section (`CellularWorldSection.tsx`)**
+
 - **What:** Added a new dedicated section placed at the 7th position in `src/app/page.tsx`:
   - **Calibrated Atmospheric Background (`cellular-health-bg.jpg`):** Generated a luxury botanical and cellular biology background featuring morning dew leaves on the left, glowing translucent cellular orbs, and golden DNA double helix on the right, calibrated strictly to the site's warm sand-cream (`#e9e0cf`) and sage (`#607860`) palette.
   - **Seamless Section Transitions:** Added top and bottom ambient gradient fades (`bg-linear-to-b` and `bg-linear-to-t`) connecting smoothly with Section 6 (`PhilosophySection`) and Section 8 (`PillarsSection`).
   - **Floating Glassmorphic Sanctuary Board:** Multi-layered card container (`bg-background/80 backdrop-blur-2xl border-accent/40 rounded-3xl`) with delicate inset frame and golden ambient glow flare.
   - **Sacred Lotus Emblem & Header:** Centered golden lotus icon with display serif title lockup (`"WELCOME TO THE WORLD OF"` in deep forest green and `"CELLULAR HEALTH"` in radiant amber-gold `#b78736`).
   - **3 Core Action Statements:**
-    1. *YOUNG* (`Sparkles` icon): *"Where we make you YOUNG from within."*
-    2. *CHARGE* (`Zap` icon): *"Where we can CHARGE you from within."*
-    3. *RENEW* (`RotateCw` icon): *"Where we RENEW from within."*
+    1. _YOUNG_ (`Sparkles` icon): _"Where we make you YOUNG from within."_
+    2. _CHARGE_ (`Zap` icon): _"Where we can CHARGE you from within."_
+    3. _RENEW_ (`RotateCw` icon): _"Where we RENEW from within."_
 - **Why:** To introduce the cellular health domain seamlessly after the core philosophy statement.
 
 **142. Full Visual Consistency Harmonization Across First 7 Sections (`CellularWorldSection.tsx`)**
+
 - **What:** Harmonized the 7th section to match the exact visual language of sections 1–6:
   - **Surface & Glassmorphism:** Calibrated frosted glass board to `bg-white/75 backdrop-blur-xl border-white/90 sm:border-accent/30 rounded-3xl shadow-xl` with inner `bg-white/45 border-accent/20` matching Section 4 (`WhyHolSection`) and Section 6 (`PhilosophySection`).
   - **Gold Divider Bar:** Standardized signature 48px × 2px amber-gold accent bar (`w-12 h-0.5 bg-accent/85 rounded-full`) matching `Hero.tsx`, `IssuesSection.tsx`, and `PhilosophySection.tsx`.
@@ -778,28 +827,32 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** Delivers seamless continuity and design cohesion across the user's scroll journey.
 
 **143. Transformed CellularWorldSection into Pinning Horizontal RTL Scroll Journey (`CellularWorldSection.tsx`)**
+
 - **What:** Implemented a scroll-pinned 3-panel horizontal track:
   - **Scroll Pinning Mechanics:** Uses Framer Motion `useScroll` + `useTransform(scrollYProgress, [0, 1], ["0%", "-66.666%"])` over a `h-[300vh]` pinned viewport (`sticky top-0 h-dvh`).
-  - **Panel 1 (Welcome to Cellular Health):** Lotus emblem, *"Welcome to the World of CELLULAR HEALTH"*, and the 3 action statements (YOUNG, CHARGE, RENEW).
-  - **Panel 2 (Increase Your Lifeforce):** Dr. Ashutosh Rastogi triad quote (*"Presence of Lifeforce is Life, Absence of Lifeforce is Death, Blockages in Lifeforce Cause Disease"*) with right sacred tree emblem banner (*"Increase your Lifeforce"*).
-  - **Panel 3 (You Are Electric & Voltage Graph):** *"YOU ARE ELECTRIC / You are sitting on 3.5 Trillion Volts"* with 4 calculation rows (50 Trillion cells × 70 mV = 3.5 Trillion Volts) paired with a high-res SVG Voltage vs Age decline vs recharged curve graph.
+  - **Panel 1 (Welcome to Cellular Health):** Lotus emblem, _"Welcome to the World of CELLULAR HEALTH"_, and the 3 action statements (YOUNG, CHARGE, RENEW).
+  - **Panel 2 (Increase Your Lifeforce):** Dr. Ashutosh Rastogi triad quote (_"Presence of Lifeforce is Life, Absence of Lifeforce is Death, Blockages in Lifeforce Cause Disease"_) with right sacred tree emblem banner (_"Increase your Lifeforce"_).
+  - **Panel 3 (You Are Electric & Voltage Graph):** _"YOU ARE ELECTRIC / You are sitting on 3.5 Trillion Volts"_ with 4 calculation rows (50 Trillion cells × 70 mV = 3.5 Trillion Volts) paired with a high-res SVG Voltage vs Age decline vs recharged curve graph.
   - **Floating Scroll Journey Indicator:** Bottom frosted glass progress pill showing dynamic fill percentage as user scrolls.
 - **Why:** Enables storytelling flow across the three core cellular longevity tenets.
 
 **144. Eliminated Card Repetition & Harmonized Aqua-Teal Atmosphere (`CellularWorldSection.tsx`)**
+
 - **What:** Redesigned the visual composition of `CellularWorldSection.tsx`:
   - **Re-Generated Aqua-Teal Sanctuary Background (`cellular-health-bg.jpg`):** Blends morning-dew botanical greens on the left into ethereal aqua-teal and ocean-mist blue tones on the right with golden DNA strands, matching the subtle cool-tint of Section 6 (`PhilosophySection`).
-  - **Broke Single-Box Card Repetition:** Removed the heavy centered boxed card container in Panel 1. Replaced it with an open floating editorial typographic lockup paired with a 3-column horizontal cluster of frosted interactive pill badges (*YOUNG*, *CHARGE*, *RENEW*).
+  - **Broke Single-Box Card Repetition:** Removed the heavy centered boxed card container in Panel 1. Replaced it with an open floating editorial typographic lockup paired with a 3-column horizontal cluster of frosted interactive pill badges (_YOUNG_, _CHARGE_, _RENEW_).
   - **Dynamic Asymmetry:** Varied the structure across all 3 panels (Open Header + 3-Pill Cluster $\rightarrow$ Asymmetric Quote + Sacred Tree Banner $\rightarrow$ Split Calculation + Scientific Voltage Graph).
 - **Why:** Eliminates visual fatigue caused by consecutive identical cards while seamlessly continuing the aesthetic tone of the preceding philosophy section.
 
 **145. Integrated Full-Bleed Edge-to-Edge Teal Sanctuary Background Asset (`CellularWorldSection.tsx`)**
+
 - **What:** Generated and linked [`public/images/cellular-world-teal-bg.jpg`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/public/images/cellular-world-teal-bg.jpg):
   - **Full-Bleed Composition:** 100% borderless edge-to-edge canvas with morning-dew botanical leaves, radiant solar rays, and translucent aqua-teal cellular orbs with golden DNA helix.
   - **Direct Asset Reference:** Updated `CellularWorldSection.tsx` to directly reference `/images/cellular-world-teal-bg.jpg` ensuring instant cache-busted loading.
 - **Why:** Delivers seamless visual alignment with Section 6 (`PhilosophySection`) and resolves static cache collisions.
 
 **146. Enhanced Text Contrast and Readability (`CellularWorldSection.tsx`)**
+
 - **What:** Optimized typography visibility across all panels:
   - **Luminous Frosted Heading Backplate:** Added a wide, subtle frosted glass backplate (`bg-white/75 backdrop-blur-xl border-white/90 rounded-3xl`) framing the main title without boxing the entire section.
   - **Radial Background Contrast Wash:** Added an ambient radial center gradient (`from-background/75 to-transparent`) softening background intensity behind text while keeping peripheral artwork vibrant.
@@ -807,12 +860,14 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** Delivers crystal-clear legibility and visual hierarchy over the active celestial backdrop.
 
 **147. Added Slow Horizontal RTL Background Parallax (`CellularWorldSection.tsx`)**
+
 - **What:** Added a dynamic multi-plane parallax effect to the panoramic backdrop:
   - **Background Parallax Drift:** Uses Framer Motion `bgX = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"])` on an extended `135vw` canvas.
   - **Multi-Plane Depth:** As foreground cards scroll across the 3 panels ($0\% \rightarrow -66.6\%$), the background artwork drifts slowly in the same RTL direction ($0\% \rightarrow -25\%$), creating immersive parallax depth.
 - **Why:** Creates a dynamic, cinematic scrolling experience as the user explores the cellular health journey.
 
 **148. Applied Canonical Tailwind CSS Utility Classes (`CellularWorldSection.tsx`)**
+
 - **What:** Cleaned up Tailwind v4 class syntax according to linter suggestions:
   - Converted `min-h-[360px]` and `lg:min-h-[420px]` to standard utility tokens `min-h-90` and `lg:min-h-105`.
   - Converted `aspect-[16/11]` to `aspect-16/11`.
@@ -820,25 +875,41 @@ _(Append new actions below this line as the project progresses)_
 - **Why:** Ensures strict adherence to Tailwind CSS compiler standards and zero linter warnings.
 
 **149. Resolved ESLint and Tailwind Class Diagnostics Across Components**
+
 - **What:** Fixed all reported linter warnings:
   - **`PhilosophySection.tsx`:** Removed unused imports (`Sparkles`, `ArrowRight`, `Link`).
   - **`WhyHolSection.tsx`:** Converted `sm:aspect-1/1` to canonical `sm:aspect-square`.
   - **`PillarsSection.tsx`:** Replaced all legacy `bg-gradient-to-t` and `bg-gradient-to-r` with canonical Tailwind v4 `bg-linear-to-t` and `bg-linear-to-r`.
 - **Why:** Delivers clean, warning-free compiler logs and optimized class bundles.
 
-**150. Fixed TypeScript 2322 Variants Incompatibility (`WhyHolSection.tsx`)**
-- **What:** Explicitly annotated `containerVariants: Variants` and `cardVariants: Variants` importing `type Variants` from `framer-motion`.
-- **Why:** Resolves TypeScript easing array inference error when passing variants to `motion.div`.
+**150. Corrected Voltage vs Age Graph to Exact Reference Spline (`CellularWorldSection.tsx`)**
+- **What:** Completely restructured the SVG Voltage Decline vs. Recharged Lifeforce chart:
+  - **Shared Trunk (Age 0–35):** Both trajectories originate together at $(48, 20)$ ($100\text{ mV}$ at Age 0) and track a single curve down to the critical inflection point at Age 35 $(195, 82.5)$.
+  - **Age 35 Critical Split & Upward Recharging Hook:** At the dashed vertical Age 35 line $(195, 82.5)$, the dark green curve (*Recharged Lifeforce*) hooks sharply upward to Age 40 $(216, 50)$ directly into the top shaded *Optimal Health (70–90 mV)* zone, crests at Age 60 $(300, 43)$, and glides smoothly through Age 90 $(426, 72)$.
+  - **Age 35 Unmanaged Decline Branch:** The grey line (*Cellular Discharge*) branches off downward from $(195, 82.5)$, plunges steeply to Age 60 $(300, 186)$ ($\sim 25\text{ mV}$), and flattens out smoothly into a horizontal bottom plateau at Age 90 $(426, 205)$ without any artificial upward curling.
+  - **Vectorized SVG Coordinate System:** Moved all elements (the 8-row / 9-column grid, shaded optimal zone, dashed Age 35 pivot line, callout badges, glow filters, and axis labels) directly into the `460x260` SVG viewport, eliminating disjointed HTML overlay offsets.
+- **Why:** Delivers 100% mathematical and visual fidelity with the reference presentation diagram.
 
+**151. Generated High-Contrast Responsive Backgrounds for Issues Section (`IssuesSection.tsx`)**
+- **What:** Created and integrated dedicated `16:9` desktop and `9:16` mobile artwork (`issues-bg-desktop.jpg` and `issues-bg-mobile.jpg`) with enriched color saturation, jewel emerald tones, and dramatic golden cellular crisis aura, replacing washed-out backgrounds.
 
+**152. Implemented Pinned 2-Stage Sticky Scroll Pillars Section (`PillarsSection.tsx`)**
+- **What:** Re-architected `PillarsSection.tsx` into a high-luxury, scroll-pinned presentation over a unified background canvas (`cellular-restore-bg-desktop.jpg` / `cellular-restore-bg-mobile.jpg`):
+  - **Stage 1 (0%–40% Scroll):** Frosted glass card with sacred lotus emblem and Cormorant Garamond title: *"HOW DO WE INCREASE CELLULAR CHARGE"* with signature 48px gold accent star divider.
+  - **Stage 2 (45%–100% Scroll):** Reveals *"THE FRAMEWORK: How we restore your cellular charge"*, 12 Foundational Pillars metric block, and the central Prana Energy Body Avatar surrounded by 12 interactive orbital pillar badges.
 
+**153. Resolved Stage 1 Ghosting Bleed Behind Stage 2 (`PillarsSection.tsx`)**
+- **What:** Added dynamic Framer Motion transforms `stage1Display = useTransform(scrollYProgress, (v) => v > 0.45 ? "none" : "flex")` and `stage2Display = useTransform(scrollYProgress, (v) => v < 0.43 ? "none" : "flex")` to completely unmount Stage 1 from the compositor tree once scrolled into Stage 2.
 
+**154. Integrated Dedicated 12-Pillar Infographic Posters & Minimal Lightbox Dialog (`PillarsSection.tsx`)**
+- **What:** Connected all 12 pillars to dedicated high-resolution infographic poster cards (`/images/balanced-nutritionp.jpeg` through `/images/alkaline-chemistryp.jpeg`) and simplified the modal to a focused poster lightbox that preserves all native typography, benefits lists, and 3D scientific artwork.
 
-
-
-
-
-
+**155. Enforced Intrinsic 3:4 Frame & Sacred Lotus Loading Placeholder (`PillarsSection.tsx`)**
+- **What:** Prevented modal collapsing during asset loading:
+  - **Fixed 3:4 Geometry Frame:** Configured the poster frame with fixed proportions (`w-[280px] sm:w-[340px] md:w-[380px] aspect-[3/4] max-h-[58vh] sm:max-h-[64vh]`), maintaining structural height regardless of image load status.
+  - **Sacred Lotus Loading State:** Added an ambient radial placeholder with an animated gold lotus spinner and *"Loading Protocol..."* indicator that remains visible while the high-res graphic loads.
+  - **Restored Signature CTA:** Restored the full-width solid amber-gold *"Start Your Wellness Journey"* button and bottom Previous / Next pagination controls.
+- **Why:** Eliminates layout-shift collapsing, avoids cropping, and delivers a polished luxury modal experience adhering strictly to `Design.md`.
 
 
 

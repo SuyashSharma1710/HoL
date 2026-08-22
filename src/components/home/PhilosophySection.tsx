@@ -53,7 +53,7 @@ export function PhilosophySection() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="relative overflow-hidden bg-white/40 backdrop-blur-2xl border border-white/25 sm:border-accent/35 p-8 sm:p-12 lg:p-16 rounded-3xl max-w-3xl text-center shadow-2xl shadow-primary/30 w-full"
+            className="relative overflow-hidden bg-white/40 backdrop-blur-2xl border border-white/25 sm:border-accent/35 p-8 sm:p-12 lg:p-16 rounded-3xl max-w-5xl text-center shadow-2xl shadow-primary/30 w-full"
           >
             {/* Ambient Celestial Glow Flare inside card */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-32 bg-glow/15 blur-3xl rounded-full pointer-events-none" />

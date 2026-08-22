@@ -70,7 +70,7 @@ export function CellularWorldSection() {
             <div className="w-full max-w-5xl mx-auto flex flex-col items-center text-center">
               
               {/* Luminous Frosted Heading Backplate for Ultra-Crisp Visibility */}
-              <div className="relative w-full max-w-3xl mx-auto mb-8 sm:mb-10 px-6 sm:px-10 py-8 sm:py-10 rounded-3xl bg-white/75 backdrop-blur-xl border border-white/90 shadow-xl shadow-primary/5 flex flex-col items-center">
+              <div className="relative w-full max-w-5xl mx-auto mb-8 sm:mb-10 px-6 sm:px-10 py-8 sm:py-10 rounded-3xl bg-white/75 backdrop-blur-xl border border-white/90 shadow-xl shadow-primary/5 flex flex-col items-center">
                 
                 {/* Sacred Lotus Icon Emblem */}
                 <motion.div 
@@ -310,58 +310,134 @@ export function CellularWorldSection() {
 
                   {/* Chart Visualization */}
                   <div className="relative w-full aspect-16/11 bg-[#fcfbf9] rounded-lg border border-primary/15 p-2 overflow-hidden">
-                    {/* Optimal Healthy Shaded Zone (70mV - 90mV) */}
-                    <div className="absolute left-[12%] right-[4%] top-[10%] bottom-[35%] bg-accent/10 border-b border-dashed border-accent/40 pointer-events-none">
-                      <span className="absolute top-1 right-2 text-[9px] font-sans font-semibold text-accent/80">
-                        Optimal Health (70 - 90 mV)
-                      </span>
-                    </div>
-
-                    {/* Critical Inflection Age 35-40 Dashed Vertical Line */}
-                    <div className="absolute left-[45%] top-[8%] bottom-[12%] border-l-2 border-dashed border-primary/30 pointer-events-none">
-                      <span className="absolute -top-1 -translate-x-1/2 bg-primary text-white text-[8px] px-1 rounded-sm">
-                        Age 40 Drop
-                      </span>
-                    </div>
-
                     {/* SVG Grid & Coordinate Lines */}
-                    <svg viewBox="0 0 400 250" className="w-full h-full">
-                      {/* Horizontal Grid lines */}
-                      {[0, 25, 50, 75, 100, 125, 150, 175, 200].map((y, i) => (
-                        <line key={i} x1="45" y1={y + 15} x2="385" y2={y + 15} stroke="#142b23" strokeOpacity="0.12" strokeWidth="1" />
-                      ))}
-                      {/* Vertical Grid lines */}
-                      {[0, 38, 76, 114, 152, 190, 228, 266, 304, 342].map((x, i) => (
-                        <line key={i} x1={x + 45} y1="15" x2={x + 45} y2="215" stroke="#142b23" strokeOpacity="0.12" strokeWidth="1" />
+                    <svg viewBox="0 0 460 260" className="w-full h-full select-none">
+                      <defs>
+                        {/* Shaded Optimal Zone Gradient */}
+                        <linearGradient id="optimalZoneGrad" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stopColor="#b78736" stopOpacity="0.16" />
+                          <stop offset="100%" stopColor="#b78736" stopOpacity="0.06" />
+                        </linearGradient>
+                        {/* Glow Filter for Anchor Nodes */}
+                        <filter id="nodeGlow" x="-50%" y="-50%" width="200%" height="200%">
+                          <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#ffd875" floodOpacity="0.8" />
+                        </filter>
+                      </defs>
+
+                      {/* Optimal Healthy Shaded Zone (70 - 100 mV) - Top 2 Grid Rows */}
+                      <rect 
+                        x="48" 
+                        y="20" 
+                        width="378" 
+                        height="50" 
+                        fill="url(#optimalZoneGrad)" 
+                      />
+                      <line 
+                        x1="48" 
+                        y1="70" 
+                        x2="426" 
+                        y2="70" 
+                        stroke="#b78736" 
+                        strokeOpacity="0.4" 
+                        strokeWidth="1" 
+                        strokeDasharray="3 3" 
+                      />
+
+                      {/* Horizontal Grid lines (8 divisions of 25px) */}
+                      {[20, 45, 70, 95, 120, 145, 170, 195, 220].map((y, i) => (
+                        <line 
+                          key={i} 
+                          x1="48" 
+                          y1={y} 
+                          x2="426" 
+                          y2={y} 
+                          stroke="#142b23" 
+                          strokeOpacity={i === 0 || i === 8 ? "0.35" : "0.12"} 
+                          strokeWidth={i === 0 || i === 8 ? "1.5" : "1"} 
+                        />
                       ))}
 
-                      {/* Y-Axis Labels */}
-                      <text x="35" y="20" textAnchor="end" fontSize="9" fill="#142b23" opacity="0.6">100</text>
-                      <text x="35" y="60" textAnchor="end" fontSize="9" fill="#142b23" opacity="0.6">80</text>
-                      <text x="35" y="100" textAnchor="end" fontSize="9" fill="#142b23" opacity="0.6">60</text>
-                      <text x="35" y="140" textAnchor="end" fontSize="9" fill="#142b23" opacity="0.6">40</text>
-                      <text x="35" y="180" textAnchor="end" fontSize="9" fill="#142b23" opacity="0.6">20</text>
-                      <text x="35" y="218" textAnchor="end" fontSize="9" fill="#142b23" opacity="0.6">0</text>
+                      {/* Vertical Grid lines (9 intervals of 42px) */}
+                      {[48, 90, 132, 174, 216, 258, 300, 342, 384, 426].map((x, i) => (
+                        <line 
+                          key={i} 
+                          x1={x} 
+                          y1="20" 
+                          x2={x} 
+                          y2="220" 
+                          stroke="#142b23" 
+                          strokeOpacity={i === 0 || i === 9 ? "0.35" : "0.12"} 
+                          strokeWidth={i === 0 || i === 9 ? "1.5" : "1"} 
+                        />
+                      ))}
 
-                      {/* X-Axis Labels (Age/Years) */}
+                      {/* Critical Inflection Age 35 Dashed Vertical Line */}
+                      <line 
+                        x1="195" 
+                        y1="20" 
+                        x2="195" 
+                        y2="220" 
+                        stroke="#142b23" 
+                        strokeOpacity="0.5" 
+                        strokeWidth="1.5" 
+                        strokeDasharray="4 3" 
+                      />
+
+                      {/* Age 35 Drop Indicator Tag */}
+                      <g>
+                        <rect x="166" y="5" width="58" height="13" rx="3.5" fill="#142b23" />
+                        <text x="195" y="14.5" textAnchor="middle" fontSize="7.5" fill="#ffffff" fontWeight="600" fontFamily="var(--font-inter)">
+                          Age 35 Drop
+                        </text>
+                      </g>
+
+                      {/* Optimal Health Zone Badge in SVG */}
+                      <g>
+                        <rect x="268" y="25" width="150" height="16" rx="4" fill="#ffffff" fillOpacity="0.85" stroke="#b78736" strokeOpacity="0.4" />
+                        <circle cx="277" cy="33" r="2.5" fill="#b78736" />
+                        <text x="284" y="36" fontSize="8" fill="#142b23" fontWeight="600" fontFamily="var(--font-inter)">
+                          Optimal Health (70 – 90 mV)
+                        </text>
+                      </g>
+
+                      {/* Y-Axis Labels (Voltage mV) */}
+                      <text x="40" y="24" textAnchor="end" fontSize="9" fill="#142b23" opacity="0.65" fontFamily="var(--font-inter)" fontWeight="500">100</text>
+                      <text x="40" y="74" textAnchor="end" fontSize="9" fill="#142b23" opacity="0.65" fontFamily="var(--font-inter)" fontWeight="500">75</text>
+                      <text x="40" y="124" textAnchor="end" fontSize="9" fill="#142b23" opacity="0.65" fontFamily="var(--font-inter)" fontWeight="500">50</text>
+                      <text x="40" y="174" textAnchor="end" fontSize="9" fill="#142b23" opacity="0.65" fontFamily="var(--font-inter)" fontWeight="500">25</text>
+                      <text x="40" y="224" textAnchor="end" fontSize="9" fill="#142b23" opacity="0.65" fontFamily="var(--font-inter)" fontWeight="500">0</text>
+
+                      {/* X-Axis Labels (Age in Years: 0 to 90) */}
                       {["0", "10", "20", "30", "40", "50", "60", "70", "80", "90"].map((age, i) => (
-                        <text key={age} x={i * 38 + 45} y="235" textAnchor="middle" fontSize="9" fill="#142b23" opacity="0.6">
+                        <text 
+                          key={age} 
+                          x={i * 42 + 48} 
+                          y="238" 
+                          textAnchor="middle" 
+                          fontSize="9.5" 
+                          fill="#142b23" 
+                          opacity="0.7"
+                          fontFamily="var(--font-inter)"
+                          fontWeight="500"
+                        >
                           {age}
                         </text>
                       ))}
 
-                      {/* Unmanaged Rapid Decline Line (Grey Falling to 20mV) */}
+                      {/* Branch B: Cellular Discharge Line (Unmanaged Rapid Decline) */}
+                      {/* Starts at Age 35 (195, 82.5), plunges steeply to Age 60 (300, 186), then flattens along the bottom to Age 90 (426, 205) */}
                       <path
-                        d="M 45 25 Q 120 40 180 80 T 260 170 T 385 195"
+                        d="M 195 82.5 C 225 102, 268 160, 300 186 C 335 196, 380 202, 426 205"
                         fill="none"
-                        stroke="#a0aec0"
+                        stroke="#94a3b8"
                         strokeWidth="3.5"
                         strokeLinecap="round"
                       />
 
-                      {/* Cellular Recharged Living Young Line (Green/Gold Maintained at 70-85mV) */}
+                      {/* Branch A: Recharged Living Young Line (Harmony of Life) */}
+                      {/* Common trunk from (48, 20) -> (195, 82.5), pivots sharply UP to Age 40 (216, 50), peaks at Age 60 (300, 43), glides to Age 90 (426, 72) */}
                       <path
-                        d="M 45 25 Q 120 40 180 48 T 260 42 T 385 55"
+                        d="M 48 20 C 85 24, 110 35, 132 45 C 155 55, 175 70, 195 82.5 C 202 70, 209 54, 216 50 C 245 45, 275 42, 300 43 C 340 46, 390 60, 426 72"
                         fill="none"
                         stroke="#1b4e47"
                         strokeWidth="3.5"
@@ -369,8 +445,14 @@ export function CellularWorldSection() {
                       />
 
                       {/* Active Anchor Nodes */}
-                      <circle cx="180" cy="48" r="4.5" fill="#ffd875" stroke="#1b4e47" strokeWidth="2" />
-                      <circle cx="385" cy="55" r="4.5" fill="#b78736" stroke="#ffffff" strokeWidth="1.5" />
+                      {/* Age 35 Critical Split Point */}
+                      <circle cx="195" cy="82.5" r="4.5" fill="#ffd875" stroke="#1b4e47" strokeWidth="2" filter="url(#nodeGlow)" />
+                      {/* Age 60 Peak Recharged */}
+                      <circle cx="300" cy="43" r="3.5" fill="#ffd875" stroke="#1b4e47" strokeWidth="1.5" />
+                      {/* Age 90 Sustained High Charge */}
+                      <circle cx="426" cy="72" r="4" fill="#b78736" stroke="#ffffff" strokeWidth="1.5" />
+                      {/* Age 90 Low Discharge Endpoint */}
+                      <circle cx="426" cy="205" r="3.5" fill="#94a3b8" stroke="#ffffff" strokeWidth="1.5" />
                     </svg>
                   </div>
 
@@ -381,7 +463,7 @@ export function CellularWorldSection() {
                       <span className="text-primary font-medium">Recharged Lifeforce (70–85 mV)</span>
                     </div>
                     <div className="flex items-center gap-1.5">
-                      <span className="w-3 h-1 bg-[#a0aec0] rounded-full" />
+                      <span className="w-3 h-1 bg-[#94a3b8] rounded-full" />
                       <span className="text-primary/60">Cellular Discharge</span>
                     </div>
                   </div>

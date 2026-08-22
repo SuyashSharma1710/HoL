@@ -126,7 +126,7 @@ export function ScienceSolutionsSection() {
                     </div>
 
                     {/* Middle Title & Description */}
-                    <div className="flex flex-col items-center flex-grow justify-center space-y-2">
+                    <div className="flex flex-col items-center grow justify-center space-y-2">
                       <h3 className="font-heading font-bold text-base sm:text-lg lg:text-xl text-[#142b23] tracking-wide group-hover:text-[#1a4a40] transition-colors leading-tight">
                         {item.title}
                       </h3>

@@ -1006,6 +1006,12 @@ _(Append new actions below this line as the project progresses)_
   - Page structure confirmed in [`src/app/page.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/app/page.tsx): Position 9 (`ScienceSolutionsSection`) and Position 10 (`NextStepSection`).
 - **Why:** Delivers optimal visual clarity, responsive performance, and perfect Design.md compliance.
 
+**167. Tailwind Canonical Class Modernization (`grow`)**
+- **What:** Updated flex container child utility classes from `flex-grow` to canonical `grow` in:
+  - [`src/components/home/NextStepSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/NextStepSection.tsx)
+  - [`src/components/home/ScienceSolutionsSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/ScienceSolutionsSection.tsx)
+- **Why:** Resolves Tailwind IntelliSense warnings and aligns with Tailwind CSS v4 conventions.
+
 
 
 

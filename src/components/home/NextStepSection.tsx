@@ -152,7 +152,7 @@ export function NextStepSection() {
                   </div>
 
                   {/* Middle Title & Description */}
-                  <div className="flex flex-col items-center flex-grow justify-center space-y-1.5 mt-2 mb-4">
+                  <div className="flex flex-col items-center grow justify-center space-y-1.5 mt-2 mb-4">
                     <span className="font-sans text-xs sm:text-[13px] text-primary/70 font-medium">
                       {item.eyebrow}
                     </span>

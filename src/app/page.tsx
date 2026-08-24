@@ -4,21 +4,12 @@ import { Hero } from "@/components/home/Hero";
 const ValuePropsBanner = dynamic(() => import("@/components/home/ValuePropsBanner").then(mod => mod.ValuePropsBanner));
 const AgingSlidesSection = dynamic(() => import("@/components/home/AgingSlidesSection").then(mod => mod.AgingSlidesSection));
 const WhyHolSection = dynamic(() => import("@/components/home/WhyHolSection").then(mod => mod.WhyHolSection));
-const IssuesSection = dynamic(() => import("@/components/home/IssuesSection").then(mod => mod.IssuesSection));
 const PhilosophySection = dynamic(() => import("@/components/home/PhilosophySection").then(mod => mod.PhilosophySection));
 const CellularWorldSection = dynamic(() => import("@/components/home/CellularWorldSection").then(mod => mod.CellularWorldSection));
-const LifeforceSequenceSection = dynamic(() => import("@/components/home/LifeforceSequenceSection").then(mod => mod.LifeforceSequenceSection));
-const HealthspanSection = dynamic(() => import("@/components/home/HealthspanSection").then(mod => mod.HealthspanSection));
-const ElectricSection = dynamic(() => import("@/components/home/ElectricSection").then(mod => mod.ElectricSection));
-const InhibitorsSection = dynamic(() => import("@/components/home/InhibitorsSection").then(mod => mod.InhibitorsSection));
 const PillarsSection = dynamic(() => import("@/components/home/PillarsSection").then(mod => mod.PillarsSection));
-const ScienceSolutionsSection = dynamic(() => import("@/components/home/ScienceSolutionsSection").then(mod => mod.ScienceSolutionsSection));
-const NextStepSection = dynamic(() => import("@/components/home/NextStepSection").then(mod => mod.NextStepSection));
-const GutResetSection = dynamic(() => import("@/components/home/GutResetSection").then(mod => mod.GutResetSection));
-const CommunitySection = dynamic(() => import("@/components/home/CommunitySection").then(mod => mod.CommunitySection));
 const AuthoritySection = dynamic(() => import("@/components/home/AuthoritySection").then(mod => mod.AuthoritySection));
 const TestimonialsSection = dynamic(() => import("@/components/home/TestimonialsSection").then(mod => mod.TestimonialsSection));
-const LivingYoungSection = dynamic(() => import("@/components/home/LivingYoungSection").then(mod => mod.LivingYoungSection));
+const NextStepSection = dynamic(() => import("@/components/home/NextStepSection").then(mod => mod.NextStepSection));
 const CTASection = dynamic(() => import("@/components/home/CTASection").then(mod => mod.CTASection));
 
 export default function Home() {
@@ -28,21 +19,12 @@ export default function Home() {
       <ValuePropsBanner />
       <AgingSlidesSection />
       <WhyHolSection />
-      <IssuesSection />
       <PhilosophySection />
       <CellularWorldSection />
       <PillarsSection />
-      <ScienceSolutionsSection />
-      <NextStepSection />
-      <LifeforceSequenceSection />
-      <HealthspanSection />
-      <ElectricSection />
-      <InhibitorsSection />
-      <GutResetSection />
       <AuthoritySection />
-      <CommunitySection />
       <TestimonialsSection />
-      <LivingYoungSection />
+      <NextStepSection />
       <CTASection />
     </main>
   );

@@ -5,22 +5,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { 
-  Info, 
   Sparkles, 
-  Heart, 
-  Activity, 
-  Apple, 
-  MessageCircle, 
   MenuIcon, 
   ChevronDown, 
   ArrowUpRight,
-  Zap,
   Sun,
   Leaf,
   UserCheck,
-  Users,
   Quote,
-  Send
+  Send,
+  Compass,
+  Zap,
+  Activity,
+  MessageCircle
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
@@ -53,6 +50,57 @@ const Youtube = ({ className }: { className?: string }) => (
 const Linkedin = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
 );
+
+const navItems = [
+  { 
+    href: "#why-hol", 
+    label: "Why Harmony", 
+    desc: "The cellular vitality standard",
+    icon: Sparkles 
+  },
+  { 
+    href: "#philosophy", 
+    label: "Our Philosophy", 
+    desc: "Ancient wisdom meets cellular biology",
+    icon: Leaf 
+  },
+  { 
+    href: "#cellular-world", 
+    label: "Cellular Health", 
+    desc: "Understanding biological voltage",
+    icon: Zap 
+  },
+  { 
+    href: "#pillars", 
+    label: "12 Pillars of Life", 
+    desc: "Holistic longevity framework",
+    icon: Sun 
+  },
+  { 
+    href: "#authority", 
+    label: "Our Founder", 
+    desc: "Dr. Ashutosh Rastogi, Ph.D.",
+    icon: UserCheck 
+  },
+  { 
+    href: "#testimonials", 
+    label: "Transformations", 
+    desc: "Real member stories & vitality",
+    icon: Quote 
+  },
+  { 
+    href: "#next-step", 
+    label: "Your Next Step", 
+    desc: "Products, Knowledge, Opportunity",
+    icon: Compass 
+  },
+  { 
+    href: "#cta", 
+    label: "Connect on WhatsApp", 
+    desc: "Direct sanctuary desk & inquiries",
+    icon: Send 
+  },
+];
 
 export function Navbar() {
   const pathname = usePathname();
@@ -112,22 +160,22 @@ export function Navbar() {
         {/* Left Navigation (Desktop) */}
         <nav className="hidden xl:flex items-center gap-1.5 text-sm font-medium">
           <Link 
-            href={getHref("#welcome")} 
+            href={getHref("#why-hol")} 
             className="px-3.5 py-2 rounded-full text-primary/80 hover:text-primary hover:bg-primary/5 active:bg-primary/10 transition-all duration-200"
           >
-            About us
+            Why Harmony
           </Link>
           <Link 
-            href={getHref("#lifeforce")} 
+            href={getHref("#philosophy")} 
             className="px-3.5 py-2 rounded-full text-primary/80 hover:text-primary hover:bg-primary/5 active:bg-primary/10 transition-all duration-200"
           >
-            Lifeforce
+            Philosophy
           </Link>
           <Link 
-            href={getHref("#living-young")} 
+            href={getHref("#pillars")} 
             className="px-3.5 py-2 rounded-full text-primary/80 hover:text-primary hover:bg-primary/5 active:bg-primary/10 transition-all duration-200"
           >
-            Living young
+            12 Pillars
           </Link>
           
           <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
@@ -146,56 +194,13 @@ export function Navbar() {
               {/* Dropdown Header */}
               <div className="px-3 pt-2 pb-2 mb-1 border-b border-primary/10 flex items-center justify-between">
                 <span className="text-[10px] font-semibold tracking-[0.18em] text-primary/60 uppercase">
-                  Explore Sanctuary
+                  Sanctuary Navigation
                 </span>
                 <Sparkles className="w-3.5 h-3.5 text-accent animate-pulse" />
               </div>
 
               {/* Navigation Items */}
-              {[
-                { 
-                  href: "#reversal", 
-                  label: "Root cause reversal", 
-                  desc: "Addressing cellular discharge",
-                  icon: Zap 
-                },
-                { 
-                  href: "#pillars", 
-                  label: "12 Foundational Pillars", 
-                  desc: "Longevity & cellular framework",
-                  icon: Sun 
-                },
-                { 
-                  href: "#gut-reset", 
-                  label: "Gut reset", 
-                  desc: "Microbiome charging protocols",
-                  icon: Leaf 
-                },
-                { 
-                  href: "#authority", 
-                  label: "Dr. Rastogi", 
-                  desc: "Clinical background & philosophy",
-                  icon: UserCheck 
-                },
-                { 
-                  href: "#community", 
-                  label: "Community", 
-                  desc: "Living young with the tribe",
-                  icon: Users 
-                },
-                { 
-                  href: "#testimonials", 
-                  label: "Testimonials", 
-                  desc: "Transformation stories",
-                  icon: Quote 
-                },
-                { 
-                  href: "#cta", 
-                  label: "Contact us", 
-                  desc: "Connect on WhatsApp & leads",
-                  icon: Send 
-                },
-              ].map((item) => {
+              {navItems.map((item) => {
                 const ItemIcon = item.icon;
                 return (
                   <DropdownMenuItem 
@@ -261,10 +266,10 @@ export function Navbar() {
           {/* Social Icons (Desktop) */}
           <div className="hidden xl:flex items-center gap-3 text-primary/70">
             {[
-              { href: "https://www.facebook.com/profile.php?id=61591808093320", label: "Facebook", Icon: Facebook },
               { href: "https://www.instagram.com/harmonyoflife_official/?hl=en", label: "Instagram", Icon: Instagram },
               { href: "https://www.youtube.com/@Harmonyoflife-01", label: "YouTube", Icon: Youtube },
               { href: "https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/", label: "LinkedIn", Icon: Linkedin },
+              { href: "https://www.facebook.com/profile.php?id=61591808093320", label: "Facebook", Icon: Facebook },
             ].map(({ href, label, Icon }) => (
               <Link 
                 key={label}
@@ -326,18 +331,7 @@ export function Navbar() {
 
                   {/* Navigation Links */}
                   <div className="flex flex-col space-y-1">
-                    {[
-                      { href: "#welcome", label: "About us", icon: Info },
-                      { href: "#lifeforce", label: "Lifeforce", icon: Sparkles },
-                      { href: "#living-young", label: "Living young", icon: Heart },
-                      { href: "#reversal", label: "Root cause reversal", icon: Zap },
-                      { href: "#pillars", label: "12 Pillars", icon: Sun },
-                      { href: "#gut-reset", label: "Gut reset", icon: Leaf },
-                      { href: "#authority", label: "Dr. Rastogi", icon: UserCheck },
-                      { href: "#community", label: "Community", icon: Users },
-                      { href: "#testimonials", label: "Testimonials", icon: Quote },
-                      { href: "#cta", label: "Contact us", icon: Send },
-                    ].map((item) => {
+                    {navItems.map((item) => {
                       const Icon = item.icon;
                       return (
                         <Link 
@@ -362,10 +356,10 @@ export function Navbar() {
                   {/* Social Links */}
                   <div className="flex justify-center gap-4 text-primary/70">
                     {[
-                      { href: "https://www.facebook.com/profile.php?id=61591808093320", label: "Facebook", Icon: Facebook },
                       { href: "https://www.instagram.com/harmonyoflife_official/?hl=en", label: "Instagram", Icon: Instagram },
                       { href: "https://www.youtube.com/@Harmonyoflife-01", label: "YouTube", Icon: Youtube },
                       { href: "https://www.linkedin.com/in/harmony-of-life-0-59ba5a413/", label: "LinkedIn", Icon: Linkedin },
+                      { href: "https://www.facebook.com/profile.php?id=61591808093320", label: "Facebook", Icon: Facebook },
                     ].map(({ href, label, Icon }) => (
                       <Link 
                         key={label}

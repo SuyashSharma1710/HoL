@@ -4,7 +4,6 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Loader } from "@/components/layout/Loader";
-
 import { LenisProvider } from "@/components/layout/LenisProvider";
 
 const cormorantGaramond = Cormorant_Garamond({
@@ -21,26 +20,73 @@ const inter = Inter({
 export const viewport: Viewport = {
   colorScheme: "only light",
   themeColor: "#e9e0cf",
+  width: "device-width",
+  initialScale: 1,
 };
-
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://theharmonyoflife.com'),
-  title: "Harmony of Life | Elevate Your Cellular Charge & Lifeforce",
-  description: "Restore your health at the cellular level. Harmony of Life provides personalized holistic protocols to increase Cellular Charge and elevate your Lifeforce.",
-  keywords: ["Celestial Wellness", "Lifeforce", "Deep Detox", "Holistic Health", "Cellular Repair", "Harmony of Life"],
+  title: {
+    default: "Harmony of Life | Elevate Your Cellular Voltage & Lifeforce",
+    template: "%s | Harmony of Life",
+  },
+  description: "Restore your health at the cellular level. Harmony of Life provides evidence-based holistic protocols, cellular detox formulations, and 12 Pillars of Longevity.",
+  keywords: [
+    "Cellular Health",
+    "Cellular Voltage",
+    "Mitochondria Health",
+    "Longevity Protocols",
+    "Deep Detox",
+    "Holistic Wellness",
+    "12 Pillars of Life",
+    "Dr. Ashutosh Rastogi",
+    "Harmony of Life"
+  ],
+  authors: [{ name: "Harmony of Life", url: "https://theharmonyoflife.com" }],
+  creator: "Quest Concepts Private Limited",
+  publisher: "Harmony of Life",
+  formatDetection: {
+    telephone: false,
+  },
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "Harmony of Life",
-    description: "A sanctuary for digital rejuvenation and cellular detox.",
+    title: "Harmony of Life | Elevate Your Cellular Voltage & Lifeforce",
+    description: "A sanctuary for cellular rejuvenation, biological longevity, and holistic wellness.",
     type: "website",
     url: "https://theharmonyoflife.com",
-    siteName: "Harmony of Life"
+    siteName: "Harmony of Life",
+    locale: "en_IN",
+    images: [
+      {
+        url: "/logo.svg",
+        width: 512,
+        height: 512,
+        alt: "Harmony of Life Sacred Leaf Emblem",
+      }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Harmony of Life | Elevate Your Cellular Voltage & Lifeforce",
+    description: "A sanctuary for cellular rejuvenation, biological longevity, and holistic wellness.",
+    images: ["/logo.svg"],
   },
   icons: {
     icon: "/logo.svg",
+    apple: "/logo.svg",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -55,7 +101,7 @@ export default function RootLayout({
       className={`${cormorantGaramond.variable} ${inter.variable} font-sans antialiased`}
       suppressHydrationWarning
     >
-      <body className="flex flex-col bg-background text-on-background pt-24" suppressHydrationWarning>
+      <body className="flex flex-col bg-background text-on-background pt-20 sm:pt-24" suppressHydrationWarning>
         <Loader />
         <LenisProvider>
           <Navbar />
@@ -83,7 +129,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* Local Business Schema */}
+        {/* Local Business & Sanctuary Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -102,7 +148,7 @@ export default function RootLayout({
                 "postalCode": "110049",
                 "addressCountry": "IN"
               },
-              "description": "Restore your health at the cellular level. Harmony of Life provides personalized holistic protocols to increase Cellular Charge and elevate your Lifeforce.",
+              "description": "Restore your health at the cellular level. Harmony of Life provides personalized holistic protocols to increase Cellular Voltage and elevate your Lifeforce.",
               "priceRange": "₹₹"
             })
           }}

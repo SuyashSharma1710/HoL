@@ -7,6 +7,7 @@ import { BookOpen, Users, Leaf } from "lucide-react";
 
 interface PathwayCard {
   num: string;
+  id: "products" | "knowledge" | "opportunity";
   eyebrow: string;
   title: string;
   desc: string;
@@ -19,33 +20,36 @@ interface PathwayCard {
 const pathways: PathwayCard[] = [
   {
     num: "01",
+    id: "products",
     eyebrow: "You want",
     title: "PRODUCTS",
     desc: "Science-backed, high-quality wellness solutions designed to detox, nourish, and recharge your body at the cellular level.",
     image: "/images/pathway-products-icon.jpg",
     badgeText: "FUEL YOUR BODY. ELEVATE YOUR LIFE.",
     badgeIcon: Leaf,
-    link: "#pillars",
+    link: "#cta",
   },
   {
     num: "02",
+    id: "knowledge",
     eyebrow: "You want",
     title: "KNOWLEDGE",
     desc: "Evidence-based knowledge, tools, and guidance to help you understand your body, increase your lifeforce, and live young.",
     image: "/images/pathway-knowledge-icon.jpg",
     badgeText: "EMPOWER YOUR MIND. TRANSFORM YOUR HEALTH.",
     badgeIcon: BookOpen,
-    link: "#gut-reset",
+    link: "#cta",
   },
   {
     num: "03",
+    id: "opportunity",
     eyebrow: "You want",
     title: "INCOME OPPORTUNITY",
     desc: "Be part of a purpose-driven community and build a meaningful income while helping others create healthier, happier lives.",
     image: "/images/pathway-opportunity-icon.jpg",
     badgeText: "CREATE IMPACT. BUILD YOUR FUTURE.",
     badgeIcon: Users,
-    link: "#community",
+    link: "#cta",
   },
 ];
 
@@ -130,6 +134,11 @@ export function NextStepSection() {
               >
                 <Link
                   href={item.link}
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      window.dispatchEvent(new CustomEvent("select-pathway", { detail: item.id }));
+                    }
+                  }}
                   className="relative w-full h-full bg-white/80 hover:bg-white/95 backdrop-blur-xl border border-white/90 hover:border-accent/60 rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-between text-center shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 group cursor-pointer"
                 >
                   {/* Top Circular Image Graphic with Number Badge */}

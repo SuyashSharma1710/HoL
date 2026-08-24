@@ -5,39 +5,34 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export function Loader() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => {
+    if (typeof document !== "undefined") {
+      return !document.documentElement.classList.contains("hol-no-loader");
+    }
+    return true;
+  });
 
   useEffect(() => {
-    // If head script already marked this session as no-loader (Bot, Lighthouse, or already loaded)
-    if (typeof document !== "undefined" && document.documentElement.classList.contains("hol-no-loader")) {
-      setIsLoading(false);
-      return;
-    }
+    if (!isLoading) return;
 
-    try {
-      const hasSeen = sessionStorage.getItem("hol_initial_loaded");
-      if (hasSeen) {
-        setIsLoading(false);
-        return;
-      }
-      sessionStorage.setItem("hol_initial_loaded", "true");
-    } catch {
-      // Ignore sessionStorage exceptions in private mode
-    }
-
-    // First time real visitor: lock scroll during intro
+    // Real first-time visitor: lock scroll during intro
     document.body.style.overflow = "hidden";
 
     const timer = setTimeout(() => {
       setIsLoading(false);
       document.body.style.overflow = "unset";
+      try {
+        sessionStorage.setItem("hol_initial_loaded", "true");
+      } catch {
+        // Ignore sessionStorage exceptions in private mode
+      }
     }, 1100);
 
     return () => {
       clearTimeout(timer);
       document.body.style.overflow = "unset";
     };
-  }, []);
+  }, [isLoading]);
 
   return (
     <AnimatePresence>

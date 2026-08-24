@@ -1153,6 +1153,11 @@ _(Append new actions below this line as the project progresses)_
   - **Instant Frame-0 Paint for Real Visitors ([`Loader.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/layout/Loader.tsx)):** Loader is present from the very first frame of HTML delivery, eliminating the visual race condition/flash in incognito mode.
 - **Why:** Guarantees a seamless cinematic first-time user experience with 0 flash of content while keeping Google Lighthouse scores at 100%.
 
+**184. Non-Effect State Initialization for `Loader.tsx`**
+- **What:** Refactored [`src/components/layout/Loader.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/layout/Loader.tsx) to initialize `isLoading` directly from the synchronous `document.documentElement.classList.contains("hol-no-loader")` evaluation inside `useState(() => ...)` initializer.
+- **Why:** Completely eliminates `react-hooks/set-state-in-effect` lint errors without cascading re-renders.
+
+
 
 
 

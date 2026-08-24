@@ -39,7 +39,7 @@ export function CellularWorldSection() {
             className="absolute top-0 left-0 h-full w-[135vw] will-change-transform"
           >
             <Image 
-              src="/images/cellular-world-teal-bg.jpg"
+              src="/images/cellular-world-teal-bg.webp"
               alt="Celestial Cellular Health Sanctuary Background"
               fill
               priority

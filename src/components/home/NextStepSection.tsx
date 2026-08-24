@@ -24,7 +24,7 @@ const pathways: PathwayCard[] = [
     eyebrow: "You want",
     title: "PRODUCTS",
     desc: "Science-backed, high-quality wellness solutions designed to detox, nourish, and recharge your body at the cellular level.",
-    image: "/images/pathway-products-icon.jpg",
+    image: "/images/pathway-products-icon.webp",
     badgeText: "FUEL YOUR BODY. ELEVATE YOUR LIFE.",
     badgeIcon: Leaf,
     link: "#cta",
@@ -35,7 +35,7 @@ const pathways: PathwayCard[] = [
     eyebrow: "You want",
     title: "KNOWLEDGE",
     desc: "Evidence-based knowledge, tools, and guidance to help you understand your body, increase your lifeforce, and live young.",
-    image: "/images/pathway-knowledge-icon.jpg",
+    image: "/images/pathway-knowledge-icon.webp",
     badgeText: "EMPOWER YOUR MIND. TRANSFORM YOUR HEALTH.",
     badgeIcon: BookOpen,
     link: "#cta",
@@ -46,7 +46,7 @@ const pathways: PathwayCard[] = [
     eyebrow: "You want",
     title: "INCOME OPPORTUNITY",
     desc: "Be part of a purpose-driven community and build a meaningful income while helping others create healthier, happier lives.",
-    image: "/images/pathway-opportunity-icon.jpg",
+    image: "/images/pathway-opportunity-icon.webp",
     badgeText: "CREATE IMPACT. BUILD YOUR FUTURE.",
     badgeIcon: Users,
     link: "#cta",
@@ -64,7 +64,7 @@ export function NextStepSection() {
       {/* ========================================================= */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image
-          src="/images/next-step-card-bg.jpeg"
+          src="/images/next-step-card-bg.webp"
           alt="Your Next Step Celestial Landscape Background"
           fill
           priority

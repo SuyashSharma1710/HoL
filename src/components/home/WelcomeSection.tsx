@@ -122,7 +122,7 @@ export function WelcomeSection() {
               
               <div className="relative w-full h-full rounded-2xl overflow-hidden border border-secondary/30 shadow-inner bg-black">
                 <Image 
-                  src="/images/astral-body-v2.png"
+                  src="/images/astral-body-v2.webp"
                   alt="Astral cellular energy body"
                   fill
                   className="object-cover object-center scale-[1.01] hover:scale-105 transition-transform duration-1000 ease-out opacity-90"

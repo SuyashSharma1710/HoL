@@ -35,7 +35,7 @@ export function GutResetSection() {
       <div className="absolute inset-0 w-full h-full z-0">
         {/* Desktop Image (Landscape) */}
         <Image 
-          src="/images/gut_reset_desktop.png"
+          src="/images/gut_reset_desktop.webp"
           alt="Gut Reset Visualization"
           fill
           className="hidden lg:block object-cover object-left opacity-100"
@@ -44,7 +44,7 @@ export function GutResetSection() {
         />
         {/* Mobile Image (Portrait) */}
         <Image 
-          src="/images/gut_reset_mobile.png"
+          src="/images/gut_reset_mobile.webp"
           alt="Gut Reset Visualization"
           fill
           className="block lg:hidden object-cover object-bottom opacity-90"

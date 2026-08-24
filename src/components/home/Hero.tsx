@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-import heroBg from "../../../public/images/hero-vitality-banner.jpg";
+import heroBg from "../../../public/images/hero-vitality-banner.webp";
 
 const containerVariants = {
   hidden: { opacity: 0 },

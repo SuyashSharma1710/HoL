@@ -182,7 +182,7 @@ export function AuthoritySection() {
             {/* Framed Portrait Box */}
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-none aspect-square rounded-3xl ">
               <Image
-                src="/images/dr-ashutosh-rastogi.png"
+                src="/images/dr-ashutosh-rastogi.webp"
                 alt="Dr. Ashutosh Rastogi, Ph.D. - Harmony of Life Founder"
                 fill
                 priority

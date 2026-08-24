@@ -15,96 +15,96 @@ const pillars = [
     num: "01", 
     name: "Balanced Nutrition", 
     icon: Salad, 
-    circleGraphic: "/images/Balance-Nutrition.jpeg",
-    image: "/images/balanced-nutritionp.jpeg",
+    circleGraphic: "/images/Balance-Nutrition.webp",
+    image: "/images/balanced-nutritionp.webp",
     desc: "Provide your cells with clean, real, and nutrient-dense food to fuel energy, support repair, and maintain optimal cellular function."
   },
   { 
     num: "02", 
     name: "Deep Detox", 
     icon: Sparkles, 
-    circleGraphic: "/images/Deep-Detox.jpeg",
-    image: "/images/deep-detoxp.jpeg",
+    circleGraphic: "/images/Deep-Detox.webp",
+    image: "/images/deep-detoxp.webp",
     desc: "Remove accumulated toxins from the body at the cellular level to reduce toxic load and restore natural flow and clarity."
   },
   { 
     num: "03", 
     name: "Artery Cleanse", 
     icon: HeartPulse, 
-    circleGraphic: "/images/Artery-Cleanse.jpeg",
-    image: "/images/artery-cleansp.jpeg",
+    circleGraphic: "/images/Artery-Cleanse.webp",
+    image: "/images/artery-cleansp.webp",
     desc: "Keep your arteries clean and flexible to ensure smooth blood flow, oxygen delivery, and strong heart health."
   },
   { 
     num: "04", 
     name: "Gut Reset", 
     icon: ShieldPlus, 
-    circleGraphic: "/images/Gut-Reset.jpeg",
-    image: "/images/gut-resetp.jpeg",
+    circleGraphic: "/images/Gut-Reset.webp",
+    image: "/images/gut-resetp.webp",
     desc: "Heal the gut, improve digestion, and build a strong foundation for immunity, mood, and hormonal balance."
   },
   { 
     num: "05", 
     name: "Cellular Vitality", 
     icon: Zap, 
-    circleGraphic: "/images/Cellular-Vitality.jpeg",
-    image: "/images/cellular-vitalityp.jpeg",
+    circleGraphic: "/images/Cellular-Vitality.webp",
+    image: "/images/cellular-vitalityp.webp",
     desc: "Boost your cellular charge and energy production to enhance stamina, focus, and overall lifeforce."
   },
   { 
     num: "06", 
     name: "Inflammation Support", 
     icon: Flame, 
-    circleGraphic: "/images/Inflammation.jpeg",
-    image: "/images/inflamantionp.jpeg",
+    circleGraphic: "/images/Inflammation.webp",
+    image: "/images/inflamantionp.webp",
     desc: "Reduce chronic inflammation that silently damages cells and tissues, and accelerate healing from the inside out."
   },
   { 
     num: "07", 
     name: "Immunity Strength", 
     icon: ShieldCheck, 
-    circleGraphic: "/images/Immunity.jpeg",
-    image: "/images/immunityp.jpeg",
+    circleGraphic: "/images/Immunity.webp",
+    image: "/images/immunityp.webp",
     desc: "Strengthen your natural defences to protect against illness, infections, and modern lifestyle challenges."
   },
   { 
     num: "08", 
     name: "Deep Sleep", 
     icon: Moon, 
-    circleGraphic: "/images/Deep-Sleep.jpeg",
-    image: "/images/deep-sleepp.jpeg",
+    circleGraphic: "/images/Deep-Sleep.webp",
+    image: "/images/deep-sleepp.webp",
     desc: "Improve sleep quality and duration to allow your body and mind to repair, regenerate, and recharge deeply."
   },
   { 
     num: "09", 
     name: "Regular Exercise & Yoga", 
     icon: Activity, 
-    circleGraphic: "/images/Regular-Exercise.jpeg",
-    image: "/images/regular-exercisep.jpeg",
+    circleGraphic: "/images/Regular-Exercise.webp",
+    image: "/images/regular-exercisep.webp",
     desc: "Move your body daily to improve circulation, flexibility, strength, and metabolic efficiency."
   },
   { 
     num: "10", 
     name: "Nature Connect", 
     icon: TreePine, 
-    circleGraphic: "/images/Nature-Connect.jpeg",
-    image: "/images/nature-connectp.jpeg",
+    circleGraphic: "/images/Nature-Connect.webp",
+    image: "/images/nature-connectp.webp",
     desc: "Reconnect with nature to reduce stress, balance emotions, and enhance your body's natural healing intelligence."
   },
   { 
     num: "11", 
     name: "Social Connect", 
     icon: Users, 
-    circleGraphic: "/images/Social-Connect.jpeg",
-    image: "/images/social-connectp.jpeg",
+    circleGraphic: "/images/Social-Connect.webp",
+    image: "/images/social-connectp.webp",
     desc: "Nurture meaningful relationships that uplift, support, and create emotional wellbeing."
   },
   { 
     num: "12", 
     name: "Alkaline Chemistry", 
     icon: FlaskConical, 
-    circleGraphic: "/images/Alkaline-Chemistry.jpeg",
-    image: "/images/alkaline-chemistryp.jpeg",
+    circleGraphic: "/images/Alkaline-Chemistry.webp",
+    image: "/images/alkaline-chemistryp.webp",
     desc: "Maintain an alkaline internal environment to support optimal cellular function and long-term health."
   },
 ];
@@ -195,7 +195,7 @@ export function PillarsSection() {
           {/* Desktop Background (16:9) */}
           <div className="hidden md:block absolute inset-0">
             <Image
-              src="/images/cellular-restore-bg-desktop.jpg"
+              src="/images/cellular-restore-bg-desktop.webp"
               alt="Cellular Health & Longevity Framework"
               fill
               priority
@@ -207,7 +207,7 @@ export function PillarsSection() {
           {/* Mobile Background (9:16) */}
           <div className="block md:hidden absolute inset-0">
             <Image
-              src="/images/cellular-restore-bg-mobile.jpg"
+              src="/images/cellular-restore-bg-mobile.webp"
               alt="Cellular Health & Longevity Framework"
               fill
               priority
@@ -355,7 +355,7 @@ export function PillarsSection() {
                 {/* Center Holographic Prana Energy Body Avatar */}
                 <div className="relative z-10 w-60 h-44 sm:w-70 sm:h-70 lg:w-85 lg:h-85 overflow-hidden flex items-center justify-center">
                   <Image
-                    src="/images/prana-energy-avatar.png"
+                    src="/images/prana-energy-avatar.webp"
                     alt="Prana Cellular Energy Body Avatar"
                     fill
                     className="object-cover object-center"
@@ -428,7 +428,7 @@ export function PillarsSection() {
             {/* Top-Right Background Ambient Avatar Silhouette */}
             <div className="absolute right-2 top-0 w-48 h-36 sm:w-64 sm:h-48 lg:w-80 lg:h-56 pointer-events-none opacity-40 mix-blend-multiply overflow-hidden hidden sm:block">
               <Image
-                src="/images/prana-energy-avatar.png"
+                src="/images/prana-energy-avatar.webp"
                 alt="Prana Cellular Aura"
                 fill
                 className="object-contain object-top-right"

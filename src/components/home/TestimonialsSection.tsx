@@ -17,56 +17,56 @@ const testimonials = [
     role: "Harmony Community Member",
     tag: "Energy Reclaimed",
     text: "I am sixty-two and I move like I am forty. The brain fog lifted, the joint pain vanished, and my stamina is back. This is not a temporary supplement plan; it is a second life.",
-    image: "/images/testi-1.png"
+    image: "/images/testi-1.webp"
   },
   {
     name: "Ananya Sharma",
     role: "Living Young Participant",
     tag: "Inflammation Reversed",
     text: "My bloodwork stunned my doctor. For the first time in a decade, my inflammation markers dropped to normal. I finally understand what true cellular energy feels like.",
-    image: "/images/testi-2.png"
+    image: "/images/testi-2.webp"
   },
   {
     name: "Rajesh Patel",
     role: "Cellular Protocol Member",
     tag: "Metabolic Reset",
     text: "I stopped chasing symptoms and started charging my cells. The weight dropped naturally, my skin cleared, and I found a deep, grounded calm I never knew existed.",
-    image: "/images/testi-3.png"
+    image: "/images/testi-3.webp"
   },
   {
     name: "Priya Desai",
     role: "Wellness Community Member",
     tag: "Deep Vitality",
     text: "The holistic approach to cellular voltage completely transformed my relationship with health. I sleep deeply, think clearer, and feel a profound surge of lifeforce.",
-    image: "/images/testi-4.png"
+    image: "/images/testi-4.webp"
   },
   {
     name: "Amit Verma",
     role: "Harmony Community Member",
     tag: "Chronic Fatigue Overcome",
     text: "After struggling with chronic fatigue and mid-day crashes for years, this protocol restored my baseline lifeforce. The cellular science behind it is undeniable.",
-    image: "/images/testi-1.png"
+    image: "/images/testi-1.webp"
   },
   {
     name: "Sunita Rao",
     role: "Living Young Participant",
     tag: "Natural Healing",
     text: "I had tried countless diets and detoxes, but nothing addressed the electrical root cause like Harmony of Life. My body finally feels like it is effortlessly repairing itself.",
-    image: "/images/testi-2.png"
+    image: "/images/testi-2.webp"
   },
   {
     name: "Karan Mehta",
     role: "Foundation Member",
     tag: "Mobility & Joint Health",
     text: "Dr. Rastogi's vision is deeply inspiring. Treating the electrical balance instead of suppressing chemical symptoms has eliminated my persistent stiffness entirely.",
-    image: "/images/testi-3.png"
+    image: "/images/testi-3.webp"
   },
   {
     name: "Meera Reddy",
     role: "Harmony Community Member",
     tag: "Cellular Recharge",
     text: "Reconnecting with my cellular charge through the 12 pillars was the single best wellness decision of my life. The guidance and community support are unmatched.",
-    image: "/images/testi-4.png"
+    image: "/images/testi-4.webp"
   }
 ];
 

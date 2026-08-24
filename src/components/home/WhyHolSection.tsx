@@ -21,7 +21,7 @@ const whyCards: WhyCard[] = [
   {
     id: "aim",
     badgeTitle: "Our Aim",
-    image: "/images/our-aim.png",
+    image: "/images/our-aim.webp",
     alt: "Our Aim - Woman meditating outdoors surrounded by nature and nutrition",
     icon: Target,
     iconBg: "bg-[#548753] shadow-[#548753]/30",
@@ -37,7 +37,7 @@ const whyCards: WhyCard[] = [
   {
     id: "vision",
     badgeTitle: "Our Vision",
-    image: "/images/our-vision.png",
+    image: "/images/our-vision.webp",
     alt: "Our Vision - Two hands holding green mossy globe in lush valley",
     icon: Eye,
     iconBg: "bg-[#2f79a8] shadow-[#2f79a8]/30",
@@ -54,7 +54,7 @@ const whyCards: WhyCard[] = [
   {
     id: "mission",
     badgeTitle: "Our Mission",
-    image: "/images/our-mission.png",
+    image: "/images/our-mission.webp",
     alt: "Our Mission - Sprouting plant in glass sphere surrounded by wellness nodes",
     icon: Dna,
     iconBg: "bg-[#277e74] shadow-[#277e74]/30",
@@ -71,7 +71,7 @@ const whyCards: WhyCard[] = [
   {
     id: "objective",
     badgeTitle: "Our Objective",
-    image: "/images/our-objective.png",
+    image: "/images/our-objective.webp",
     alt: "Our Objective - Training wellness relationship managers in cellular health",
     icon: GraduationCap,
     iconBg: "bg-[#2b6ba1] shadow-[#2b6ba1]/30",
@@ -115,7 +115,7 @@ export function WhyHolSection() {
       {/* Background Image & Atmospheric Wash */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <Image 
-          src="/images/why-hol-botanical-bg.jpg"
+          src="/images/why-hol-botanical-bg.webp"
           alt="Why Harmony of Life Botanical Background"
           fill
           className="object-cover object-center"

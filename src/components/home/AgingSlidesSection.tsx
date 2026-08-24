@@ -8,22 +8,22 @@ import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 const slides = [
   {
     id: "slide-1",
-    desktopSrc: "/images/age1.jpeg",
-    mobileSrc: "/images/age1mob.jpeg",
+    desktopSrc: "/images/age1.webp",
+    mobileSrc: "/images/age1mob.webp",
     alt: "Aging is more than a number - Your everyday choices shape how you age",
     label: "Everyday Choices",
   },
   {
     id: "slide-2",
-    desktopSrc: "/images/age2.jpeg",
-    mobileSrc: "/images/age2mob.jpeg",
+    desktopSrc: "/images/age2.webp",
+    mobileSrc: "/images/age2mob.webp",
     alt: "Don't just add years, add life to them - Lifespan vs Healthspan",
     label: "Lifespan vs Healthspan",
   },
   {
     id: "slide-3",
-    desktopSrc: "/images/age3.jpeg",
-    mobileSrc: "/images/age3mob.jpeg",
+    desktopSrc: "/images/age3.webp",
+    mobileSrc: "/images/age3mob.webp",
     alt: "How you age starts with how you live - One body, one interconnected system",
     label: "Interconnected System",
   },

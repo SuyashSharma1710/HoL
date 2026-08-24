@@ -113,7 +113,7 @@ export function LifeforceSequenceSection() {
             className="md:col-span-1 lg:col-span-1 border border-primary/10 p-8 sm:p-12 rounded-[16px] shadow-2xl shadow-primary/10 flex flex-col relative overflow-hidden group min-h-[400px]"
           >
             <div className="absolute inset-0 z-0">
-              <Image src="/images/heartbeat-breath.png" alt="Cellular Particles" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 33vw" />
+              <Image src="/images/heartbeat-breath.webp" alt="Cellular Particles" fill className="object-cover transition-transform duration-1000 group-hover:scale-105" sizes="(max-width: 1024px) 100vw, 33vw" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-90" />
             
@@ -136,7 +136,7 @@ export function LifeforceSequenceSection() {
             className="md:col-span-2 lg:col-span-3 border border-primary/10 p-8 sm:p-12 rounded-[16px] shadow-2xl shadow-primary/10 flex flex-col relative overflow-hidden group min-h-[400px]"
           >
             <div className="absolute inset-0 z-0">
-              <Image src="/images/young-man-raising-hands-sunset-sky-after-training.jpg" alt="Lifeforce Burst" fill className="object-cover saturate-[1.5] transition-transform duration-1000 group-hover:scale-105" sizes="100vw" />
+              <Image src="/images/young-man-raising-hands-sunset-sky-after-training.webp" alt="Lifeforce Burst" fill className="object-cover saturate-[1.5] transition-transform duration-1000 group-hover:scale-105" sizes="100vw" />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent z-10 pointer-events-none transition-opacity duration-500 group-hover:opacity-90" />
             

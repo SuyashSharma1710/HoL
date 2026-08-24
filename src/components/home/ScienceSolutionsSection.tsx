@@ -19,21 +19,21 @@ const solutions: SolutionCard[] = [
     title: "LIVING YOUNG",
     desc: "Rejuvenate. Renew. Restore.",
     link: "#pillars",
-    image: "/images/living-young-icon.jpeg",
+    image: "/images/living-young-icon.webp",
   },
   {
     id: "gut-reset",
     title: "GUT RESET",
     desc: "Heal your gut. Heal your life.",
     link: "#gut-reset",
-    image: "/images/gut-reset-icon.jpeg",
+    image: "/images/gut-reset-icon.webp",
   },
   {
     id: "lifestyle-disorder",
     title: "PROTOCOL FOR LIFESTYLE DISORDER",
     desc: "Targeted support for modern health challenges.",
     link: "#cta",
-    image: "/images/lifestyle-disorder-icon.jpeg",
+    image: "/images/lifestyle-disorder-icon.webp",
   },
 ];
 
@@ -59,7 +59,7 @@ export function ScienceSolutionsSection() {
           {/* Dedicated High-Res Generated Card Background (Applies to this card only) */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/science-solutions-card-bg.jpeg"
+              src="/images/science-solutions-card-bg.webp"
               alt="Science Based Solutions Botanical Backdrop"
               fill
               priority

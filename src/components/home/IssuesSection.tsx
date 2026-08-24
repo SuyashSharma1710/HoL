@@ -62,7 +62,7 @@ export function IssuesSection() {
       {/* Background Image (4-Quadrant Crisis Montage) */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/issuesbg.jpeg"
+          src="/images/issuesbg.webp"
           alt="Modern Lifestyle Health Crisis in India"
           fill
           priority

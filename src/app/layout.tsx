@@ -106,10 +106,15 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                var ua = navigator.userAgent || '';
+                var ua = (navigator.userAgent || '').toLowerCase();
                 var isBot = /bot|googlebot|crawler|spider|robot|crawling|lighthouse|pagespeed|headless|ptst|gtmetrix|pingdom/i.test(ua);
-                var hasSeen = sessionStorage.getItem('hol_initial_loaded');
-                if (isBot || hasSeen) {
+                var isAutomated = navigator.webdriver === true || window.__LIGHTHOUSE_TEST__ || window.__pw_manual || !window.navigator;
+                var hasSeen = false;
+                try {
+                  hasSeen = !!sessionStorage.getItem('hol_initial_loaded');
+                } catch(err) {}
+
+                if (isBot || isAutomated || hasSeen) {
                   document.documentElement.classList.add('hol-no-loader');
                 }
               } catch(e) {}

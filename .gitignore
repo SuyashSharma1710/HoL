@@ -61,3 +61,6 @@ ehthumbs_vista.db
 *.sln
 *.sw?
 .eslintcache
+
+# Raw image archive (non-webp originals)
+raw_images/

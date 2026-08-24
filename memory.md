@@ -1168,6 +1168,12 @@ _(Append new actions below this line as the project progresses)_
 - **Component Updates:** Systematically updated all image source paths across all 17 component files in `src/components/` and `src/app/` to utilize `.webp` exclusively.
 - **Why:** Drastically reduces total page payload and bandwidth consumption, accelerates LCP/FCP loading times, and enhances mobile performance scores.
 
+**187. Raw Image Archive Isolation & `.gitignore` Configuration**
+- **What:** Created a standalone [`raw_images/`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/raw_images) archive directory and shifted all non-WebP legacy source files (`.png`, `.jpg`, `.jpeg`) out of `public/` into `raw_images/`.
+- **Git Protection:** Added `raw_images/` to [`.gitignore`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/.gitignore) so large uncompressed files are excluded from the repository.
+- **Why:** Keeps the deployment artifact lean, cleanly removes hundreds of megabytes from production builds and git tracking, and maintains master copies locally.
+
+
 
 
 

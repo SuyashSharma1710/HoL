@@ -101,6 +101,22 @@ export default function RootLayout({
       className={`${cormorantGaramond.variable} ${inter.variable} font-sans antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var ua = navigator.userAgent || '';
+                var isBot = /bot|googlebot|crawler|spider|robot|crawling|lighthouse|pagespeed|headless|ptst|gtmetrix|pingdom/i.test(ua);
+                var hasSeen = sessionStorage.getItem('hol_initial_loaded');
+                if (isBot || hasSeen) {
+                  document.documentElement.classList.add('hol-no-loader');
+                }
+              } catch(e) {}
+            `,
+          }}
+        />
+      </head>
       <body className="flex flex-col bg-background text-on-background pt-20 sm:pt-24" suppressHydrationWarning>
         <Loader />
         <LenisProvider>

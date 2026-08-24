@@ -5,34 +5,27 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export function Loader() {
-  const [isLoading, setIsLoading] = useState(() => {
-    if (typeof window === "undefined") return false;
-    
-    // 1. Detect Lighthouse, PageSpeed Insights, and Web Crawlers
-    const isBotOrAuditTool = 
-      /bot|googlebot|crawler|spider|robot|crawling|lighthouse|pagespeed|headless|ptst|gtmetrix|pingdom/i.test(
-        navigator.userAgent || ""
-      );
-
-    if (isBotOrAuditTool) return false;
-
-    // 2. Session-based display: Only show once per user session
-    try {
-      return !sessionStorage.getItem("hol_initial_loaded");
-    } catch {
-      return false;
-    }
-  });
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!isLoading) return;
-
-    try {
-      sessionStorage.setItem("hol_initial_loaded", "true");
-    } catch {
-      // Ignore sessionStorage exceptions in strict privacy mode
+    // If head script already marked this session as no-loader (Bot, Lighthouse, or already loaded)
+    if (typeof document !== "undefined" && document.documentElement.classList.contains("hol-no-loader")) {
+      setIsLoading(false);
+      return;
     }
 
+    try {
+      const hasSeen = sessionStorage.getItem("hol_initial_loaded");
+      if (hasSeen) {
+        setIsLoading(false);
+        return;
+      }
+      sessionStorage.setItem("hol_initial_loaded", "true");
+    } catch {
+      // Ignore sessionStorage exceptions in private mode
+    }
+
+    // First time real visitor: lock scroll during intro
     document.body.style.overflow = "hidden";
 
     const timer = setTimeout(() => {
@@ -44,12 +37,13 @@ export function Loader() {
       clearTimeout(timer);
       document.body.style.overflow = "unset";
     };
-  }, [isLoading]);
+  }, []);
 
   return (
     <AnimatePresence>
       {isLoading && (
         <motion.div
+          id="hol-initial-loader"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, y: "-100%" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}

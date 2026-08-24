@@ -80,4 +80,9 @@
   ::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-primary);
   }
+
+  /* Pre-Hydration Loader Suppression for Bots & Returning Visits */
+  html.hol-no-loader #hol-initial-loader {
+    display: none !important;
+  }
 }

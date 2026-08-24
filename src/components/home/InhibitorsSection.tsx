@@ -237,32 +237,32 @@ export function InhibitorsSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedIndex(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-12 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm overflow-y-auto overscroll-contain"
           >
             <motion.div 
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl max-h-full overflow-y-auto overflow-x-hidden bg-background shadow-2xl rounded-3xl flex flex-col md:flex-row"
+              className="relative w-full max-w-5xl max-h-[92dvh] overflow-y-auto overflow-x-hidden bg-background shadow-2xl rounded-3xl flex flex-col md:flex-row my-auto shrink-0"
             >
               {/* Close Button */}
               <button 
                 onClick={() => setSelectedIndex(null)}
-                className="absolute z-20 top-4 right-4 p-2 bg-white/50 backdrop-blur-md text-primary/70 hover:text-primary transition-colors rounded-full hover:bg-secondary/20"
+                className="absolute z-20 top-4 right-4 p-2 bg-white/50 backdrop-blur-md text-primary/70 hover:text-primary transition-colors rounded-full hover:bg-secondary/20 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
 
               {/* Left Side - Full Image */}
-              <div className="relative w-full md:w-1/2 aspect-square md:aspect-auto md:min-h-125 bg-primary/5">
+              <div className="relative w-full md:w-1/2 min-h-60 sm:min-h-80 md:min-h-125 bg-primary/5">
                 <Image 
                   src={selectedInhibitor.image} 
                   alt={selectedInhibitor.title}
                   fill
                   className="object-cover object-center"
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent pointer-events-none" />
               </div>
 
               {/* Right Side - Content & Navigation */}

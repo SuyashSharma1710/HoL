@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 
 // Official Verified Details
 const WHATSAPP_NUMBER = "918800828863"; 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzO07udJOg8RAJeCRkethljRnHq1Jg02osnKePp38KXwoREsbbs1WNcvUNWHmdzNcQ/exec"; 
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-Xc-mDHv3L47wNTiK6QGWGDzz2tSK3o8QPe2CDlJEKMY_sDT2ZNnyNwZAwPtCPW9s/exec"; 
 
 export type PathwayType = "products" | "knowledge" | "opportunity";
 
@@ -27,15 +27,8 @@ const pathwaysInfo = {
     subtitle: "Fuel Your Body. Elevate Your Life.",
     icon: Leaf,
     sheetName: "Products",
-    interestLabel: "Product / Wellness Focus *",
-    interestOptions: [
-      "Cellular Detox & Voltage Booster",
-      "Gut Reset & Microbiome Health",
-      "Metabolic & Energy Optimization",
-      "Immunity & Anti-Inflammation",
-      "Longevity & Healthy Aging",
-      "General Wellness Consultation"
-    ],
+    interestLabel: "Email Address *",
+    interestOptions: [],
     placeholderDescription: "Tell us about your health goals or specific product inquiries...",
     waDefault: "Hello! I am interested in Harmony of Life Products to elevate my cellular health."
   },
@@ -150,6 +143,158 @@ function validate10DigitPhone(input: string): PhoneValidationResult {
   };
 }
 
+/**
+ * Extensive Email Address Validation Engine
+ * - RFC 5322 regex format check
+ * - Local part (>=2 chars) and domain part verification
+ * - Valid domain extension (TLD >= 2 chars)
+ * - Proactive domain typo correction (@gmial.com, @yaho.com, etc.)
+ * - Dummy / placeholder address filtering (test@test.com, asdf@asdf.com)
+ * - Temporary / disposable throwaway domain rejection
+ */
+interface EmailValidationResult {
+  isValid: boolean;
+  errorMessage: string;
+  normalizedEmail: string;
+}
+
+function validateEmail(input: string): EmailValidationResult {
+  if (!input || !input.trim()) {
+    return {
+      isValid: false,
+      errorMessage: "Email address is required.",
+      normalizedEmail: ""
+    };
+  }
+
+  const email = input.trim().toLowerCase();
+
+  // Basic regex check
+  const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/;
+
+  if (!emailRegex.test(email) || !email.includes("@")) {
+    return {
+      isValid: false,
+      errorMessage: "Please enter a valid email format (e.g. name@domain.com).",
+      normalizedEmail: email
+    };
+  }
+
+  const parts = email.split("@");
+  if (parts.length !== 2) {
+    return {
+      isValid: false,
+      errorMessage: "Email must contain exactly one '@' symbol.",
+      normalizedEmail: email
+    };
+  }
+
+  const [localPart, domainPart] = parts;
+
+  if (!localPart || localPart.length < 2) {
+    return {
+      isValid: false,
+      errorMessage: "Username before '@' must be at least 2 characters.",
+      normalizedEmail: email
+    };
+  }
+
+  if (!domainPart || !domainPart.includes(".")) {
+    return {
+      isValid: false,
+      errorMessage: "Please include a valid domain extension (e.g. .com, .in).",
+      normalizedEmail: email
+    };
+  }
+
+  const domainSegments = domainPart.split(".");
+  const tld = domainSegments[domainSegments.length - 1];
+
+  if (!tld || tld.length < 2) {
+    return {
+      isValid: false,
+      errorMessage: "Domain extension must be at least 2 characters.",
+      normalizedEmail: email
+    };
+  }
+
+  // Common typo corrections
+  const typos: Record<string, string> = {
+    "gmial.com": "gmail.com",
+    "gmai.com": "gmail.com",
+    "gamil.com": "gmail.com",
+    "gmaill.com": "gmail.com",
+    "yaho.com": "yahoo.com",
+    "yahooo.com": "yahoo.com",
+    "hotmial.com": "hotmail.com",
+    "hotmai.com": "hotmail.com",
+    "outloo.com": "outlook.com",
+    "outlok.com": "outlook.com",
+    "iclud.com": "icloud.com",
+  };
+
+  if (typos[domainPart]) {
+    return {
+      isValid: false,
+      errorMessage: `Did you mean @${typos[domainPart]}?`,
+      normalizedEmail: email
+    };
+  }
+
+  // Reject dummy / placeholder emails
+  const dummyEmails = [
+    "test@test.com",
+    "abc@abc.com",
+    "asdf@asdf.com",
+    "aaa@aaa.com",
+    "xyz@xyz.com",
+    "dummy@dummy.com",
+    "example@example.com",
+    "sample@sample.com",
+    "user@user.com",
+    "admin@admin.com",
+    "noemail@noemail.com",
+    "temp@temp.com",
+  ];
+
+  if (dummyEmails.includes(email) || ["test", "dummy", "fake", "sample", "example", "asdf", "temp", "aaa"].includes(localPart)) {
+    return {
+      isValid: false,
+      errorMessage: "Please provide your real, active email address.",
+      normalizedEmail: email
+    };
+  }
+
+  // Temporary / disposable mail services
+  const disposableDomains = [
+    "mailinator.com",
+    "tempmail.com",
+    "10minutemail.com",
+    "guerrillamail.com",
+    "sharklasers.com",
+    "dispostable.com",
+    "trashmail.com",
+    "yopmail.com",
+    "throwawaymail.com",
+    "getnada.com",
+    "temp-mail.org",
+  ];
+
+  if (disposableDomains.includes(domainPart)) {
+    return {
+      isValid: false,
+      errorMessage: "Temporary / disposable email addresses are not accepted.",
+      normalizedEmail: email
+    };
+  }
+
+  return {
+    isValid: true,
+    errorMessage: "",
+    normalizedEmail: email
+  };
+}
+
 const Facebook = ({ className, strokeWidth = 1.75 }: { className?: string, strokeWidth?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
 );
@@ -199,6 +344,7 @@ export function CTASection() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    email: "",
     interest: "",
     cityOrBackground: "",
     description: ""
@@ -211,6 +357,13 @@ export function CTASection() {
     errorMessage: "",
     formattedNumber: "",
     rawDigits: ""
+  });
+
+  const [emailTouched, setEmailTouched] = useState(false);
+  const [emailValidation, setEmailValidation] = useState<EmailValidationResult>({
+    isValid: false,
+    errorMessage: "",
+    normalizedEmail: ""
   });
 
   // Listen to global pathway selection events from NextStepSection
@@ -248,6 +401,13 @@ export function CTASection() {
       setFormData(prev => ({ ...prev, phone: digits }));
       return;
     }
+
+    if (name === "email") {
+      const validation = validateEmail(value);
+      setEmailValidation(validation);
+      setFormData(prev => ({ ...prev, email: value }));
+      return;
+    }
     
     setFormData(prev => ({ ...prev, [name]: value }));
   };
@@ -257,18 +417,36 @@ export function CTASection() {
     setPhoneValidation(validate10DigitPhone(formData.phone));
   };
 
+  const handleEmailBlur = () => {
+    setEmailTouched(true);
+    setEmailValidation(validateEmail(formData.email));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Strict 10-digit validation check
     setPhoneTouched(true);
-    const validation = validate10DigitPhone(formData.phone);
-    setPhoneValidation(validation);
+    const phoneVal = validate10DigitPhone(formData.phone);
+    setPhoneValidation(phoneVal);
 
-    if (!validation.isValid) {
+    if (!phoneVal.isValid) {
       const phoneInput = document.getElementById("phone");
       phoneInput?.focus();
       return;
+    }
+
+    // Extensive Email validation check when pathway is products
+    if (selectedPathway === "products") {
+      setEmailTouched(true);
+      const emailVal = validateEmail(formData.email);
+      setEmailValidation(emailVal);
+
+      if (!emailVal.isValid) {
+        const emailInput = document.getElementById("email");
+        emailInput?.focus();
+        return;
+      }
     }
 
     setIsSubmitting(true);
@@ -281,8 +459,11 @@ export function CTASection() {
       const payload = new URLSearchParams();
       payload.append("sheetName", currentConfig.sheetName);
       payload.append("name", formData.name.trim());
-      payload.append("phone", validation.formattedNumber || formData.phone);
-      payload.append("interest", formData.interest || "General");
+      payload.append("phone", formData.phone || phoneVal.formattedNumber);
+      if (formData.email.trim()) {
+        payload.append("email", formData.email.trim());
+      }
+      payload.append("interest", selectedPathway === "products" ? "Product Inquiry" : (formData.interest || "General"));
       payload.append("background", formData.cityOrBackground.trim() || "");
       payload.append("message", formData.description.trim() || "");
 
@@ -297,8 +478,17 @@ export function CTASection() {
       }
 
       // 2. Redirect to WhatsApp with structured pathway message
-      let message = `Hello Harmony of Life!\n\n*Name:* ${formData.name.trim()}\n*Phone:* ${validation.formattedNumber || formData.phone}\n*Pathway:* ${currentConfig.title}\n*Interest / Focus:* ${formData.interest || "General"}`;
+      let message = `Hello Harmony of Life!\n\n*Name:* ${formData.name.trim()}\n*Phone:* ${phoneVal.formattedNumber || formData.phone}`;
       
+      if (formData.email.trim()) {
+        message += `\n*Email:* ${formData.email.trim()}`;
+      }
+      
+      message += `\n*Pathway:* ${currentConfig.title}`;
+      
+      if (selectedPathway !== "products" && formData.interest) {
+        message += `\n*Interest / Focus:* ${formData.interest}`;
+      }
       if (formData.cityOrBackground.trim()) {
         message += `\n*City / Background:* ${formData.cityOrBackground.trim()}`;
       }
@@ -314,7 +504,9 @@ export function CTASection() {
         setThankYouOpen(false);
         setIsSubmitting(false);
         setPhoneTouched(false);
-        setFormData({ name: "", phone: "", interest: "", cityOrBackground: "", description: "" });
+        setEmailTouched(false);
+        setEmailValidation({ isValid: false, errorMessage: "", normalizedEmail: "" });
+        setFormData({ name: "", phone: "", email: "", interest: "", cityOrBackground: "", description: "" });
       }, 1500);
 
     } catch (error) {
@@ -587,25 +779,79 @@ export function CTASection() {
                 </div>
               </div>
 
-              {/* Dynamic Interest Selection Dropdown */}
-              <div className="space-y-1.5">
-                <label htmlFor="interest" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
-                  {activeConfig.interestLabel}
-                </label>
-                <select 
-                  id="interest"
-                  name="interest"
-                  required
-                  value={formData.interest}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs cursor-pointer"
-                >
-                  <option value="" disabled>Select option...</option>
-                  {activeConfig.interestOptions.map((opt) => (
-                    <option key={opt} value={opt}>{opt}</option>
-                  ))}
-                </select>
-              </div>
+              {/* Dynamic Field: Email Address for Products, Dropdown for Knowledge & Opportunity */}
+              {selectedPathway === "products" ? (
+                <div className="space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
+                      Email Address *
+                    </label>
+                    {emailTouched && formData.email && (
+                      <span className="text-[11px] font-medium flex items-center gap-1">
+                        {emailValidation.isValid ? (
+                          <span className="text-emerald-700 flex items-center gap-0.5">
+                            <CheckCircle2 className="w-3.5 h-3.5" /> Valid Email
+                          </span>
+                        ) : (
+                          <span className="text-red-600 flex items-center gap-0.5">
+                            <AlertCircle className="w-3.5 h-3.5" /> Invalid
+                          </span>
+                        )}
+                      </span>
+                    )}
+                  </div>
+                  
+                  <div className={cn(
+                    "flex items-center bg-white border rounded-xl overflow-hidden text-sm transition-all shadow-xs focus-within:ring-2",
+                    emailTouched && !emailValidation.isValid
+                      ? "border-red-500 focus-within:ring-red-400/50 bg-red-50/20"
+                      : emailTouched && emailValidation.isValid
+                      ? "border-emerald-600 focus-within:ring-emerald-500/30"
+                      : "border-primary/20 focus-within:ring-accent focus-within:border-transparent"
+                  )}>
+                    <input 
+                      type="email" 
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      onBlur={handleEmailBlur}
+                      className="w-full px-4 py-3 bg-transparent text-sm focus:outline-hidden placeholder:text-primary/35 font-medium"
+                      placeholder="you@example.com"
+                    />
+                  </div>
+
+                  {emailTouched && !emailValidation.isValid && emailValidation.errorMessage && (
+                    <motion.p 
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-[11px] text-red-600 font-medium pl-1 leading-tight"
+                    >
+                      {emailValidation.errorMessage}
+                    </motion.p>
+                  )}
+                </div>
+              ) : (
+                <div className="space-y-1.5">
+                  <label htmlFor="interest" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
+                    {activeConfig.interestLabel}
+                  </label>
+                  <select 
+                    id="interest"
+                    name="interest"
+                    required
+                    value={formData.interest}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs cursor-pointer"
+                  >
+                    <option value="" disabled>Select option...</option>
+                    {activeConfig.interestOptions.map((opt) => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
 
               {/* Optional Field for City / Background in Opportunity */}
               {selectedPathway === "opportunity" && (

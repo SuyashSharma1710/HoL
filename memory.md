@@ -1171,33 +1171,49 @@ _(Append new actions below this line as the project progresses)_
 **187. Raw Image Archive Isolation & `.gitignore` Configuration**
 - **What:** Created a standalone [`raw_images/`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/raw_images) archive directory and shifted all non-WebP legacy source files (`.png`, `.jpg`, `.jpeg`) out of `public/` into `raw_images/`.
 - **Git Protection:** Added `raw_images/` to [`.gitignore`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/.gitignore) so large uncompressed files are excluded from the repository.
-- **Why:** Keeps the deployment artifact lean, cleanly removes hundreds of megabytes from production builds and git tracking, and maintains master copies locally.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**188. Reordered 12 Foundational Pillars Sequence (`PillarsSection.tsx`)**
+- **What:** Reordered and standardized the 12 pillars array and numbering in [`PillarsSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/PillarsSection.tsx) to match the definitive protocol order:
+  1. Balance Nutrition (`01`)
+  2. Deep Detox (`02`)
+  3. Artery Cleanse (`03`)
+  4. Alkaline Chemistry (`04`)
+  5. Cellular Vitality (`05`)
+  6. Gut Reset (`06`)
+  7. Inflammation (`07`)
+  8. Deep Sleep (`08`)
+  9. Regular Exercise and Yoga (`09`)
+  10. Immunity (`10`)
+  11. Nature Connect (`11`)
+**189. Zoom-Proof Dialog Lightbox Scaling Architecture (`PillarsSection.tsx` & `InhibitorsSection.tsx`)**
+- **What:** Hardened the protocol modal lightbox and image frame against aggressive browser tab zoom levels (125% to 300%+):
+  - **Outer Overlay:** Added `overflow-y-auto overscroll-contain` to the fixed overlay so the modal never gets clipped off-screen when the viewport height shrinks under high zoom.
+  - **Card Viewport Constraints:** Constrained modal cards to dynamic viewport bounds (`max-h-[92dvh]`, `max-w-[min(94vw,430px)]`, `my-auto`).
+  - **Auto-Scaling Flex Image Frame:** Replaced static pixel widths with a flexible `flex-1 min-h-0 aspect-3/4 max-w-full` container with `shrink-0` header, CTA, and footer controls.
+  - **Guaranteed Zero-Crop Rendering:** Switched image rendering to `object-contain object-center` so that every edge, graphic element, and title on the 3:4 poster remains 100% visible and uncropped at any zoom level or screen ratio.
+**190. Orbital Pillar Badges Smooth Rotation & Numbering Removal (`PillarsSection.tsx`)**
+- **What:** Modernized the Stage 2 circular 12-pillar framework display:
+  - **Removed Top Numbering:** Removed the `01` - `12` number text tag above each orbital circle for a cleaner aesthetic.
+  - **Continuous Celestial Orbit:** Wrapped the 12 badges in a Framer Motion rotating track (`animate={{ rotate: 360 }}` over 60s linear infinite loop).
+  - **Upright Counter-Rotation:** Added matching anti-clockwise counter-rotation (`animate={{ rotate: -360 }}`) to each badge so that all 12 pillar icons and name labels remain upright and readable while revolving around the central Prana Energy Avatar.
+**191. Dedicated WhatsApp Conversion CTAs on All Pathway Cards (`NextStepSection.tsx`)**
+- **What:** Integrated prominent WhatsApp conversion buttons across all 3 pathway cards (*Products*, *Knowledge*, *Income Opportunity*):
+  - **Contextual Prefilled WhatsApp Messages:** Each button routes directly to `wa.me/918800828863` with tailored inquiries for products, education/knowledge masterclasses, or WRM/partner career opportunities.
+  - **Luxury Full-Pill Styling:** Amber-gold solid button (`bg-[#b78736] hover:bg-[#a06f20]`) with WhatsApp message icon, glowing drop shadows, and active click scaling.
+  - **Dual Action Strategy:** Preserved online form registration route (`#cta`) as a secondary pathway while prioritizing immediate WhatsApp conversion.
+**192. Product Pathway Form Replaced Focus Dropdown with Email Input (`CTASection.tsx`)**
+- **What:** Modified the Product pathway inquiry form in [`CTASection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/CTASection.tsx):
+  - **Removed "Product / Wellness Focus *" Dropdown:** Replaced the multi-option select menu for Products with a clean, required `Email Address *` (`type="email"`, `name="email"`) input.
+  - **Retained Dropdowns on Other Pathways:** *Knowledge* continues to provide the program learning selection, and *Income Opportunity* provides role/community selection + city background.
+  - **Synchronized Data Pipelines:** Integrated the collected `email` into the Google Sheets Webhook payload and formatted into the outgoing WhatsApp inquiry string.
+**193. Extensive Real-Time Email Validation Engine (`CTASection.tsx`)**
+- **What:** Implemented an extensive, multi-layered email validation system for the Product inquiry form in [`CTASection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/CTASection.tsx):
+  - **Syntax & RFC 5322 Standards:** Full format verification, requiring valid local username (>=2 chars), exact single `@` symbol, and valid top-level domain extension (TLD >= 2 chars).
+  - **Domain Typo Intelligence:** Proactively detects common domain typos (e.g. `@gmial.com`, `@gmai.com`, `@yaho.com`, `@hotmial.com`, `@outloo.com`, `@iclud.com`) with helpful suggestions.
+  - **Dummy & Disposable Mail Rejection:** Automatically flags and blocks placeholder test emails (`test@test.com`, `asdf@asdf.com`, `dummy@dummy.com`) and disposable/throwaway email providers (`tempmail.com`, `mailinator.com`, `10minutemail.com`, `sharklasers.com`, `yopmail.com`, etc.).
+  - **Live Visual Feedback:** Displays emerald-green valid check badge (`✓ Valid Email`) or crisp red error banner (`AlertCircle` icon, focus-within glow rings, and descriptive helper text) on real-time typing and on blur.
+**194. Google Sheets Phone Formula Parse Error Resolution (`CTASection.tsx`)**
+- **What:** Resolved the Google Sheets `#ERROR! Formula parse error` when receiving leads from the CTA form:
+  - **Sanitized Payload Delivery:** Switched the mobile number field in the Google Sheets webhook payload to send pure numeric digits (`formData.phone`), preventing Google Sheets from misinterpreting formatted strings with leading `+` signs as arithmetic formulas.
+  - **Preserved WhatsApp Aesthetics:** Maintained the formatted `+91 XXXXX XXXXX` string in the user-facing WhatsApp redirection message for clear readability.
+- **Why:** Ensures lead capture into Google Sheets always appends cleanly with zero cell formula errors.
 

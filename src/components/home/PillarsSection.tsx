@@ -13,7 +13,7 @@ import Link from "next/link";
 const pillars = [
   { 
     num: "01", 
-    name: "Balanced Nutrition", 
+    name: "Balance Nutrition", 
     icon: Salad, 
     circleGraphic: "/images/Balance-Nutrition.webp",
     image: "/images/balanced-nutritionp.webp",
@@ -37,11 +37,11 @@ const pillars = [
   },
   { 
     num: "04", 
-    name: "Gut Reset", 
-    icon: ShieldPlus, 
-    circleGraphic: "/images/Gut-Reset.webp",
-    image: "/images/gut-resetp.webp",
-    desc: "Heal the gut, improve digestion, and build a strong foundation for immunity, mood, and hormonal balance."
+    name: "Alkaline Chemistry", 
+    icon: FlaskConical, 
+    circleGraphic: "/images/Alkaline-Chemistry.webp",
+    image: "/images/alkaline-chemistryp.webp",
+    desc: "Maintain an alkaline internal environment to support optimal cellular function and long-term health."
   },
   { 
     num: "05", 
@@ -53,19 +53,19 @@ const pillars = [
   },
   { 
     num: "06", 
-    name: "Inflammation Support", 
+    name: "Gut Reset", 
+    icon: ShieldPlus, 
+    circleGraphic: "/images/Gut-Reset.webp",
+    image: "/images/gut-resetp.webp",
+    desc: "Heal the gut, improve digestion, and build a strong foundation for immunity, mood, and hormonal balance."
+  },
+  { 
+    num: "07", 
+    name: "Inflammation", 
     icon: Flame, 
     circleGraphic: "/images/Inflammation.webp",
     image: "/images/inflamantionp.webp",
     desc: "Reduce chronic inflammation that silently damages cells and tissues, and accelerate healing from the inside out."
-  },
-  { 
-    num: "07", 
-    name: "Immunity Strength", 
-    icon: ShieldCheck, 
-    circleGraphic: "/images/Immunity.webp",
-    image: "/images/immunityp.webp",
-    desc: "Strengthen your natural defences to protect against illness, infections, and modern lifestyle challenges."
   },
   { 
     num: "08", 
@@ -77,7 +77,7 @@ const pillars = [
   },
   { 
     num: "09", 
-    name: "Regular Exercise & Yoga", 
+    name: "Regular Exercise and Yoga", 
     icon: Activity, 
     circleGraphic: "/images/Regular-Exercise.webp",
     image: "/images/regular-exercisep.webp",
@@ -85,6 +85,14 @@ const pillars = [
   },
   { 
     num: "10", 
+    name: "Immunity", 
+    icon: ShieldCheck, 
+    circleGraphic: "/images/Immunity.webp",
+    image: "/images/immunityp.webp",
+    desc: "Strengthen your natural defences to protect against illness, infections, and modern lifestyle challenges."
+  },
+  { 
+    num: "11", 
     name: "Nature Connect", 
     icon: TreePine, 
     circleGraphic: "/images/Nature-Connect.webp",
@@ -92,20 +100,12 @@ const pillars = [
     desc: "Reconnect with nature to reduce stress, balance emotions, and enhance your body's natural healing intelligence."
   },
   { 
-    num: "11", 
+    num: "12", 
     name: "Social Connect", 
     icon: Users, 
     circleGraphic: "/images/Social-Connect.webp",
     image: "/images/social-connectp.webp",
     desc: "Nurture meaningful relationships that uplift, support, and create emotional wellbeing."
-  },
-  { 
-    num: "12", 
-    name: "Alkaline Chemistry", 
-    icon: FlaskConical, 
-    circleGraphic: "/images/Alkaline-Chemistry.webp",
-    image: "/images/alkaline-chemistryp.webp",
-    desc: "Maintain an alkaline internal environment to support optimal cellular function and long-term health."
   },
 ];
 
@@ -364,42 +364,50 @@ export function PillarsSection() {
                   <div className="absolute top-[32%] left-[48%] -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-radial from-[#ffd875]/90 via-accent/50 to-transparent blur-md animate-pulse pointer-events-none" />
                 </div>
 
-                {/* 12 Interactive Orbital Pillar Badges */}
-                {pillars.map((pillar, index) => {
-                  const angle = (index / 12) * Math.PI * 2 - Math.PI / 2;
-                  const radiusPercent = 42; // Radius percentage from center
-                  const x = (50 + Math.cos(angle) * radiusPercent).toFixed(2);
-                  const y = (50 + Math.sin(angle) * radiusPercent).toFixed(2);
+                {/* 12 Interactive Orbital Pillar Badges - Rotating Framework Orbit */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
+                  className="absolute inset-0 w-full h-full pointer-events-none z-20"
+                >
+                  {pillars.map((pillar, index) => {
+                    const angle = (index / 12) * Math.PI * 2 - Math.PI / 2;
+                    const radiusPercent = 42; // Radius percentage from center
+                    const x = (50 + Math.cos(angle) * radiusPercent).toFixed(2);
+                    const y = (50 + Math.sin(angle) * radiusPercent).toFixed(2);
 
-                  return (
-                    <div
-                      key={pillar.num}
-                      style={{
-                        left: `${x}%`,
-                        top: `${y}%`,
-                        transform: "translate(-50%, -50%)",
-                      }}
-                      onClick={() => setSelectedIndex(index)}
-                      className="absolute z-20 flex flex-col items-center justify-center group cursor-pointer"
-                      title={pillar.name}
-                    >
-                      {/* Number Tag */}
-                      <span className="font-mono text-[8px] sm:text-[9px] font-bold text-primary/70 group-hover:text-accent transition-colors mb-0.5">
-                        {pillar.num}
-                      </span>
+                    return (
+                      <div
+                        key={pillar.num}
+                        style={{
+                          left: `${x}%`,
+                          top: `${y}%`,
+                          transform: "translate(-50%, -50%)",
+                        }}
+                        className="absolute pointer-events-auto"
+                      >
+                        {/* Counter-rotation keeps badge icon and label upright while revolving */}
+                        <motion.div
+                          animate={{ rotate: -360 }}
+                          transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
+                          onClick={() => setSelectedIndex(index)}
+                          className="flex flex-col items-center justify-center group cursor-pointer"
+                          title={pillar.name}
+                        >
+                          {/* Icon Circle Badge */}
+                          <div className="relative w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-full bg-white/95 border border-accent/40 flex items-center justify-center shadow-md group-hover:scale-115 group-hover:bg-[#1b4e47] group-hover:border-white transition-all duration-300">
+                            <pillar.icon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-primary group-hover:text-white transition-colors" />
+                          </div>
 
-                      {/* Icon Circle Badge */}
-                      <div className="relative w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-full bg-white/95 border border-accent/40 flex items-center justify-center shadow-md group-hover:scale-115 group-hover:bg-[#1b4e47] group-hover:border-white transition-all duration-300">
-                        <pillar.icon className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-primary group-hover:text-white transition-colors" />
+                          {/* Name Label */}
+                          <span className="mt-1 text-[7.5px] sm:text-[8.5px] font-semibold text-primary/90 text-center leading-none bg-white/95 backdrop-blur-xs px-2 py-1 rounded-full border border-accent/25 whitespace-nowrap shadow-2xs group-hover:bg-[#1b4e47] group-hover:text-white group-hover:border-white transition-all">
+                            {pillar.name}
+                          </span>
+                        </motion.div>
                       </div>
-
-                      {/* Name Label */}
-                      <span className="mt-0.5 text-[7.5px] sm:text-[8.5px] font-semibold text-primary/90 text-center leading-none bg-white/95 backdrop-blur-xs px-2 py-0.5 pt-1 rounded-full border border-accent/25 whitespace-nowrap shadow-2xs group-hover:bg-[#1b4e47] group-hover:text-white group-hover:border-white transition-all">
-                        {pillar.name}
-                      </span>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </motion.div>
 
               </div>
 
@@ -542,7 +550,7 @@ export function PillarsSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedIndex(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 lg:p-6 bg-primary/50 backdrop-blur-md"
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 bg-primary/60 backdrop-blur-md overflow-y-auto overscroll-contain"
           >
             <motion.div 
               key={selectedPillar.num}
@@ -551,16 +559,16 @@ export function PillarsSection() {
               exit={{ opacity: 0, scale: 0.96, y: 16 }}
               transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-auto max-w-[94vw] sm:max-w-md md:max-w-lg max-h-[94vh] bg-background/95 backdrop-blur-2xl shadow-2xl rounded-3xl p-3.5 sm:p-5 flex flex-col items-center border border-white/90 sm:border-accent/40 select-none overflow-hidden"
+              className="relative w-full max-w-[min(94vw,430px)] max-h-[92dvh] sm:max-h-[90dvh] bg-background/95 backdrop-blur-2xl shadow-2xl rounded-3xl p-3 sm:p-4.5 flex flex-col items-center border border-white/90 sm:border-accent/40 select-none overflow-hidden my-auto shrink-0"
             >
               {/* Corner Ambient Glow Flare */}
               <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-radial from-accent/25 to-transparent blur-3xl pointer-events-none" />
 
               {/* Top Header Bar: Pillar Eyebrow & Close Button */}
-              <div className="w-full flex items-center justify-between mb-2.5 px-0.5">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 mr-4 rounded-full bg-accent/15 border border-accent/35 text-primary shadow-2xs">
-                  <selectedPillar.icon className="w-3.5 h-3.5 text-accent" />
-                  <span className="font-sans font-semibold text-[10px] sm:text-xs tracking-[0.2em] uppercase">
+              <div className="w-full flex items-center justify-between mb-2 px-0.5 shrink-0">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 mr-2 rounded-full bg-accent/15 border border-accent/35 text-primary shadow-2xs">
+                  <selectedPillar.icon className="w-3.5 h-3.5 text-accent shrink-0" />
+                  <span className="font-sans font-semibold text-[10px] sm:text-xs tracking-[0.16em] sm:tracking-[0.2em] uppercase truncate max-w-[55vw] sm:max-w-none">
                     PILLAR {selectedPillar.num} • {selectedPillar.name}
                   </span>
                 </div>
@@ -568,35 +576,35 @@ export function PillarsSection() {
                 {/* Close Button */}
                 <button 
                   onClick={() => setSelectedIndex(null)}
-                  className="p-2 bg-white/80 hover:bg-white backdrop-blur-md text-primary hover:text-accent transition-all rounded-full border border-accent/30 shadow-xs active:scale-90 cursor-pointer"
+                  className="p-1.5 sm:p-2 bg-white/80 hover:bg-white backdrop-blur-md text-primary hover:text-accent transition-all rounded-full border border-accent/30 shadow-xs active:scale-90 cursor-pointer shrink-0"
                   aria-label="Close dialog"
                 >
                   <X className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
               </div>
 
-              {/* Central Poster Display (Strict Non-Collapsing 3:4 Frame with Loading State) */}
-              <div className="relative w-70 sm:w-85 md:w-95 max-w-[88vw] aspect-3/4 max-h-[58vh] sm:max-h-[64vh] rounded-2xl overflow-hidden shadow-xl border border-accent/30 bg-[#f4eee4] flex items-center justify-center">
+              {/* Central Poster Display (Rock-Solid Visible 3:4 Frame) */}
+              <div className="relative w-70 sm:w-82.5 md:w-87.5 max-w-[84vw] aspect-3/4 max-h-[52dvh] sm:max-h-[58dvh] rounded-2xl overflow-hidden shadow-xl border border-accent/30 bg-[#f4eee4] flex items-center justify-center my-1.5 sm:my-2 shrink-0">
                 
                 {/* Luminous Lotus Loading Placeholder */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-radial from-accent/20 via-background/80 to-background/95 z-0">
                   <div className="relative flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full border-2 border-accent/25 border-t-accent animate-spin" />
-                    <LotusIcon className="absolute w-7 h-7 text-accent stroke-accent stroke-[1.5]" />
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full border-2 border-accent/25 border-t-accent animate-spin" />
+                    <LotusIcon className="absolute w-6 h-6 sm:w-7 sm:h-7 text-accent stroke-accent stroke-[1.5]" />
                   </div>
-                  <span className="font-mono text-[9.5px] font-semibold text-primary/70 tracking-widest uppercase mt-2.5 animate-pulse">
+                  <span className="font-mono text-[9px] sm:text-[9.5px] font-semibold text-primary/70 tracking-widest uppercase mt-2 animate-pulse">
                     Loading Protocol...
                   </span>
                 </div>
 
-                {/* Full-Fidelity 3:4 Poster Image */}
+                {/* Full-Fidelity 3:4 Poster Image - object-contain guarantees zero cropping */}
                 <Image 
                   src={selectedPillar.image} 
                   alt={selectedPillar.name}
                   fill
                   priority
-                  className="object-cover object-center relative z-10 transition-opacity duration-300"
-                  sizes="(max-width: 768px) 88vw, 380px"
+                  className="object-contain object-center relative z-10 transition-opacity duration-300"
+                  sizes="(max-width: 768px) 84vw, 360px"
                 />
               </div>
 
@@ -604,35 +612,35 @@ export function PillarsSection() {
               <Link 
                 href="#cta"
                 onClick={() => setSelectedIndex(null)}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-2.5 sm:py-3 rounded-full bg-[#b78736] hover:bg-[#a06f20] text-white font-sans font-medium text-xs sm:text-sm shadow-[0_8px_24px_rgba(183,135,54,0.3)] transition-all hover:scale-[1.02] active:scale-95 cursor-pointer mt-3"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-2 sm:py-2.5 rounded-full bg-[#b78736] hover:bg-[#a06f20] text-white font-sans font-medium text-xs sm:text-sm shadow-[0_8px_24px_rgba(183,135,54,0.3)] transition-all hover:scale-[1.01] active:scale-95 cursor-pointer mt-1.5 sm:mt-2 shrink-0"
               >
                 <span>Start Your Wellness Journey</span>
-                <Sparkles className="w-4 h-4 text-white/90" />
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/90" />
               </Link>
 
               {/* Bottom Navigation Strip */}
-              <div className="w-full flex items-center justify-between pt-2.5 border-t border-accent/20 mt-2.5 px-0.5">
+              <div className="w-full flex items-center justify-between pt-2 border-t border-accent/20 mt-1.5 sm:mt-2 px-0.5 shrink-0">
                 <button 
                   onClick={handlePrev}
                   aria-label="Previous Pillar"
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/70 hover:bg-white border border-accent/30 text-primary font-sans font-medium text-xs transition-all hover:scale-105 active:scale-90 shadow-2xs cursor-pointer group"
+                  className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-white/70 hover:bg-white border border-accent/30 text-primary font-sans font-medium text-[11px] sm:text-xs transition-all hover:scale-105 active:scale-90 shadow-2xs cursor-pointer group"
                 >
-                  <ChevronLeft className="w-4 h-4 transition-transform group-hover:-translate-x-0.5 text-accent" />
+                  <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:-translate-x-0.5 text-accent" />
                   <span>Previous</span>
                 </button>
                 
                 {/* Counter Badge */}
-                <span className="font-mono text-xs font-semibold text-primary/60 tracking-wider">
+                <span className="font-mono text-[11px] sm:text-xs font-semibold text-primary/60 tracking-wider">
                   {selectedIndex !== null ? selectedIndex + 1 : 0} / 12
                 </span>
 
                 <button 
                   onClick={handleNext}
                   aria-label="Next Pillar"
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/70 hover:bg-white border border-accent/30 text-primary font-sans font-medium text-xs transition-all hover:scale-105 active:scale-90 shadow-2xs cursor-pointer group"
+                  className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-white/70 hover:bg-white border border-accent/30 text-primary font-sans font-medium text-[11px] sm:text-xs transition-all hover:scale-105 active:scale-90 shadow-2xs cursor-pointer group"
                 >
                   <span>Next</span>
-                  <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 text-accent" />
+                  <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-0.5 text-accent" />
                 </button>
               </div>
               

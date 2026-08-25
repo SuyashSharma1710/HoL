@@ -10,77 +10,97 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const pillars = [
+interface Pillar {
+  num: string;
+  name: string;
+  icon: React.ComponentType<{ className?: string }>;
+  image: string;
+  desc: string;
+}
+
+const pillars: Pillar[] = [
   { 
     num: "01", 
     name: "Balance Nutrition", 
     icon: Salad, 
+    image: "/images/balanced-nutritionp.webp",
     desc: "Provide your cells with clean, real, and nutrient-dense food to fuel energy, support repair, and maintain optimal cellular function."
   },
   { 
     num: "02", 
     name: "Deep Detox", 
     icon: Sparkles, 
+    image: "/images/deep-detoxp.webp",
     desc: "Remove accumulated toxins from the body at the cellular level to reduce toxic load and restore natural flow and clarity."
   },
   { 
     num: "03", 
     name: "Artery Cleanse", 
     icon: HeartPulse, 
+    image: "/images/artery-cleansp.webp",
     desc: "Keep your arteries clean and flexible to ensure smooth blood flow, oxygen delivery, and strong heart health."
   },
   { 
     num: "04", 
     name: "Alkaline Chemistry", 
     icon: FlaskConical, 
+    image: "/images/alkaline-chemistryp.webp",
     desc: "Maintain an alkaline internal environment to support optimal cellular function and long-term health."
   },
   { 
     num: "05", 
     name: "Cellular Vitality", 
     icon: Zap, 
+    image: "/images/cellular-vitalityp.webp",
     desc: "Boost your cellular charge and energy production to enhance stamina, focus, and overall lifeforce."
   },
   { 
     num: "06", 
     name: "Gut Reset", 
     icon: ShieldPlus, 
+    image: "/images/gut-resetp.webp",
     desc: "Heal the gut, improve digestion, and build a strong foundation for immunity, mood, and hormonal balance."
   },
   { 
     num: "07", 
     name: "Inflammation", 
     icon: Flame, 
+    image: "/images/inflamantionp.webp",
     desc: "Reduce chronic inflammation that silently damages cells and tissues, and accelerate healing from the inside out."
   },
   { 
     num: "08", 
     name: "Deep Sleep", 
     icon: Moon, 
+    image: "/images/deep-sleepp.webp",
     desc: "Improve sleep quality and duration to allow your body and mind to repair, regenerate, and recharge deeply."
   },
   { 
     num: "09", 
     name: "Regular Exercise and Yoga", 
     icon: Activity, 
+    image: "/images/regular-exercisep.webp",
     desc: "Move your body daily to improve circulation, flexibility, strength, and metabolic efficiency."
   },
   { 
     num: "10", 
     name: "Immunity", 
     icon: ShieldCheck, 
+    image: "/images/immunityp.webp",
     desc: "Strengthen your natural defences to protect against illness, infections, and modern lifestyle challenges."
   },
   { 
     num: "11", 
     name: "Nature Connect", 
     icon: TreePine, 
+    image: "/images/nature-connectp.webp",
     desc: "Reconnect with nature to reduce stress, balance emotions, and enhance your body's natural healing intelligence."
   },
   { 
     num: "12", 
     name: "Social Connect", 
     icon: Users, 
+    image: "/images/social-connectp.webp",
     desc: "Nurture meaningful relationships that uplift, support, and create emotional wellbeing."
   },
 ];
@@ -627,16 +647,9 @@ function Stage3PillarsGrid({ onSelectPillar }: { onSelectPillar: (idx: number) =
               {pillar.num}
             </div>
 
-            {/* Circular 3D Artwork Image */}
-            <div className="relative w-12 h-12 sm:w-14 sm:h-14 lg:w-15 lg:h-15 xl:w-16 xl:h-16 rounded-full overflow-hidden border-2 border-white shadow-sm my-1 group-hover:scale-108 transition-transform duration-300">
-              <Image
-                src={pillar.circleGraphic}
-                alt={pillar.name}
-                fill
-                sizes="80px"
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-accent/30 pointer-events-none" />
+            {/* Circular Icon Emblem */}
+            <div className="relative w-12 h-12 sm:w-14 sm:h-14 lg:w-15 lg:h-15 xl:w-16 xl:h-16 rounded-full bg-linear-to-br from-accent/20 via-white to-accent/10 border-2 border-accent/35 flex items-center justify-center shadow-xs my-1 group-hover:scale-108 group-hover:bg-[#1b4e47] group-hover:border-white transition-all duration-300">
+              <pillar.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary group-hover:text-white transition-colors stroke-[1.75]" />
             </div>
 
             {/* Pillar Title */}

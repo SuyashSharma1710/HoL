@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, Cookie, Settings, ShieldCheck, Eye, Sparkles, Building2, Phone } from "lucide-react";
+import { ArrowLeft, Cookie, Building2, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Cookie Policy | Harmony of Life",

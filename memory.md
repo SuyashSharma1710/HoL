@@ -1217,3 +1217,118 @@ _(Append new actions below this line as the project progresses)_
   - **Preserved WhatsApp Aesthetics:** Maintained the formatted `+91 XXXXX XXXXX` string in the user-facing WhatsApp redirection message for clear readability.
 - **Why:** Ensures lead capture into Google Sheets always appends cleanly with zero cell formula errors.
 
+**195. Global Typography & Visual Hierarchy Harmonization Across All Sections**
+- **What:** Executed a comprehensive typography audit and alignment across all landing page sections:
+  - **[`WhyHolSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/WhyHolSection.tsx):** Added the standard frosted shimmer eyebrow badge (`OUR PURPOSE & FOUNDATION` with `Sparkles` icon and sheen animation), aligned section title to canonical punctuation (`Why Harmony of Life?`), inserted the signature 56px amber-gold divider bar (`w-14 h-[2.5px] bg-accent`), aligned narrative body text scaling, and standardized card inline typography tokens (`text-[#1a4a40]`).
+  - **[`CellularWorldSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/CellularWorldSection.tsx):** Corrected typo `"70 MILIVOLT"` to `"70 MILLIVOLT"` across all biological calculation equation lines.
+- **Why:** Delivers 100% airtight typographic and visual hierarchy alignment across every section on the landing page in strict accordance with `Design.md`.
+
+**196. Zero-Warning Linter Validation Clean-up Across Workspace**
+- **What:** Cleaned up unused icon imports across legal pages and layout components:
+  - **[`cookies/page.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/app/cookies/page.tsx):** Removed unused `Settings`, `ShieldCheck`, `Eye`, `Sparkles` imports.
+  - **[`privacy/page.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/app/privacy/page.tsx):** Removed unused `Lock`, `Eye`, `FileText`, `Sparkles` imports.
+  - **[`terms/page.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/app/terms/page.tsx):** Removed unused `FileText`, `CheckCircle2`, `ShieldCheck` imports.
+  - **[`IssuesSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/IssuesSection.tsx):** Removed unused `AlertCircle` import.
+  - **[`Navbar.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/layout/Navbar.tsx):** Removed unused `Activity` import.
+  - **Verification:** `npm run lint` completed with 0 errors and 0 warnings.
+- **Why:** Guarantees spotless code hygiene and diagnostics across the entire workspace.
+
+**197. Mobile 3D Swiper Cards Effect Deck for Why Harmony of Life (`WhyHolSection.tsx`)**
+- **What:** Re-engineered the mobile display of the 4 Purpose cards (*Aim*, *Vision*, *Mission*, *Objective*):
+  - **Swiper `EffectCards` Integration:** Implemented 3D stacked deck physics with delicate rotation (`perSlideRotate: 3`, `perSlideOffset: 9`) and autoplay looping with pause-on-touch interaction.
+  - **Celestial Wellness Aesthetics:** Styled cards with frosted glass surfaces (`bg-white/95 backdrop-blur-xl border border-white/95 rounded-3xl shadow-2xl`), floating round badge seams, and Cormorant Garamond / Inter typography hierarchy.
+  - **Desktop/Tablet Preservation:** Retained the clean 4-column responsive grid on `sm:` and above (`hidden sm:grid`).
+- **Why:** Delivers a responsive, tactile mobile card browsing experience while maintaining the desktop layout.
+
+**198. Integrated Navigation Controller Pill for Why Harmony Mobile Deck (`WhyHolSection.tsx`)**
+- **What:** Added the interactive frosted navigation controller pill matching the design pattern of [`AgingSlidesSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/AgingSlidesSection.tsx):
+  - **Interactive Pill Shell:** Styled with `bg-background/90 backdrop-blur-md px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full border border-accent/40 shadow-xl`.
+  - **Previous & Next Arrows:** Chevron navigation buttons with tactile tap feedback (`active:scale-90`).
+  - **Animated Progress Bars:** Dynamic linear fill animation on the active card indicator (`motion.div` in `bg-accent rounded-full` synced to the 3.8s autoplay interval) and compact dots for other cards.
+  - **Autoplay Pause/Play Toggle:** Interactive button to freeze or resume continuous card auto-rotation.
+  - **Full Swiper Control:** Hooked into `swiperRef.current` (`slidePrev`, `slideNext`, `slideToLoop`, `autoplay.start/stop`).
+- **Why:** Delivers unified, interactive, and accessible slide controls across all carousel experiences on the platform.
+
+**199. Mobile Vertical Scroll Flow with Sticky Fixed Background (`CellularWorldSection.tsx`)**
+- **What:** Optimized the World of Cellular Health section for mobile & tablet screens (`< lg:`):
+  - **Natural Vertical Scroll:** Replaced the mobile horizontal scroll track with a clean, sequential vertical flow where Panel 1 (Intro & 3 Pillars), Panel 2 (Triad Quote & Sacred Tree), and Panel 3 (Electric Equations & Chart) stack naturally.
+  - **Desktop Preservation:** Preserved the 300vh sticky pinned horizontal scroll experience on desktop monitors (`lg:` and up).
+  - **Modular Architecture:** Refactored panels into shared sub-components (`PanelIntro`, `PanelQuote`, `PanelElectric`) ensuring 100% design fidelity across both mobile and desktop viewports.
+- **Why:** Eliminates awkward mobile sideways scrolling traps while providing an immersive, high-performance vertical reading experience on phones.
+
+**200. Viewport-Pinned Fixed Background via `clip-path: inset(0)` on Mobile (`CellularWorldSection.tsx`)**
+- **What:** Resolved the mobile background fixity issue:
+  - **Modern Hardware-Accelerated Fixity:** Applied `[clip-path:inset(0)]` on the mobile section container paired with a `fixed inset-0` child container holding `/images/cellular-world-teal-bg.webp` and radial ambient lighting overlays.
+  - **Zero Viewport Bleed:** The `clip-path: inset(0)` strictly confines the fixed viewport background to the bounds of `CellularWorldSection`, ensuring the artwork remains 100% stationary to the viewport as the user scrolls, without overflowing into adjacent sections.
+  - **Edge Feathers:** Preserved smooth top and bottom gradient feathering for transitions into neighboring sections.
+- **Why:** Provides an airtight, 100% stationary parallax backdrop on iOS Safari, Android Chrome, and mobile browsers without scroll jitter.
+
+**201. Mobile Vertical Scroll Flow with Fixed Background for 12 Pillars (`PillarsSection.tsx`)**
+- **What:** Re-architected the 12 Foundational Pillars section for mobile and tablet devices (`< lg:`):
+  - **Natural Vertical Scroll:** Replaced the multi-stage scroll-pinning with a clean vertical flow stacking Stage 1 (Intro Question Card), Stage 2 (The Framework Narrative & Revolving Avatar Orbit), and Stage 3 (Full 12 Pillars Grid Board).
+  - **Hardware-Accelerated Fixed Background:** Configured a viewport-pinned stationary background using `[clip-path:inset(0)]` on the section wrapper and a `fixed inset-0` child displaying `/images/cellular-restore-bg-mobile.webp` with radial atmospheric lighting and feathered edge transitions.
+  - **Shared Lightbox Dialog:** Preserved the interactive 3:4 poster modal dialog across both mobile and desktop views when clicking any pillar.
+  - **Desktop Preservation:** Maintained the 360vh sticky multi-stage scroll experience for desktop monitors (`lg:` and up).
+- **Why:** Eliminates sticky mobile scroll traps while providing a smooth, high-fidelity vertical reading and browsing experience on phones.
+
+**202. Mobile-Exclusive Interactive Sanctuary Portal Stage for Pathways (`NextStepSection.tsx`)**
+- **What:** Enhanced the "Your Next Step" 3 Pathways section with a responsive adaptive design:
+  - **Desktop Layout Intact (`hidden md:grid`):** Preserved the 3-column side-by-side card grid exactly as designed on `md:` screens and above.
+  - **Mobile Interactive Stage (`block md:hidden`):** Replaced static stacking on mobile with an interactive segmented pill tab switcher (`01. Products`, `02. Knowledge`, `03. Opportunity`) featuring smooth animated spring indicator highlights.
+  - **Rich Active Showcase Stage:** Displays the active pathway with circular artwork, numbered medallion, category subtitle, 3 key protocol deliverables with golden `✦` sparks, feature pill badge, direct WhatsApp conversion CTA, and an online registration shortcut that auto-selects the corresponding dropdown option.
+- **Why:** Provides an engaging, touch-optimized pathway selection experience on mobile devices while keeping the desktop layout unchanged.
+
+**203. Enlarged 12-Pillar Orbit Ring & Full Uncropped Prana Avatar (`PillarsSection.tsx`)**
+- **What:** Resolved the cropped avatar and crowded circular orbit in Stage 2 (`Stage2Framework`):
+  - **Uncropped Avatar Containment:** Switched `/images/prana-energy-avatar.webp` to `object-contain object-center` within an expanded vertical container (`w-44 h-64 xs:w-52 xs:h-76 sm:w-64 sm:h-92 lg:w-76 lg:h-110`), ensuring the full human cellular energy body (from head to toe) is 100% visible without top/bottom edge clipping.
+  - **Enlarged Orbit Diameter:** Increased the circular orbit boundary from `max-w-75` to `max-w-[340px] xs:max-w-[380px] sm:max-w-[460px] lg:max-w-[540px]` with an `86%` ring track guide and calibrated `radiusPercent = 43`.
+  - **Spacious Breathing Room:** Provided ample margin around the central Prana Avatar and eliminated badge/text overlap during the 360° celestial rotation.
+- **Why:** Delivers a majestic, fully visible anatomical energy presentation with balanced typographic breathing room.
+
+**204. Auto-Scrolling Marquee for Long Tab Labels (`CTASection.tsx` & `NextStepSection.tsx`)**
+- **What:** Implemented the `TabMarqueeText` component for compact tab buttons:
+  - **Dynamic Length Detection:** If the label text exceeds 10 characters (such as *"Income Opportunity"* / *"INCOME OPPORTUNITY"*), it activates a continuous smooth horizontal marquee animation (`motion.div` translating `0%` to `-50%` over 5s).
+  - **Zero Overflow & Clipping:** Prevents long text from spilling out of narrow mobile buttons or colliding with adjacent tab pills while maintaining the icon and button layout integrity.
+  - **Clean HTML Stripping:** Automatically sanitizes raw line breaks and whitespace to ensure smooth marquee rendering.
+- **Why:** Delivers clean, unclipped text across narrow mobile viewports for longer pathway names.
+
+**205. Stock Swiper 3D Cards Physics for Why Harmony Mobile Deck (`WhyHolSection.tsx`)**
+- **What:** Simplified Swiper `EffectCards` configuration to pure stock defaults:
+  - **Stock Physics:** Removed custom `cardsEffect` overrides (`perSlideOffset`, `perSlideRotate`, `slideShadows: false`) to allow Swiper's native, mathematically balanced 3D card deck stack calculations and natural drag physics (`effect={'cards'}`, `grabCursor={true}`, `modules={[EffectCards, Autoplay]}`).
+  - **Integrated Pill Controller:** Retained the interactive frosted navigation controller pill with `< >` chevrons, linear progress fill, and pause/play toggle hooked directly into `swiperRef.current`.
+- **Why:** Provides authentic, smooth Swiper 3D Cards rotation and drag experience as requested by the user.
+
+**206. Infinite Bidirectional Stack Depth for Swiper 3D Cards (`WhyHolSection.tsx`)**
+- **What:** Resolved the missing stack depth on LTR (backward swipe) in Swiper `EffectCards`:
+  - **Multi-Cycle Deck Generation:** Generated a continuous multi-cycle slide sequence (`c1`, `c2`, `c3`) paired with `loop={true}`, `loopAdditionalSlides={4}`, and `loopedSlides={4}`.
+  - **Bidirectional Depth:** Guarantees that whether swiping RTL (forward) or LTR (backward), there is always a rich 3D stack of 3–4 cards visibly queued behind the front card at all times.
+  - **Synchronized Controller Pill:** Configured `onSlideChange` to compute `swiper.realIndex % whyCards.length`, keeping the navigation controller pill indicators, next/prev arrows, and pause/play toggle 100% in sync.
+- **Why:** Fixes the shallow single-card LTR reverse swipe, making card stacking seamless and natural in both directions.
+
+**207. Clean 4-Card Deck with Smooth Rewind (`WhyHolSection.tsx`)**
+- **What:** Configured Swiper 3D Cards to use exactly the 4 purpose cards with `rewind={true}`:
+  - **Exact 4-Card Set:** Rendered only the 4 canonical cards (*Aim*, *Vision*, *Mission*, *Objective*).
+  - **Smooth End-to-Start Rewind:** When the user swipes or navigates past the 4th card, Swiper smoothly rewinds back to the 1st card (and vice versa when on the 1st card).
+  - **Index Precision:** Connected `activeIndex` and `swiper.slideTo(idx)` directly to the navigation controller pill for instant 1:1 indicator tracking.
+- **Why:** Delivers a pure 4-card deck experience with circular rewind transition as requested.
+
+**208. Pure Stock Swiper 3D Cards Deck (`WhyHolSection.tsx`)**
+- **What:** Cleaned and simplified the mobile Purpose Deck to pure stock Swiper `EffectCards`:
+  - **100% Stock Swiper Configuration:** `effect={'cards'}`, `grabCursor={true}`, `modules={[EffectCards]}` without any extra state, autoplay wrappers, or manual controller layers.
+  - **Preserved Card Design:** Retained all rich visual styling including the frosted glass background, rounded image frames, and floating circular icons.
+- **Why:** Delivers clean, unencumbered stock Swiper 3D Cards deck physics on mobile.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

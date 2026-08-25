@@ -16,7 +16,6 @@ import {
   Send,
   Compass,
   Zap,
-  Activity,
   MessageCircle
 } from "lucide-react";
 import { cn } from "@/lib/utils";

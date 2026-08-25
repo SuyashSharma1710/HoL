@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ShieldCheck, Lock, Eye, FileText, Sparkles, Building2, Phone } from "lucide-react";
+import { ArrowLeft, ShieldCheck, Building2, Phone } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Harmony of Life",

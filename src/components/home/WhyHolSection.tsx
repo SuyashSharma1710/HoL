@@ -3,7 +3,19 @@
 import React from "react";
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
-import { Target, Eye, Dna, GraduationCap } from "lucide-react";
+import { 
+  Target, 
+  Eye, 
+  Dna, 
+  GraduationCap, 
+  Sparkles 
+} from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards } from "swiper/modules";
+
+// Import Swiper core & cards effect styles
+import "swiper/css";
+import "swiper/css/effect-cards";
 
 interface WhyCard {
   id: string;
@@ -29,8 +41,8 @@ const whyCards: WhyCard[] = [
     highlightColor: "text-[#3f7c57]",
     renderDescription: () => (
       <>
-        To empower people with the science backed knowledge about their health. so that they can{" "}
-        <strong className="font-semibold text-[#3f7c57]">live young.</strong>
+        To empower people with the science backed knowledge about their health so that they can{" "}
+        <strong className="font-semibold text-[#1a4a40]">live young.</strong>
       </>
     ),
   },
@@ -46,7 +58,7 @@ const whyCards: WhyCard[] = [
     renderDescription: () => (
       <>
         To create a world where people live{" "}
-        <strong className="font-semibold text-[#266896]">happy, healthier</strong> lives without
+        <strong className="font-semibold text-[#1a4a40]">happy, healthier</strong> lives without
         the fear of having lifestyle disorders.
       </>
     ),
@@ -63,8 +75,8 @@ const whyCards: WhyCard[] = [
     renderDescription: () => (
       <>
         To create a science backed ecosystem where people get{" "}
-        <strong className="font-semibold text-[#24796f]">personalised health</strong> solution for
-        lifestyle disorder.
+        <strong className="font-semibold text-[#1a4a40]">personalised health</strong> solutions for
+        lifestyle disorders.
       </>
     ),
   },
@@ -80,7 +92,7 @@ const whyCards: WhyCard[] = [
     renderDescription: () => (
       <>
         To train Wellness Relationship Managers on the tenets of{" "}
-        <strong className="font-semibold text-[#255e94]">cellular health.</strong>
+        <strong className="font-semibold text-[#1a4a40]">cellular health.</strong>
       </>
     ),
   },
@@ -131,36 +143,69 @@ export function WhyHolSection() {
       <div className="relative z-10 w-full max-w-360 mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-12 sm:mb-16 lg:mb-20">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20">
+          {/* Eyebrow Pill Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7 }}
+            className="mb-4"
+          >
+            <span className="relative overflow-hidden inline-flex items-center gap-2 font-sans font-semibold text-[11px] sm:text-xs tracking-[0.2em] text-primary uppercase bg-background/80 border border-accent/40 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-xs">
+              <motion.span
+                aria-hidden="true"
+                className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/50 to-transparent skew-x-12 pointer-events-none"
+                animate={{ translateX: ["-120%", "220%"] }}
+                transition={{ duration: 3.5, repeat: Infinity, repeatDelay: 2.5, ease: "easeInOut" }}
+              />
+              <Sparkles className="w-3.5 h-3.5 text-accent" />
+              <span>Our Purpose &amp; Foundation</span>
+            </span>
+          </motion.div>
+
+          {/* Section Heading */}
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="font-heading text-4xl sm:text-5xl lg:text-6xl font-medium text-primary tracking-tight leading-[1.15] mb-3 sm:mb-4"
+            transition={{ duration: 0.8, delay: 0.08, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="font-heading text-4xl sm:text-5xl lg:text-6xl font-medium text-primary tracking-tight leading-[1.15]"
           >
-            Why Harmony of Life ?
+            Why Harmony of Life?
           </motion.h2>
 
+          {/* Amber-Gold Divider */}
+          <motion.div 
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="w-14 h-[2.5px] bg-accent my-4 sm:my-5 rounded-full"
+          />
+
+          {/* Narrative Subtitle */}
           <motion.p 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="font-sans text-base sm:text-lg lg:text-xl text-primary/80 font-normal leading-relaxed"
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="font-sans text-sm sm:text-base md:text-lg text-primary/80 font-normal leading-relaxed max-w-2xl"
           >
-            To Stop the rise of{" "}
-            <span className="font-semibold text-[#2d5c43]">lifestyle disorders</span> in India.
+            To stop the rise of{" "}
+            <strong className="font-semibold text-[#1a4a40]">lifestyle disorders</strong> in India through root-cause cellular science.
           </motion.p>
         </div>
 
-        {/* 4 Cards Grid */}
+        {/* ========================================================= */}
+        {/* DESKTOP & TABLET: 4-COLUMN RESPONSIVE GRID (sm: and up)   */}
+        {/* ========================================================= */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-7 items-stretch"
+          className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-7 items-stretch"
         >
           {whyCards.map((card) => {
             const Icon = card.icon;
@@ -177,7 +222,7 @@ export function WhyHolSection() {
                     src={card.image}
                     alt={card.alt}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
@@ -204,6 +249,67 @@ export function WhyHolSection() {
             );
           })}
         </motion.div>
+
+        {/* ========================================================= */}
+        {/* MOBILE ONLY: STOCK SWIPER 3D CARDS DECK (< sm:)          */}
+        {/* ========================================================= */}
+        <div className="block sm:hidden w-full py-4">
+          <div className="relative w-full max-w-[280px] xs:max-w-[300px] mx-auto">
+            <Swiper
+              effect={"cards"}
+              grabCursor={true}
+              modules={[EffectCards]}
+              className="why-hol-mobile-swiper w-full h-[435px] xs:h-[455px] !overflow-visible"
+            >
+              {whyCards.map((card) => {
+                const Icon = card.icon;
+                return (
+                  <SwiperSlide 
+                    key={card.id}
+                    className="!rounded-3xl overflow-hidden shadow-2xl shadow-primary/15 border border-white/95 bg-white/95 backdrop-blur-xl flex flex-col justify-between select-none"
+                  >
+                    {/* Top Image Frame */}
+                    <div className="relative w-full aspect-4/3 overflow-hidden rounded-t-3xl bg-primary/5 shrink-0">
+                      <Image
+                        src={card.image}
+                        alt={card.alt}
+                        fill
+                        sizes="300px"
+                        priority
+                        className="object-cover object-center"
+                      />
+                      <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
+                    </div>
+
+                    {/* Floating Round Icon Badge Overlapping Seam */}
+                    <div className="relative flex justify-center -mt-7 z-10 shrink-0">
+                      <div className={`w-14 h-14 rounded-full ${card.iconBg} border-[2.5px] border-white flex items-center justify-center text-white shadow-md`}>
+                        <Icon className="w-6 h-6 stroke-[1.85]" />
+                      </div>
+                    </div>
+
+                    {/* Card Content Block */}
+                    <div className="p-5 pt-3 pb-6 flex flex-col items-center text-center grow justify-between bg-linear-to-b from-white/95 to-white/90">
+                      <h3 className={`font-heading text-2xl font-semibold ${card.titleColor} leading-tight mb-2`}>
+                        {card.badgeTitle}
+                      </h3>
+
+                      <p className="font-sans text-[13px] text-primary/85 leading-relaxed font-normal">
+                        {card.renderDescription()}
+                      </p>
+
+                      {/* Micro Swipe Hint Tag */}
+                      <div className="inline-flex items-center gap-1.5 text-[10px] font-sans font-semibold tracking-wider uppercase text-accent/80 mt-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                        <span>Swipe next card</span>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          </div>
+        </div>
 
       </div>
     </section>

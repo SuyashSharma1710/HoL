@@ -1,19 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { BookOpen, Users, Leaf, MessageCircle, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface PathwayCard {
   num: string;
   id: "products" | "knowledge" | "opportunity";
   eyebrow: string;
   title: string;
+  subTitle: string;
   desc: string;
   image: string;
   badgeText: string;
   badgeIcon: React.ComponentType<{ className?: string }>;
+  highlights: string[];
   link: string;
   waLink: string;
   waCta: string;
@@ -25,10 +29,16 @@ const pathways: PathwayCard[] = [
     id: "products",
     eyebrow: "You want",
     title: "PRODUCTS",
+    subTitle: "Cellular Nutrition & Detox",
     desc: "Science-backed, high-quality wellness solutions designed to detox, nourish, and recharge your body at the cellular level.",
     image: "/images/pathway-products-icon.webp",
     badgeText: "FUEL YOUR BODY. ELEVATE YOUR LIFE.",
     badgeIcon: Leaf,
+    highlights: [
+      "Root-cause cellular detox to eliminate metabolic waste",
+      "Bio-available nutrition supporting mitochondrial energy",
+      "Restores cellular voltage to optimal 70–90 mV",
+    ],
     link: "#cta",
     waLink: "https://wa.me/918800828863?text=Hello!%20I%20am%20interested%20in%20Harmony%20of%20Life%20Products%20to%20elevate%20my%20cellular%20health.",
     waCta: "Connect on WhatsApp",
@@ -38,10 +48,16 @@ const pathways: PathwayCard[] = [
     id: "knowledge",
     eyebrow: "You want",
     title: "KNOWLEDGE",
+    subTitle: "Holistic Health Education",
     desc: "Evidence-based knowledge, tools, and guidance to help you understand your body, increase your lifeforce, and live young.",
     image: "/images/pathway-knowledge-icon.webp",
     badgeText: "EMPOWER YOUR MIND. TRANSFORM YOUR HEALTH.",
     badgeIcon: BookOpen,
+    highlights: [
+      "Mastery of the 12 Foundational Pillars of Longevity",
+      "Evidence-based biology vs symptom suppression",
+      "Practical lifestyle protocols to live young and thrive",
+    ],
     link: "#cta",
     waLink: "https://wa.me/918800828863?text=Hello!%20I%20want%20to%20explore%20Harmony%20of%20Life%20Knowledge%20and%20holistic%20wellness%20programs.",
     waCta: "Connect on WhatsApp",
@@ -50,11 +66,17 @@ const pathways: PathwayCard[] = [
     num: "03",
     id: "opportunity",
     eyebrow: "You want",
-    title: "INCOME OPPORTUNITY",
+    title: "INCOME <br /> OPPORTUNITY",
+    subTitle: "Wellness Career & Impact",
     desc: "Be part of a purpose-driven community and build a meaningful income while helping others create healthier, happier lives.",
     image: "/images/pathway-opportunity-icon.webp",
     badgeText: "CREATE IMPACT. BUILD YOUR FUTURE.",
     badgeIcon: Users,
+    highlights: [
+      "Certified Wellness Relationship Manager (WRM) training",
+      "Purpose-driven entrepreneurship with high earning potential",
+      "Join an expanding nationwide healthcare movement",
+    ],
     link: "#cta",
     waLink: "https://wa.me/918800828863?text=Hello!%20I%20am%20interested%20in%20joining%20Harmony%20of%20Life%20as%20a%20Wellness%20Relationship%20Manager%20%2F%20Partner.",
     waCta: "Connect on WhatsApp",
@@ -62,6 +84,10 @@ const pathways: PathwayCard[] = [
 ];
 
 export function NextStepSection() {
+  const [activeMobileTab, setActiveMobileTab] = useState<number>(0);
+  const activeItem = pathways[activeMobileTab];
+  const ActiveIcon = activeItem.badgeIcon;
+
   return (
     <section 
       id="next-step" 
@@ -128,8 +154,141 @@ export function NextStepSection() {
           </p>
         </motion.div>
 
-        {/* 3 Pathway Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 w-full max-w-6xl mb-12 sm:mb-16">
+        {/* ========================================================= */}
+        {/* MOBILE ONLY (below md): INTERACTIVE SANCTUARY PORTAL STAGE */}
+        {/* ========================================================= */}
+        <div className="block md:hidden w-full max-w-md mb-12">
+          {/* Segmented Tab Selector Pills */}
+          <div className="flex items-center justify-center p-1.5 bg-white/75 backdrop-blur-md rounded-full border border-accent/30 shadow-md mb-6 w-full">
+            {pathways.map((item, idx) => (
+              <button
+                key={item.id}
+                onClick={() => setActiveMobileTab(idx)}
+                className={`relative flex-1 py-2 px-1.5 xs:px-2 rounded-full font-sans text-[10.5px] xs:text-[11px] font-semibold tracking-wider uppercase transition-all duration-300 flex items-center justify-center gap-1 cursor-pointer overflow-hidden min-w-0 ${
+                  activeMobileTab === idx 
+                    ? "text-white shadow-xs" 
+                    : "text-primary/70 hover:text-primary"
+                }`}
+              >
+                {activeMobileTab === idx && (
+                  <motion.div
+                    layoutId="active-pathway-mobile-tab"
+                    className="absolute inset-0 bg-linear-to-r from-[#b78736] to-[#a06f20] rounded-full z-0"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-1 font-mono text-[10px] opacity-85 shrink-0">{item.num}</span>
+                <div className="relative z-1 overflow-hidden min-w-0 max-w-full">
+                  <TabMarqueeText text={item.title} />
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Active Pathway Spotlight Showcase Stage */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeItem.id}
+              initial={{ opacity: 0, y: 16, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -16, scale: 0.98 }}
+              transition={{ duration: 0.32, ease: [0.21, 0.47, 0.32, 0.98] }}
+              className="relative w-full bg-white/90 backdrop-blur-2xl border border-white/95 rounded-3xl p-6 flex flex-col items-center text-center shadow-xl overflow-hidden"
+            >
+              {/* Subtle top-right ambient gold flare */}
+              <div className="absolute -top-12 -right-12 w-36 h-36 rounded-full bg-accent/20 blur-2xl pointer-events-none" />
+
+              {/* Top Circular Graphic with Number Badge */}
+              <div className="relative mb-4">
+                <div className="relative w-28 h-28 rounded-full overflow-hidden border-2 border-white shadow-md">
+                  <Image
+                    src={activeItem.image}
+                    alt={activeItem.title}
+                    fill
+                    sizes="112px"
+                    className="object-cover object-center"
+                  />
+                  <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-accent/30 pointer-events-none" />
+                </div>
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-[#f4ebd9] border border-accent/40 text-accent font-mono text-[11px] font-bold flex items-center justify-center shadow-xs">
+                  {activeItem.num}
+                </div>
+              </div>
+
+              {/* Title & Category Lockup */}
+              <div className="space-y-1 mb-2.5 mt-1">
+                <span className="font-sans text-xs text-primary/70 font-medium">
+                  {activeItem.eyebrow}
+                </span>
+                <h3 className="font-heading font-bold text-xl text-[#142b23] tracking-wide leading-tight">
+                  {activeItem.title}
+                </h3>
+                <p className="font-heading italic text-xs text-accent font-medium">
+                  {activeItem.subTitle}
+                </p>
+              </div>
+
+              {/* Description */}
+              <p className="font-sans text-xs text-primary/80 leading-relaxed font-normal mb-4 px-1">
+                {activeItem.desc}
+              </p>
+
+              {/* 3 Key Protocol Highlights */}
+              <div className="w-full bg-background/60 rounded-2xl p-3.5 border border-accent/25 text-left space-y-2 mb-4">
+                <span className="font-sans font-semibold text-[9.5px] tracking-[0.18em] uppercase text-accent block">
+                  KEY HIGHLIGHTS
+                </span>
+                {activeItem.highlights.map((highlight, hIdx) => (
+                  <div key={hIdx} className="flex items-start gap-2 text-[11.5px] text-primary/85">
+                    <span className="text-accent font-bold mt-0.5">✦</span>
+                    <span className="leading-snug">{highlight}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Feature Pill Badge */}
+              <div className="py-2 px-3 bg-primary/5 rounded-xl border border-accent/20 w-full flex items-center justify-center gap-2 text-primary/80 mb-5">
+                <div className="shrink-0 w-5 h-5 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center text-accent">
+                  <ActiveIcon className="w-3 h-3" />
+                </div>
+                <span className="font-sans font-semibold text-[9px] tracking-wider uppercase text-[#1a4a40] text-center leading-tight">
+                  {activeItem.badgeText}
+                </span>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="w-full space-y-2">
+                <a
+                  href={activeItem.waLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#b78736] hover:bg-[#a06f20] text-white font-sans font-medium text-xs shadow-[0_6px_20px_rgba(183,135,54,0.3)] active:scale-95 transition-all cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4 text-white shrink-0" />
+                  <span>{activeItem.waCta}</span>
+                </a>
+
+                <Link
+                  href={activeItem.link}
+                  onClick={() => {
+                    if (typeof window !== "undefined") {
+                      window.dispatchEvent(new CustomEvent("select-pathway", { detail: activeItem.id }));
+                    }
+                  }}
+                  className="inline-flex items-center justify-center gap-1 text-[11px] font-semibold text-primary/70 hover:text-accent tracking-wider uppercase transition-colors pt-0.5"
+                >
+                  <span>Or register online</span>
+                  <ArrowRight className="w-3 h-3" />
+                </Link>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* ========================================================= */}
+        {/* DESKTOP & TABLET (md: and up): 3-CARD SIDE-BY-SIDE GRID   */}
+        {/* ========================================================= */}
+        <div className="hidden md:grid md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 w-full max-w-6xl mb-12 sm:mb-16">
           {pathways.map((item, idx) => {
             const IconComponent = item.badgeIcon;
             return (
@@ -261,3 +420,34 @@ function LeafPairIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+{/* Auto-scrolling Marquee Text when tab label exceeds compact button width */}
+function TabMarqueeText({ text, className }: { text: string; className?: string }) {
+  const cleanText = text.replace(/<[^>]*>?/gm, " ").replace(/\s+/g, " ").trim();
+
+  // If text is short, render standard text
+  if (cleanText.length <= 10) {
+    return <span className={cn("truncate", className)}>{cleanText}</span>;
+  }
+
+  // If text is long (e.g. "Income Opportunity"), display an elegant auto-scrolling marquee
+  return (
+    <div className="w-full max-w-full overflow-hidden whitespace-nowrap flex items-center justify-center pointer-events-none">
+      <motion.div
+        className={cn("inline-flex items-center whitespace-nowrap will-change-transform", className)}
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{
+          repeat: Infinity,
+          ease: "linear",
+          duration: 5,
+        }}
+      >
+        <span className="px-1">{cleanText}</span>
+        <span className="px-1.5 opacity-50 text-[9px]">•</span>
+        <span className="px-1">{cleanText}</span>
+        <span className="px-1.5 opacity-50 text-[9px]">•</span>
+      </motion.div>
+    </div>
+  );
+}
+

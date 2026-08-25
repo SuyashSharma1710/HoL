@@ -674,14 +674,14 @@ export function CTASection() {
                         setFormData(prev => ({ ...prev, interest: "" }));
                       }}
                       className={cn(
-                        "flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl font-sans text-xs font-semibold transition-all duration-300 cursor-pointer text-center",
+                        "flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-1.5 sm:px-2 rounded-xl font-sans text-xs font-semibold transition-all duration-300 cursor-pointer text-center overflow-hidden min-w-0",
                         isSelected 
                           ? "bg-accent text-white shadow-md shadow-accent/25 scale-[1.02]" 
                           : "text-primary/75 hover:text-primary hover:bg-white/60"
                       )}
                     >
                       <Icon className="w-4 h-4 shrink-0" />
-                      <span className="truncate">{item.title}</span>
+                      <TabMarqueeText text={item.title} />
                     </button>
                   );
                 })}
@@ -929,3 +929,34 @@ export function CTASection() {
     </section>
   );
 }
+
+{/* Auto-scrolling Marquee Text when tab label exceeds compact button width */}
+function TabMarqueeText({ text, className }: { text: string; className?: string }) {
+  const cleanText = text.replace(/<[^>]*>?/gm, " ").replace(/\s+/g, " ").trim();
+
+  // If text is short, render standard text
+  if (cleanText.length <= 10) {
+    return <span className={cn("truncate", className)}>{cleanText}</span>;
+  }
+
+  // If text is long (e.g. "Income Opportunity"), display an elegant auto-scrolling marquee
+  return (
+    <div className="w-full max-w-full overflow-hidden whitespace-nowrap flex items-center justify-center pointer-events-none">
+      <motion.div
+        className={cn("inline-flex items-center whitespace-nowrap will-change-transform", className)}
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{
+          repeat: Infinity,
+          ease: "linear",
+          duration: 5,
+        }}
+      >
+        <span className="px-1">{cleanText}</span>
+        <span className="px-1.5 opacity-50 text-[9px]">•</span>
+        <span className="px-1">{cleanText}</span>
+        <span className="px-1.5 opacity-50 text-[9px]">•</span>
+      </motion.div>
+    </div>
+  );
+}
+

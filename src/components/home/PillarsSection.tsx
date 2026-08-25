@@ -537,7 +537,7 @@ function Stage2Framework({ onSelectPillar }: { onSelectPillar: (idx: number) => 
         </div>
 
         {/* Right Column: Interactive Circular 12-Pillar Orbit with Energy Body */}
-        <div className="lg:col-span-7 relative w-full aspect-square max-w-[340px] xs:max-w-[380px] sm:max-w-[460px] lg:max-w-[540px] mx-auto flex items-center justify-center my-4 sm:my-0">
+        <div className="lg:col-span-7 relative w-full aspect-square max-w-85 xs:max-w-95 sm:max-w-115 lg:max-w-135 mx-auto flex items-center justify-center my-4 sm:my-0">
           {/* Circular Orbit Ring Guide Track */}
           <div className="absolute w-[86%] h-[86%] rounded-full border border-accent/30 shadow-[0_0_24px_rgba(183,135,54,0.15),inset_0_0_24px_rgba(183,135,54,0.15)] pointer-events-none" />
 
@@ -548,6 +548,7 @@ function Stage2Framework({ onSelectPillar }: { onSelectPillar: (idx: number) => 
               alt="Prana Cellular Energy Body Avatar"
               fill
               priority
+              sizes="(max-width: 640px) 210px, (max-width: 1024px) 260px, 310px"
               className="object-contain object-center"
             />
             {/* Glowing Pulsing Solar Plexus Halo */}

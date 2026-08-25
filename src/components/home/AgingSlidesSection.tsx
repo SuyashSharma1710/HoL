@@ -75,7 +75,7 @@ export function AgingSlidesSection() {
               alt={slides[currentIndex].alt}
               fill
               priority
-              sizes="100vw"
+              sizes="(min-width: 768px) 100vw, 1px"
               quality={85}
               className="object-cover object-center"
             />
@@ -88,7 +88,7 @@ export function AgingSlidesSection() {
               alt={slides[currentIndex].alt}
               fill
               priority
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw, 1px"
               quality={85}
               className="object-cover object-center"
             />

@@ -254,19 +254,19 @@ export function WhyHolSection() {
         {/* MOBILE ONLY: STOCK SWIPER 3D CARDS DECK (< sm:)          */}
         {/* ========================================================= */}
         <div className="block sm:hidden w-full py-4">
-          <div className="relative w-full max-w-[280px] xs:max-w-[300px] mx-auto">
+          <div className="relative w-full max-w-70 xs:max-w-[300px] mx-auto">
             <Swiper
               effect={"cards"}
               grabCursor={true}
               modules={[EffectCards]}
-              className="why-hol-mobile-swiper w-full h-[435px] xs:h-[455px] !overflow-visible"
+              className="why-hol-mobile-swiper w-full h-[435px] xs:h-[455px] overflow-visible!"
             >
               {whyCards.map((card) => {
                 const Icon = card.icon;
                 return (
                   <SwiperSlide 
                     key={card.id}
-                    className="!rounded-3xl overflow-hidden shadow-2xl shadow-primary/15 border border-white/95 bg-white/95 backdrop-blur-xl flex flex-col justify-between select-none"
+                    className="rounded-3xl! overflow-hidden shadow-2xl shadow-primary/15 border border-white/95 bg-white/95 backdrop-blur-xl flex flex-col justify-between select-none"
                   >
                     {/* Top Image Frame */}
                     <div className="relative w-full aspect-4/3 overflow-hidden rounded-t-3xl bg-primary/5 shrink-0">

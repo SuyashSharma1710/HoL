@@ -1318,6 +1318,14 @@ _(Append new actions below this line as the project progresses)_
   - **Preserved Card Design:** Retained all rich visual styling including the frosted glass background, rounded image frames, and floating circular icons.
 - **Why:** Delivers clean, unencumbered stock Swiper 3D Cards deck physics on mobile.
 
+**209. Canonical Tailwind Class Refinement & Image Sizes Optimization (`PillarsSection.tsx`, `WhyHolSection.tsx`, `AgingSlidesSection.tsx`)**
+- **What:** Refactored arbitrary Tailwind classes to canonical utilities and calibrated responsive image `sizes`:
+  - **Canonical Width Utilities:** Replaced `max-w-[340px]`, `sm:max-w-[460px]`, `lg:max-w-[540px]` with `max-w-85`, `xs:max-w-95`, `sm:max-w-115`, `lg:max-w-135` in `PillarsSection.tsx`, and `max-w-[280px]` with `max-w-70` in `WhyHolSection.tsx`.
+  - **Tailwind v4 Important Syntax:** Updated `!overflow-visible` and `!rounded-3xl` to `overflow-visible!` and `rounded-3xl!`.
+  - **Responsive Image Sizes Optimization:** Added `sizes="(max-width: 640px) 210px, (max-width: 1024px) 260px, 310px"` to `/images/prana-energy-avatar.webp` and calibrated responsive viewport sizes for desktop/mobile slides in `AgingSlidesSection.tsx`.
+- **Why:** Eliminates Next.js image warnings, improves browser performance, and adheres to Tailwind canonical conventions.
+
+
 
 
 

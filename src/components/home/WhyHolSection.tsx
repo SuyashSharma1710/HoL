@@ -259,7 +259,7 @@ export function WhyHolSection() {
               effect={"cards"}
               grabCursor={true}
               modules={[EffectCards]}
-              className="why-hol-mobile-swiper w-full h-[435px] xs:h-[455px] overflow-visible!"
+              className="why-hol-mobile-swiper w-full h-108.75 xs:h-[455px] overflow-visible!"
             >
               {whyCards.map((card) => {
                 const Icon = card.icon;

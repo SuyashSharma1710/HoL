@@ -15,96 +15,72 @@ const pillars = [
     num: "01", 
     name: "Balance Nutrition", 
     icon: Salad, 
-    circleGraphic: "/images/Balance-Nutrition.webp",
-    image: "/images/balanced-nutritionp.webp",
     desc: "Provide your cells with clean, real, and nutrient-dense food to fuel energy, support repair, and maintain optimal cellular function."
   },
   { 
     num: "02", 
     name: "Deep Detox", 
     icon: Sparkles, 
-    circleGraphic: "/images/Deep-Detox.webp",
-    image: "/images/deep-detoxp.webp",
     desc: "Remove accumulated toxins from the body at the cellular level to reduce toxic load and restore natural flow and clarity."
   },
   { 
     num: "03", 
     name: "Artery Cleanse", 
     icon: HeartPulse, 
-    circleGraphic: "/images/Artery-Cleanse.webp",
-    image: "/images/artery-cleansp.webp",
     desc: "Keep your arteries clean and flexible to ensure smooth blood flow, oxygen delivery, and strong heart health."
   },
   { 
     num: "04", 
     name: "Alkaline Chemistry", 
     icon: FlaskConical, 
-    circleGraphic: "/images/Alkaline-Chemistry.webp",
-    image: "/images/alkaline-chemistryp.webp",
     desc: "Maintain an alkaline internal environment to support optimal cellular function and long-term health."
   },
   { 
     num: "05", 
     name: "Cellular Vitality", 
     icon: Zap, 
-    circleGraphic: "/images/Cellular-Vitality.webp",
-    image: "/images/cellular-vitalityp.webp",
     desc: "Boost your cellular charge and energy production to enhance stamina, focus, and overall lifeforce."
   },
   { 
     num: "06", 
     name: "Gut Reset", 
     icon: ShieldPlus, 
-    circleGraphic: "/images/Gut-Reset.webp",
-    image: "/images/gut-resetp.webp",
     desc: "Heal the gut, improve digestion, and build a strong foundation for immunity, mood, and hormonal balance."
   },
   { 
     num: "07", 
     name: "Inflammation", 
     icon: Flame, 
-    circleGraphic: "/images/Inflammation.webp",
-    image: "/images/inflamantionp.webp",
     desc: "Reduce chronic inflammation that silently damages cells and tissues, and accelerate healing from the inside out."
   },
   { 
     num: "08", 
     name: "Deep Sleep", 
     icon: Moon, 
-    circleGraphic: "/images/Deep-Sleep.webp",
-    image: "/images/deep-sleepp.webp",
     desc: "Improve sleep quality and duration to allow your body and mind to repair, regenerate, and recharge deeply."
   },
   { 
     num: "09", 
     name: "Regular Exercise and Yoga", 
     icon: Activity, 
-    circleGraphic: "/images/Regular-Exercise.webp",
-    image: "/images/regular-exercisep.webp",
     desc: "Move your body daily to improve circulation, flexibility, strength, and metabolic efficiency."
   },
   { 
     num: "10", 
     name: "Immunity", 
     icon: ShieldCheck, 
-    circleGraphic: "/images/Immunity.webp",
-    image: "/images/immunityp.webp",
     desc: "Strengthen your natural defences to protect against illness, infections, and modern lifestyle challenges."
   },
   { 
     num: "11", 
     name: "Nature Connect", 
     icon: TreePine, 
-    circleGraphic: "/images/Nature-Connect.webp",
-    image: "/images/nature-connectp.webp",
     desc: "Reconnect with nature to reduce stress, balance emotions, and enhance your body's natural healing intelligence."
   },
   { 
     num: "12", 
     name: "Social Connect", 
     icon: Users, 
-    circleGraphic: "/images/Social-Connect.webp",
-    image: "/images/social-connectp.webp",
     desc: "Nurture meaningful relationships that uplift, support, and create emotional wellbeing."
   },
 ];

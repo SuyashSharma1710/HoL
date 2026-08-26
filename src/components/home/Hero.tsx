@@ -46,9 +46,7 @@ export function Hero() {
           fill
           priority
           fetchPriority="high"
-          placeholder="blur"
           sizes="100vw"
-          quality={85}
           className="object-cover object-[72%_center] sm:object-[70%_center] md:object-[65%_center] lg:object-center"
         />
 

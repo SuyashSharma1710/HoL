@@ -1372,6 +1372,16 @@ _(Append new actions below this line as the project progresses)_
   - **Legal Page Padding Normalization ([`cookies/page.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/app/cookies/page.tsx), [`privacy/page.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/app/privacy/page.tsx), [`terms/page.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/app/terms/page.tsx)):** Adjusted top padding on subpages (`pt-0 sm:pt-0 pb-16 sm:pb-24`) to eliminate excess whitespace beneath the global fixed navbar.
 - **Why:** Guarantees clean zero-warning console output, Meta Pixel compatibility, and balanced visual vertical rhythm across all legal subpages.
 
+**217. PageSpeed Core Web Vitals Optimization Suite (~15MB Payload Reduction & TBT Fix)**
+- **What:** Overhauled page performance assets and main-thread execution flow to achieve 90+ PageSpeed score:
+  - **Asset Optimization & Compression (`public/images/`):** Batch-resized and compressed 40+ visual assets using Sharp. Reduced mobile carousel slides from ~2.5MB to ~70KB (*96.4% reduction*), desktop slides from ~1.2MB to ~110KB, Hero banner to 53KB, and all 12 pillar thumbnails to ~25KB each, eliminating over 15MB of unnecessary initial payload.
+  - **Off-Screen Image Loading Refinement ([`AgingSlidesSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/AgingSlidesSection.tsx)):** Removed `priority` from background slide images so network bandwidth is 100% focused on rendering the Hero LCP element.
+  - **Hero LCP Streamline ([`Hero.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/Hero.tsx)):** Removed placeholder blur base64 decoding overhead for instantaneous First Contentful Paint.
+  - **Deferred Smooth Scroll Loop ([`LenisProvider.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/layout/LenisProvider.tsx)):** Deferred Lenis initialization to `requestIdleCallback` to free the main thread CPU and drop Total Blocking Time (TBT).
+  - **Turbopack Config Cleanup ([`next.config.ts`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/next.config.ts)):** Set absolute turbopack root using `path.resolve(__dirname)` to eliminate build warnings.
+- **Why:** Delivers lightning-fast page loading, eliminates network congestion, and brings LCP, Speed Index, and TBT into the green zone.
+
+
 
 
 

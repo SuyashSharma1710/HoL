@@ -1,50 +1,64 @@
 "use client";
 
 import { useEffect, ReactNode } from "react";
-import Lenis from "lenis";
 
 export function LenisProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
-      orientation: "vertical",
-      gestureOrientation: "vertical",
-      smoothWheel: true,
-      touchMultiplier: 2,
-    });
+    let lenisInstance: InstanceType<typeof import("lenis").default> | null = null;
+    let rafId: number;
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+    const init = async () => {
+      const Lenis = (await import("lenis")).default;
+      lenisInstance = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+        orientation: "vertical",
+        gestureOrientation: "vertical",
+        smoothWheel: true,
+        touchMultiplier: 2,
+      });
+
+      function raf(time: number) {
+        lenisInstance?.raf(time);
+        rafId = requestAnimationFrame(raf);
+      }
+      rafId = requestAnimationFrame(raf);
+    };
+
+    if (typeof window !== "undefined") {
+      if ("requestIdleCallback" in window) {
+        (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(() => {
+          init();
+        });
+      } else {
+        setTimeout(init, 200);
+      }
     }
-    requestAnimationFrame(raf);
 
     // Global interception of anchor links for smooth scrolling
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      // Traverse up to find the closest anchor tag
       const anchor = target.closest("a");
       
       if (!anchor) return;
       
       const href = anchor.getAttribute("href");
       
-      // If it's an internal hash link
       if (href && href.startsWith("#") && href !== "#") {
         e.preventDefault();
-        // Scroll to target with an offset for the fixed navbar (approx 100px)
-        lenis.scrollTo(href, { offset: -100 }); 
+        lenisInstance?.scrollTo(href, { offset: -100 }); 
       }
     };
 
     document.documentElement.addEventListener("click", handleAnchorClick);
 
     return () => {
-      lenis.destroy();
+      if (rafId) cancelAnimationFrame(rafId);
+      lenisInstance?.destroy();
       document.documentElement.removeEventListener("click", handleAnchorClick);
     };
   }, []);
 
   return <>{children}</>;
 }
+

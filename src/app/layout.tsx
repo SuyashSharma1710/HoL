@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -101,8 +102,11 @@ export default function RootLayout({
       className={`${cormorantGaramond.variable} ${inter.variable} font-sans antialiased`}
       suppressHydrationWarning
     >
-      <head>
-        <script
+      <body className="flex flex-col bg-background text-on-background pt-20 sm:pt-24" suppressHydrationWarning>
+        {/* Pre-Hydration Loader Suppression Script */}
+        <Script
+          id="hol-loader-suppression"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               try {
@@ -121,8 +125,7 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body className="flex flex-col bg-background text-on-background pt-20 sm:pt-24" suppressHydrationWarning>
+
         <Loader />
         <LenisProvider>
           <Navbar />
@@ -131,7 +134,8 @@ export default function RootLayout({
         </LenisProvider>
 
         {/* Organization Schema */}
-        <script
+        <Script
+          id="organization-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -151,7 +155,8 @@ export default function RootLayout({
         />
 
         {/* Local Business & Sanctuary Schema */}
-        <script
+        <Script
+          id="local-business-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -178,3 +183,4 @@ export default function RootLayout({
     </html>
   );
 }
+

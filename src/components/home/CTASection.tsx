@@ -422,8 +422,23 @@ export function CTASection() {
     setEmailValidation(validateEmail(formData.email));
   };
 
+  // Honeypot Anti-Spam
+  const [honeypot, setHoneypot] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Silent reject for automated bots filling the hidden honeypot field
+    if (honeypot.trim()) {
+      console.warn("Spam submission prevented.");
+      setIsSubmitting(true);
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setFormData({ name: "", phone: "", email: "", interest: "", cityOrBackground: "", description: "" });
+        setHoneypot("");
+      }, 500);
+      return;
+    }
     
     // Strict 10-digit validation check
     setPhoneTouched(true);
@@ -455,7 +470,7 @@ export function CTASection() {
     const currentConfig = pathwaysInfo[selectedPathway];
 
     try {
-      // 1. Send specific lead to Google Sheets via Web App URL
+      // 1. Send specific lead to Google Sheets via Web App URL with 10s timeout
       const payload = new URLSearchParams();
       payload.append("sheetName", currentConfig.sheetName);
       payload.append("name", formData.name.trim());
@@ -467,14 +482,19 @@ export function CTASection() {
       payload.append("background", formData.cityOrBackground.trim() || "");
       payload.append("message", formData.description.trim() || "");
 
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000);
+
       try {
         await fetch(GOOGLE_SCRIPT_URL, {
           method: "POST",
           mode: "no-cors",
           body: payload,
+          signal: controller.signal,
         });
+        clearTimeout(timeoutId);
       } catch (err) {
-        console.error("Sheets webhook failed:", err);
+        console.error("Sheets webhook notice:", err);
       }
 
       // 2. Redirect to WhatsApp with structured pathway message
@@ -507,6 +527,7 @@ export function CTASection() {
         setEmailTouched(false);
         setEmailValidation({ isValid: false, errorMessage: "", normalizedEmail: "" });
         setFormData({ name: "", phone: "", email: "", interest: "", cityOrBackground: "", description: "" });
+        setHoneypot("");
       }, 1500);
 
     } catch (error) {
@@ -699,7 +720,19 @@ export function CTASection() {
             </div>
             
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5" noValidate>
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5" noValidate aria-busy={isSubmitting}>
+              {/* Honeypot Spam Protection Field */}
+              <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
+                <input
+                  type="text"
+                  name="website_url_hp"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Full Name */}
                 <div className="space-y-1.5">

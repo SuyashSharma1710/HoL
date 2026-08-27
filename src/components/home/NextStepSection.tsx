@@ -66,7 +66,7 @@ const pathways: PathwayCard[] = [
     num: "03",
     id: "opportunity",
     eyebrow: "You want",
-    title: "INCOME <br /> OPPORTUNITY",
+    title: "INCOME OPPORTUNITY",
     subTitle: "Wellness Career & Impact",
     desc: "Be part of a purpose-driven community and build a meaningful income while helping others create healthier, happier lives.",
     image: "/images/pathway-opportunity-icon.webp",

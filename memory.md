@@ -1378,8 +1378,15 @@ _(Append new actions below this line as the project progresses)_
   - **Off-Screen Image Loading Refinement ([`AgingSlidesSection.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/AgingSlidesSection.tsx)):** Removed `priority` from background slide images so network bandwidth is 100% focused on rendering the Hero LCP element.
   - **Hero LCP Streamline ([`Hero.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/home/Hero.tsx)):** Removed placeholder blur base64 decoding overhead for instantaneous First Contentful Paint.
   - **Deferred Smooth Scroll Loop ([`LenisProvider.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/components/layout/LenisProvider.tsx)):** Deferred Lenis initialization to `requestIdleCallback` to free the main thread CPU and drop Total Blocking Time (TBT).
-  - **Turbopack Config Cleanup ([`next.config.ts`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/next.config.ts)):** Set absolute turbopack root using `path.resolve(__dirname)` to eliminate build warnings.
+  - **Turbopack Config Cleanup ([`next.config.ts`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/next.config.ts)):** Configured turbopack root and transpilePackages.
 - **Why:** Delivers lightning-fast page loading, eliminates network congestion, and brings LCP, Speed Index, and TBT into the green zone.
+
+**218. Resolved Dev Server Crash & Turbopack Root Resolution Issue**
+- **What:** Diagnosed and fixed the development server failure:
+  - **Root Cause 1 (Turbopack Workspace Root Inference):** Turbopack automatically detected an extraneous `package-lock.json` in the user's home directory (`C:\Users\priya\`), incorrectly selecting it as the monorepo root. This caused Turbopack to watch hundreds of thousands of files across the user profile and fail to resolve modules like `lucide-react`.
+  - **Root Cause 2 (Zombie Node Processes):** Orphaned background Node processes were holding port 3000 and throwing broken pipe exceptions (`EPIPE`).
+  - **The Fix:** Configured `turbopack: { root: path.resolve(".") }` and added `transpilePackages: ["lucide-react"]` in [`next.config.ts`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/next.config.ts). Terminated zombie processes on port 3000 and purged the `.next` compilation cache.
+- **Why:** Restores clean, instant Turbopack compilation and ensures the development server runs smoothly on `http://localhost:3000` with 0 errors.
 
 
 

@@ -48,7 +48,7 @@ const pillarCards = [
   {
     icon: Zap,
     title: "The Core Principle",
-    desc: "True health begins at the cellular level—where optimal lifeforce and electrical charge sustain your vitality. Discover the principles of Living Young to transform how you age.",
+    desc: "Optimal Health depends on your Lifeforce. Cellular relaxation,  cellular respiration and cellular charge determine your rejuvenation and sustain your vitality. Discover the principles of Living Young to transform your Life.",
   },
 ];
 

@@ -48,7 +48,7 @@ const pillarCards = [
   {
     icon: Zap,
     title: "The Core Principle",
-    desc: "When your cells receive the right nutrition, deep detox, and daily care, natural vitality returns. The body is built to restore itself.",
+    desc: "True health begins at the cellular level—where optimal lifeforce and electrical charge sustain your vitality. Discover the principles of Living Young to transform how you age.",
   },
 ];
 

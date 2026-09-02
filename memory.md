@@ -1417,10 +1417,15 @@ _(Append new actions below this line as the project progresses)_
   - **Pathway-Specific Additional Fields:**
     - **Knowledge:** Learning & Program Interest dropdown (`interest`) with 6 longevity masterclasses + Additional Notes (`description`).
     - **Income Opportunity:** Role / Community Interest dropdown (`interest`) with 5 career avenues + Professional Background & Experience (`background`) + Partnership Aspirations note (`description`).
-    - **Products:** Pathway Focus badge + Health Goals & Product Inquiries note (`description`).
+    - **Products:** Health Goals & Product Inquiries note (`description`).
   - **Unified Pipeline:** Dispatches all base and pathway-specific fields to Google Sheets via Webhook and formats the WhatsApp direct inquiry message.
   - **Verification:** Verified 100% clean ESLint pass (`npm run lint` exit code 0).
 - **Why:** Ensures the sanctuary team captures comprehensive contact and attribution details while simultaneously gathering targeted pathway context from users.
+
+**222. Streamlined Products Intake Form (`CTASection.tsx`)**
+- **What:** Removed the redundant static "Pathway Focus" informational box from the Products intake form, allowing the Referral Name field to render cleanly and seamlessly above the Health Goals note.
+- **Why:** Eliminates visual noise and improves the direct conversion aesthetic of the Products intake card.
+
 
 
 

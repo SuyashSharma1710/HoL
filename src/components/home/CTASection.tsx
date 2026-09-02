@@ -936,7 +936,10 @@ export function CTASection() {
               </div>
 
               {/* Row 3: Referral Name if any + Pathway-Specific Dropdown (Knowledge / Opportunity) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className={cn(
+                "grid gap-4",
+                selectedPathway !== "products" ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"
+              )}>
                 {/* 5. Referral Name if any */}
                 <div className="space-y-1.5">
                   <label htmlFor="referral" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
@@ -954,7 +957,7 @@ export function CTASection() {
                 </div>
 
                 {/* Pathway Specific: Learning/Role Interest Dropdown for Knowledge and Opportunity */}
-                {selectedPathway !== "products" ? (
+                {selectedPathway !== "products" && (
                   <div className="space-y-1.5">
                     <label htmlFor="interest" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
                       {'interestLabel' in activeConfig ? activeConfig.interestLabel : "Interest *"}
@@ -972,16 +975,6 @@ export function CTASection() {
                         <option key={opt} value={opt}>{opt}</option>
                       ))}
                     </select>
-                  </div>
-                ) : (
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold uppercase tracking-wider text-primary/60">
-                      Pathway Focus
-                    </label>
-                    <div className="px-4 py-3 bg-primary/5 border border-primary/10 rounded-xl text-xs font-semibold text-primary/80 flex items-center gap-2">
-                      <Leaf className="w-3.5 h-3.5 text-accent" />
-                      <span>Cellular Nutrition &amp; Detox Products</span>
-                    </div>
                   </div>
                 )}
               </div>

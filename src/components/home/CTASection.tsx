@@ -534,27 +534,31 @@ export function CTASection() {
         console.error("Sheets webhook notice:", err);
       }
 
-      // 2. Redirect to WhatsApp with structured pathway message
-      let message = `Hello Harmony of Life!\n\n*Name:* ${formData.name.trim()}\n*WhatsApp No:* ${phoneVal.formattedNumber || formData.phone}\n*Email ID:* ${formData.email.trim()}\n*City:* ${formData.city.trim()}`;
-      
-      if (formData.referral.trim()) {
-        message += `\n*Referral Name:* ${formData.referral.trim()}`;
-      }
-      
-      message += `\n*Pathway:* ${currentConfig.title}`;
+      // 2. Redirect to destination: www.thenatureleaf.com for Products, WhatsApp for Knowledge & Opportunity
+      if (selectedPathway === "products") {
+        window.open("https://www.thenatureleaf.com", "_blank");
+      } else {
+        let message = `Hello Harmony of Life!\n\n*Name:* ${formData.name.trim()}\n*WhatsApp No:* ${phoneVal.formattedNumber || formData.phone}\n*Email ID:* ${formData.email.trim()}\n*City:* ${formData.city.trim()}`;
+        
+        if (formData.referral.trim()) {
+          message += `\n*Referral Name:* ${formData.referral.trim()}`;
+        }
+        
+        message += `\n*Pathway:* ${currentConfig.title}`;
 
-      if (selectedPathway !== "products" && formData.interest) {
-        message += `\n*Interest / Focus:* ${formData.interest}`;
-      }
-      if (selectedPathway === "opportunity" && formData.background.trim()) {
-        message += `\n*Background:* ${formData.background.trim()}`;
-      }
-      if (formData.description.trim()) {
-        message += `\n*Notes:* ${formData.description.trim()}`;
-      }
+        if (formData.interest) {
+          message += `\n*Interest / Focus:* ${formData.interest}`;
+        }
+        if (selectedPathway === "opportunity" && formData.background.trim()) {
+          message += `\n*Background:* ${formData.background.trim()}`;
+        }
+        if (formData.description.trim()) {
+          message += `\n*Notes:* ${formData.description.trim()}`;
+        }
 
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, "_blank");
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        window.open(waUrl, "_blank");
+      }
 
       // Hold dialog open briefly
       setTimeout(() => {
@@ -607,7 +611,11 @@ export function CTASection() {
               </div>
               <h3 className="font-heading text-2xl sm:text-3xl font-bold text-primary">Thank You!</h3>
               <p className="font-sans text-primary/75 text-sm sm:text-base mb-4 leading-relaxed">
-                Your inquiry for <strong>{activeConfig.title}</strong> has been received. Connecting you directly to our WhatsApp desk...
+                {selectedPathway === "products" ? (
+                  <>Your details have been recorded. Taking you to <strong>The Nature Leaf</strong> (www.thenatureleaf.com)...</>
+                ) : (
+                  <>Your inquiry for <strong>{activeConfig.title}</strong> has been received. Connecting you directly to our WhatsApp desk...</>
+                )}
               </p>
               <Loader2 className="w-6 h-6 animate-spin text-accent" />
             </motion.div>
@@ -1038,11 +1046,13 @@ export function CTASection() {
                 {isSubmitting ? (
                   <span className="relative z-1 flex items-center gap-2">
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    Recording &amp; Connecting...
+                    {selectedPathway === "products" ? "Recording & Redirecting..." : "Recording & Connecting..."}
                   </span>
                 ) : (
                   <span className="relative z-1 flex items-center gap-2">
-                    Connect on WhatsApp ({activeConfig.title})
+                    {selectedPathway === "products" 
+                      ? "Explore Products (The Nature Leaf)" 
+                      : `Connect on WhatsApp (${activeConfig.title})`}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 )}

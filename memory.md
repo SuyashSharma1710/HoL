@@ -1426,6 +1426,14 @@ _(Append new actions below this line as the project progresses)_
 - **What:** Removed the redundant static "Pathway Focus" informational box from the Products intake form, allowing the Referral Name field to render cleanly and seamlessly above the Health Goals note.
 - **Why:** Eliminates visual noise and improves the direct conversion aesthetic of the Products intake card.
 
+**223. Dynamic Destination Redirection: www.thenatureleaf.com for Products (`CTASection.tsx`)**
+- **What:** Configured dedicated submission routing for the Products pathway:
+  - **Data Logging:** Dispatches complete contact data (Name, WhatsApp No, Email ID, City, Referral Name, and Health Goals note) to Google Sheets via the Webhook.
+  - **Store Redirection:** Automatically takes the user to `https://www.thenatureleaf.com` upon form submission.
+  - **Contextual Feedback:** Updated the Thank You modal message to *"Your details have been recorded. Taking you to The Nature Leaf (www.thenatureleaf.com)..."* and dynamically labeled the CTA button *"Explore Products (The Nature Leaf)"*.
+- **Why:** Delivers a seamless conversion flow connecting product-interested leads directly to the official product store after collecting user details.
+
+
 
 
 

@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Loader } from "@/components/layout/Loader";
 import { LenisProvider } from "@/components/layout/LenisProvider";
 import { LeadPopup } from "@/components/home/LeadPopup";
+import { CookieConsent } from "@/components/common/CookieConsent";
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
@@ -138,12 +139,32 @@ export default function RootLayout({
           }}
         />
 
+        {/* Google Consent Mode v2 Baseline Defaults (Denied by default prior to user interaction) */}
+        <Script
+          id="google-consent-mode-v2-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied',
+                'ad_user_data': 'denied',
+                'ad_personalization': 'denied',
+                'wait_for_update': 500
+              });
+            `,
+          }}
+        />
+
         <Loader />
         <LenisProvider>
           <Navbar />
           {children}
           <Footer />
           <LeadPopup />
+          <CookieConsent />
         </LenisProvider>
 
         {/* Organization Schema */}

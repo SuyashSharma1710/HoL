@@ -1461,6 +1461,17 @@ _(Append new actions below this line as the project progresses)_
 - **What:** Updated the production webhook endpoint across both the main intake form (`CTASection.tsx`) and the animated modal popup (`LeadPopup.tsx`) to the newly deployed script URL (`https://script.google.com/macros/s/AKfycbzuY67g9zupwshXnrtnisfZoqJKjgzNs2TnmgRDmSbJ0IXVn3UAT0VDEaBPXgvTzwV7/exec`).
 - **Why:** Activates the live multi-tab logging (Products, Knowledge, Opportunity, Popup) in production Google Sheets.
 
+**228. Industry-Standard Google Consent Mode v2 & Cookie Privacy Governance System (`CookieConsent.tsx`, `layout.tsx`, `Footer.tsx`)**
+- **What:** Built a 2026 industry-standard, DPDP/GDPR-compliant Cookie Consent architecture ready for Google Analytics (GA4), Meta Pixel, Google Ads, and Clarity:
+  - **Consent Mode v2 Baseline:** Initialized baseline `denied` states (`analytics_storage`, `ad_storage`, `ad_user_data`, `ad_personalization`) before any tags execute via `layout.tsx`.
+  - **Granular Category Toggles:** Offers equal-weight "Accept All", "Essential Only", and granular customization for *Strictly Necessary*, *Analytics & Performance*, and *Marketing & Targeting*.
+  - **Dynamic Signal Dispatch:** Updates `gtag('consent', 'update', ...)` dynamically and broadcasts custom event `cookie-consent-updated`.
+  - **Revocation & Footer Link:** Added a floating bottom-left cookie trigger pill and an interactive *"Cookie Preferences"* button in `Footer.tsx` Governance column to allow visitors to adjust their choices anytime.
+  - **Luxury UI:** Designed in accordance with `Design.md` Celestial Luxury tokens with glassmorphism, Framer Motion springs, and amber-gold accents.
+  - **Verification:** Verified 100% clean ESLint pass and clean Next.js static build (`npm run build`).
+- **Why:** Ensures enterprise-grade privacy compliance and future-proof analytics tag gating without compromising user experience or aesthetic standards.
+
+
 
 
 

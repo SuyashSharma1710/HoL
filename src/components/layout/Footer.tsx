@@ -190,6 +190,19 @@ export function Footer() {
                       </Link>
                     </li>
                   ))}
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (typeof window !== "undefined") {
+                          window.dispatchEvent(new CustomEvent("open-cookie-settings"));
+                        }
+                      }}
+                      className="text-[#e9e0cf]/75 hover:text-accent transition-colors text-xs sm:text-sm font-medium cursor-pointer text-left flex items-center gap-1"
+                    >
+                      <span>Cookie Preferences</span>
+                    </button>
+                  </li>
                 </ul>
                 <p className="text-[11px] text-[#e9e0cf]/50 leading-normal pt-2">
                   Wellness and educational guidance. Not intended as medical diagnosis or treatment.

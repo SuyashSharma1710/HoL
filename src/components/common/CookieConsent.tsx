@@ -174,7 +174,7 @@ export function CookieConsent() {
 
   return (
     <>
-      {/* Floating Revocation Trigger Pill (Visible when banner is closed) */}
+      {/* Floating Revocation Trigger Pill (Icon-only by default, smoothly expands on hover) */}
       {!isVisible && (
         <motion.button
           initial={{ opacity: 0, scale: 0.8 }}
@@ -185,12 +185,12 @@ export function CookieConsent() {
             setIsVisible(true);
             setIsPreferencesOpen(true);
           }}
-          className="fixed bottom-4 left-4 z-40 p-2.5 bg-white/85 hover:bg-white text-primary/75 hover:text-accent border border-accent/25 rounded-full shadow-lg backdrop-blur-md transition-all duration-200 cursor-pointer flex items-center gap-2 group"
+          className="fixed bottom-4 left-4 z-40 h-10 bg-white/90 hover:bg-white text-primary/75 hover:text-accent border border-accent/25 rounded-full shadow-lg backdrop-blur-md transition-all duration-300 cursor-pointer flex items-center overflow-hidden group px-2.5 hover:pr-3.5"
           title="Manage Cookie Preferences"
           aria-label="Manage Cookie Preferences"
         >
-          <Cookie className="w-4 h-4 text-accent group-hover:rotate-12 transition-transform" />
-          <span className="text-[11px] font-semibold tracking-wider uppercase pr-1 hidden sm:inline-block">
+          <Cookie className="w-5 h-5 text-accent shrink-0 group-hover:rotate-12 transition-transform duration-300" />
+          <span className="max-w-0 opacity-0 group-hover:max-w-24 group-hover:opacity-100 group-hover:ml-2 overflow-hidden whitespace-nowrap text-[11px] font-semibold tracking-wider uppercase transition-all duration-300 ease-out text-primary">
             Cookies
           </span>
         </motion.button>

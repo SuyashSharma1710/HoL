@@ -27,6 +27,7 @@ const pathwaysInfo = {
     subtitle: "Fuel Your Body. Elevate Your Life.",
     icon: Leaf,
     sheetName: "Products",
+    placeholderDescription: "Tell us about your health goals or specific product inquiries...",
     waDefault: "Hello! I am interested in Harmony of Life Products to elevate my cellular health."
   },
   knowledge: {
@@ -34,6 +35,16 @@ const pathwaysInfo = {
     subtitle: "Empower Your Mind. Transform Your Health.",
     icon: BookOpen,
     sheetName: "Knowledge",
+    interestLabel: "Learning & Program Interest *",
+    interestOptions: [
+      "Cellular Voltage & Biology Masterclass",
+      "12 Pillars Longevity Protocol",
+      "Gut Reset Education & Guidance",
+      "Lifestyle Disorder Reversal Insights",
+      "Meditation & Pranik Shakti Charging",
+      "Personalized Wellness Consultation"
+    ],
+    placeholderDescription: "What areas of health and longevity science would you like to explore?",
     waDefault: "Hello! I want to explore Harmony of Life Knowledge and holistic wellness programs."
   },
   opportunity: {
@@ -41,6 +52,15 @@ const pathwaysInfo = {
     subtitle: "Create Impact. Build Your Future.",
     icon: Users,
     sheetName: "Opportunity",
+    interestLabel: "Role / Community Interest *",
+    interestOptions: [
+      "Wellness Relationship Manager (WRM)",
+      "Community Ambassador / Partner",
+      "Holistic Health Coach / Nutritionist",
+      "Corporate / Group Wellness Advocate",
+      "General Career Inquiry"
+    ],
+    placeholderDescription: "Tell us about your aspirations or why you want to partner with us...",
     waDefault: "Hello! I am interested in joining Harmony of Life as a Wellness Relationship Manager / Partner."
   }
 };
@@ -318,18 +338,26 @@ export function CTASection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [thankYouOpen, setThankYouOpen] = useState(false);
   
-  // Standardized Form Data for All Pathways:
+  // Complete Comprehensive Form Data:
+  // Base Fields (All Pathways):
   // 1. Name
   // 2. WhatsApp No
   // 3. Email id
   // 4. City
   // 5. Referral Name if any:
+  // Plus Pathway-Specific Fields:
+  // - interest (Dropdown for Knowledge / Opportunity)
+  // - background (For Opportunity)
+  // - description (Notes / Inquiries)
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
     city: "",
-    referral: ""
+    referral: "",
+    interest: "",
+    background: "",
+    description: ""
   });
 
   // Validation States
@@ -364,7 +392,7 @@ export function CTASection() {
     };
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     
     if (name === "phone") {
@@ -422,7 +450,7 @@ export function CTASection() {
       setIsSubmitting(true);
       setTimeout(() => {
         setIsSubmitting(false);
-        setFormData({ name: "", phone: "", email: "", city: "", referral: "" });
+        setFormData({ name: "", phone: "", email: "", city: "", referral: "", interest: "", background: "", description: "" });
         setHoneypot("");
       }, 500);
       return;
@@ -465,6 +493,13 @@ export function CTASection() {
       return;
     }
 
+    // Knowledge / Opportunity interest check if required
+    if (selectedPathway !== "products" && !formData.interest) {
+      const interestSelect = document.getElementById("interest");
+      interestSelect?.focus();
+      return;
+    }
+
     setIsSubmitting(true);
     setThankYouOpen(true);
 
@@ -479,6 +514,9 @@ export function CTASection() {
       payload.append("email", formData.email.trim());
       payload.append("city", formData.city.trim());
       payload.append("referral", formData.referral.trim());
+      payload.append("interest", selectedPathway === "products" ? "Product Inquiry" : (formData.interest || "General"));
+      payload.append("background", formData.background.trim() || "");
+      payload.append("message", formData.description.trim() || "");
       payload.append("pathway", currentConfig.title);
 
       const controller = new AbortController();
@@ -505,6 +543,16 @@ export function CTASection() {
       
       message += `\n*Pathway:* ${currentConfig.title}`;
 
+      if (selectedPathway !== "products" && formData.interest) {
+        message += `\n*Interest / Focus:* ${formData.interest}`;
+      }
+      if (selectedPathway === "opportunity" && formData.background.trim()) {
+        message += `\n*Background:* ${formData.background.trim()}`;
+      }
+      if (formData.description.trim()) {
+        message += `\n*Notes:* ${formData.description.trim()}`;
+      }
+
       const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       window.open(waUrl, "_blank");
 
@@ -516,7 +564,7 @@ export function CTASection() {
         setEmailTouched(false);
         setCityTouched(false);
         setEmailValidation({ isValid: false, errorMessage: "", normalizedEmail: "" });
-        setFormData({ name: "", phone: "", email: "", city: "", referral: "" });
+        setFormData({ name: "", phone: "", email: "", city: "", referral: "", interest: "", background: "", description: "" });
         setHoneypot("");
       }, 1500);
 
@@ -682,6 +730,7 @@ export function CTASection() {
                       type="button"
                       onClick={() => {
                         setSelectedPathway(key);
+                        setFormData(prev => ({ ...prev, interest: "" }));
                       }}
                       className={cn(
                         "flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-1.5 sm:px-2 rounded-xl font-sans text-xs font-semibold transition-all duration-300 cursor-pointer text-center overflow-hidden min-w-0",
@@ -708,7 +757,7 @@ export function CTASection() {
               </p>
             </div>
             
-            {/* Form with All 5 Unified Fields: Name, WhatsApp No, Email id, City, Referral Name if any */}
+            {/* Comprehensive Form with Base Fields + Pathway-Specific Custom Fields */}
             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-4.5" noValidate aria-busy={isSubmitting}>
               {/* Honeypot Spam Protection Field */}
               <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
@@ -886,19 +935,88 @@ export function CTASection() {
                 </div>
               </div>
 
-              {/* 5. Referral Name if any */}
+              {/* Row 3: Referral Name if any + Pathway-Specific Dropdown (Knowledge / Opportunity) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* 5. Referral Name if any */}
+                <div className="space-y-1.5">
+                  <label htmlFor="referral" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
+                    Referral Name if any:
+                  </label>
+                  <input 
+                    type="text" 
+                    id="referral"
+                    name="referral"
+                    value={formData.referral}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs"
+                    placeholder="Referral name (Optional)"
+                  />
+                </div>
+
+                {/* Pathway Specific: Learning/Role Interest Dropdown for Knowledge and Opportunity */}
+                {selectedPathway !== "products" ? (
+                  <div className="space-y-1.5">
+                    <label htmlFor="interest" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
+                      {'interestLabel' in activeConfig ? activeConfig.interestLabel : "Interest *"}
+                    </label>
+                    <select 
+                      id="interest"
+                      name="interest"
+                      required
+                      value={formData.interest}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs cursor-pointer"
+                    >
+                      <option value="" disabled>Select option...</option>
+                      {'interestOptions' in activeConfig && activeConfig.interestOptions.map((opt) => (
+                        <option key={opt} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                  </div>
+                ) : (
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-semibold uppercase tracking-wider text-primary/60">
+                      Pathway Focus
+                    </label>
+                    <div className="px-4 py-3 bg-primary/5 border border-primary/10 rounded-xl text-xs font-semibold text-primary/80 flex items-center gap-2">
+                      <Leaf className="w-3.5 h-3.5 text-accent" />
+                      <span>Cellular Nutrition &amp; Detox Products</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Pathway Specific: Professional Background for Income Opportunity */}
+              {selectedPathway === "opportunity" && (
+                <div className="space-y-1.5">
+                  <label htmlFor="background" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
+                    Professional Background &amp; Experience (Optional)
+                  </label>
+                  <input 
+                    type="text" 
+                    id="background"
+                    name="background"
+                    value={formData.background}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs"
+                    placeholder="e.g. Nutritionist, Yoga Instructor, Healthcare Professional, Entrepreneur"
+                  />
+                </div>
+              )}
+
+              {/* Additional Notes / Inquiries Textarea */}
               <div className="space-y-1.5">
-                <label htmlFor="referral" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
-                  Referral Name if any:
+                <label htmlFor="description" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
+                  Additional Notes / Goals (Optional)
                 </label>
-                <input 
-                  type="text" 
-                  id="referral"
-                  name="referral"
-                  value={formData.referral}
+                <textarea 
+                  id="description"
+                  name="description"
+                  rows={2}
+                  value={formData.description}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs"
-                  placeholder="Name of member / manager who referred you (Optional)"
+                  className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs resize-none"
+                  placeholder={activeConfig.placeholderDescription}
                 />
               </div>
 

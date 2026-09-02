@@ -1440,6 +1440,15 @@ _(Append new actions below this line as the project progresses)_
   - **Contextual Copy:** Updated Thank You dialog to *"Your details have been recorded. Redirecting and enrolling you in the Harmony of Life WhatsApp Group..."* and CTA button to *"Enroll in WhatsApp Group (Knowledge)"*.
 - **Why:** Delivers an instant community onboarding experience for members seeking health education and masterclasses.
 
+**225. Google Apps Script Webhook Schema Synchronization (`scripts/google-apps-script.js`)**
+- **What:** Updated the backend Google Apps Script webhook code to systematically parse and log all new fields across the 3 pathways:
+  - **Products Tab:** `Timestamp`, `Full Name`, `Phone (WhatsApp)`, `Email ID`, `City`, `Referral Name`, `Additional Notes`.
+  - **Knowledge Tab:** `Timestamp`, `Full Name`, `Phone (WhatsApp)`, `Email ID`, `City`, `Referral Name`, `Learning Topic / Interest`, `Additional Notes`.
+  - **Opportunity Tab:** `Timestamp`, `Full Name`, `Phone (WhatsApp)`, `Email ID`, `City`, `Referral Name`, `Role / Focus`, `Professional Background`, `Additional Notes`.
+  - **Automated Tab Header Formatting:** Formats header row with background `#e9e0cf` and bold text on first run.
+- **Why:** Guarantees 1:1 field synchronization between the frontend Next.js form submissions and Google Sheets database.
+
+
 
 
 

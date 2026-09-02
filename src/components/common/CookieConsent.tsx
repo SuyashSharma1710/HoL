@@ -245,14 +245,14 @@ export function CookieConsent() {
                   <div className="flex flex-wrap items-center gap-2 pt-1">
                     <button
                       onClick={handleAcceptAll}
-                      className="flex-1 min-w-[120px] px-4 py-2.5 bg-accent hover:bg-[#a6782e] text-white font-semibold text-xs sm:text-sm rounded-xl shadow-md shadow-accent/20 hover:shadow-accent/30 transition-all cursor-pointer text-center"
+                      className="flex-1 min-w-30 px-4 py-2.5 bg-accent hover:bg-[#a6782e] text-white font-semibold text-xs sm:text-sm rounded-xl shadow-md shadow-accent/20 hover:shadow-accent/30 transition-all cursor-pointer text-center"
                     >
                       Accept All
                     </button>
 
                     <button
                       onClick={handleRejectNonEssential}
-                      className="flex-1 min-w-[120px] px-4 py-2.5 bg-white hover:bg-primary/5 text-primary border border-primary/20 font-semibold text-xs sm:text-sm rounded-xl transition-all cursor-pointer text-center"
+                      className="flex-1 min-w-30 px-4 py-2.5 bg-white hover:bg-primary/5 text-primary border border-primary/20 font-semibold text-xs sm:text-sm rounded-xl transition-all cursor-pointer text-center"
                     >
                       Essential Only
                     </button>
@@ -339,7 +339,7 @@ export function CookieConsent() {
                           onChange={(e) => setAnalyticsEnabled(e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-9 h-5 bg-gray-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-accent"></div>
+                        <div className="w-9 h-5 bg-gray-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-accent"></div>
                       </label>
                     </div>
 
@@ -363,7 +363,7 @@ export function CookieConsent() {
                           onChange={(e) => setMarketingEnabled(e.target.checked)}
                           className="sr-only peer"
                         />
-                        <div className="w-9 h-5 bg-gray-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-accent"></div>
+                        <div className="w-9 h-5 bg-gray-300 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-accent"></div>
                       </label>
                     </div>
                   </div>

@@ -269,6 +269,8 @@ export function CookieConsent() {
                   <div className="flex items-center justify-between text-[11px] text-primary/60 pt-1 border-t border-primary/10">
                     <Link 
                       href="/cookies" 
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="hover:text-accent underline transition-colors flex items-center gap-1"
                     >
                       Read Cookie Policy <ChevronRight className="w-3 h-3" />

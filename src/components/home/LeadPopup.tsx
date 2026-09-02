@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   X, 
@@ -33,6 +34,7 @@ const COMMON_EMAIL_DOMAINS: Record<string, string> = {
 };
 
 export function LeadPopup() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,20 +60,23 @@ export function LeadPopup() {
 
   // Auto-trigger setup (Timeout / Scroll / Exit Intent / Custom Event)
   useEffect(() => {
+    // Only auto-trigger on the main landing page, never on legal subpages
+    if (pathname !== "/") return;
+
     // Check if already dismissed or submitted in this session
     const hasInteracted = sessionStorage.getItem("hol_popup_interacted");
     if (hasInteracted) return;
 
     // 1. Timed trigger: Show after 9 seconds
     const timer = setTimeout(() => {
-      if (!sessionStorage.getItem("hol_popup_interacted")) {
+      if (!sessionStorage.getItem("hol_popup_interacted") && pathname === "/") {
         setIsOpen(true);
       }
     }, 9000);
 
     // 2. Scroll trigger: Show when user scrolls past 35% of page
     const handleScroll = () => {
-      if (sessionStorage.getItem("hol_popup_interacted")) return;
+      if (sessionStorage.getItem("hol_popup_interacted") || pathname !== "/") return;
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       if (scrollHeight > 0) {
         const scrolled = (window.scrollY / scrollHeight) * 100;
@@ -83,7 +88,7 @@ export function LeadPopup() {
 
     // 3. Exit Intent trigger: Mouse moves towards top of viewport
     const handleMouseLeave = (e: MouseEvent) => {
-      if (sessionStorage.getItem("hol_popup_interacted")) return;
+      if (sessionStorage.getItem("hol_popup_interacted") || pathname !== "/") return;
       if (e.clientY <= 15) {
         setIsOpen(true);
       }
@@ -104,7 +109,7 @@ export function LeadPopup() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("open-lead-popup", handleCustomOpen);
     };
-  }, []);
+  }, [pathname]);
 
   // Dismiss handler
   const handleClose = () => {

@@ -1477,6 +1477,13 @@ _(Append new actions below this line as the project progresses)_
   - **Hover State:** Smoothly expands horizontally via CSS transitions (`max-w-0 opacity-0` -> `max-w-24 opacity-100`) to reveal the uppercase "Cookies" label with an icon rotation effect (`group-hover:rotate-12`).
 - **Why:** Delivers an ultra-clean, distraction-free interface while maintaining effortless discovery and accessibility.
 
+**230. Legal Link Isolation & Policy Subpage Protection (`CookieConsent.tsx` & `LeadPopup.tsx`)**
+- **What:** Optimized the policy link and modal triggering across pages:
+  - **New Tab Isolation:** Updated the *"Read Cookie Policy"* link in `CookieConsent.tsx` to open in a new tab (`target="_blank" rel="noopener noreferrer"`), preserving ongoing landing page session state without navigating away or causing jarring popup resets.
+  - **Route Gating:** Added `usePathname()` checks in `LeadPopup.tsx` so the lead capture modal strictly triggers on the home landing page (`pathname === "/"`) and never interferes with visitors reading legal governance documents (`/cookies`, `/privacy`, `/terms`).
+- **Why:** Prevents popup re-trigger loops and guarantees an uninterrupted browsing experience.
+
+
 
 
 

@@ -251,6 +251,19 @@ export function LeadPopup() {
         console.error("Meta Pixel tracking notice:", fbErr);
       }
 
+      // Google Analytics 4 (GA4) Lead Conversion Tracking
+      try {
+        if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag === "function") {
+          (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "generate_lead", {
+            event_category: "Modal Popup Lead",
+            event_label: "Sanctuary Access Lead",
+            value: 1,
+          });
+        }
+      } catch (gaErr) {
+        console.error("GA4 tracking notice:", gaErr);
+      }
+
       setIsSubmitted(true);
       sessionStorage.setItem("hol_popup_interacted", "true");
 

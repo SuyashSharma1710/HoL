@@ -158,6 +158,26 @@ export default function RootLayout({
           }}
         />
 
+        {/* Google Tag (GA4: G-5VK6ELV0Z1) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5VK6ELV0Z1"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-5VK6ELV0Z1', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+
         <Loader />
         <LenisProvider>
           <Navbar />

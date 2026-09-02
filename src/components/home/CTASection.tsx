@@ -548,6 +548,20 @@ export function CTASection() {
         console.error("Meta Pixel tracking notice:", fbErr);
       }
 
+      // Google Analytics 4 (GA4) Lead Conversion Tracking
+      try {
+        if (typeof window !== "undefined" && typeof (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag === "function") {
+          (window as unknown as { gtag: (...args: unknown[]) => void }).gtag("event", "generate_lead", {
+            event_category: "Form Submission",
+            event_label: currentConfig.title,
+            pathway: selectedPathway,
+            value: 1,
+          });
+        }
+      } catch (gaErr) {
+        console.error("GA4 tracking notice:", gaErr);
+      }
+
       // 2. Redirect to destination:
       // - Products: www.thenatureleaf.com
       // - Knowledge: Harmony of Life WhatsApp Group (chat.whatsapp.com)

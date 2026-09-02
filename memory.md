@@ -105,14 +105,20 @@ The backend script handles `doPost(e)` and auto-creates/formats sheet tabs with 
 
 ---
 
-## 8. Analytics, Ads & Meta Pixel Integration
+## 8. Analytics, Tracking & Ads Integration
 
-* **Meta Pixel ID:** `1381321364170096`
-* **Initialization (`src/app/layout.tsx`):** Injected via `next/script` with `strategy="afterInteractive"` and a noscript `<img>` pixel fallback.
-* **Automatic PageView Tracking:** Fires `fbq('track', 'PageView')` on initial mount.
-* **Lead Conversion Attribution:**
-  * **Main Form (`CTASection.tsx`):** Fires `fbq('track', 'Lead', { content_name: pathwayTitle, content_category: pathwayKey, currency: 'INR' })`.
-  * **Popup Modal (`LeadPopup.tsx`):** Fires `fbq('track', 'Lead', { content_name: 'Sanctuary Access Lead (Popup)', currency: 'INR' })`.
+* **Google Analytics 4 (GA4):**
+  * **Measurement ID:** `G-5VK6ELV0Z1`
+  * **Initialization (`src/app/layout.tsx`):** Loaded via `next/script` (`https://www.googletagmanager.com/gtag/js?id=G-5VK6ELV0Z1`) with `strategy="afterInteractive"`.
+  * **Consent Mode v2 Controlled:** Integrates with baseline default `denied` states and automatically updates permissions when users interact with the cookie consent banner.
+  * **Lead Event Dispatch:** Fires `gtag('event', 'generate_lead', ...)` on main intake form (`CTASection.tsx`) and popup modal (`LeadPopup.tsx`).
+* **Meta (Facebook/Instagram) Pixel:**
+  * **Pixel ID:** `1381321364170096`
+  * **Initialization (`src/app/layout.tsx`):** Injected via `next/script` with `strategy="afterInteractive"` and a noscript `<img>` pixel fallback.
+  * **Automatic PageView Tracking:** Fires `fbq('track', 'PageView')` on initial mount.
+  * **Lead Conversion Attribution:**
+    * **Main Form (`CTASection.tsx`):** Fires `fbq('track', 'Lead', { content_name: pathwayTitle, content_category: pathwayKey, currency: 'INR' })`.
+    * **Popup Modal (`LeadPopup.tsx`):** Fires `fbq('track', 'Lead', { content_name: 'Sanctuary Access Lead (Popup)', currency: 'INR' })`.
 
 ---
 

@@ -535,6 +535,19 @@ export function CTASection() {
         console.error("Sheets webhook notice:", err);
       }
 
+      // Meta Pixel Lead Conversion Tracking
+      try {
+        if (typeof window !== "undefined" && typeof (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq === "function") {
+          (window as unknown as { fbq: (...args: unknown[]) => void }).fbq("track", "Lead", {
+            content_name: currentConfig.title,
+            content_category: selectedPathway,
+            currency: "INR",
+          });
+        }
+      } catch (fbErr) {
+        console.error("Meta Pixel tracking notice:", fbErr);
+      }
+
       // 2. Redirect to destination:
       // - Products: www.thenatureleaf.com
       // - Knowledge: Harmony of Life WhatsApp Group (chat.whatsapp.com)

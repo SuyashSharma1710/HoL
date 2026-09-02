@@ -239,6 +239,18 @@ export function LeadPopup() {
         console.error("Popup Sheet webhook notice:", err);
       }
 
+      // Meta Pixel Lead Conversion Tracking
+      try {
+        if (typeof window !== "undefined" && typeof (window as unknown as { fbq?: (...args: unknown[]) => void }).fbq === "function") {
+          (window as unknown as { fbq: (...args: unknown[]) => void }).fbq("track", "Lead", {
+            content_name: "Sanctuary Access Lead (Popup)",
+            currency: "INR",
+          });
+        }
+      } catch (fbErr) {
+        console.error("Meta Pixel tracking notice:", fbErr);
+      }
+
       setIsSubmitted(true);
       sessionStorage.setItem("hol_popup_interacted", "true");
 

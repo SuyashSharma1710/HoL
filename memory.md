@@ -105,7 +105,18 @@ The backend script handles `doPost(e)` and auto-creates/formats sheet tabs with 
 
 ---
 
-## 8. Page & Component Sitemap
+## 8. Analytics, Ads & Meta Pixel Integration
+
+* **Meta Pixel ID:** `1381321364170096`
+* **Initialization (`src/app/layout.tsx`):** Injected via `next/script` with `strategy="afterInteractive"` and a noscript `<img>` pixel fallback.
+* **Automatic PageView Tracking:** Fires `fbq('track', 'PageView')` on initial mount.
+* **Lead Conversion Attribution:**
+  * **Main Form (`CTASection.tsx`):** Fires `fbq('track', 'Lead', { content_name: pathwayTitle, content_category: pathwayKey, currency: 'INR' })`.
+  * **Popup Modal (`LeadPopup.tsx`):** Fires `fbq('track', 'Lead', { content_name: 'Sanctuary Access Lead (Popup)', currency: 'INR' })`.
+
+---
+
+## 9. Page & Component Sitemap
 
 * **`src/app/page.tsx`**: Landing Page
   * `Hero.tsx` $\rightarrow$ `ValuePropsBanner.tsx` $\rightarrow$ `PhilosophySection.tsx` $\rightarrow$ `CellularWorldSection.tsx` $\rightarrow$ `WhyHolSection.tsx` $\rightarrow$ `PillarsSection.tsx` $\rightarrow$ `AgingSlidesSection.tsx` $\rightarrow$ `AuthoritySection.tsx` $\rightarrow$ `TestimonialsSection.tsx` $\rightarrow$ `NextStepSection.tsx` $\rightarrow$ `CTASection.tsx`
@@ -114,3 +125,4 @@ The backend script handles `doPost(e)` and auto-creates/formats sheet tabs with 
   * `src/app/privacy/page.tsx` — Privacy Policy (DPDP & IT Act compliant)
   * `src/app/terms/page.tsx` — Terms of Service
   * `src/app/cookies/page.tsx` — Cookie & Tracking Governance Policy
+

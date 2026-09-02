@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Harmony of Life - Google Apps Script Webhook Handler
  * 
@@ -58,6 +59,16 @@ function doPost(e) {
           "Additional Notes"
         ]);
         targetSheet.getRange("A1:I1").setFontWeight("bold").setBackground("#e9e0cf").setFontColor("#142b23");
+      } else if (sheetName === "Popup") {
+        targetSheet.appendRow([
+          "Timestamp", 
+          "Full Name", 
+          "Phone (WhatsApp)", 
+          "Email ID", 
+          "City", 
+          "Referral Name"
+        ]);
+        targetSheet.getRange("A1:F1").setFontWeight("bold").setBackground("#e9e0cf").setFontColor("#142b23");
       } else if (sheetName === "Newsletter") {
         targetSheet.appendRow(["Timestamp", "Email Address"]);
         targetSheet.getRange("A1:B1").setFontWeight("bold").setBackground("#e9e0cf").setFontColor("#142b23");
@@ -114,6 +125,15 @@ function doPost(e) {
         params.interest || "",
         params.background || "",
         params.message || ""
+      ];
+    } else if (sheetName === "Popup") {
+      rowData = [
+        timestamp,
+        params.name || "",
+        params.phone || "",
+        params.email || "",
+        params.city || "",
+        params.referral || ""
       ];
     } else if (sheetName === "Newsletter") {
       rowData = [

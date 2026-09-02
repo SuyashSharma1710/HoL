@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Loader } from "@/components/layout/Loader";
 import { LenisProvider } from "@/components/layout/LenisProvider";
+import { LeadPopup } from "@/components/home/LeadPopup";
 
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
@@ -142,6 +143,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <LeadPopup />
         </LenisProvider>
 
         {/* Organization Schema */}

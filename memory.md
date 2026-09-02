@@ -1448,6 +1448,16 @@ _(Append new actions below this line as the project progresses)_
   - **Automated Tab Header Formatting:** Formats header row with background `#e9e0cf` and bold text on first run.
 - **Why:** Guarantees 1:1 field synchronization between the frontend Next.js form submissions and Google Sheets database.
 
+**226. Animated Lead Intake Popup & Google Sheets "Popup" Tab Sync (`src/components/home/LeadPopup.tsx`)**
+- **What:** Created a luxury animated modal popup (`LeadPopup.tsx`) powered by Framer Motion:
+  - **Field Suite:** Captures `Name`, `WhatsApp No` (+91 strict 10-digit validation), `Email id` (RFC format & typo hints), `City`, and `Referral Name if any:`.
+  - **Motion Choreography:** Spring modal entrance, ambient radiant glow accents, animated reflection sheen button, and a smooth celebratory success checkmark state.
+  - **Smart Triggers:** Opens automatically after 9s engagement, upon 35% scroll depth, upon top-edge exit intent, or via custom event `open-lead-popup` (with `sessionStorage` debounce).
+  - **Google Sheets Sync:** Automatically logs entries to the designated `Popup` sheet tab with styled header columns (`Timestamp`, `Full Name`, `Phone (WhatsApp)`, `Email ID`, `City`, `Referral Name`).
+  - **Global Mounting:** Integrated directly into `src/app/layout.tsx`.
+- **Why:** Maximizes sanctuary conversion engagement while giving visitors a seamless, beautifully animated lead intake experience.
+
+
 
 
 

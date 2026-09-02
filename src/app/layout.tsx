@@ -61,10 +61,11 @@ export const metadata: Metadata = {
     locale: "en_IN",
     images: [
       {
-        url: "/logo.svg",
-        width: 512,
-        height: 512,
-        alt: "Harmony of Life Sacred Leaf Emblem",
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg",
+        alt: "Harmony of Life - The Science of Living Young | Cellular Rejuvenation & Vitality",
       }
     ],
   },
@@ -72,7 +73,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Harmony of Life | Elevate Your Cellular Voltage & Lifeforce",
     description: "A sanctuary for cellular rejuvenation, biological longevity, and holistic wellness.",
-    images: ["/logo.svg"],
+    images: ["/og-image.jpg"],
   },
   icons: {
     icon: [

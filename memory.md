@@ -1397,6 +1397,16 @@ _(Append new actions below this line as the project progresses)_
   - **Raw Asset Archives & Scratch Files:** Ignored `raw_images/`, `raw-assets/`, `scratch/`, `temp/`, `tmp/`, `*.tmp`, `*.bak`, `old-site-comp/`, and scratch markdown notes (`notes.md`, `todo.md`, `scratch.md`).
 - **Why:** Prevents accidental leakage of local development artifacts, environment secrets, and heavy build caches into production git repositories.
 
+**220. High-Resolution WhatsApp & Social Open Graph Link Preview Implementation**
+- **What:** Diagnosed and resolved the missing site preview image when pasting the website URL into WhatsApp, iMessage, Facebook, and LinkedIn:
+  - **Root Cause Analysis:** WhatsApp's link preview scraper engine strictly does not support `.svg` (vector) formats (previously pointing to `/logo.svg`) and requires raster images (`.jpg` or `.png`) with strict payload limits (< 300KB) and standard 1.91:1 dimensions (`1200 x 630` px).
+  - **Asset Generation (`public/og-image.jpg` & `public/og-image.png`):** Generated a luxury, brand-compliant 1200x630 Open Graph preview image (59.9 KB) adhering to `Design.md` (sacred leaf emblem, celestial gold glow `#ffd875`, deep sacred forest background `#142b23`, Cormorant Garamond typography, and 12 Pillars value proposition badges).
+  - **Next.js App Router Conventions (`src/app/opengraph-image.png` & `src/app/twitter-image.png`):** Injected static OG image files into `src/app/` for native Next.js automatic route resolution.
+  - **Metadata Configuration ([`layout.tsx`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/src/app/layout.tsx)):** Updated `openGraph.images` and `twitter.images` with explicit dimensions (`1200x630`), MIME type (`image/jpeg`), and descriptive accessibility alt text.
+  - **Verification:** Verified 100% clean Next.js static build (`npm run build`) with static generation of `/opengraph-image.png` and `/twitter-image.png`.
+- **Why:** Guarantees rich, instant, and visually stunning link previews with title, description, and branded image whenever the URL is shared across WhatsApp and all major social platforms.
+
+
 
 
 

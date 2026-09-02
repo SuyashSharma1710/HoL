@@ -27,9 +27,6 @@ const pathwaysInfo = {
     subtitle: "Fuel Your Body. Elevate Your Life.",
     icon: Leaf,
     sheetName: "Products",
-    interestLabel: "Email Address *",
-    interestOptions: [],
-    placeholderDescription: "Tell us about your health goals or specific product inquiries...",
     waDefault: "Hello! I am interested in Harmony of Life Products to elevate my cellular health."
   },
   knowledge: {
@@ -37,16 +34,6 @@ const pathwaysInfo = {
     subtitle: "Empower Your Mind. Transform Your Health.",
     icon: BookOpen,
     sheetName: "Knowledge",
-    interestLabel: "Learning & Program Interest *",
-    interestOptions: [
-      "Cellular Voltage & Biology Masterclass",
-      "12 Pillars Longevity Protocol",
-      "Gut Reset Education & Guidance",
-      "Lifestyle Disorder Reversal Insights",
-      "Meditation & Pranik Shakti Charging",
-      "Personalized Wellness Consultation"
-    ],
-    placeholderDescription: "What areas of health and longevity science would you like to explore?",
     waDefault: "Hello! I want to explore Harmony of Life Knowledge and holistic wellness programs."
   },
   opportunity: {
@@ -54,15 +41,6 @@ const pathwaysInfo = {
     subtitle: "Create Impact. Build Your Future.",
     icon: Users,
     sheetName: "Opportunity",
-    interestLabel: "Role / Community Interest *",
-    interestOptions: [
-      "Wellness Relationship Manager (WRM)",
-      "Community Ambassador / Partner",
-      "Holistic Health Coach / Nutritionist",
-      "Corporate / Group Wellness Advocate",
-      "General Career Inquiry"
-    ],
-    placeholderDescription: "Tell us about your city, background, or why you want to build with us...",
     waDefault: "Hello! I am interested in joining Harmony of Life as a Wellness Relationship Manager / Partner."
   }
 };
@@ -84,7 +62,7 @@ function validate10DigitPhone(input: string): PhoneValidationResult {
   if (!input || !input.trim()) {
     return {
       isValid: false,
-      errorMessage: "10-digit mobile number is required.",
+      errorMessage: "10-digit WhatsApp number is required.",
       formattedNumber: "",
       rawDigits: ""
     };
@@ -340,14 +318,18 @@ export function CTASection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [thankYouOpen, setThankYouOpen] = useState(false);
   
-  // Form Data
+  // Standardized Form Data for All Pathways:
+  // 1. Name
+  // 2. WhatsApp No
+  // 3. Email id
+  // 4. City
+  // 5. Referral Name if any:
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
-    interest: "",
-    cityOrBackground: "",
-    description: ""
+    city: "",
+    referral: ""
   });
 
   // Validation States
@@ -366,6 +348,8 @@ export function CTASection() {
     normalizedEmail: ""
   });
 
+  const [cityTouched, setCityTouched] = useState(false);
+
   // Listen to global pathway selection events from NextStepSection
   useEffect(() => {
     const handlePathwayEvent = (e: CustomEvent<PathwayType>) => {
@@ -380,7 +364,7 @@ export function CTASection() {
     };
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     
     if (name === "phone") {
@@ -422,6 +406,10 @@ export function CTASection() {
     setEmailValidation(validateEmail(formData.email));
   };
 
+  const handleCityBlur = () => {
+    setCityTouched(true);
+  };
+
   // Honeypot Anti-Spam
   const [honeypot, setHoneypot] = useState("");
 
@@ -434,9 +422,16 @@ export function CTASection() {
       setIsSubmitting(true);
       setTimeout(() => {
         setIsSubmitting(false);
-        setFormData({ name: "", phone: "", email: "", interest: "", cityOrBackground: "", description: "" });
+        setFormData({ name: "", phone: "", email: "", city: "", referral: "" });
         setHoneypot("");
       }, 500);
+      return;
+    }
+
+    // Name check
+    if (!formData.name.trim()) {
+      const nameInput = document.getElementById("name");
+      nameInput?.focus();
       return;
     }
     
@@ -451,17 +446,23 @@ export function CTASection() {
       return;
     }
 
-    // Extensive Email validation check when pathway is products
-    if (selectedPathway === "products") {
-      setEmailTouched(true);
-      const emailVal = validateEmail(formData.email);
-      setEmailValidation(emailVal);
+    // Extensive Email validation check
+    setEmailTouched(true);
+    const emailVal = validateEmail(formData.email);
+    setEmailValidation(emailVal);
 
-      if (!emailVal.isValid) {
-        const emailInput = document.getElementById("email");
-        emailInput?.focus();
-        return;
-      }
+    if (!emailVal.isValid) {
+      const emailInput = document.getElementById("email");
+      emailInput?.focus();
+      return;
+    }
+
+    // City check
+    setCityTouched(true);
+    if (!formData.city.trim()) {
+      const cityInput = document.getElementById("city");
+      cityInput?.focus();
+      return;
     }
 
     setIsSubmitting(true);
@@ -470,17 +471,15 @@ export function CTASection() {
     const currentConfig = pathwaysInfo[selectedPathway];
 
     try {
-      // 1. Send specific lead to Google Sheets via Web App URL with 10s timeout
+      // 1. Send lead to Google Sheets via Web App URL with 10s timeout
       const payload = new URLSearchParams();
       payload.append("sheetName", currentConfig.sheetName);
       payload.append("name", formData.name.trim());
       payload.append("phone", formData.phone || phoneVal.formattedNumber);
-      if (formData.email.trim()) {
-        payload.append("email", formData.email.trim());
-      }
-      payload.append("interest", selectedPathway === "products" ? "Product Inquiry" : (formData.interest || "General"));
-      payload.append("background", formData.cityOrBackground.trim() || "");
-      payload.append("message", formData.description.trim() || "");
+      payload.append("email", formData.email.trim());
+      payload.append("city", formData.city.trim());
+      payload.append("referral", formData.referral.trim());
+      payload.append("pathway", currentConfig.title);
 
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000);
@@ -498,23 +497,13 @@ export function CTASection() {
       }
 
       // 2. Redirect to WhatsApp with structured pathway message
-      let message = `Hello Harmony of Life!\n\n*Name:* ${formData.name.trim()}\n*Phone:* ${phoneVal.formattedNumber || formData.phone}`;
+      let message = `Hello Harmony of Life!\n\n*Name:* ${formData.name.trim()}\n*WhatsApp No:* ${phoneVal.formattedNumber || formData.phone}\n*Email ID:* ${formData.email.trim()}\n*City:* ${formData.city.trim()}`;
       
-      if (formData.email.trim()) {
-        message += `\n*Email:* ${formData.email.trim()}`;
+      if (formData.referral.trim()) {
+        message += `\n*Referral Name:* ${formData.referral.trim()}`;
       }
       
       message += `\n*Pathway:* ${currentConfig.title}`;
-      
-      if (selectedPathway !== "products" && formData.interest) {
-        message += `\n*Interest / Focus:* ${formData.interest}`;
-      }
-      if (formData.cityOrBackground.trim()) {
-        message += `\n*City / Background:* ${formData.cityOrBackground.trim()}`;
-      }
-      if (formData.description.trim()) {
-        message += `\n*Notes:* ${formData.description.trim()}`;
-      }
 
       const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       window.open(waUrl, "_blank");
@@ -525,8 +514,9 @@ export function CTASection() {
         setIsSubmitting(false);
         setPhoneTouched(false);
         setEmailTouched(false);
+        setCityTouched(false);
         setEmailValidation({ isValid: false, errorMessage: "", normalizedEmail: "" });
-        setFormData({ name: "", phone: "", email: "", interest: "", cityOrBackground: "", description: "" });
+        setFormData({ name: "", phone: "", email: "", city: "", referral: "" });
         setHoneypot("");
       }, 1500);
 
@@ -670,7 +660,7 @@ export function CTASection() {
           </div>
 
           {/* ========================================================= */}
-          {/* RIGHT COLUMN: 3-Pathway Lead Intake Form (Col 6/7)        */}
+          {/* RIGHT COLUMN: 3-Pathway Lead Intake Form (Col 6)          */}
           {/* ========================================================= */}
           <motion.div 
             variants={itemVariants} 
@@ -692,7 +682,6 @@ export function CTASection() {
                       type="button"
                       onClick={() => {
                         setSelectedPathway(key);
-                        setFormData(prev => ({ ...prev, interest: "" }));
                       }}
                       className={cn(
                         "flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-1.5 sm:px-2 rounded-xl font-sans text-xs font-semibold transition-all duration-300 cursor-pointer text-center overflow-hidden min-w-0",
@@ -719,8 +708,8 @@ export function CTASection() {
               </p>
             </div>
             
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5" noValidate aria-busy={isSubmitting}>
+            {/* Form with All 5 Unified Fields: Name, WhatsApp No, Email id, City, Referral Name if any */}
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-4.5" noValidate aria-busy={isSubmitting}>
               {/* Honeypot Spam Protection Field */}
               <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
                 <input
@@ -733,11 +722,12 @@ export function CTASection() {
                 />
               </div>
 
+              {/* Row 1: Full Name & WhatsApp No */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* Full Name */}
+                {/* 1. Name */}
                 <div className="space-y-1.5">
                   <label htmlFor="name" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
-                    Full Name *
+                    Name *
                   </label>
                   <input 
                     type="text" 
@@ -747,15 +737,15 @@ export function CTASection() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs"
-                    placeholder="Your Name"
+                    placeholder="Your Full Name"
                   />
                 </div>
                 
-                {/* Phone Number - Strict 10 Digits */}
+                {/* 2. WhatsApp No - Strict 10 Digits */}
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
                     <label htmlFor="phone" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
-                      Mobile Number *
+                      WhatsApp No *
                     </label>
                     {phoneTouched && formData.phone && (
                       <span className="text-[11px] font-medium flex items-center gap-1">
@@ -812,18 +802,19 @@ export function CTASection() {
                 </div>
               </div>
 
-              {/* Dynamic Field: Email Address for Products, Dropdown for Knowledge & Opportunity */}
-              {selectedPathway === "products" ? (
+              {/* Row 2: Email id & City */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* 3. Email id */}
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
                     <label htmlFor="email" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
-                      Email Address *
+                      Email id *
                     </label>
                     {emailTouched && formData.email && (
                       <span className="text-[11px] font-medium flex items-center gap-1">
                         {emailValidation.isValid ? (
                           <span className="text-emerald-700 flex items-center gap-0.5">
-                            <CheckCircle2 className="w-3.5 h-3.5" /> Valid Email
+                            <CheckCircle2 className="w-3.5 h-3.5" /> Valid
                           </span>
                         ) : (
                           <span className="text-red-600 flex items-center gap-0.5">
@@ -865,58 +856,49 @@ export function CTASection() {
                     </motion.p>
                   )}
                 </div>
-              ) : (
-                <div className="space-y-1.5">
-                  <label htmlFor="interest" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
-                    {activeConfig.interestLabel}
-                  </label>
-                  <select 
-                    id="interest"
-                    name="interest"
-                    required
-                    value={formData.interest}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs cursor-pointer"
-                  >
-                    <option value="" disabled>Select option...</option>
-                    {activeConfig.interestOptions.map((opt) => (
-                      <option key={opt} value={opt}>{opt}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
 
-              {/* Optional Field for City / Background in Opportunity */}
-              {selectedPathway === "opportunity" && (
+                {/* 4. City */}
                 <div className="space-y-1.5">
-                  <label htmlFor="cityOrBackground" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
-                    Your City &amp; Professional Background
+                  <label htmlFor="city" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
+                    City *
                   </label>
                   <input 
                     type="text" 
-                    id="cityOrBackground"
-                    name="cityOrBackground"
-                    value={formData.cityOrBackground}
+                    id="city"
+                    name="city"
+                    required
+                    value={formData.city}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs"
-                    placeholder="e.g. New Delhi, Nutritionist / Entrepreneur"
+                    onBlur={handleCityBlur}
+                    className={cn(
+                      "w-full px-4 py-3 bg-white border rounded-xl focus:outline-hidden focus:ring-2 text-sm transition-all shadow-xs",
+                      cityTouched && !formData.city.trim()
+                        ? "border-red-500 focus:ring-red-400/50"
+                        : "border-primary/20 focus:ring-accent focus:border-transparent"
+                    )}
+                    placeholder="e.g. New Delhi, Mumbai"
                   />
+                  {cityTouched && !formData.city.trim() && (
+                    <p className="text-[11px] text-red-600 font-medium pl-1 leading-tight">
+                      City is required.
+                    </p>
+                  )}
                 </div>
-              )}
+              </div>
 
-              {/* Description / Notes */}
+              {/* 5. Referral Name if any */}
               <div className="space-y-1.5">
-                <label htmlFor="description" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
-                  Additional Notes (Optional)
+                <label htmlFor="referral" className="text-xs font-semibold uppercase tracking-wider text-primary/80">
+                  Referral Name if any:
                 </label>
-                <textarea 
-                  id="description"
-                  name="description"
-                  rows={3}
-                  value={formData.description}
+                <input 
+                  type="text" 
+                  id="referral"
+                  name="referral"
+                  value={formData.referral}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs resize-none"
-                  placeholder={activeConfig.placeholderDescription}
+                  className="w-full px-4 py-3 bg-white border border-primary/20 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-accent focus:border-transparent text-sm transition-all shadow-xs"
+                  placeholder="Name of member / manager who referred you (Optional)"
                 />
               </div>
 
@@ -992,4 +974,3 @@ function TabMarqueeText({ text, className }: { text: string; className?: string 
     </div>
   );
 }
-

@@ -1406,6 +1406,19 @@ _(Append new actions below this line as the project progresses)_
   - **Verification:** Verified 100% clean Next.js static build (`npm run build`) with static generation of `/opengraph-image.png` and `/twitter-image.png`.
 - **Why:** Guarantees rich, instant, and visually stunning link previews with title, description, and branded image whenever the URL is shared across WhatsApp and all major social platforms.
 
+**221. Standardized 5-Field Lead Intake Architecture Across All Pathways (`CTASection.tsx`)**
+- **What:** Unified and standardized the form intake fields across all 3 pathways (Products, Knowledge, Income Opportunity):
+  - **Standardized Field Set:**
+    1. **Name (`name`):** Full Name input.
+    2. **WhatsApp No (`phone`):** Strict 10-digit mobile number with integrated +91 prefix, leading 0/+91 auto-stripping, and dummy repeating sequence prevention.
+    3. **Email id (`email`):** RFC 5322 format validation, typo correction suggestions (`@gmial.com` -> `@gmail.com`), dummy address filter, and temporary domain blocker.
+    4. **City (`city`):** Mandatory city text input with blur validation.
+    5. **Referral Name if any: (`referral`):** Optional referral source field.
+  - **Unified Pipeline:** Updated both the Google Apps Script Webhook payload and the WhatsApp redirection message builder to systematically send all 5 structured fields alongside the selected pathway.
+  - **Verification:** Verified 100% clean ESLint pass (`npm run lint` exit code 0).
+- **Why:** Delivers a consistent, frictionless lead capture experience while ensuring the sanctuary team collects complete contact and referral attribution data for every inquiry.
+
+
 
 
 

@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-Xc-mDHv3L47wNTiK6QGWGDzz2tSK3o8QPe2CDlJEKMY_sDT2ZNnyNwZAwPtCPW9s/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzuY67g9zupwshXnrtnisfZoqJKjgzNs2TnmgRDmSbJ0IXVn3UAT0VDEaBPXgvTzwV7/exec";
 
 // Common email typo dictionary for auto-suggestions
 const COMMON_EMAIL_DOMAINS: Record<string, string> = {

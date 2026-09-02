@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 
 // Official Verified Details
 const WHATSAPP_NUMBER = "918800828863"; 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw-Xc-mDHv3L47wNTiK6QGWGDzz2tSK3o8QPe2CDlJEKMY_sDT2ZNnyNwZAwPtCPW9s/exec"; 
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzuY67g9zupwshXnrtnisfZoqJKjgzNs2TnmgRDmSbJ0IXVn3UAT0VDEaBPXgvTzwV7/exec"; 
 const KNOWLEDGE_WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/GrLceg6O5j1C2DVhgrvref?s=cl&p=a&mlu=4&ilr=4";
 
 export type PathwayType = "products" | "knowledge" | "opportunity";

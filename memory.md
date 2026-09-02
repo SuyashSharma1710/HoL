@@ -1457,6 +1457,11 @@ _(Append new actions below this line as the project progresses)_
   - **Global Mounting:** Integrated directly into `src/app/layout.tsx`.
 - **Why:** Maximizes sanctuary conversion engagement while giving visitors a seamless, beautifully animated lead intake experience.
 
+**227. Google Apps Script Production Webhook URL Deployment Update (`CTASection.tsx` & `LeadPopup.tsx`)**
+- **What:** Updated the production webhook endpoint across both the main intake form (`CTASection.tsx`) and the animated modal popup (`LeadPopup.tsx`) to the newly deployed script URL (`https://script.google.com/macros/s/AKfycbzuY67g9zupwshXnrtnisfZoqJKjgzNs2TnmgRDmSbJ0IXVn3UAT0VDEaBPXgvTzwV7/exec`).
+- **Why:** Activates the live multi-tab logging (Products, Knowledge, Opportunity, Popup) in production Google Sheets.
+
+
 
 
 

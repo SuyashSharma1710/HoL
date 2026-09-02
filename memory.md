@@ -1433,6 +1433,14 @@ _(Append new actions below this line as the project progresses)_
   - **Contextual Feedback:** Updated the Thank You modal message to *"Your details have been recorded. Taking you to The Nature Leaf (www.thenatureleaf.com)..."* and dynamically labeled the CTA button *"Explore Products (The Nature Leaf)"*.
 - **Why:** Delivers a seamless conversion flow connecting product-interested leads directly to the official product store after collecting user details.
 
+**224. Knowledge Pathway WhatsApp Community Group Enrollment (`CTASection.tsx`)**
+- **What:** Configured automatic enrollment and redirection to the official **Harmony of Life WhatsApp Community Group** (`https://chat.whatsapp.com/GrLceg6O5j1C2DVhgrvref?s=cl&p=a&mlu=4&ilr=4`) upon submitting the Knowledge pathway form.
+  - **Data Logging:** Forwards the full intake record (Name, WhatsApp No, Email ID, City, Referral Name, Learning Interest, and Goals) to the Google Sheets `Knowledge` tab.
+  - **Community Redirection:** Opens the WhatsApp group invite link in a new tab upon submission.
+  - **Contextual Copy:** Updated Thank You dialog to *"Your details have been recorded. Redirecting and enrolling you in the Harmony of Life WhatsApp Group..."* and CTA button to *"Enroll in WhatsApp Group (Knowledge)"*.
+- **Why:** Delivers an instant community onboarding experience for members seeking health education and masterclasses.
+
+
 
 
 

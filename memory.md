@@ -49,7 +49,7 @@ This document preserves the core architectural decisions, data contracts, and de
 | :--- | :--- | :--- | :--- |
 | **Products** | Health Goals & Product Inquiries (`description`) | Logs to `Products` sheet & opens [**thenatureleaf.com**](https://www.thenatureleaf.com) | `Explore Products (The Nature Leaf)` |
 | **Knowledge** | Learning Topic (`interest` dropdown: 6 Longevity options) + Notes (`description`) | Logs to `Knowledge` sheet & opens **WhatsApp Community Group** | `Enroll in WhatsApp Group (Knowledge)` |
-| **Income Opportunity** | Role Interest (`interest` dropdown: 5 Career options) + Background (`background`) + Goals (`description`) | Logs to `Opportunity` sheet & opens **Direct 1-on-1 WhatsApp Sanctuary Desk** | `Connect on WhatsApp (Opportunity)` |
+| **Income Opportunity** | Role Interest (`interest` dropdown: 5 Career options) + Background (`background`) + Goals (`description`) | Logs to `Opportunity` sheet & opens **WhatsApp Partner Group** (`Gmiln8btowxLqv51OvA7lx`) | `Join WhatsApp Group (Income Opportunity)` |
 
 ---
 

@@ -18,7 +18,8 @@ import { cn } from "@/lib/utils";
 // Official Verified Details
 const WHATSAPP_NUMBER = "918800828863"; 
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzuY67g9zupwshXnrtnisfZoqJKjgzNs2TnmgRDmSbJ0IXVn3UAT0VDEaBPXgvTzwV7/exec"; 
-const KNOWLEDGE_WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/GrLceg6O5j1C2DVhgrvref?s=cl&p=a&mlu=4&ilr=4";
+const KNOWLEDGE_WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/IVCU2cnDYzn0sA4GbTKbeL?s=cl&p=a&mlu=4&ilr=4";
+const OPPORTUNITY_WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/Gmiln8btowxLqv51OvA7lx?s=cl&p=a&mlu=4&ilr=4";
 
 export type PathwayType = "products" | "knowledge" | "opportunity";
 
@@ -563,34 +564,15 @@ export function CTASection() {
       }
 
       // 2. Redirect to destination:
-      // - Products: www.thenatureleaf.com
-      // - Knowledge: Harmony of Life WhatsApp Group (chat.whatsapp.com)
-      // - Opportunity: Direct WhatsApp 1-on-1 Sanctuary Desk (wa.me)
+      // - Products: thenatureleaf.com
+      // - Knowledge: Harmony of Life Knowledge WhatsApp Group (chat.whatsapp.com)
+      // - Opportunity: Harmony of Life Partner/Opportunity WhatsApp Group (chat.whatsapp.com)
       if (selectedPathway === "products") {
-        window.open("https://www.thenatureleaf.com", "_blank");
+        window.open("https://thenatureleaf.com", "_blank");
       } else if (selectedPathway === "knowledge") {
         window.open(KNOWLEDGE_WHATSAPP_GROUP_URL, "_blank");
       } else {
-        let message = `Hello Harmony of Life!\n\n*Name:* ${formData.name.trim()}\n*WhatsApp No:* ${phoneVal.formattedNumber || formData.phone}\n*Email ID:* ${formData.email.trim()}\n*City:* ${formData.city.trim()}`;
-        
-        if (formData.referral.trim()) {
-          message += `\n*Referral Name:* ${formData.referral.trim()}`;
-        }
-        
-        message += `\n*Pathway:* ${currentConfig.title}`;
-
-        if (formData.interest) {
-          message += `\n*Role / Focus:* ${formData.interest}`;
-        }
-        if (formData.background.trim()) {
-          message += `\n*Background:* ${formData.background.trim()}`;
-        }
-        if (formData.description.trim()) {
-          message += `\n*Notes:* ${formData.description.trim()}`;
-        }
-
-        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-        window.open(waUrl, "_blank");
+        window.open(OPPORTUNITY_WHATSAPP_GROUP_URL, "_blank");
       }
 
       // Hold dialog open briefly
@@ -645,11 +627,11 @@ export function CTASection() {
               <h3 className="font-heading text-2xl sm:text-3xl font-bold text-primary">Thank You!</h3>
               <p className="font-sans text-primary/75 text-sm sm:text-base mb-4 leading-relaxed">
                 {selectedPathway === "products" ? (
-                  <>Your details have been recorded. Taking you to <strong>The Nature Leaf</strong> (www.thenatureleaf.com)...</>
+                  <>Your details have been recorded. Taking you to <strong>The Nature Leaf</strong> (thenatureleaf.com)...</>
                 ) : selectedPathway === "knowledge" ? (
                   <>Your details have been recorded. Redirecting and enrolling you in the <strong>Harmony of Life WhatsApp Group</strong>...</>
                 ) : (
-                  <>Your inquiry for <strong>{activeConfig.title}</strong> has been received. Connecting you directly to our WhatsApp desk...</>
+                  <>Your details have been recorded. Redirecting and connecting you to the <strong>Harmony of Life Partner WhatsApp Group</strong>...</>
                 )}
               </p>
               <Loader2 className="w-6 h-6 animate-spin text-accent" />
@@ -1085,7 +1067,7 @@ export function CTASection() {
                       ? "Recording & Redirecting..." 
                       : selectedPathway === "knowledge" 
                       ? "Recording & Enrolling..." 
-                      : "Recording & Connecting..."}
+                      : "Recording & Enrolling..."}
                   </span>
                 ) : (
                   <span className="relative z-1 flex items-center gap-2">
@@ -1093,7 +1075,7 @@ export function CTASection() {
                       ? "Explore Products (The Nature Leaf)" 
                       : selectedPathway === "knowledge"
                       ? "Enroll in WhatsApp Group (Knowledge)"
-                      : `Connect on WhatsApp (${activeConfig.title})`}
+                      : "Join WhatsApp Group (Income Opportunity)"}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 )}

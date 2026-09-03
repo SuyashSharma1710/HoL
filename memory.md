@@ -28,9 +28,10 @@ This document preserves the core architectural decisions, data contracts, and de
 * **Sanctuary Phone / WhatsApp:** `+91 880 082 8863` (`918800828863`)
 * **Live Webhook Endpoint:**
   `https://script.google.com/macros/s/AKfycbzuY67g9zupwshXnrtnisfZoqJKjgzNs2TnmgRDmSbJ0IXVn3UAT0VDEaBPXgvTzwV7/exec`
-* **Official Products Store:** `https://www.thenatureleaf.com`
-* **Official WhatsApp Community Group:**
-  `https://chat.whatsapp.com/GrLceg6O5j1C2DVhgrvref?s=cl&p=a&mlu=4&ilr=4`
+* **Official Products Store:** `https://thenatureleaf.com`
+* **Official WhatsApp Community Groups:**
+  * **Knowledge / Community:** `https://chat.whatsapp.com/IVCU2cnDYzn0sA4GbTKbeL?s=cl&p=a&mlu=4&ilr=4`
+  * **Income Opportunity / Partners:** `https://chat.whatsapp.com/Gmiln8btowxLqv51OvA7lx?s=cl&p=a&mlu=4&ilr=4`
 
 ---
 

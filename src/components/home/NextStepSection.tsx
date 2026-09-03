@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { BookOpen, Users, Leaf, MessageCircle, ArrowRight } from "lucide-react";
+import { BookOpen, Users, Leaf, MessageCircle, ArrowRight, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -19,8 +19,9 @@ interface PathwayCard {
   badgeIcon: React.ComponentType<{ className?: string }>;
   highlights: string[];
   link: string;
-  waLink: string;
-  waCta: string;
+  ctaLink: string;
+  ctaText: string;
+  ctaIcon: React.ComponentType<{ className?: string }>;
 }
 
 const pathways: PathwayCard[] = [
@@ -40,8 +41,9 @@ const pathways: PathwayCard[] = [
       "Restores cellular voltage to optimal 70–90 mV",
     ],
     link: "#cta",
-    waLink: "https://wa.me/918800828863?text=Hello!%20I%20am%20interested%20in%20Harmony%20of%20Life%20Products%20to%20elevate%20my%20cellular%20health.",
-    waCta: "Connect on WhatsApp",
+    ctaLink: "https://thenatureleaf.com",
+    ctaText: "Explore Products",
+    ctaIcon: ExternalLink,
   },
   {
     num: "02",
@@ -59,8 +61,9 @@ const pathways: PathwayCard[] = [
       "Practical lifestyle protocols to live young and thrive",
     ],
     link: "#cta",
-    waLink: "https://wa.me/918800828863?text=Hello!%20I%20want%20to%20explore%20Harmony%20of%20Life%20Knowledge%20and%20holistic%20wellness%20programs.",
-    waCta: "Connect on WhatsApp",
+    ctaLink: "https://chat.whatsapp.com/IVCU2cnDYzn0sA4GbTKbeL?s=cl&p=a&mlu=4&ilr=4",
+    ctaText: "Join WhatsApp Community",
+    ctaIcon: MessageCircle,
   },
   {
     num: "03",
@@ -78,8 +81,9 @@ const pathways: PathwayCard[] = [
       "Join an expanding nationwide healthcare movement",
     ],
     link: "#cta",
-    waLink: "https://wa.me/918800828863?text=Hello!%20I%20am%20interested%20in%20joining%20Harmony%20of%20Life%20as%20a%20Wellness%20Relationship%20Manager%20%2F%20Partner.",
-    waCta: "Connect on WhatsApp",
+    ctaLink: "https://chat.whatsapp.com/Gmiln8btowxLqv51OvA7lx?s=cl&p=a&mlu=4&ilr=4",
+    ctaText: "Join WhatsApp Group",
+    ctaIcon: MessageCircle,
   },
 ];
 
@@ -87,6 +91,7 @@ export function NextStepSection() {
   const [activeMobileTab, setActiveMobileTab] = useState<number>(0);
   const activeItem = pathways[activeMobileTab];
   const ActiveIcon = activeItem.badgeIcon;
+  const ActiveCtaIcon = activeItem.ctaIcon;
 
   return (
     <section 
@@ -259,13 +264,13 @@ export function NextStepSection() {
               {/* Action Buttons */}
               <div className="w-full space-y-2">
                 <a
-                  href={activeItem.waLink}
+                  href={activeItem.ctaLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#b78736] hover:bg-[#a06f20] text-white font-sans font-medium text-xs shadow-[0_6px_20px_rgba(183,135,54,0.3)] active:scale-95 transition-all cursor-pointer"
                 >
-                  <MessageCircle className="w-4 h-4 text-white shrink-0" />
-                  <span>{activeItem.waCta}</span>
+                  <ActiveCtaIcon className="w-4 h-4 text-white shrink-0" />
+                  <span>{activeItem.ctaText}</span>
                 </a>
 
                 <Link
@@ -345,16 +350,16 @@ export function NextStepSection() {
                     </span>
                   </div>
 
-                  {/* WhatsApp Direct Conversion CTA */}
+                  {/* Direct Conversion CTA */}
                   <div className="w-full space-y-2 mt-4 pt-1">
                     <a
-                      href={item.waLink}
+                      href={item.ctaLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:py-3 rounded-full bg-[#b78736] hover:bg-[#a06f20] text-white font-sans font-medium text-xs sm:text-sm shadow-[0_6px_20px_rgba(183,135,54,0.3)] hover:shadow-[0_8px_24px_rgba(183,135,54,0.45)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer group/btn"
                     >
-                      <MessageCircle className="w-4 h-4 text-white transition-transform duration-300 group-hover/btn:scale-110 shrink-0" />
-                      <span>{item.waCta}</span>
+                      <item.ctaIcon className="w-4 h-4 text-white transition-transform duration-300 group-hover/btn:scale-110 shrink-0" />
+                      <span>{item.ctaText}</span>
                     </a>
 
                     <Link

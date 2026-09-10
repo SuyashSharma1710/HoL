@@ -26,6 +26,7 @@ export type PathwayType = "products" | "knowledge" | "opportunity";
 const pathwaysInfo = {
   products: {
     title: "Products",
+    titlesec: "Explore Products (Natureleaf)",
     subtitle: "Fuel Your Body. Elevate Your Life.",
     icon: Leaf,
     sheetName: "Products",
@@ -34,6 +35,7 @@ const pathwaysInfo = {
   },
   knowledge: {
     title: "Knowledge",
+    titlesec: "Enroll in Whatsapp Group (Knowledge)",
     subtitle: "Empower Your Mind. Transform Your Health.",
     icon: BookOpen,
     sheetName: "Knowledge",
@@ -51,6 +53,7 @@ const pathwaysInfo = {
   },
   opportunity: {
     title: "Income Opportunity",
+    titlesec: "Join WhatsApp Group (Income Opportunity)",
     subtitle: "Create Impact. Build Your Future.",
     icon: Users,
     sheetName: "Opportunity",
@@ -1063,23 +1066,38 @@ export function CTASection() {
                 {isSubmitting ? (
                   <span className="relative z-1 flex items-center gap-2">
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    {selectedPathway === "products" 
-                      ? "Recording & Redirecting..." 
-                      : selectedPathway === "knowledge" 
-                      ? "Recording & Enrolling..." 
-                      : "Recording & Enrolling..."}
+                    Submitting...
                   </span>
                 ) : (
                   <span className="relative z-1 flex items-center gap-2">
-                    {selectedPathway === "products" 
-                      ? "Explore Products (The Nature Leaf)" 
-                      : selectedPathway === "knowledge"
-                      ? "Enroll in WhatsApp Group (Knowledge)"
-                      : "Join WhatsApp Group (Income Opportunity)"}
+                    Submit
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 )}
               </button>
+
+              {!isSubmitting && (
+                <a
+                  href={
+                    selectedPathway === "products"
+                      ? "https://thenatureleaf.com"
+                      : selectedPathway === "knowledge"
+                      ? KNOWLEDGE_WHATSAPP_GROUP_URL
+                      : OPPORTUNITY_WHATSAPP_GROUP_URL
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ size: "lg" }),
+                    "relative overflow-hidden w-full bg-white hover:bg-gray-50 text-primary font-semibold text-sm sm:text-base py-6 rounded-full shadow-lg shadow-accent/10 hover:shadow-accent/20 flex items-center justify-center gap-2 group transition-all duration-300 cursor-pointer mt-3"
+                  )}
+                >
+                  <span className="relative z-1 flex items-center gap-2">
+                    {activeConfig.titlesec}
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </span>
+                </a>
+              )}
             </form>
           </motion.div>
           

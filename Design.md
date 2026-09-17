@@ -139,7 +139,7 @@ All main page sections adhere to the exact horizontal responsive padding rhythm 
 - **Data / Crisis Callout Cards:** `max-w-4xl mx-auto` (896px).
 
 ### Vertical Section Sizing & Rhythms
-- **Hero Viewport:** `min-h-dvh lg:h-dvh -mt-24 pt-28 pb-16 lg:py-0` (includes 112px `pt-28` navbar offset on mobile/tablet and full-height centered layout on desktop).
+- **Hero Viewport:** `min-h-dvh min-h-[700px] sm:min-h-[740px] lg:min-h-[780px] xl:min-h-[820px] -mt-24 pt-28 sm:pt-32 lg:pt-36 pb-16 lg:pb-20` (guarantees seamless navbar clearance across all viewports and short laptop screens while spanning full-height on tall displays).
 - **Standard Flow Sections:** `py-20 sm:py-28 lg:py-32` (80px / 112px / 128px vertical padding).
 - **Pinned Storytelling Sequences:** `sticky top-0 h-dvh` nested inside runway height (`h-[300vh]`, `h-[360vh]`).
 

@@ -100,6 +100,9 @@ The backend script handles `doPost(e)` and auto-creates/formats sheet tabs with 
   * Standard 1200×630 raster asset generated at [`public/og-image.jpg`](file:///c:/Users/priya/OneDrive/Desktop/cliqk%20Projects/HoL/public/og-image.jpg) (59.9 KB) and configured in `src/app/layout.tsx`.
 * **Loader & Hydration:**
   * Zero-flicker loading screen in `Loader.tsx` suppressed on bot visits and subsequent session visits via `hol_initial_loaded`.
+* **Hero Viewport & Height Responsiveness:**
+  * Replaced rigid `lg:h-dvh` / `lg:py-0` with responsive min-height bounds (`min-h-dvh min-h-[700px] sm:min-h-[740px] lg:min-h-[780px] xl:min-h-[820px]`) and dedicated top navbar clearance (`pt-28 sm:pt-32 lg:pt-36 pb-16 lg:pb-20`).
+  * Prevents typography and bio-electric annotations from overlapping the fixed header on short laptop viewports, split screens, and scaled displays.
 * **Static Build & SEO:**
   * Complete dynamic sitemap (`src/app/sitemap.ts`) and crawler directives (`src/app/robots.ts`).
   * 100% clean Next.js static builds (`npm run build`).

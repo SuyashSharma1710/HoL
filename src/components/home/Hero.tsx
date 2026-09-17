@@ -37,7 +37,7 @@ const annotationVariants = {
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-dvh lg:h-dvh -mt-24 flex items-center overflow-hidden pt-28 pb-16 lg:py-0">
+    <section className="relative w-full min-h-dvh min-h-[700px] sm:min-h-[740px] lg:min-h-[780px] xl:min-h-[820px] -mt-24 flex items-center overflow-hidden pt-28 sm:pt-32 lg:pt-36 pb-16 lg:pb-20">
       {/* Background Image & Atmospheric Layers */}
       <div className="absolute inset-0 z-0">
         <Image
